@@ -36,6 +36,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.creature.data.JsonMonsterRepository
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouterImpl
 import com.cyrillrx.rpg.creature.presentation.navigation.handleMonsterRoutes
+import com.cyrillrx.rpg.dice.presentation.navigation.handleDiceRoutes
 import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouterImpl
 import com.cyrillrx.rpg.home.presentation.viewmodel.HomeViewModel
@@ -153,6 +154,7 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
                         userCollectionRepository = userCollectionRepository,
                         prefsRepository = prefsRepository,
                     )
+                    handleDiceRoutes(backStack)
                     handleSettingsRoutes(backStack, prefsRepository)
                 },
             )

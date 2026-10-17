@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="section_tools">Outils</string>
+    <string name="btn_dice_roller">Dés</string>
+    <string name="title_dice_roller">Lanceur de dés</string>
+
+    <string name="die_label">d%1$d</string>
+    <string name="die_count">×%1$d</string>
+    <string name="label_modifier">Modificateur</string>
+    <string name="label_double_roll">%1$s : %2$d, %3$d écarté</string>
+    <string name="message_compose_then_roll">Composez un jet, ou lancez un d20</string>
+
+    <string name="section_d20_roll">Jet de d20</string>
+    <string name="section_compose">Composer</string>
+
+    <string name="btn_advantage">Avantage</string>
+    <string name="btn_disadvantage">Désavantage</string>
+    <string name="btn_roll">Lancer</string>
+    <string name="btn_roll_composition">Lancer %1$s</string>
+    <string name="btn_remove_die_of">Retirer un %1$s</string>
+    <string name="btn_decrease_modifier">Diminuer le modificateur</string>
+    <string name="btn_increase_modifier">Augmenter le modificateur</string>
+    <string name="btn_clear_composition">Effacer</string>
+</resources>

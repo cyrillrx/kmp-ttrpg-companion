@@ -9,6 +9,7 @@ import androidx.savedstate.serialization.SavedStateConfiguration
 import com.cyrillrx.rpg.campaign.navigation.registerCampaignRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
 import com.cyrillrx.rpg.creature.presentation.navigation.registerMonsterRoutes
+import com.cyrillrx.rpg.dice.presentation.navigation.registerDiceRoutes
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.registerMagicalItemRoutes
 import com.cyrillrx.rpg.settings.presentation.navigation.registerSettingsRoutes
 import com.cyrillrx.rpg.spell.presentation.navigation.registerSpellRoutes
@@ -28,6 +29,8 @@ internal val navSerializersModule = SerializersModule {
         registerMonsterRoutes()
 
         registerUserCollectionRoutes()
+
+        registerDiceRoutes()
 
         registerSettingsRoutes()
 

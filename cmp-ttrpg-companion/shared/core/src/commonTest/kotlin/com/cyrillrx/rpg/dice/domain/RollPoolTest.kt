@@ -4,6 +4,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class RollPoolTest {
@@ -49,5 +50,28 @@ class RollPoolTest {
     @Test
     fun `a pool with a roll is not empty`() {
         assertFalse(RollPool().add(d6).isEmpty())
+    }
+
+    @Test
+    fun `a pool reads as the expression it rolled`() {
+        val pool = RollPool(listOf(d6, d20, SimpleRoll(Die.D6, 5)), modifier = 6)
+
+        assertEquals(1.d20 + 2.d6 + 6, pool.toExpression())
+    }
+
+    @Test
+    fun `a pool without dice has no expression`() {
+        assertNull(RollPool(modifier = 3).toExpression())
+    }
+
+    @Test
+    fun `more dice than the limit are refused`() {
+        assertFailsWith<IllegalArgumentException> { RollPool(List(MAX_DICE_COUNT + 1) { d6 }) }
+    }
+
+    @Test
+    fun `a modifier beyond the limit is refused`() {
+        assertFailsWith<IllegalArgumentException> { RollPool(modifier = MAX_MODIFIER + 1) }
+        assertFailsWith<IllegalArgumentException> { RollPool(modifier = -MAX_MODIFIER - 1) }
     }
 }
