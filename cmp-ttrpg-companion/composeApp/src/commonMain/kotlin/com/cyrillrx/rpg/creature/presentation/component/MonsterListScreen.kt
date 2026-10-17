@@ -27,6 +27,7 @@ import com.cyrillrx.rpg.core.presentation.ScrollPosition
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnEvent
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -151,9 +152,7 @@ private fun MonsterList(
         initialFirstVisibleItemIndex = initialScrollPosition.index,
         initialFirstVisibleItemScrollOffset = initialScrollPosition.offset,
     )
-    LaunchedEffect(Unit) {
-        scrollToTopEvents.collect { listState.scrollToItem(0) }
-    }
+    ScrollToTopOnEvent(events = scrollToTopEvents, listState = listState)
     val currentOnScrollPositionChanged by rememberUpdatedState(onScrollPositionChanged)
     LaunchedEffect(listState) {
         snapshotFlow {

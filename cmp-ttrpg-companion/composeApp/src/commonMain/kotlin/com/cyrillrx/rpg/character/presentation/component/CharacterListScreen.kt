@@ -40,6 +40,7 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.OverflowMenu
 import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
+import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnEvent
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
@@ -223,9 +224,7 @@ private fun CharacterList(
     val listState = rememberLazyListState()
 
     ScrollToTopOnChange(key = sortOrder, listState = listState)
-    LaunchedEffect(Unit) {
-        scrollToTopEvents.collect { listState.scrollToItem(0) }
-    }
+    ScrollToTopOnEvent(events = scrollToTopEvents, listState = listState)
 
     LazyColumn(
         state = listState,
