@@ -108,7 +108,19 @@ class DiceNotationTest {
     }
 
     @Test
-    fun `a modifier beyond an Int is refused`() {
+    fun `a modifier at the limit is accepted`() {
+        assertEquals(Result.Success(1.d6 - MAX_MODIFIER), DiceExpression.parse("1d6-$MAX_MODIFIER"))
+    }
+
+    @Test
+    fun `a modifier beyond the limit is refused`() {
+        val notation = "1d6+$MAX_MODIFIER+1"
+
+        assertEquals(Result.Failure(DiceNotationError.ModifierOutOfRange), DiceExpression.parse(notation))
+    }
+
+    @Test
+    fun `a modifier beyond an Int is refused without overflowing`() {
         val notation = "1d6+${Int.MAX_VALUE}+1"
 
         assertEquals(Result.Failure(DiceNotationError.ModifierOutOfRange), DiceExpression.parse(notation))

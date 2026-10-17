@@ -63,7 +63,7 @@ private fun List<NotationPart>.toDiceExpression(): Result<DiceExpression, DiceNo
     return when {
         terms.isEmpty() -> Result.Failure(DiceNotationError.NoDice)
         terms.sumOf { it.count } > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice)
-        modifier !in Int.MIN_VALUE..Int.MAX_VALUE -> Result.Failure(DiceNotationError.ModifierOutOfRange)
+        modifier !in -MAX_MODIFIER..MAX_MODIFIER -> Result.Failure(DiceNotationError.ModifierOutOfRange)
         else -> Result.Success(DiceExpression(terms, modifier.toInt()))
     }
 }

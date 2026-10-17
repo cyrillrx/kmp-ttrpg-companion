@@ -77,6 +77,17 @@ class DiceExpressionTest {
     }
 
     @Test
+    fun `a modifier up to the limit is accepted on either side`() {
+        assertEquals(MAX_MODIFIER, (1.d6 + MAX_MODIFIER).modifier)
+        assertEquals(-MAX_MODIFIER, (1.d6 - MAX_MODIFIER).modifier)
+    }
+
+    @Test
+    fun `a modifier beyond the limit is refused`() {
+        assertFailsWith<IllegalArgumentException> { 1.d6 + MAX_MODIFIER + 1 }
+    }
+
+    @Test
     fun `an expression without dice is refused`() {
         assertFailsWith<IllegalArgumentException> { DiceExpression(emptyList(), modifier = 3) }
     }

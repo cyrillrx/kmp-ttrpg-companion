@@ -4,6 +4,7 @@ import com.cyrillrx.core.domain.Result
 import kotlin.random.Random
 
 const val MAX_DICE_COUNT = 100
+const val MAX_MODIFIER = 1000
 
 data class DiceTerm(val count: Int, val die: Die) {
     init {
@@ -19,6 +20,7 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     init {
         require(countByDie.isNotEmpty()) { "Cannot roll an expression without dice" }
         require(countByDie.values.sum() <= MAX_DICE_COUNT) { "Cannot roll more than $MAX_DICE_COUNT dice" }
+        require(modifier in -MAX_MODIFIER..MAX_MODIFIER) { "Cannot add a modifier of $modifier" }
     }
 
     val terms: List<DiceTerm> = countByDie.map { (die, count) -> DiceTerm(count, die) }
