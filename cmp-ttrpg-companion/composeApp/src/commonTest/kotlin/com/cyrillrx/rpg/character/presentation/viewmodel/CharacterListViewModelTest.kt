@@ -298,6 +298,29 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `typing the same query again retries a search that failed`() = runTest(testDispatcher) {
+        val repository = SwitchableCharacterRepository()
+        val viewModel = buildViewModel(repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        repository.failing = true
+        viewModel.filterByQuery("Borin")
+        advanceUntilIdle()
+        assertIs<CharacterListState.Body.Error>(viewModel.state.value.body)
+
+        repository.failing = false
+        viewModel.filterByQuery("Borin ")
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `filterByQuery updates searchQuery in state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
@@ -700,7 +723,7 @@ class CharacterListViewModelTest {
         advanceUntilIdle()
 
         viewModel.setSortOrder(StoredSortOrder.NAME)
-        viewModel.filterByQuery("")
+        viewModel.filterByQuery("e")
         advanceUntilIdle()
 
         assertEquals(expected = StoredSortOrder.NAME, actual = viewModel.state.value.sortOrder)
@@ -882,6 +905,22 @@ private class FailsOnSecondCallCharacterRepository : CharacterRepository {
     override suspend fun getByIds(ids: List<String>): List<Character> = emptyList()
     override suspend fun save(character: Character) = Unit
     override suspend fun delete(id: String) = Unit
+}
+
+private class SwitchableCharacterRepository : CharacterRepository {
+    private val delegate = RamCharacterRepository()
+
+    var failing = false
+
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
+        if (failing) error("Repository error")
+        return delegate.getAll(filter)
+    }
+
+    override suspend fun get(id: String): Character? = delegate.get(id)
+    override suspend fun getByIds(ids: List<String>): List<Character> = delegate.getByIds(ids)
+    override suspend fun save(character: Character) = delegate.save(character)
+    override suspend fun delete(id: String) = delegate.delete(id)
 }
 
 /** Suspends [getAll] until [gate] completes, so a commit can be observed while a load is still in flight. */
