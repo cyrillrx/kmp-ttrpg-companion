@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.core.presentation
 
+import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -185,56 +186,44 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `a read that started before a delete does not bring the deleted item back`() {
+    fun `a reload whose read started before a delete does not bring the deleted item back`() = runTest {
         val subject = deletions()
         subject.setLoaded(listOf(first, second))
-        val readStamp = subject.readStamp()
-        val pending = assertNotNull(subject.hide(first))
-        subject.claim(pending)
-        subject.settle(pending, deleted = true)
 
-        subject.setLoaded(listOf(Row("1"), Row("2")), readStamp)
+        subject.reload {
+            val pending = assertNotNull(subject.hide(first))
+            subject.claim(pending)
+            subject.settle(pending, deleted = true)
+            listOf(Row("1"), Row("2"))
+        }
 
         assertEquals(expected = listOf("2"), actual = subject.visible.map { it.id })
     }
 
     @Test
-    fun `a read that started after a delete shows the item again`() {
-        val subject = deletions()
-        subject.setLoaded(listOf(first, second))
-        val pending = assertNotNull(subject.hide(first))
-        subject.claim(pending)
-        subject.settle(pending, deleted = true)
-        val readStamp = subject.readStamp()
-
-        subject.setLoaded(listOf(Row("1"), second), readStamp)
-
-        assertEquals(expected = listOf("1", "2"), actual = subject.visible.map { it.id })
-    }
-
-    @Test
-    fun `a read without a stamp keeps every item it returns`() {
+    fun `a reload whose read started after a delete shows the item again`() = runTest {
         val subject = deletions()
         subject.setLoaded(listOf(first, second))
         val pending = assertNotNull(subject.hide(first))
         subject.claim(pending)
         subject.settle(pending, deleted = true)
 
-        subject.setLoaded(listOf(Row("1"), second))
+        subject.reload { listOf(Row("1"), second) }
 
         assertEquals(expected = listOf("1", "2"), actual = subject.visible.map { it.id })
     }
 
     @Test
-    fun `a failed delete does not filter the item out of the next read`() {
+    fun `a failed delete during a reload does not filter the item out`() = runTest {
         val subject = deletions()
         subject.setLoaded(listOf(first, second))
-        val readStamp = subject.readStamp()
-        val pending = assertNotNull(subject.hide(first))
-        subject.claim(pending)
-        subject.settle(pending, deleted = false)
 
-        subject.setLoaded(listOf(first, second), readStamp)
+        subject.reload {
+            val pending = assertNotNull(subject.hide(first))
+            subject.claim(pending)
+            subject.settle(pending, deleted = false)
+            listOf(first, second)
+        }
 
         assertEquals(expected = listOf("1", "2"), actual = subject.visible.map { it.id })
     }

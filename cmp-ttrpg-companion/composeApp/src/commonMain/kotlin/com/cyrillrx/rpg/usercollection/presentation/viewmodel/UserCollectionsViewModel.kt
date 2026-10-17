@@ -181,7 +181,7 @@ class UserCollectionsViewModel(
         }
 
     private suspend fun fetchAndUpdateUserCollections() {
-        deletions.setLoaded(userCollectionRepository.getAll(collectionType))
+        deletions.reload { userCollectionRepository.getAll(collectionType) }
         renderBody()
     }
 
