@@ -278,6 +278,31 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a silent refresh during a pending search runs once the search lands`() = runTest(testDispatcher) {
+        val gatedRepository = GatedCharacterRepository()
+        val viewModel = buildViewModel(gatedRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val searchGate = CompletableDeferred<Unit>()
+        gatedRepository.gate = searchGate
+        viewModel.filterByQuery("Borin")
+        advanceUntilIdle()
+
+        gatedRepository.save(SampleCharacterRepository.getAllValues().first().copy(name = "Borin"))
+        viewModel.silentRefresh()
+        gatedRepository.gate = null
+        searchGate.complete(Unit)
+        advanceUntilIdle()
+
+        assertEquals(expected = listOf("Borin"), actual = viewModel.renderedNames())
+    }
+
+    @Test
     fun `a query differing only by surrounding spaces does not search again`() = runTest(testDispatcher) {
         val repository = ScrambledCharacterRepository()
         val viewModel = buildViewModel(repository)
@@ -930,8 +955,9 @@ private class GatedCharacterRepository : CharacterRepository {
     var gate: CompletableDeferred<Unit>? = null
 
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
+        val characters = delegate.getAll(filter)
         gate?.await()
-        return delegate.getAll(filter)
+        return characters
     }
 
     override suspend fun get(id: String): Character? = delegate.get(id)
