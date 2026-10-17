@@ -485,6 +485,8 @@ class CharacterListViewModelTest {
         viewModel.commitDeletion(pending)
         advanceUntilIdle()
 
+        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+
         gate.complete(Unit)
         advanceUntilIdle()
 
@@ -614,6 +616,29 @@ class CharacterListViewModelTest {
         assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
         viewModel.setSortOrder(StoredSortOrder.NAME)
 
+        advanceUntilIdle()
+
+        assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
+    }
+
+    @Test
+    fun `a sort order set during a pending search applies when it lands`() = runTest(testDispatcher) {
+        val repository = ScrambledCharacterRepository()
+        val viewModel = buildViewModel(repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val gate = CompletableDeferred<Unit>()
+        repository.gate = gate
+        viewModel.filterByQuery("")
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(StoredSortOrder.NAME)
+        gate.complete(Unit)
         advanceUntilIdle()
 
         assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
@@ -760,8 +785,11 @@ private class ScrambledCharacterRepository : CharacterRepository {
     var reads = 0
         private set
 
+    var gate: CompletableDeferred<Unit>? = null
+
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
         reads++
+        gate?.await()
         return listOf(
             stored("Middle", 2_000L),
             stored("Oldest", 1_000L),

@@ -57,6 +57,9 @@ class CharacterListViewModel(
 
     private val commitScope = detachedCommitScope()
 
+    /** The query [deletions] was loaded with, which can lag behind the typed one while a search is pending. */
+    private var loadedQuery = ""
+
     init {
         refresh()
     }
@@ -72,14 +75,7 @@ class CharacterListViewModel(
         mutableState.update { current ->
             current.copy(
                 sortOrder = order,
-                body = if (current.body is CharacterListState.Body.WithData) {
-                    sortedBody(
-                        order,
-                        current.searchQuery,
-                    )
-                } else {
-                    current.body
-                },
+                body = if (showsContent(current.body)) sortedBody(order) else current.body,
             )
         }
         commitScope.launch {
@@ -167,14 +163,14 @@ class CharacterListViewModel(
     }
 
     private fun renderBody() {
-        mutableState.update { it.copy(body = sortedBody(it.sortOrder, it.searchQuery)) }
+        mutableState.update { it.copy(body = sortedBody(it.sortOrder)) }
     }
 
-    private fun sortedBody(order: StoredSortOrder, query: String): CharacterListState.Body {
+    private fun sortedBody(order: StoredSortOrder): CharacterListState.Body {
         val visible = deletions.visible
         return when {
             visible.isNotEmpty() -> CharacterListState.Body.WithData(visible.applySort(order, locale))
-            query.isBlank() -> CharacterListState.Body.Empty
+            loadedQuery.isBlank() -> CharacterListState.Body.Empty
             else -> CharacterListState.Body.NoSearchResult
         }
     }
@@ -197,8 +193,9 @@ class CharacterListViewModel(
     }
 
     override suspend fun loadContent(): CharacterListState.Body {
-        val current = state.value
-        deletions.setLoaded(repository.getAll(CharacterFilter(query = current.searchQuery)))
-        return sortedBody(current.sortOrder, current.searchQuery)
+        val query = state.value.searchQuery
+        deletions.setLoaded(repository.getAll(CharacterFilter(query = query)))
+        loadedQuery = query
+        return sortedBody(state.value.sortOrder)
     }
 }
