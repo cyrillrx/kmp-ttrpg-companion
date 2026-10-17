@@ -237,7 +237,8 @@ private fun ToolsSection(router: HomeRouter, modifier: Modifier = Modifier) {
                 modifier = Modifier.weight(1f),
             )
             // Keeps the button as wide as one of the three in the sections above.
-            Spacer(modifier = Modifier.weight(2f))
+            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.weight(1f))
         }
     }
 }
