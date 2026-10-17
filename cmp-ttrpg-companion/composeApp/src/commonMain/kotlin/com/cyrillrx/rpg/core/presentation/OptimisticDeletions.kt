@@ -50,7 +50,7 @@ class OptimisticDeletions<Item>(private val identity: (Item) -> Any) {
     suspend fun reload(read: suspend () -> List<Item>) {
         val startedAt = settleCount
         val items = read()
-        loaded = items.filterNot { (deletedAt[identity(it)] ?: return@filterNot false) > startedAt }
+        loaded = items.filterNot { item -> deletedAt[identity(item)]?.let { it > startedAt } == true }
         deletedAt.values.removeAll { it <= startedAt }
     }
 
