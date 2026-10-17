@@ -69,7 +69,7 @@ class DiceNotationTest {
 
     @Test
     fun `a sign without a term after it is refused`() {
-        assertEquals(Result.Failure(DiceNotationError.DanglingSign("1d6++2")), DiceExpression.parse("1d6++2"))
+        assertEquals(Result.Failure(DiceNotationError.DanglingSign), DiceExpression.parse("1d6++2"))
     }
 
     @Test

@@ -8,7 +8,7 @@ internal fun readDiceNotation(notation: String): Result<DiceExpression, DiceNota
 
     val parts = mutableListOf<NotationPart>()
     for (text in compact.split(SIGN_BOUNDARY).filter(String::isNotEmpty)) {
-        when (val part = text.toNotationPart(compact)) {
+        when (val part = text.toNotationPart()) {
             is Result.Success -> parts += part.value
             is Result.Failure -> return part
         }
@@ -26,12 +26,12 @@ private val SIGN_BOUNDARY = Regex("(?=[+-])")
 private val DICE = Regex("""(\d*)[dD](\d+)""")
 private val CONSTANT = Regex("""\d+""")
 
-private fun String.toNotationPart(notation: String): Result<NotationPart, DiceNotationError> {
+private fun String.toNotationPart(): Result<NotationPart, DiceNotationError> {
     val isSubtracted = startsWith('-')
     val body = if (first() == '+' || first() == '-') drop(1) else this
     val dice = DICE.matchEntire(body)
     return when {
-        body.isEmpty() -> Result.Failure(DiceNotationError.DanglingSign(notation))
+        body.isEmpty() -> Result.Failure(DiceNotationError.DanglingSign)
         dice != null && isSubtracted -> Result.Failure(DiceNotationError.SubtractedDice(this))
         dice != null -> dice.toDicePart(this)
         CONSTANT.matches(body) -> body.toConstantPart(isSubtracted)

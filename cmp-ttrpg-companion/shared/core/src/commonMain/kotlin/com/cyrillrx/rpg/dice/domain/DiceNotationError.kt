@@ -4,7 +4,7 @@ import com.cyrillrx.core.domain.Error
 
 sealed interface DiceNotationError : Error {
     data object Blank : DiceNotationError
-    data class DanglingSign(val notation: String) : DiceNotationError
+    data object DanglingSign : DiceNotationError
     data class ZeroDice(val part: String) : DiceNotationError
     data class SubtractedDice(val part: String) : DiceNotationError
     data class UnsupportedDie(val die: String) : DiceNotationError
