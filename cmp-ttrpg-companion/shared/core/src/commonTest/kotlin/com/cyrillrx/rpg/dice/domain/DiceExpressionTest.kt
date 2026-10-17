@@ -36,7 +36,7 @@ class DiceExpressionTest {
 
     @Test
     fun `equal expressions print the same whatever the order they were written in`() {
-        assertEquals((1.d20 + 1.d4).toString(), (1.d4 + 1.d20).toString())
+        assertEquals((1.d20 + 1.d4).toNotation(), (1.d4 + 1.d20).toNotation())
     }
 
     @Test

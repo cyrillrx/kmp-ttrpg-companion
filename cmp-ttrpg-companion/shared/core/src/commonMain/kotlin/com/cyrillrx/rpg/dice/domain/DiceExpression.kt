@@ -12,10 +12,12 @@ data class DiceTerm(val count: Int, val die: Die) {
         require(count in 1..MAX_DICE_COUNT) { "Cannot roll $count $die" }
     }
 
-    override fun toString(): String = "${count}d${die.sides}"
+    fun toNotation(): String = "${count}d${die.sides}"
+
+    override fun toString(): String = toNotation()
 }
 
-/** What to roll, such as `1d20 + 3d6 + 1d4 + 3`; [toString] writes it back as a dice notation. */
+/** What to roll, such as `1d20 + 3d6 + 1d4 + 3`. */
 @ConsistentCopyVisibility
 data class DiceExpression private constructor(private val countByDie: Map<Die, Int>, val modifier: Int) {
     init {
@@ -41,10 +43,13 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
         return RollPool(rolls, modifier)
     }
 
-    override fun toString(): String = buildString {
-        append(terms.joinToString("+"))
+    /** Writes the expression as a notation that [parse] reads back, from the biggest die. */
+    fun toNotation(): String = buildString {
+        append(terms.joinToString("+", transform = DiceTerm::toNotation))
         if (modifier != 0) append(modifier.toSignedString())
     }
+
+    override fun toString(): String = toNotation()
 
     companion object {
         /** Reads a notation such as `2d6 + 1d4 + 3`; `d20` stands for `1d20`. */

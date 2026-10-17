@@ -45,27 +45,27 @@ class DiceNotationTest {
 
     @Test
     fun `an expression writes as a notation from the biggest die`() {
-        assertEquals("2d6+1d4+3", (1.d4 + 2.d6 + 3).toString())
+        assertEquals("2d6+1d4+3", (1.d4 + 2.d6 + 3).toNotation())
     }
 
     @Test
     fun `a negative modifier writes with its sign and a zero one is left out`() {
-        assertEquals("1d20-1", (1.d20 - 1).toString())
-        assertEquals("3d6", 3.d6.toString())
+        assertEquals("1d20-1", (1.d20 - 1).toNotation())
+        assertEquals("3d6", 3.d6.toNotation())
     }
 
     @Test
     fun `an expression read back from its notation is the same expression`() {
         val expression = 1.d4 + 1.d100 + 19.d12 - 4
 
-        assertEquals(Result.Success(expression), DiceExpression.parse(expression.toString()))
+        assertEquals(Result.Success(expression), DiceExpression.parse(expression.toNotation()))
     }
 
     @Test
     fun `every sample monster hit dice reads as a notation`() {
         SampleMonsterRepository.getAll().forEach { monster ->
             val parsed = assertIs<Result.Success<DiceExpression>>(DiceExpression.parse(monster.hitDice), monster.id)
-            assertEquals(monster.hitDice, parsed.value.toString())
+            assertEquals(monster.hitDice, parsed.value.toNotation())
         }
     }
 
