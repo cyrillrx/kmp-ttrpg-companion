@@ -1,19 +1,24 @@
 package com.cyrillrx.rpg.dice.domain
 
+import com.cyrillrx.core.domain.Result
 import kotlin.random.Random
+
+const val MAX_DICE_COUNT = 100
 
 data class DiceTerm(val count: Int, val die: Die) {
     init {
-        // TODO(#315): bound the dice count
-        require(count >= 1) { "Cannot roll $count $die" }
+        require(count in 1..MAX_DICE_COUNT) { "Cannot roll $count $die" }
     }
+
+    override fun toString(): String = "${count}d${die.sides}"
 }
 
-/** What to roll, such as `1d20 + 3d6 + 1d4 + 3`. */
+/** What to roll, such as `1d20 + 3d6 + 1d4 + 3`; [toString] writes it back as a dice notation. */
 @ConsistentCopyVisibility
 data class DiceExpression private constructor(private val countByDie: Map<Die, Int>, val modifier: Int) {
     init {
         require(countByDie.isNotEmpty()) { "Cannot roll an expression without dice" }
+        require(countByDie.values.sum() <= MAX_DICE_COUNT) { "Cannot roll more than $MAX_DICE_COUNT dice" }
     }
 
     val terms: List<DiceTerm> = countByDie.map { (die, count) -> DiceTerm(count, die) }
@@ -30,6 +35,19 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     fun roll(random: Random = Random.Default): RollPool {
         val rolls = terms.flatMap { term -> List(term.count) { term.die.roll(random) } }
         return RollPool(rolls, modifier)
+    }
+
+    override fun toString(): String = buildString {
+        append(terms.joinToString("+"))
+        when {
+            modifier > 0 -> append('+').append(modifier)
+            modifier < 0 -> append(modifier)
+        }
+    }
+
+    companion object {
+        /** Reads a notation such as `2d6 + 1d4 + 3`; `d20` stands for `1d20`. */
+        fun parse(notation: String): Result<DiceExpression, DiceNotationError> = readDiceNotation(notation)
     }
 }
 

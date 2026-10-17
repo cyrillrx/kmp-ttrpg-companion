@@ -62,6 +62,21 @@ class DiceExpressionTest {
     }
 
     @Test
+    fun `as many dice as the limit are accepted`() {
+        assertEquals(MAX_DICE_COUNT, MAX_DICE_COUNT.d6.terms.single().count)
+    }
+
+    @Test
+    fun `more dice than the limit in one term are refused`() {
+        assertFailsWith<IllegalArgumentException> { (MAX_DICE_COUNT + 1).d6 }
+    }
+
+    @Test
+    fun `more dice than the limit across terms are refused`() {
+        assertFailsWith<IllegalArgumentException> { MAX_DICE_COUNT.d6 + 1.d8 }
+    }
+
+    @Test
     fun `an expression without dice is refused`() {
         assertFailsWith<IllegalArgumentException> { DiceExpression(emptyList(), modifier = 3) }
     }
