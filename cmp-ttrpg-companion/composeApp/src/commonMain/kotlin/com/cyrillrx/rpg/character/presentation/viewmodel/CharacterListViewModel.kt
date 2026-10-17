@@ -65,8 +65,9 @@ class CharacterListViewModel(
     }
 
     fun filterByQuery(query: String) {
+        val searchChanged = query.trim() != state.value.searchQuery.trim()
         mutableState.update { it.copy(searchQuery = query) }
-        refresh(debounce = true, resetScroll = true)
+        if (searchChanged) refresh(debounce = true, resetScroll = true)
     }
 
     fun setSortOrder(order: StoredSortOrder) {

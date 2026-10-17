@@ -278,6 +278,26 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a query differing only by surrounding spaces does not search again`() = runTest(testDispatcher) {
+        val repository = ScrambledCharacterRepository()
+        val viewModel = buildViewModel(repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("Middle")
+        advanceUntilIdle()
+        val readsAfterSearch = repository.reads
+
+        viewModel.filterByQuery("Middle  ")
+        advanceUntilIdle()
+
+        assertEquals(expected = "Middle  ", actual = viewModel.state.value.searchQuery)
+        assertEquals(expected = readsAfterSearch, actual = repository.reads)
+    }
+
+    @Test
     fun `filterByQuery updates searchQuery in state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
@@ -659,7 +679,7 @@ class CharacterListViewModelTest {
 
         val gate = CompletableDeferred<Unit>()
         repository.gate = gate
-        viewModel.filterByQuery("")
+        viewModel.filterByQuery("e")
         advanceUntilIdle()
 
         viewModel.setSortOrder(StoredSortOrder.NAME)
