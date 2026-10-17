@@ -38,13 +38,20 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
 
     protected abstract suspend fun loadContent(): Body
 
-    protected fun refresh(debounce: Boolean = false, resetScroll: Boolean = false) {
+    /** Reloads with the current filter, keeping what is shown if the read fails. Skipped while a load is pending. */
+    fun silentRefresh() {
+        if (mutableState.value.body() == loadingBody()) return
+
+        refresh(silent = true)
+    }
+
+    protected fun refresh(debounce: Boolean = false, resetScroll: Boolean = false, silent: Boolean = false) {
         updateJob?.cancel()
         updateJob = viewModelScope.launch {
             if (debounce) delay(SEARCH_DEBOUNCE_MS)
             if (resetScroll) scrollToTop()
 
-            if (!showsContent(mutableState.value.body())) {
+            if (!silent && !showsContent(mutableState.value.body())) {
                 mutableState.update { it.withBody(loadingBody()) }
             }
 
@@ -53,6 +60,7 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
+                if (silent) return@launch
                 errorBody()
             }
             mutableState.update { it.withBody(body) }
