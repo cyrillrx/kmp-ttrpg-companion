@@ -253,6 +253,30 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a silent refresh restarts a pending one so the latest data wins`() = runTest(testDispatcher) {
+        val gatedRepository = GatedCharacterRepository()
+        val viewModel = buildViewModel(gatedRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val staleGate = CompletableDeferred<Unit>()
+        gatedRepository.gate = staleGate
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+
+        gatedRepository.gate = null
+        gatedRepository.save(SampleCharacterRepository.getAllValues().first())
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `filterByQuery updates searchQuery in state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
