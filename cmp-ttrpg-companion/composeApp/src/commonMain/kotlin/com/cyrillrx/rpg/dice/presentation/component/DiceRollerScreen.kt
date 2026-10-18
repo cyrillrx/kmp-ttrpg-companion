@@ -43,6 +43,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -58,6 +59,7 @@ import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
+import com.cyrillrx.rpg.core.presentation.theme.controlPanelMaxHeightFraction
 import com.cyrillrx.rpg.core.presentation.theme.dieLabelWidth
 import com.cyrillrx.rpg.core.presentation.theme.dieTileMinHeight
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconAlpha
@@ -116,11 +118,8 @@ class DiceRollerActions(
 @Composable
 fun DiceRollerScreen(viewModel: DiceRollerViewModel, router: DiceRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-
-    DiceRollerScreen(
-        state = state,
-        onNavigateUpClicked = router::navigateUp,
-        actions = DiceRollerActions(
+    val actions = remember(viewModel) {
+        DiceRollerActions(
             onDieAdded = viewModel::addDie,
             onDieRemoved = viewModel::removeDie,
             onRollClicked = viewModel::roll,
@@ -130,8 +129,10 @@ fun DiceRollerScreen(viewModel: DiceRollerViewModel, router: DiceRouter) {
             onModifierDecreased = viewModel::decreaseModifier,
             onModifierIncreased = viewModel::increaseModifier,
             onClearClicked = viewModel::clearComposition,
-        ),
-    )
+        )
+    }
+
+    DiceRollerScreen(state = state, onNavigateUpClicked = router::navigateUp, actions = actions)
 }
 
 @Composable
@@ -150,6 +151,7 @@ fun DiceRollerScreen(state: DiceRollerState, onNavigateUpClicked: () -> Unit, ac
                 .align(Alignment.TopCenter)
                 .widthIn(max = contentMaxWidth)
                 .fillMaxSize()
+            val controlPanelMaxHeight = maxHeight * controlPanelMaxHeightFraction
 
             if (maxWidth >= widthExpandedMin) {
                 Row(
@@ -166,7 +168,9 @@ fun DiceRollerScreen(state: DiceRollerState, onNavigateUpClicked: () -> Unit, ac
                         state = state,
                         actions = actions,
                         shape = MaterialTheme.shapes.large.copy(bottomStart = CornerSize(0), bottomEnd = CornerSize(0)),
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .heightIn(max = controlPanelMaxHeight),
                     )
                 }
             }
