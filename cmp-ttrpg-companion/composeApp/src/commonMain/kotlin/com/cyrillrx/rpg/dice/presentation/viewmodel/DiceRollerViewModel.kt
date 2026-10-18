@@ -20,9 +20,11 @@ class DiceRollerViewModel(private val random: Random = Random.Default) : ViewMod
         field = MutableStateFlow(DiceRollerState())
 
     fun addDie(die: Die) {
-        if (state.value.diceCount() >= MAX_DICE_COUNT) return
+        state.update { current ->
+            if (current.diceCount() >= MAX_DICE_COUNT) return@update current
 
-        state.update { it.copy(countByDie = it.countByDie + (die to (it.countByDie[die] ?: 0) + 1)) }
+            current.copy(countByDie = current.countByDie + (die to (current.countByDie[die] ?: 0) + 1))
+        }
     }
 
     fun removeDie(die: Die) {
