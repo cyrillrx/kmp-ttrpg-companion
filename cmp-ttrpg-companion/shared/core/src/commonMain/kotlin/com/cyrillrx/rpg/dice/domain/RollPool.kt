@@ -15,9 +15,11 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
         if (isEmpty()) null else DiceExpression(rolls.map { DiceTerm(1, it.die) }, modifier)
 
     /** The rolls grouped by die, from the biggest as the notation reads. */
-    fun rollsByDie(): Map<Die, List<DieRoll>> = rolls.groupBy { it.die }.toList()
-        .sortedWith(compareBy(biggestDieFirst) { it.first })
-        .toMap()
+    fun rollsByDie(): Map<Die, List<DieRoll>> = rolls.sortedWith(
+        compareBy(biggestDieFirst) {
+            it.die
+        },
+    ).groupBy { it.die }
 
     fun add(roll: DieRoll): RollPool = copy(rolls = rolls + roll)
 
