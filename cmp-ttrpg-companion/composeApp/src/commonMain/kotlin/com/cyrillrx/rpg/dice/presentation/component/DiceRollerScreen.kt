@@ -13,15 +13,16 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerSize
@@ -260,7 +261,7 @@ private fun RollGroup(die: Die, rolls: List<DieRoll>) {
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier
-                .width(dieLabelWidth)
+                .widthIn(min = dieLabelWidth)
                 .padding(top = spacingMedium),
         )
         FlowRow(
@@ -387,7 +388,7 @@ private fun ModifierStepper(modifier: Int, onDecreased: () -> Unit, onIncreased:
 private fun DirectD20Row(actions: DiceRollerActions) {
     val d20 = stringResource(Res.string.die_label, Die.D20.sides)
 
-    Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium)) {
+    Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium), modifier = Modifier.height(IntrinsicSize.Min)) {
         DieTile(
             label = d20,
             caption = stringResource(Res.string.btn_disadvantage),
@@ -419,7 +420,10 @@ private fun CompositionPad(state: DiceRollerState, actions: DiceRollerActions) {
 
     Column(verticalArrangement = Arrangement.spacedBy(spacingMedium)) {
         rows.forEach { dice ->
-            Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium)) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+                modifier = Modifier.height(IntrinsicSize.Min),
+            ) {
                 dice.forEach { die ->
                     val count = state.countByDie[die] ?: 0
                     DieTile(
@@ -479,9 +483,11 @@ private fun DieTile(
         colors = dieTileColors(accent),
         // A hovered card gains a shadow, which shows through the transparent advantage tiles.
         elevation = CardDefaults.outlinedCardElevation(),
-        modifier = modifier.heightIn(min = dieTileMinHeight),
+        modifier = modifier
+            .fillMaxHeight()
+            .heightIn(min = dieTileMinHeight),
     ) {
-        Box(modifier = Modifier.fillMaxWidth().heightIn(min = dieTileMinHeight)) {
+        Box(modifier = Modifier.fillMaxSize().heightIn(min = dieTileMinHeight)) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
