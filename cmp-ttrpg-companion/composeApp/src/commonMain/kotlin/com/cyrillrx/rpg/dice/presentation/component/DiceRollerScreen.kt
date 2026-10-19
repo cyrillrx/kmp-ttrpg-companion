@@ -52,6 +52,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -67,6 +68,7 @@ import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconAlpha
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconSize
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
+import com.cyrillrx.rpg.core.presentation.theme.modifierValueMinWidth
 import com.cyrillrx.rpg.core.presentation.theme.removeDieButtonSize
 import com.cyrillrx.rpg.core.presentation.theme.rollTileMinSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -375,7 +377,12 @@ private fun ModifierStepper(modifier: Int, onDecreased: () -> Unit, onIncreased:
             IconButton(onClick = onDecreased, enabled = modifier > -MAX_MODIFIER) {
                 Icon(Icons.Filled.Remove, contentDescription = stringResource(Res.string.btn_decrease_modifier))
             }
-            Text(text = modifier.toSignedString(), style = MaterialTheme.typography.titleLarge)
+            Text(
+                text = modifier.toSignedString(),
+                style = MaterialTheme.typography.titleLarge,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.widthIn(min = modifierValueMinWidth),
+            )
             IconButton(onClick = onIncreased, enabled = modifier < MAX_MODIFIER) {
                 Icon(Icons.Filled.Add, contentDescription = stringResource(Res.string.btn_increase_modifier))
             }
