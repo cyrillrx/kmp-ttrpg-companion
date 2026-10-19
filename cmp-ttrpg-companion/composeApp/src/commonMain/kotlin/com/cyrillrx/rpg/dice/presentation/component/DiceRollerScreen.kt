@@ -50,8 +50,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -87,7 +87,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_advantage
-import rpg_companion.composeapp.generated.resources.btn_clear_composition
+import rpg_companion.composeapp.generated.resources.btn_clear
 import rpg_companion.composeapp.generated.resources.btn_decrease_modifier
 import rpg_companion.composeapp.generated.resources.btn_disadvantage
 import rpg_companion.composeapp.generated.resources.btn_increase_modifier
@@ -302,7 +302,7 @@ private fun DoubleRollContent(roll: DoubleRoll) {
     )
     Row(
         horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-        modifier = Modifier.semantics { contentDescription = description },
+        modifier = Modifier.clearAndSetSemantics { contentDescription = description },
     ) {
         Text(
             text = roll.kept.value.toString(),
@@ -437,8 +437,8 @@ private fun CompositionPad(state: DiceRollerState, actions: DiceRollerActions) {
                 }
                 if (dice == rows.last()) {
                     DieTile(
-                        label = stringResource(Res.string.btn_clear_composition),
-                        caption = stringResource(Res.string.btn_clear_composition),
+                        label = stringResource(Res.string.btn_clear),
+                        caption = stringResource(Res.string.btn_clear),
                         onClick = actions.onClearClicked,
                         enabled = state.countByDie.isNotEmpty(),
                         icon = Icons.Filled.RestartAlt,

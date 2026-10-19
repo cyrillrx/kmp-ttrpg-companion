@@ -21,5 +21,4 @@
     <string name="btn_remove_die_of">Retirer un %1$s</string>
     <string name="btn_decrease_modifier">Diminuer le modificateur</string>
     <string name="btn_increase_modifier">Augmenter le modificateur</string>
-    <string name="btn_clear_composition">Effacer</string>
 </resources>
