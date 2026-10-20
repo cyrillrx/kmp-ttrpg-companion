@@ -1,6 +1,6 @@
 # PRD-000 — Vision & Foundation
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-10-20
 
 ## Overview
 
@@ -108,3 +108,4 @@ Home
 - **Cross-platform**: Android, iOS, and Desktop (via Kotlin Multiplatform + Compose Multiplatform).
 - **Performance**: list screens must load within 300ms on mid-range devices.
 - **Data safety**: user-created content must never be lost due to a sync conflict; conflicts must be resolved non-destructively.
+- **Accessibility**: screens must stay usable with a large system font and keep touch targets of at least 48dp. Screen-reader support (TalkBack, VoiceOver) is best effort and not a goal for now: a missing or redundant description is not worth a fix of its own.
