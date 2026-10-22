@@ -1,11 +1,12 @@
 package com.cyrillrx.rpg.dice.domain
 
 import com.cyrillrx.core.domain.Result
-import com.cyrillrx.rpg.core.domain.toSignedString
 import kotlin.random.Random
 
 const val MAX_DICE_COUNT = 100
 const val MAX_MODIFIER = 1000
+
+internal val biggestDieFirst: Comparator<Die> = compareByDescending { it.sides }
 
 data class DiceTerm(val count: Int, val die: Die) {
     init {
@@ -45,8 +46,11 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 
     /** Writes the expression as a notation that [parse] reads back, from the biggest die. */
     fun toNotation(): String = buildString {
-        append(terms.joinToString("+", transform = DiceTerm::toNotation))
-        if (modifier != 0) append(modifier.toSignedString())
+        append(terms.joinToString(" + ", transform = DiceTerm::toNotation))
+        when {
+            modifier > 0 -> append(" + ").append(modifier)
+            modifier < 0 -> append(" - ").append(-modifier)
+        }
     }
 
     override fun toString(): String = toNotation()
@@ -60,5 +64,5 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 private fun List<DiceTerm>.countByDieBiggestFirst(): Map<Die, Int> = groupingBy { it.die }
     .fold(0) { count, term -> count + term.count }
     .entries
-    .sortedByDescending { (die, _) -> die.sides }
+    .sortedWith(compareBy(biggestDieFirst) { it.key })
     .associate { (die, count) -> die to count }

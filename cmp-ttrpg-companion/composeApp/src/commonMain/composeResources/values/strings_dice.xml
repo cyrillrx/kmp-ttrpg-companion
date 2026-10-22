@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="section_tools">Tools</string>
+    <string name="btn_dice_roller">Dice</string>
+    <string name="title_dice_roller">Dice roller</string>
+
+    <string name="die_label">d%1$d</string>
+    <string name="die_count">×%1$d</string>
+    <string name="label_modifier">Modifier</string>
+    <string name="label_double_roll">%1$s: %2$d, %3$d discarded</string>
+    <string name="message_compose_then_roll">Compose a roll, or roll a d20</string>
+
+    <string name="section_d20_roll">d20 roll</string>
+    <string name="section_compose">Compose</string>
+
+    <string name="btn_advantage">Advantage</string>
+    <string name="btn_disadvantage">Disadvantage</string>
+    <string name="btn_roll">Roll</string>
+    <string name="btn_roll_composition">Roll %1$s</string>
+    <string name="btn_remove_die_of">Remove a %1$s</string>
+    <string name="btn_decrease_modifier">Decrease the modifier</string>
+    <string name="btn_increase_modifier">Increase the modifier</string>
+</resources>
