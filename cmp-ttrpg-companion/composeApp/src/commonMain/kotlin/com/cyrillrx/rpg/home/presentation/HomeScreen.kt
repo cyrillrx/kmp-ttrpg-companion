@@ -236,7 +236,7 @@ private fun ToolsSection(router: HomeRouter, modifier: Modifier = Modifier) {
                 onClick = router::openDiceRoller,
                 modifier = Modifier.weight(1f),
             )
-            // Keeps the button as wide as one of the three in the sections above.
+            // Two empty slots, so the button keeps a third of the row.
             Spacer(modifier = Modifier.weight(1f))
             Spacer(modifier = Modifier.weight(1f))
         }

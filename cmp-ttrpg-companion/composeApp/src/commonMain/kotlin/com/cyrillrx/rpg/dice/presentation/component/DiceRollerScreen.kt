@@ -390,7 +390,6 @@ private fun ModifierStepper(modifier: Int, onDecreased: () -> Unit, onIncreased:
     }
 }
 
-/** Rolls at once with the current modifier: a d20 test only ever adds a bonus, never other dice. */
 @Composable
 private fun DirectD20Row(actions: DiceRollerActions) {
     val d20 = stringResource(Res.string.die_label, Die.D20.sides)
@@ -531,7 +530,6 @@ private fun DieTile(
     }
 }
 
-/** Matches the healing and damage buttons of the character sheet: outlined, the accent on the text and a faint border. */
 @Composable
 private fun dieTileColors(accent: Color?): CardColors = if (accent == null) {
     CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
