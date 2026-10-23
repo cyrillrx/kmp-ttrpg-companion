@@ -140,6 +140,11 @@ class DiceExpressionTest {
     }
 
     @Test
+    fun `a bonus up to the modifier limit is accepted`() {
+        assertEquals(Result.Success(1.d20 + MAX_MODIFIER), (1.d20 + 2).withBonus(MAX_MODIFIER - 2))
+    }
+
+    @Test
     fun `a bonus past the modifier limit tells the modifier limit`() {
         val expected = Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
 
