@@ -147,9 +147,9 @@ class DiceExpressionTest {
     }
 
     @Test
-    fun `a bonus too large for an int is refused instead of wrapping around`() {
+    fun `a bonus that overflows an int is refused`() {
         val expected = Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
 
-        assertEquals(expected, (1.d20 - MAX_MODIFIER).withBonus(Int.MAX_VALUE))
+        assertEquals(expected, (1.d20 + MAX_MODIFIER).withBonus(Int.MAX_VALUE))
     }
 }
