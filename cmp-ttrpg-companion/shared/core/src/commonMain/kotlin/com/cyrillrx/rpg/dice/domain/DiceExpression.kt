@@ -5,7 +5,7 @@ import kotlin.random.Random
 
 const val MAX_DICE_COUNT = 100
 const val MAX_MODIFIER = 1000
-val MODIFIER_RANGE = -MAX_MODIFIER..MAX_MODIFIER
+internal val MODIFIER_RANGE = -MAX_MODIFIER..MAX_MODIFIER
 
 internal val biggestDieFirst: Comparator<Die> = compareByDescending { it.sides }
 
