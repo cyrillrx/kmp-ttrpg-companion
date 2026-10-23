@@ -5,7 +5,7 @@ import com.cyrillrx.core.domain.Result
 data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 0) {
     init {
         require(rolls.size <= MAX_DICE_COUNT) { "Cannot pool more than $MAX_DICE_COUNT dice" }
-        require(modifier in -MAX_MODIFIER..MAX_MODIFIER) { "Cannot add a modifier of $modifier" }
+        require(modifier in MODIFIER_RANGE) { "Cannot add a modifier of $modifier" }
     }
 
     fun total(): Int = rolls.sumOf { it.value } + modifier
@@ -39,7 +39,7 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
 
     /** Replaces the modifier, or tells that [modifier] is beyond [MAX_MODIFIER]. */
     fun withModifier(modifier: Int): Result<RollPool, DiceNotationError.ModifierOutOfRange> =
-        if (modifier in -MAX_MODIFIER..MAX_MODIFIER) {
+        if (modifier in MODIFIER_RANGE) {
             Result.Success(copy(modifier = modifier))
         } else {
             Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))

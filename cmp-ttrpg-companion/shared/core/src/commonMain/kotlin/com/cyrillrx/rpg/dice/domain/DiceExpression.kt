@@ -5,6 +5,7 @@ import kotlin.random.Random
 
 const val MAX_DICE_COUNT = 100
 const val MAX_MODIFIER = 1000
+val MODIFIER_RANGE = -MAX_MODIFIER..MAX_MODIFIER
 
 internal val biggestDieFirst: Comparator<Die> = compareByDescending { it.sides }
 
@@ -24,7 +25,7 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     init {
         require(countByDie.isNotEmpty()) { "Cannot roll an expression without dice" }
         require(countByDie.values.sum() <= MAX_DICE_COUNT) { "Cannot roll more than $MAX_DICE_COUNT dice" }
-        require(modifier in -MAX_MODIFIER..MAX_MODIFIER) { "Cannot add a modifier of $modifier" }
+        require(modifier in MODIFIER_RANGE) { "Cannot add a modifier of $modifier" }
     }
 
     val terms: List<DiceTerm> = countByDie.map { (die, count) -> DiceTerm(count, die) }
@@ -72,7 +73,7 @@ internal fun checkedDiceExpression(terms: List<DiceTerm>, modifier: Long): Resul
     when {
         terms.isEmpty() -> Result.Failure(DiceNotationError.NoDice)
         terms.sumOf { it.count } > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT))
-        modifier !in -MAX_MODIFIER..MAX_MODIFIER -> Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
+        modifier !in MODIFIER_RANGE -> Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
         else -> Result.Success(DiceExpression(terms, modifier.toInt()))
     }
 
