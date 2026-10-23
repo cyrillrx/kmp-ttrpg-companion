@@ -42,8 +42,14 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     fun combine(other: DiceExpression): Result<DiceExpression, DiceLimitError> =
         checkedDiceExpression(terms + other.terms, modifier.toLong() + other.modifier)
 
-    fun withBonus(bonus: Int): Result<DiceExpression, DiceLimitError> =
-        checkedDiceExpression(terms, modifier.toLong() + bonus)
+    fun withBonus(bonus: Int): Result<DiceExpression, DiceNotationError.ModifierOutOfRange> {
+        val newModifier = modifier.toLong() + bonus
+        return if (newModifier in MODIFIER_RANGE) {
+            Result.Success(copy(modifier = newModifier.toInt()))
+        } else {
+            Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
+        }
+    }
 
     fun roll(random: Random = Random.Default): RollPool {
         val rolls = terms.flatMap { term -> List(term.count) { term.die.roll(random) } }
