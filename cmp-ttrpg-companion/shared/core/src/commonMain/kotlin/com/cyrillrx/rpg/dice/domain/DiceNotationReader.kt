@@ -60,6 +60,8 @@ private fun String.toConstantPart(isSubtracted: Boolean): Result<NotationPart, D
 
 private fun List<NotationPart>.toDiceExpression(): Result<DiceExpression, DiceNotationError> {
     val terms = filterIsInstance<NotationPart.Dice>().map { it.term }
+    if (terms.isEmpty()) return Result.Failure(DiceNotationError.NoDice)
+
     val modifier = filterIsInstance<NotationPart.Constant>().sumOf { it.value.toLong() }
     return checkedDiceExpression(terms, modifier)
 }

@@ -40,11 +40,11 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     operator fun minus(penalty: Int): DiceExpression = plus(-penalty)
 
     /** Adds [other] to this expression, or tells which limit the sum would go past. */
-    fun combine(other: DiceExpression): Result<DiceExpression, DiceNotationError> =
+    fun combine(other: DiceExpression): Result<DiceExpression, DiceLimitError> =
         checkedDiceExpression(terms + other.terms, modifier.toLong() + other.modifier)
 
     /** Adds [bonus] to the modifier, or tells that it would go past [MAX_MODIFIER]. */
-    fun withBonus(bonus: Int): Result<DiceExpression, DiceNotationError> =
+    fun withBonus(bonus: Int): Result<DiceExpression, DiceLimitError> =
         checkedDiceExpression(terms, modifier.toLong() + bonus)
 
     fun roll(random: Random = Random.Default): RollPool {
@@ -69,9 +69,8 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     }
 }
 
-internal fun checkedDiceExpression(terms: List<DiceTerm>, modifier: Long): Result<DiceExpression, DiceNotationError> =
+internal fun checkedDiceExpression(terms: List<DiceTerm>, modifier: Long): Result<DiceExpression, DiceLimitError> =
     when {
-        terms.isEmpty() -> Result.Failure(DiceNotationError.NoDice)
         terms.sumOf { it.count } > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT))
         modifier !in MODIFIER_RANGE -> Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
         else -> Result.Success(DiceExpression(terms, modifier.toInt()))
