@@ -39,11 +39,9 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 
     operator fun minus(penalty: Int): DiceExpression = plus(-penalty)
 
-    /** Adds [other] to this expression, or tells which limit the sum would go past. */
     fun combine(other: DiceExpression): Result<DiceExpression, DiceLimitError> =
         checkedDiceExpression(terms + other.terms, modifier.toLong() + other.modifier)
 
-    /** Adds [bonus] to the modifier, or tells that it would go past [MAX_MODIFIER]. */
     fun withBonus(bonus: Int): Result<DiceExpression, DiceLimitError> =
         checkedDiceExpression(terms, modifier.toLong() + bonus)
 

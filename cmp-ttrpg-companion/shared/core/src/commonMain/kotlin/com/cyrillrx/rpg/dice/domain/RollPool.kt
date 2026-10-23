@@ -23,7 +23,6 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
         },
     ).groupBy { it.die }
 
-    /** Adds [roll] to the pool, or tells that the pool already holds [MAX_DICE_COUNT] dice. */
     fun add(roll: DieRoll): Result<RollPool, DiceNotationError.TooManyDice> =
         if (rolls.size < MAX_DICE_COUNT) {
             Result.Success(copy(rolls = rolls + roll))
@@ -37,7 +36,6 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
         return copy(rolls = rolls.filterIndexed { i, _ -> i != index })
     }
 
-    /** Replaces the modifier, or tells that [modifier] is beyond [MAX_MODIFIER]. */
     fun withModifier(modifier: Int): Result<RollPool, DiceNotationError.ModifierOutOfRange> =
         if (modifier in MODIFIER_RANGE) {
             Result.Success(copy(modifier = modifier))
