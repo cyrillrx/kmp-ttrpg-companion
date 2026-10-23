@@ -153,6 +153,13 @@ class DiceNotationTest {
     }
 
     @Test
+    fun `constants that would wrap back into range as an Int are refused`() {
+        val notation = "1d6+${Int.MAX_VALUE}+${Int.MAX_VALUE}+2"
+
+        assertEquals(Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER)), DiceExpression.parse(notation))
+    }
+
+    @Test
     fun `a part that is neither dice nor a number is refused and named`() {
         assertEquals(Result.Failure(DiceNotationError.Unreadable("+fire")), DiceExpression.parse("1d6+fire"))
     }
