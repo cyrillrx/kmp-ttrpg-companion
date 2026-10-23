@@ -31,13 +31,20 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 
     constructor(terms: List<DiceTerm>, modifier: Int = 0) : this(terms.countByDieBiggestFirst(), modifier)
 
-    // TODO(#320): combine without throwing past MAX_DICE_COUNT or MAX_MODIFIER
     operator fun plus(other: DiceExpression): DiceExpression =
         DiceExpression(terms + other.terms, modifier + other.modifier)
 
     operator fun plus(bonus: Int): DiceExpression = copy(modifier = modifier + bonus)
 
     operator fun minus(penalty: Int): DiceExpression = plus(-penalty)
+
+    /** Adds [other] to this expression, or tells which limit the sum would go past. */
+    fun combine(other: DiceExpression): Result<DiceExpression, DiceNotationError> =
+        checkedDiceExpression(terms + other.terms, modifier.toLong() + other.modifier)
+
+    /** Adds [bonus] to the modifier, or tells that it would go past [MAX_MODIFIER]. */
+    fun withBonus(bonus: Int): Result<DiceExpression, DiceNotationError> =
+        checkedDiceExpression(terms, modifier.toLong() + bonus)
 
     fun roll(random: Random = Random.Default): RollPool {
         val rolls = terms.flatMap { term -> List(term.count) { term.die.roll(random) } }
@@ -60,6 +67,14 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
         fun parse(notation: String): Result<DiceExpression, DiceNotationError> = readDiceNotation(notation)
     }
 }
+
+internal fun checkedDiceExpression(terms: List<DiceTerm>, modifier: Long): Result<DiceExpression, DiceNotationError> =
+    when {
+        terms.isEmpty() -> Result.Failure(DiceNotationError.NoDice)
+        terms.sumOf { it.count } > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT))
+        modifier !in -MAX_MODIFIER..MAX_MODIFIER -> Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
+        else -> Result.Success(DiceExpression(terms, modifier.toInt()))
+    }
 
 private fun List<DiceTerm>.countByDieBiggestFirst(): Map<Die, Int> = groupingBy { it.die }
     .fold(0) { count, term -> count + term.count }
