@@ -28,7 +28,7 @@ enum class KeepRule {
     LOWER,
     ;
 
-    fun keeps(value: Int, over: Int): Boolean = when (this) {
+    internal fun keeps(value: Int, over: Int): Boolean = when (this) {
         HIGHER -> value >= over
         LOWER -> value <= over
     }
