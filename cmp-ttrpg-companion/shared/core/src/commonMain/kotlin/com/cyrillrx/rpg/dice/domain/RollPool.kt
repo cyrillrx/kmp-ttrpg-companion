@@ -13,18 +13,20 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
     fun isEmpty(): Boolean = rolls.isEmpty()
 
     /**
-     * Writes what the pool rolled, such as `1d20 + 2d6 + 6`, with [doubleRollNotation] writing each double roll
-     * so that it reads apart from a plain roll; null until a die is rolled.
+     * Writes what the pool rolled from the biggest die, such as `1d20 + 2d6 + 6`, with [doubleRollNotation]
+     * writing each double roll so that it reads apart from a plain roll; null until a die is rolled.
      */
     fun toNotation(doubleRollNotation: (DoubleRoll) -> String): String? {
         if (isEmpty()) return null
 
-        val doubleRolls = rolls.filterIsInstance<DoubleRoll>().map(doubleRollNotation)
+        val doubleRolls = rolls.filterIsInstance<DoubleRoll>().map { it.die to doubleRollNotation(it) }
         val simpleTerms = rolls.filterIsInstance<SimpleRoll>()
-            .map { DiceTerm(1, it.die) }
-            .countByDieBiggestFirst()
-            .map { (die, count) -> DiceTerm(count, die).toNotation() }
-        return (doubleRolls + simpleTerms).joinToString(" + ") + modifierNotation(modifier)
+            .groupingBy { it.die }
+            .eachCount()
+            .map { (die, count) -> die to DiceTerm(count, die).toNotation() }
+        return (doubleRolls + simpleTerms)
+            .sortedWith(compareBy(biggestDieFirst) { (die, _) -> die })
+            .joinToString(" + ") { (_, notation) -> notation } + modifier.toModifierNotation()
     }
 
     /** The rolls grouped by die, from the biggest as the notation reads. */

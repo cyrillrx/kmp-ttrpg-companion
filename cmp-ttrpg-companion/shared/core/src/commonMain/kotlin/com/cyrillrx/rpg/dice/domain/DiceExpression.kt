@@ -59,7 +59,7 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     /** Writes the expression as a notation that [parse] reads back, from the biggest die. */
     fun toNotation(): String = buildString {
         append(terms.joinToString(" + ", transform = DiceTerm::toNotation))
-        append(modifierNotation(modifier))
+        append(modifier.toModifierNotation())
     }
 
     override fun toString(): String = toNotation()
@@ -77,13 +77,13 @@ internal fun checkedDiceExpression(terms: List<DiceTerm>, modifier: Long): Resul
         else -> Result.Success(DiceExpression(terms, modifier.toInt()))
     }
 
-internal fun modifierNotation(modifier: Int): String = when {
-    modifier > 0 -> " + $modifier"
-    modifier < 0 -> " - ${-modifier}"
+internal fun Int.toModifierNotation(): String = when {
+    this > 0 -> " + $this"
+    this < 0 -> " - ${-this}"
     else -> ""
 }
 
-internal fun List<DiceTerm>.countByDieBiggestFirst(): Map<Die, Int> = groupingBy { it.die }
+private fun List<DiceTerm>.countByDieBiggestFirst(): Map<Die, Int> = groupingBy { it.die }
     .fold(0) { count, term -> count + term.count }
     .entries
     .sortedWith(compareBy(biggestDieFirst) { it.key })

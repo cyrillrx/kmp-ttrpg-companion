@@ -66,9 +66,25 @@ class RollPoolTest {
     fun `a pool writes a double roll apart from the plain rolls`() {
         val withAdvantage =
             DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5), KeepRule.HIGHER)
-        val pool = RollPool(listOf(d20, withAdvantage), modifier = -2)
+        val pool = RollPool(listOf(d6, d20, withAdvantage), modifier = -2)
 
-        assertEquals("d20 HIGHER + 1d20 - 2", pool.toNotation(doubleRollNotation))
+        assertEquals("d20 HIGHER + 1d20 + 1d6 - 2", pool.toNotation(doubleRollNotation))
+    }
+
+    @Test
+    fun `a pool writes a double roll after the bigger dice`() {
+        val withAdvantage = DoubleRoll(kept = SimpleRoll(Die.D6, 5), discarded = SimpleRoll(Die.D6, 2), KeepRule.HIGHER)
+        val pool = RollPool(listOf(withAdvantage, d20))
+
+        assertEquals("1d20 + d6 HIGHER", pool.toNotation(doubleRollNotation))
+    }
+
+    @Test
+    fun `a pool of a lone double roll writes it with its modifier`() {
+        val withAdvantage =
+            DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5), KeepRule.HIGHER)
+
+        assertEquals("d20 HIGHER + 5", RollPool(listOf(withAdvantage), modifier = 5).toNotation(doubleRollNotation))
     }
 
     @Test
