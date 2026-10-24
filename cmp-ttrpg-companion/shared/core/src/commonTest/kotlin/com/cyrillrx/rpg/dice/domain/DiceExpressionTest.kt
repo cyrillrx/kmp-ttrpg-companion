@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.dice.domain
 
+import com.cyrillrx.core.domain.Result
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -102,5 +103,58 @@ class DiceExpressionTest {
         )
         assertEquals(expected, pool)
         assertEquals(14, pool.total())
+    }
+
+    @Test
+    fun `combining expressions groups their dice and sums their modifiers`() {
+        assertEquals(Result.Success(3.d6 + 1.d4 + 3), (2.d6 + 1).combine(1.d6 + 1.d4 + 2))
+    }
+
+    @Test
+    fun `combining up to the dice limit is accepted`() {
+        assertEquals(Result.Success(MAX_DICE_COUNT.d6), (MAX_DICE_COUNT - 1).d6.combine(1.d6))
+    }
+
+    @Test
+    fun `combining past the dice limit tells the dice limit`() {
+        val expected = Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT))
+
+        assertEquals(expected, MAX_DICE_COUNT.d6.combine(1.d4))
+    }
+
+    @Test
+    fun `combining past the modifier limit tells the modifier limit`() {
+        val expected = Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
+
+        assertEquals(expected, (1.d6 + MAX_MODIFIER).combine(1.d6 + 1))
+    }
+
+    @Test
+    fun `a bonus adds to the modifier`() {
+        assertEquals(Result.Success(1.d20 + 5), (1.d20 + 2).withBonus(3))
+    }
+
+    @Test
+    fun `a negative bonus removes from the modifier`() {
+        assertEquals(Result.Success(1.d20 - 1), (1.d20 + 2).withBonus(-3))
+    }
+
+    @Test
+    fun `a bonus up to the modifier limit is accepted`() {
+        assertEquals(Result.Success(1.d20 + MAX_MODIFIER), (1.d20 + 2).withBonus(MAX_MODIFIER - 2))
+    }
+
+    @Test
+    fun `a bonus past the modifier limit tells the modifier limit`() {
+        val expected = Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
+
+        assertEquals(expected, (1.d20 + MAX_MODIFIER).withBonus(1))
+    }
+
+    @Test
+    fun `a bonus that overflows an int is refused`() {
+        val expected = Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
+
+        assertEquals(expected, (1.d20 + MAX_MODIFIER).withBonus(Int.MAX_VALUE))
     }
 }

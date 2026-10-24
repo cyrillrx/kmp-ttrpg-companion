@@ -5,6 +5,7 @@ import kotlin.random.Random
 
 const val MAX_DICE_COUNT = 100
 const val MAX_MODIFIER = 1000
+internal val MODIFIER_RANGE = -MAX_MODIFIER..MAX_MODIFIER
 
 internal val biggestDieFirst: Comparator<Die> = compareByDescending { it.sides }
 
@@ -24,20 +25,31 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     init {
         require(countByDie.isNotEmpty()) { "Cannot roll an expression without dice" }
         require(countByDie.values.sum() <= MAX_DICE_COUNT) { "Cannot roll more than $MAX_DICE_COUNT dice" }
-        require(modifier in -MAX_MODIFIER..MAX_MODIFIER) { "Cannot add a modifier of $modifier" }
+        require(modifier in MODIFIER_RANGE) { "Cannot add a modifier of $modifier" }
     }
 
     val terms: List<DiceTerm> = countByDie.map { (die, count) -> DiceTerm(count, die) }
 
     constructor(terms: List<DiceTerm>, modifier: Int = 0) : this(terms.countByDieBiggestFirst(), modifier)
 
-    // TODO(#320): combine without throwing past MAX_DICE_COUNT or MAX_MODIFIER
     operator fun plus(other: DiceExpression): DiceExpression =
         DiceExpression(terms + other.terms, modifier + other.modifier)
 
     operator fun plus(bonus: Int): DiceExpression = copy(modifier = modifier + bonus)
 
     operator fun minus(penalty: Int): DiceExpression = plus(-penalty)
+
+    fun combine(other: DiceExpression): Result<DiceExpression, DiceLimitError> =
+        checkedDiceExpression(terms + other.terms, modifier.toLong() + other.modifier)
+
+    fun withBonus(bonus: Int): Result<DiceExpression, DiceNotationError.ModifierOutOfRange> {
+        val newModifier = modifier.toLong() + bonus
+        return if (newModifier in MODIFIER_RANGE) {
+            Result.Success(copy(modifier = newModifier.toInt()))
+        } else {
+            Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
+        }
+    }
 
     fun roll(random: Random = Random.Default): RollPool {
         val rolls = terms.flatMap { term -> List(term.count) { term.die.roll(random) } }
@@ -60,6 +72,13 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
         fun parse(notation: String): Result<DiceExpression, DiceNotationError> = readDiceNotation(notation)
     }
 }
+
+internal fun checkedDiceExpression(terms: List<DiceTerm>, modifier: Long): Result<DiceExpression, DiceLimitError> =
+    when {
+        terms.sumOf { it.count } > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT))
+        modifier !in MODIFIER_RANGE -> Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
+        else -> Result.Success(DiceExpression(terms, modifier.toInt()))
+    }
 
 private fun List<DiceTerm>.countByDieBiggestFirst(): Map<Die, Int> = groupingBy { it.die }
     .fold(0) { count, term -> count + term.count }

@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.dice.domain
 
+import com.cyrillrx.core.domain.Result
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -18,7 +19,7 @@ class RollPoolTest {
 
     @Test
     fun `the total adds every roll and the modifier`() {
-        val pool = RollPool().add(d20).add(d6).withModifier(-1)
+        val pool = RollPool(listOf(d20, d6), modifier = -1)
 
         assertEquals(16, pool.total())
     }
@@ -27,19 +28,19 @@ class RollPoolTest {
     fun `only the kept roll of a double roll counts toward the total`() {
         val withAdvantage = DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5))
 
-        assertEquals(21, RollPool().add(withAdvantage).add(d6).total())
+        assertEquals(21, RollPool(listOf(withAdvantage, d6)).total())
     }
 
     @Test
     fun `removing a roll drops only that roll`() {
-        val pool = RollPool().add(d20).add(d6).remove(0)
+        val pool = RollPool(listOf(d20, d6)).remove(0)
 
         assertEquals(listOf<DieRoll>(d6), pool.rolls)
     }
 
     @Test
     fun `removing a roll that does not exist fails`() {
-        assertFailsWith<IllegalArgumentException> { RollPool().add(d6).remove(1) }
+        assertFailsWith<IllegalArgumentException> { RollPool(listOf(d6)).remove(1) }
     }
 
     @Test
@@ -49,7 +50,7 @@ class RollPoolTest {
 
     @Test
     fun `a pool with a roll is not empty`() {
-        assertFalse(RollPool().add(d6).isEmpty())
+        assertFalse(RollPool(listOf(d6)).isEmpty())
     }
 
     @Test
@@ -81,5 +82,31 @@ class RollPoolTest {
     fun `a modifier beyond the limit is refused`() {
         assertFailsWith<IllegalArgumentException> { RollPool(modifier = MAX_MODIFIER + 1) }
         assertFailsWith<IllegalArgumentException> { RollPool(modifier = -MAX_MODIFIER - 1) }
+    }
+
+    @Test
+    fun `adding a roll keeps the rolls already in the pool`() {
+        assertEquals(Result.Success(RollPool(listOf(d20, d6))), RollPool(listOf(d20)).add(d6))
+    }
+
+    @Test
+    fun `adding a roll to a full pool tells the dice limit`() {
+        val full = RollPool(List(MAX_DICE_COUNT) { d6 })
+
+        assertEquals(Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT)), full.add(d6))
+    }
+
+    @Test
+    fun `a modifier up to the limit replaces the previous one`() {
+        val expected = Result.Success(RollPool(modifier = -MAX_MODIFIER))
+
+        assertEquals(expected, RollPool(modifier = 3).withModifier(-MAX_MODIFIER))
+    }
+
+    @Test
+    fun `a modifier beyond the limit tells the modifier limit`() {
+        val expected = Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
+
+        assertEquals(expected, RollPool().withModifier(MAX_MODIFIER + 1))
     }
 }
