@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
+import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.dice.domain.RollPool
@@ -126,7 +127,7 @@ class DiceRollerViewModelTest {
 
         viewModel.rollD20WithAdvantage()
 
-        val expected = DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3))
+        val expected = DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3), KeepRule.HIGHER)
         assertEquals(RollPool(listOf(expected)), viewModel.state.value.lastRoll)
     }
 
@@ -136,7 +137,7 @@ class DiceRollerViewModelTest {
 
         viewModel.rollD20WithDisadvantage()
 
-        val expected = DoubleRoll(kept = SimpleRoll(Die.D20, 3), discarded = SimpleRoll(Die.D20, 17))
+        val expected = DoubleRoll(kept = SimpleRoll(Die.D20, 3), discarded = SimpleRoll(Die.D20, 17), KeepRule.LOWER)
         assertEquals(RollPool(listOf(expected)), viewModel.state.value.lastRoll)
     }
 
