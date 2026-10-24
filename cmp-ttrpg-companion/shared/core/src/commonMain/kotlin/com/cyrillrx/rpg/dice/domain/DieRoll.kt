@@ -12,9 +12,24 @@ data class SimpleRoll(override val die: Die, override val value: Int) : DieRoll 
     }
 }
 
-/** Two rolls of the same die, of which only [kept] counts. */
-data class DoubleRoll(val kept: SimpleRoll, val discarded: SimpleRoll) : DieRoll by kept {
+/** Two rolls of the same die, of which only [kept] counts, chosen by [rule]. */
+data class DoubleRoll(val kept: SimpleRoll, val discarded: SimpleRoll, val rule: KeepRule) : DieRoll by kept {
     init {
         require(kept.die == discarded.die) { "Cannot keep a ${kept.die} over a ${discarded.die}" }
+        require(rule.keeps(kept.value, over = discarded.value)) {
+            "Keeping the $rule roll cannot keep ${kept.value} over ${discarded.value}"
+        }
+    }
+}
+
+/** Which of two rolls counts; with equal rolls, either does. */
+enum class KeepRule {
+    HIGHER,
+    LOWER,
+    ;
+
+    fun keeps(value: Int, over: Int): Boolean = when (this) {
+        HIGHER -> value >= over
+        LOWER -> value <= over
     }
 }

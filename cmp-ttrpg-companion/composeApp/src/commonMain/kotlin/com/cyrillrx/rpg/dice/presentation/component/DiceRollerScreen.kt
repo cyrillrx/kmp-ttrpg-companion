@@ -78,6 +78,7 @@ import com.cyrillrx.rpg.core.presentation.theme.widthExpandedMin
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
+import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.dice.domain.RollPool
@@ -101,6 +102,8 @@ import rpg_companion.composeapp.generated.resources.die_label
 import rpg_companion.composeapp.generated.resources.label_double_roll
 import rpg_companion.composeapp.generated.resources.label_modifier
 import rpg_companion.composeapp.generated.resources.message_compose_then_roll
+import rpg_companion.composeapp.generated.resources.notation_with_advantage
+import rpg_companion.composeapp.generated.resources.notation_with_disadvantage
 import rpg_companion.composeapp.generated.resources.section_compose
 import rpg_companion.composeapp.generated.resources.section_d20_roll
 import rpg_companion.composeapp.generated.resources.title_dice_roller
@@ -203,7 +206,7 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
                 NoRollYet()
             } else {
                 Text(
-                    text = lastRoll.toExpression()?.toNotation().orEmpty(),
+                    text = lastRoll.notation(),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -213,6 +216,21 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
         }
     }
 }
+
+@Composable
+private fun RollPool.notation(): String {
+    val doubleRollNotations = rolls.filterIsInstance<DoubleRoll>().associateWith { it.notation() }
+    return toNotation(doubleRollNotations::getValue).orEmpty()
+}
+
+@Composable
+private fun DoubleRoll.notation(): String = stringResource(
+    when (rule) {
+        KeepRule.HIGHER -> Res.string.notation_with_advantage
+        KeepRule.LOWER -> Res.string.notation_with_disadvantage
+    },
+    stringResource(Res.string.die_label, die.sides),
+)
 
 @Composable
 private fun RollTotal(rollCount: Int, total: Int) {
@@ -541,7 +559,7 @@ private val previewState = DiceRollerState(
     countByDie = mapOf(Die.D6 to 2),
     modifier = 5,
     lastRoll = RollPool(
-        rolls = listOf(DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3))),
+        rolls = listOf(DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3), KeepRule.HIGHER)),
         modifier = 5,
     ),
 )
