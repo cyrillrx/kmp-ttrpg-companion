@@ -19,14 +19,12 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
     fun toNotation(doubleRollNotation: (DoubleRoll) -> String): String? {
         if (isEmpty()) return null
 
-        val doubleRolls = rolls.filterIsInstance<DoubleRoll>().map { it.die to doubleRollNotation(it) }
-        val simpleTerms = rolls.filterIsInstance<SimpleRoll>()
-            .groupingBy { it.die }
-            .eachCount()
-            .map { (die, count) -> die to DiceTerm(count, die).toNotation() }
-        return (doubleRolls + simpleTerms)
-            .sortedWith(compareBy(biggestDieFirst) { (die, _) -> die })
-            .joinToString(" + ") { (_, notation) -> notation } + modifier.toModifierNotation()
+        val terms = rollsByDie().flatMap { (die, rolls) ->
+            val simpleCount = rolls.count { it is SimpleRoll }
+            val simpleTerm = if (simpleCount > 0) listOf(DiceTerm(simpleCount, die).toNotation()) else emptyList()
+            rolls.filterIsInstance<DoubleRoll>().map(doubleRollNotation) + simpleTerm
+        }
+        return terms.joinToString(" + ") + modifier.toModifierNotation()
     }
 
     /** The rolls grouped by die, from the biggest as the notation reads. */
