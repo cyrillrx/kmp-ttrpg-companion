@@ -559,7 +559,9 @@ private val previewState = DiceRollerState(
     countByDie = mapOf(Die.D6 to 2),
     modifier = 5,
     lastRoll = RollPool(
-        rolls = listOf(DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3), KeepRule.HIGHER)),
+        rolls = listOf(
+            DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3), rule = KeepRule.HIGHER),
+        ),
         modifier = 5,
     ),
 )

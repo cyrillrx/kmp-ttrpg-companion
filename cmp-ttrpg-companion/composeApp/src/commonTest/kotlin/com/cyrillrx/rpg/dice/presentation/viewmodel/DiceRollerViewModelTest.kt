@@ -127,7 +127,8 @@ class DiceRollerViewModelTest {
 
         viewModel.rollD20WithAdvantage()
 
-        val expected = DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3), KeepRule.HIGHER)
+        val expected =
+            DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3), rule = KeepRule.HIGHER)
         assertEquals(RollPool(listOf(expected)), viewModel.state.value.lastRoll)
     }
 
@@ -137,7 +138,8 @@ class DiceRollerViewModelTest {
 
         viewModel.rollD20WithDisadvantage()
 
-        val expected = DoubleRoll(kept = SimpleRoll(Die.D20, 3), discarded = SimpleRoll(Die.D20, 17), KeepRule.LOWER)
+        val expected =
+            DoubleRoll(kept = SimpleRoll(Die.D20, 3), discarded = SimpleRoll(Die.D20, 17), rule = KeepRule.LOWER)
         assertEquals(RollPool(listOf(expected)), viewModel.state.value.lastRoll)
     }
 
