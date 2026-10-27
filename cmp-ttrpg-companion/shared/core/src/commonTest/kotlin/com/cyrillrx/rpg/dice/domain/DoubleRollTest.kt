@@ -4,7 +4,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
-class DieRollTest {
+class DoubleRollTest {
     @Test
     fun `a double roll counts as its kept roll`() {
         val roll =
