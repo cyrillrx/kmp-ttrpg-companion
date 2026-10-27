@@ -25,6 +25,7 @@ class AdvantageTest {
         assertEquals(expected, roll)
     }
 
+    // TODO(#332): move the DoubleRoll tests below to a DieRollTest
     @Test
     fun `a double roll counts as its kept roll`() {
         val roll = DoubleRoll(kept = SimpleRoll(Die.D12, 9), discarded = SimpleRoll(Die.D12, 2), rule = KeepRule.HIGHER)

@@ -339,6 +339,8 @@ private fun DoubleRollContent(roll: DoubleRoll) {
     }
 }
 
+// TODO(#333): color by DoubleRoll.rule, so that a tie still tells the mode apart
+
 /** The higher roll reads like healing and the lower like damage, so the kept one tells advantage from disadvantage. */
 @Composable
 private fun rollColor(roll: SimpleRoll, against: SimpleRoll): Color = when {
