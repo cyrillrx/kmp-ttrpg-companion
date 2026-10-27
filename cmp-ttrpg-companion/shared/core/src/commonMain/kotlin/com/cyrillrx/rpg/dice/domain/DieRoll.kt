@@ -20,12 +20,15 @@ data class DoubleRoll(val kept: SimpleRoll, val discarded: SimpleRoll, val rule:
             "Keeping the $rule roll cannot keep ${kept.value} over ${discarded.value}"
         }
     }
+
+    /** Writes the roll as virtual tabletops do, such as `2d20kh1` for a d20 rolled with advantage. */
+    internal fun toNotation(): String = DiceTerm(count = 2, die = die).toNotation() + rule.notation
 }
 
 /** Which of two rolls counts; with equal rolls, either does. */
-enum class KeepRule {
-    HIGHER,
-    LOWER,
+enum class KeepRule(internal val notation: String) {
+    HIGHER(notation = "kh1"),
+    LOWER(notation = "kl1"),
     ;
 
     internal fun keeps(value: Int, over: Int): Boolean = when (this) {

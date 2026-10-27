@@ -9,8 +9,6 @@
     <string name="die_count">×%1$d</string>
     <string name="label_modifier">Modifier</string>
     <string name="label_double_roll">%1$s: %2$d, %3$d discarded</string>
-    <string name="notation_with_advantage">%1$s with advantage</string>
-    <string name="notation_with_disadvantage">%1$s with disadvantage</string>
     <string name="message_compose_then_roll">Compose a roll, or roll a d20</string>
 
     <string name="section_d20_roll">d20 roll</string>

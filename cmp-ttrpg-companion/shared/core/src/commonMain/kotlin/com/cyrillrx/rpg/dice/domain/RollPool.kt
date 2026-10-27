@@ -12,18 +12,16 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
 
     fun isEmpty(): Boolean = rolls.isEmpty()
 
-    /**
-     * Writes what the pool rolled from the biggest die, such as `1d20 + 2d6 + 6`, with [doubleRollNotation]
-     * writing each double roll so that it reads apart from a plain roll; null until a die is rolled.
-     */
-    fun toNotation(doubleRollNotation: (DoubleRoll) -> String): String? {
+    /** Writes what the pool rolled from the biggest die, such as `2d20kh1 + 2d6 + 6`; null until a die is rolled. */
+    fun toNotation(): String? {
         if (isEmpty()) return null
 
         val terms = rollsByDie().flatMap { (die, rolls) ->
             val simpleCount = rolls.count { it is SimpleRoll }
             val simpleTerm = if (simpleCount > 0) listOf(DiceTerm(simpleCount, die).toNotation()) else emptyList()
-            rolls.filterIsInstance<DoubleRoll>().map(doubleRollNotation) + simpleTerm
+            rolls.filterIsInstance<DoubleRoll>().map(DoubleRoll::toNotation) + simpleTerm
         }
+
         return terms.joinToString(" + ") + modifier.toModifierNotation()
     }
 

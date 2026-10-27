@@ -102,8 +102,6 @@ import rpg_companion.composeapp.generated.resources.die_label
 import rpg_companion.composeapp.generated.resources.label_double_roll
 import rpg_companion.composeapp.generated.resources.label_modifier
 import rpg_companion.composeapp.generated.resources.message_compose_then_roll
-import rpg_companion.composeapp.generated.resources.notation_with_advantage
-import rpg_companion.composeapp.generated.resources.notation_with_disadvantage
 import rpg_companion.composeapp.generated.resources.section_compose
 import rpg_companion.composeapp.generated.resources.section_d20_roll
 import rpg_companion.composeapp.generated.resources.title_dice_roller
@@ -206,7 +204,7 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
                 NoRollYet()
             } else {
                 Text(
-                    text = lastRoll.notation(),
+                    text = lastRoll.toNotation().orEmpty(),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -216,21 +214,6 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
         }
     }
 }
-
-@Composable
-private fun RollPool.notation(): String {
-    val doubleRollNotations = rolls.filterIsInstance<DoubleRoll>().associateWith { it.notation() }
-    return toNotation(doubleRollNotations::getValue).orEmpty()
-}
-
-@Composable
-private fun DoubleRoll.notation(): String = stringResource(
-    when (rule) {
-        KeepRule.HIGHER -> Res.string.notation_with_advantage
-        KeepRule.LOWER -> Res.string.notation_with_disadvantage
-    },
-    stringResource(Res.string.die_label, die.sides),
-)
 
 @Composable
 private fun RollTotal(rollCount: Int, total: Int) {

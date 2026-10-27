@@ -11,7 +11,6 @@ import kotlin.test.assertTrue
 class RollPoolTest {
     private val d20 = SimpleRoll(Die.D20, 14)
     private val d6 = SimpleRoll(Die.D6, 3)
-    private val doubleRollNotation = { roll: DoubleRoll -> "d${roll.die.sides} ${roll.rule}" }
 
     @Test
     fun `an empty pool totals its modifier`() {
@@ -59,7 +58,7 @@ class RollPoolTest {
     fun `a pool writes the dice it rolled grouped from the biggest with its modifier`() {
         val pool = RollPool(listOf(d6, d20, SimpleRoll(Die.D6, 5)), modifier = 6)
 
-        assertEquals((1.d20 + 2.d6 + 6).toNotation(), pool.toNotation(doubleRollNotation))
+        assertEquals((1.d20 + 2.d6 + 6).toNotation(), pool.toNotation())
     }
 
     @Test
@@ -68,7 +67,7 @@ class RollPoolTest {
             DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5), rule = KeepRule.HIGHER)
         val pool = RollPool(listOf(d6, d20, withAdvantage), modifier = -2)
 
-        assertEquals("d20 HIGHER + 1d20 + 1d6 - 2", pool.toNotation(doubleRollNotation))
+        assertEquals("2d20kh1 + 1d20 + 1d6 - 2", pool.toNotation())
     }
 
     @Test
@@ -77,7 +76,7 @@ class RollPoolTest {
             DoubleRoll(kept = SimpleRoll(Die.D6, 5), discarded = SimpleRoll(Die.D6, 2), rule = KeepRule.HIGHER)
         val pool = RollPool(listOf(withAdvantage, d20))
 
-        assertEquals("1d20 + d6 HIGHER", pool.toNotation(doubleRollNotation))
+        assertEquals("1d20 + 2d6kh1", pool.toNotation())
     }
 
     @Test
@@ -85,7 +84,15 @@ class RollPoolTest {
         val withAdvantage =
             DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5), rule = KeepRule.HIGHER)
 
-        assertEquals("d20 HIGHER + 5", RollPool(listOf(withAdvantage), modifier = 5).toNotation(doubleRollNotation))
+        assertEquals("2d20kh1 + 5", RollPool(listOf(withAdvantage), modifier = 5).toNotation())
+    }
+
+    @Test
+    fun `a pool writes a double roll with disadvantage apart from one with advantage`() {
+        val withDisadvantage =
+            DoubleRoll(kept = SimpleRoll(Die.D20, 5), discarded = SimpleRoll(Die.D20, 18), rule = KeepRule.LOWER)
+
+        assertEquals("2d20kl1", RollPool(listOf(withDisadvantage)).toNotation())
     }
 
     @Test
@@ -98,7 +105,7 @@ class RollPoolTest {
 
     @Test
     fun `a pool without dice has no notation`() {
-        assertNull(RollPool(modifier = 3).toNotation(doubleRollNotation))
+        assertNull(RollPool(modifier = 3).toNotation())
     }
 
     @Test

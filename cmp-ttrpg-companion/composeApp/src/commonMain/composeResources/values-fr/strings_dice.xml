@@ -9,8 +9,6 @@
     <string name="die_count">×%1$d</string>
     <string name="label_modifier">Modificateur</string>
     <string name="label_double_roll">%1$s : %2$d, %3$d écarté</string>
-    <string name="notation_with_advantage">%1$s avec avantage</string>
-    <string name="notation_with_disadvantage">%1$s avec désavantage</string>
     <string name="message_compose_then_roll">Composez un jet, ou lancez un d20</string>
 
     <string name="section_d20_roll">Jet de d20</string>
