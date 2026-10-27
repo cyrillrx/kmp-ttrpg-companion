@@ -1,6 +1,9 @@
 package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.dice.domain.DiceComposition
+import com.cyrillrx.rpg.dice.domain.DiceCompositionRepository
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
@@ -11,13 +14,28 @@ import com.cyrillrx.rpg.dice.domain.rollWithDisadvantage
 import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlin.coroutines.cancellation.CancellationException
 import kotlin.random.Random
 
-class DiceRollerViewModel(private val random: Random = Random.Default) : ViewModel() {
+class DiceRollerViewModel(
+    private val compositionRepository: DiceCompositionRepository,
+    private val random: Random = Random.Default,
+) : ViewModel() {
 
     val state: StateFlow<DiceRollerState>
         field = MutableStateFlow(DiceRollerState())
+
+    init {
+        viewModelScope.launch {
+            restoreComposition()
+            saveCompositionChanges()
+        }
+    }
 
     fun addDie(die: Die) {
         state.update { current ->
@@ -65,6 +83,37 @@ class DiceRollerViewModel(private val random: Random = Random.Default) : ViewMod
 
     fun clearComposition() {
         state.update { it.copy(countByDie = emptyMap()) }
+    }
+
+    private suspend fun restoreComposition() {
+        val saved = loadCompositionOrEmpty()
+        state.update { it.copy(countByDie = saved.countByDie, modifier = saved.modifier) }
+    }
+
+    private suspend fun saveCompositionChanges() {
+        state.map { DiceComposition(it.countByDie, it.modifier) }
+            .distinctUntilChanged()
+            .drop(1)
+            .collect(::saveCompositionIgnoringFailure)
+    }
+
+    // Losing the composition only costs a few taps, so a storage failure never blocks the roller.
+    private suspend fun loadCompositionOrEmpty(): DiceComposition = try {
+        compositionRepository.load()
+    } catch (e: CancellationException) {
+        throw e
+    } catch (_: Exception) {
+        DiceComposition()
+    }
+
+    private suspend fun saveCompositionIgnoringFailure(composition: DiceComposition) {
+        try {
+            compositionRepository.save(composition)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (_: Exception) {
+            // See loadCompositionOrEmpty.
+        }
     }
 
     private fun rollDirectly(roll: DieRoll) {
