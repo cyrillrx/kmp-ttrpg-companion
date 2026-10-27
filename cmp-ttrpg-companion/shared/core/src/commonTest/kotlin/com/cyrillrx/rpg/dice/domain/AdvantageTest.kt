@@ -42,7 +42,12 @@ class AdvantageTest {
     }
 
     @Test
-    fun `equal rolls keep the rule they were rolled with`() {
+    fun `equal rolls with advantage keep the higher rule`() {
+        assertEquals(KeepRule.HIGHER, Die.D20.rollWithAdvantage(FixedRandom(9, 9)).rule)
+    }
+
+    @Test
+    fun `equal rolls with disadvantage keep the lower rule`() {
         assertEquals(KeepRule.LOWER, Die.D20.rollWithDisadvantage(FixedRandom(9, 9)).rule)
     }
 
