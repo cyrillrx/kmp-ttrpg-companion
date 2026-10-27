@@ -22,7 +22,7 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
             rolls.filterIsInstance<DoubleRoll>().map(DoubleRoll::toNotation) + simpleTerm
         }
 
-        return terms.joinToString(" + ") + modifier.toModifierNotation()
+        return terms.joinToString(TERM_SEPARATOR) + modifier.toModifierNotation()
     }
 
     /** The rolls grouped by die, from the biggest and each die's double rolls first, as the notation reads. */

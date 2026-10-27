@@ -6,6 +6,7 @@ import kotlin.random.Random
 const val MAX_DICE_COUNT = 100
 const val MAX_MODIFIER = 1000
 internal val MODIFIER_RANGE = -MAX_MODIFIER..MAX_MODIFIER
+internal const val TERM_SEPARATOR = " + "
 
 internal val biggestDieFirst: Comparator<Die> = compareByDescending { it.sides }
 
@@ -58,7 +59,7 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 
     /** Writes the expression as a notation that [parse] reads back, from the biggest die. */
     fun toNotation(): String = buildString {
-        append(terms.joinToString(" + ", transform = DiceTerm::toNotation))
+        append(terms.joinToString(TERM_SEPARATOR, transform = DiceTerm::toNotation))
         append(modifier.toModifierNotation())
     }
 
