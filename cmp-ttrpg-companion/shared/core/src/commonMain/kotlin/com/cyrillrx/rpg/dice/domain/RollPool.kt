@@ -27,8 +27,8 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
 
     /** The rolls grouped by die, from the biggest and each die's double rolls first, as the notation reads. */
     fun rollsByDie(): Map<Die, List<DieRoll>> = rolls
-        .sortedWith(compareBy<DieRoll, Die>(biggestDieFirst) { it.die }.thenBy { it !is DoubleRoll })
-        .groupBy { it.die }
+        .sortedWith(compareBy(biggestDieFirst, DieRoll::die).thenBy { it !is DoubleRoll })
+        .groupBy(DieRoll::die)
 
     fun add(roll: DieRoll): Result<RollPool, DiceNotationError.TooManyDice> =
         if (rolls.size < MAX_DICE_COUNT) {
