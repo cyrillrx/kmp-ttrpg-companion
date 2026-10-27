@@ -98,7 +98,7 @@ class DiceExpressionTest {
         val pool = (2.d6 + 1.d4 + 3).roll(FixedRandom(5, 2, 4))
 
         val expected = RollPool(
-            rolls = listOf(SimpleRoll(Die.D6, 5), SimpleRoll(Die.D6, 2), SimpleRoll(Die.D4, 4)),
+            rolls = listOf(SimpleRoll(Die.D6, value = 5), SimpleRoll(Die.D6, value = 2), SimpleRoll(Die.D4, value = 4)),
             modifier = 3,
         )
         assertEquals(expected, pool)

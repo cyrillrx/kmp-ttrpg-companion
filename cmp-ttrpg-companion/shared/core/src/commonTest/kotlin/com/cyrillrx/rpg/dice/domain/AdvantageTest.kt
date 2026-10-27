@@ -9,7 +9,11 @@ class AdvantageTest {
         val roll = Die.D20.rollWithAdvantage(FixedRandom(3, 17))
 
         val expected =
-            DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3), rule = KeepRule.HIGHER)
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 17),
+                discarded = SimpleRoll(Die.D20, value = 3),
+                rule = KeepRule.HIGHER,
+            )
 
         assertEquals(expected, roll)
     }
@@ -19,7 +23,11 @@ class AdvantageTest {
         val roll = Die.D20.rollWithDisadvantage(FixedRandom(3, 17))
 
         val expected =
-            DoubleRoll(kept = SimpleRoll(Die.D20, 3), discarded = SimpleRoll(Die.D20, 17), rule = KeepRule.LOWER)
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 3),
+                discarded = SimpleRoll(Die.D20, value = 17),
+                rule = KeepRule.LOWER,
+            )
 
         assertEquals(expected, roll)
     }

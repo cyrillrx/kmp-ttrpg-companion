@@ -7,7 +7,7 @@ import kotlin.test.assertFailsWith
 class DieTest {
     @Test
     fun `a roll gives the die and the value drawn`() {
-        assertEquals(SimpleRoll(Die.D6, 4), Die.D6.roll(FixedRandom(4)))
+        assertEquals(SimpleRoll(Die.D6, value = 4), Die.D6.roll(FixedRandom(4)))
     }
 
     @Test
@@ -26,7 +26,7 @@ class DieTest {
 
     @Test
     fun `a roll outside the faces of its die fails`() {
-        assertFailsWith<IllegalArgumentException> { SimpleRoll(Die.D6, 7) }
-        assertFailsWith<IllegalArgumentException> { SimpleRoll(Die.D20, 0) }
+        assertFailsWith<IllegalArgumentException> { SimpleRoll(Die.D6, value = 7) }
+        assertFailsWith<IllegalArgumentException> { SimpleRoll(Die.D20, value = 0) }
     }
 }

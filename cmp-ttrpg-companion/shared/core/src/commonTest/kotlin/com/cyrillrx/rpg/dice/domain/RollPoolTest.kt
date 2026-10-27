@@ -9,8 +9,8 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class RollPoolTest {
-    private val d20 = SimpleRoll(Die.D20, 14)
-    private val d6 = SimpleRoll(Die.D6, 3)
+    private val d20 = SimpleRoll(Die.D20, value = 14)
+    private val d6 = SimpleRoll(Die.D6, value = 3)
 
     @Test
     fun `an empty pool totals its modifier`() {
@@ -27,7 +27,11 @@ class RollPoolTest {
     @Test
     fun `only the kept roll of a double roll counts toward the total`() {
         val withAdvantage =
-            DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5), rule = KeepRule.HIGHER)
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 18),
+                discarded = SimpleRoll(Die.D20, value = 5),
+                rule = KeepRule.HIGHER,
+            )
 
         assertEquals(21, RollPool(listOf(withAdvantage, d6)).total())
     }
@@ -56,7 +60,7 @@ class RollPoolTest {
 
     @Test
     fun `a pool writes the dice it rolled grouped from the biggest with its modifier`() {
-        val pool = RollPool(listOf(d6, d20, SimpleRoll(Die.D6, 5)), modifier = 6)
+        val pool = RollPool(listOf(d6, d20, SimpleRoll(Die.D6, value = 5)), modifier = 6)
 
         assertEquals((1.d20 + 2.d6 + 6).toNotation(), pool.toNotation())
     }
@@ -64,7 +68,11 @@ class RollPoolTest {
     @Test
     fun `a pool writes a double roll apart from the plain rolls`() {
         val withAdvantage =
-            DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5), rule = KeepRule.HIGHER)
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 18),
+                discarded = SimpleRoll(Die.D20, value = 5),
+                rule = KeepRule.HIGHER,
+            )
         val pool = RollPool(listOf(d6, d20, withAdvantage), modifier = -2)
 
         assertEquals("2d20kh1 + 1d20 + 1d6 - 2", pool.toNotation())
@@ -73,7 +81,11 @@ class RollPoolTest {
     @Test
     fun `a pool writes a double roll after the bigger dice`() {
         val withAdvantage =
-            DoubleRoll(kept = SimpleRoll(Die.D6, 5), discarded = SimpleRoll(Die.D6, 2), rule = KeepRule.HIGHER)
+            DoubleRoll(
+                kept = SimpleRoll(Die.D6, value = 5),
+                discarded = SimpleRoll(Die.D6, value = 2),
+                rule = KeepRule.HIGHER,
+            )
         val pool = RollPool(listOf(withAdvantage, d20))
 
         assertEquals("1d20 + 2d6kh1", pool.toNotation())
@@ -82,7 +94,11 @@ class RollPoolTest {
     @Test
     fun `a pool of a lone double roll writes it with its modifier`() {
         val withAdvantage =
-            DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5), rule = KeepRule.HIGHER)
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 18),
+                discarded = SimpleRoll(Die.D20, value = 5),
+                rule = KeepRule.HIGHER,
+            )
 
         assertEquals("2d20kh1 + 5", RollPool(listOf(withAdvantage), modifier = 5).toNotation())
     }
@@ -90,14 +106,18 @@ class RollPoolTest {
     @Test
     fun `a pool writes a double roll with disadvantage apart from one with advantage`() {
         val withDisadvantage =
-            DoubleRoll(kept = SimpleRoll(Die.D20, 5), discarded = SimpleRoll(Die.D20, 18), rule = KeepRule.LOWER)
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 5),
+                discarded = SimpleRoll(Die.D20, value = 18),
+                rule = KeepRule.LOWER,
+            )
 
         assertEquals("2d20kl1", RollPool(listOf(withDisadvantage)).toNotation())
     }
 
     @Test
     fun `a pool groups its rolls by die from the biggest`() {
-        val otherD6 = SimpleRoll(Die.D6, 5)
+        val otherD6 = SimpleRoll(Die.D6, value = 5)
         val pool = RollPool(listOf(d6, d20, otherD6))
 
         assertEquals(listOf(Die.D20 to listOf<DieRoll>(d20), Die.D6 to listOf(d6, otherD6)), pool.rollsByDie().toList())
@@ -106,7 +126,11 @@ class RollPoolTest {
     @Test
     fun `a pool lists a die's double rolls before its plain rolls as the notation reads`() {
         val withAdvantage =
-            DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5), rule = KeepRule.HIGHER)
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 18),
+                discarded = SimpleRoll(Die.D20, value = 5),
+                rule = KeepRule.HIGHER,
+            )
         val pool = RollPool(listOf(d20, withAdvantage))
 
         assertEquals(listOf(Die.D20 to listOf(withAdvantage, d20)), pool.rollsByDie().toList())
