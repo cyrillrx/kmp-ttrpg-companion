@@ -16,6 +16,7 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
     fun toNotation(): String? {
         if (isEmpty()) return null
 
+        // TODO(#335): write through DiceExpression, so that parse reads a double roll back
         val terms = rollsByDie().flatMap { (die, rolls) ->
             val simpleCount = rolls.count { it is SimpleRoll }
             val simpleTerm = if (simpleCount > 0) listOf(DiceTerm(simpleCount, die).toNotation()) else emptyList()

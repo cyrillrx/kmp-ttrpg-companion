@@ -295,6 +295,7 @@ private fun RollTile(roll: DieRoll) {
     }
 }
 
+// TODO(#335): say the keep rule in the description, so that a tie tells the mode apart
 @Composable
 private fun DoubleRollContent(roll: DoubleRoll) {
     val description = stringResource(
