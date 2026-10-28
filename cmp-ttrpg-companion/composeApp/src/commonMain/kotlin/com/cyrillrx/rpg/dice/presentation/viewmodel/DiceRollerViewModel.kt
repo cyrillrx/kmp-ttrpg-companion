@@ -15,7 +15,7 @@ import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.dropWhile
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -32,8 +32,9 @@ class DiceRollerViewModel(
 
     init {
         viewModelScope.launch {
-            restoreComposition()
-            saveCompositionChanges()
+            val saved = loadCompositionOrEmpty()
+            restoreUntouchedComposition(saved)
+            saveCompositionChanges(alreadySaved = saved)
         }
     }
 
@@ -85,15 +86,18 @@ class DiceRollerViewModel(
         state.update { it.copy(countByDie = emptyMap()) }
     }
 
-    private suspend fun restoreComposition() {
-        val saved = loadCompositionOrEmpty()
-        state.update { it.copy(countByDie = saved.countByDie, modifier = saved.modifier) }
+    private fun restoreUntouchedComposition(saved: DiceComposition) {
+        state.update { current ->
+            if (current.toDiceComposition() != DiceComposition()) return@update current
+
+            current.copy(countByDie = saved.countByDie, modifier = saved.modifier)
+        }
     }
 
-    private suspend fun saveCompositionChanges() {
-        state.map { DiceComposition(it.countByDie, it.modifier) }
+    private suspend fun saveCompositionChanges(alreadySaved: DiceComposition) {
+        state.map { it.toDiceComposition() }
             .distinctUntilChanged()
-            .drop(1)
+            .dropWhile { it == alreadySaved }
             .collect(::saveCompositionIgnoringFailure)
     }
 
@@ -119,4 +123,6 @@ class DiceRollerViewModel(
     private fun rollDirectly(roll: DieRoll) {
         state.update { it.copy(lastRoll = RollPool(listOf(roll), it.modifier), rollCount = it.rollCount + 1) }
     }
+
+    private fun DiceRollerState.toDiceComposition() = DiceComposition(countByDie, modifier)
 }

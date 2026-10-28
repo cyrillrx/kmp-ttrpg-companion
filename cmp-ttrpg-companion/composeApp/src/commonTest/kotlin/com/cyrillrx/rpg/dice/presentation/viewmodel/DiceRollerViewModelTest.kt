@@ -16,7 +16,8 @@ import com.cyrillrx.rpg.dice.domain.d6
 import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -33,7 +34,7 @@ class DiceRollerViewModelTest {
 
     @BeforeTest
     fun setUp() {
-        Dispatchers.setMain(UnconfinedTestDispatcher())
+        Dispatchers.setMain(StandardTestDispatcher())
     }
 
     @AfterTest
@@ -194,21 +195,36 @@ class DiceRollerViewModelTest {
     }
 
     @Test
-    fun `the roller opens on the composition saved last time`() {
+    fun `the roller opens on the composition saved last time`() = runTest {
         val saved = DiceComposition(countByDie = mapOf(Die.D6 to 2), modifier = 3)
 
         val viewModel = DiceRollerViewModel(RamDiceCompositionRepository(saved))
+        advanceUntilIdle()
 
         assertEquals(2.d6 + 3, viewModel.state.value.composition())
+    }
+
+    @Test
+    fun `dice added before the saved composition loads are kept and saved`() = runTest {
+        val repository = RamDiceCompositionRepository(DiceComposition(countByDie = mapOf(Die.D8 to 1), modifier = 2))
+        val viewModel = DiceRollerViewModel(repository)
+
+        viewModel.addDie(Die.D20)
+        advanceUntilIdle()
+
+        assertEquals(1.d20, viewModel.state.value.composition())
+        assertEquals(DiceComposition(countByDie = mapOf(Die.D20 to 1)), repository.load())
     }
 
     @Test
     fun `composing a roll saves the dice and the modifier`() = runTest {
         val repository = RamDiceCompositionRepository()
         val viewModel = DiceRollerViewModel(repository)
+        advanceUntilIdle()
 
         viewModel.addDie(Die.D20)
         viewModel.increaseModifier()
+        advanceUntilIdle()
 
         assertEquals(DiceComposition(countByDie = mapOf(Die.D20 to 1), modifier = 1), repository.load())
     }
@@ -217,50 +233,47 @@ class DiceRollerViewModelTest {
     fun `clearing the composition saves a composition without dice`() = runTest {
         val repository = RamDiceCompositionRepository(DiceComposition(countByDie = mapOf(Die.D8 to 1), modifier = 2))
         val viewModel = DiceRollerViewModel(repository)
+        advanceUntilIdle()
 
         viewModel.clearComposition()
+        advanceUntilIdle()
 
         assertEquals(DiceComposition(modifier = 2), repository.load())
     }
 
     @Test
-    fun `rolling does not save the composition again`() {
-        val repository = CountingCompositionRepository()
+    fun `rolling does not save the composition again`() = runTest {
+        val repository = RamDiceCompositionRepository()
         val viewModel = DiceRollerViewModel(repository, FixedRandom(4, 14))
         viewModel.addDie(Die.D6)
+        advanceUntilIdle()
+        val storedElsewhere = DiceComposition(modifier = 7)
+        repository.save(storedElsewhere)
 
         viewModel.roll()
         viewModel.rollD20()
+        advanceUntilIdle()
 
-        assertEquals(1, repository.saveCount)
+        assertEquals(storedElsewhere, repository.load())
     }
 
     @Test
-    fun `the roller opens empty when the saved composition cannot be read`() {
+    fun `the roller opens empty when the saved composition cannot be read`() = runTest {
         val viewModel = DiceRollerViewModel(FailingCompositionRepository())
+        advanceUntilIdle()
 
         assertEquals(DiceRollerState(), viewModel.state.value)
     }
 
     @Test
-    fun `the roller keeps composing when the composition cannot be saved`() {
+    fun `the roller keeps composing when the composition cannot be saved`() = runTest {
         val viewModel = DiceRollerViewModel(FailingCompositionRepository())
 
         viewModel.addDie(Die.D4)
         viewModel.addDie(Die.D4)
+        advanceUntilIdle()
 
         assertEquals(2.d4, viewModel.state.value.composition())
-    }
-
-    private class CountingCompositionRepository : DiceCompositionRepository {
-        var saveCount = 0
-            private set
-
-        override suspend fun load(): DiceComposition = DiceComposition()
-
-        override suspend fun save(composition: DiceComposition) {
-            saveCount++
-        }
     }
 
     private class FailingCompositionRepository : DiceCompositionRepository {
