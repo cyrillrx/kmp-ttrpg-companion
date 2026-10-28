@@ -2,16 +2,16 @@ package com.cyrillrx.rpg.dice.domain
 
 import kotlin.random.Random
 
-fun Die.rollWithAdvantage(random: Random = Random.Default): DoubleRoll = rollTwiceKeeping(random, ::maxOf)
+fun Die.rollWithAdvantage(random: Random = Random.Default): DoubleRoll = rollTwiceKeeping(random, KeepRule.HIGHER)
 
-fun Die.rollWithDisadvantage(random: Random = Random.Default): DoubleRoll = rollTwiceKeeping(random, ::minOf)
+fun Die.rollWithDisadvantage(random: Random = Random.Default): DoubleRoll = rollTwiceKeeping(random, KeepRule.LOWER)
 
-private fun Die.rollTwiceKeeping(random: Random, keptValue: (Int, Int) -> Int): DoubleRoll {
+private fun Die.rollTwiceKeeping(random: Random, rule: KeepRule): DoubleRoll {
     val first = roll(random)
     val second = roll(random)
-    return if (keptValue(first.value, second.value) == first.value) {
-        DoubleRoll(kept = first, discarded = second)
+    return if (rule.keeps(first.value, over = second.value)) {
+        DoubleRoll(kept = first, discarded = second, rule = rule)
     } else {
-        DoubleRoll(kept = second, discarded = first)
+        DoubleRoll(kept = second, discarded = first, rule = rule)
     }
 }

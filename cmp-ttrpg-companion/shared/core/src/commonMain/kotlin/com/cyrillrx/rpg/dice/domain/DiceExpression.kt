@@ -6,6 +6,7 @@ import kotlin.random.Random
 const val MAX_DICE_COUNT = 100
 const val MAX_MODIFIER = 1000
 internal val MODIFIER_RANGE = -MAX_MODIFIER..MAX_MODIFIER
+internal const val TERM_SEPARATOR = " + "
 
 internal val biggestDieFirst: Comparator<Die> = compareByDescending { it.sides }
 
@@ -58,11 +59,8 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 
     /** Writes the expression as a notation that [parse] reads back, from the biggest die. */
     fun toNotation(): String = buildString {
-        append(terms.joinToString(" + ", transform = DiceTerm::toNotation))
-        when {
-            modifier > 0 -> append(" + ").append(modifier)
-            modifier < 0 -> append(" - ").append(-modifier)
-        }
+        append(terms.joinToString(TERM_SEPARATOR, transform = DiceTerm::toNotation))
+        append(modifier.toModifierNotation())
     }
 
     override fun toString(): String = toNotation()
@@ -79,6 +77,12 @@ internal fun checkedDiceExpression(terms: List<DiceTerm>, modifier: Long): Resul
         modifier !in MODIFIER_RANGE -> Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
         else -> Result.Success(DiceExpression(terms, modifier.toInt()))
     }
+
+internal fun Int.toModifierNotation(): String = when {
+    this > 0 -> " + $this"
+    this < 0 -> " - ${-this}"
+    else -> ""
+}
 
 private fun List<DiceTerm>.countByDieBiggestFirst(): Map<Die, Int> = groupingBy { it.die }
     .fold(0) { count, term -> count + term.count }

@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
+import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.dice.domain.RollPool
@@ -83,7 +84,10 @@ class DiceRollerViewModelTest {
         viewModel.roll()
 
         val state = viewModel.state.value
-        assertEquals(RollPool(listOf(SimpleRoll(Die.D6, 4), SimpleRoll(Die.D6, 2)), modifier = 1), state.lastRoll)
+        assertEquals(
+            RollPool(listOf(SimpleRoll(Die.D6, value = 4), SimpleRoll(Die.D6, value = 2)), modifier = 1),
+            state.lastRoll,
+        )
         assertEquals(2.d6 + 1, state.composition())
     }
 
@@ -116,7 +120,7 @@ class DiceRollerViewModelTest {
         viewModel.rollD20()
 
         val state = viewModel.state.value
-        assertEquals(RollPool(listOf(SimpleRoll(Die.D20, 14)), modifier = 1), state.lastRoll)
+        assertEquals(RollPool(listOf(SimpleRoll(Die.D20, value = 14)), modifier = 1), state.lastRoll)
         assertEquals(1.d6 + 1, state.composition())
     }
 
@@ -126,7 +130,12 @@ class DiceRollerViewModelTest {
 
         viewModel.rollD20WithAdvantage()
 
-        val expected = DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3))
+        val expected =
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 17),
+                discarded = SimpleRoll(Die.D20, value = 3),
+                rule = KeepRule.HIGHER,
+            )
         assertEquals(RollPool(listOf(expected)), viewModel.state.value.lastRoll)
     }
 
@@ -136,7 +145,12 @@ class DiceRollerViewModelTest {
 
         viewModel.rollD20WithDisadvantage()
 
-        val expected = DoubleRoll(kept = SimpleRoll(Die.D20, 3), discarded = SimpleRoll(Die.D20, 17))
+        val expected =
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 3),
+                discarded = SimpleRoll(Die.D20, value = 17),
+                rule = KeepRule.LOWER,
+            )
         assertEquals(RollPool(listOf(expected)), viewModel.state.value.lastRoll)
     }
 
@@ -152,7 +166,7 @@ class DiceRollerViewModelTest {
         val state = viewModel.state.value
         assertNull(state.composition())
         assertEquals(1, state.modifier)
-        assertEquals(RollPool(listOf(SimpleRoll(Die.D8, 5)), modifier = 1), state.lastRoll)
+        assertEquals(RollPool(listOf(SimpleRoll(Die.D8, value = 5)), modifier = 1), state.lastRoll)
     }
 
     private class FixedRandom(vararg values: Int) : Random() {

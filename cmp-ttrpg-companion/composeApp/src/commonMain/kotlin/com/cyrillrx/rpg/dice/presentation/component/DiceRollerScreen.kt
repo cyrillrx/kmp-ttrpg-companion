@@ -78,6 +78,7 @@ import com.cyrillrx.rpg.core.presentation.theme.widthExpandedMin
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
+import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.dice.domain.RollPool
@@ -203,7 +204,7 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
                 NoRollYet()
             } else {
                 Text(
-                    text = lastRoll.toExpression()?.toNotation().orEmpty(),
+                    text = lastRoll.toNotation().orEmpty(),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -294,6 +295,7 @@ private fun RollTile(roll: DieRoll) {
     }
 }
 
+// TODO(#335): say the keep rule in the description, so that a tie tells the mode apart
 @Composable
 private fun DoubleRollContent(roll: DoubleRoll) {
     val description = stringResource(
@@ -320,6 +322,8 @@ private fun DoubleRollContent(roll: DoubleRoll) {
         )
     }
 }
+
+// TODO(#333): color by DoubleRoll.rule, so that a tie still tells the mode apart
 
 /** The higher roll reads like healing and the lower like damage, so the kept one tells advantage from disadvantage. */
 @Composable
@@ -541,7 +545,13 @@ private val previewState = DiceRollerState(
     countByDie = mapOf(Die.D6 to 2),
     modifier = 5,
     lastRoll = RollPool(
-        rolls = listOf(DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3))),
+        rolls = listOf(
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 17),
+                discarded = SimpleRoll(Die.D20, value = 3),
+                rule = KeepRule.HIGHER,
+            ),
+        ),
         modifier = 5,
     ),
 )
