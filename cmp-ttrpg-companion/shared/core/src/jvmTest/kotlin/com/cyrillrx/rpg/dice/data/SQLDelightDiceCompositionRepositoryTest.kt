@@ -63,7 +63,11 @@ class SQLDelightDiceCompositionRepositoryTest {
     }
 
     private fun storeRow(dice: String, modifier: Long) {
-        driver.execute(null, "INSERT OR REPLACE INTO DiceComposition (id, dice, modifier) VALUES (1, ?, ?)", 2) {
+        driver.execute(
+            identifier = null,
+            sql = "INSERT OR REPLACE INTO DiceComposition (id, dice, modifier) VALUES (1, ?, ?)",
+            parameters = 2,
+        ) {
             bindString(0, dice)
             bindLong(1, modifier)
         }
