@@ -116,7 +116,6 @@ class DiceRollerViewModel(
         } catch (e: CancellationException) {
             throw e
         } catch (_: Exception) {
-            // See loadCompositionOrEmpty.
         }
     }
 

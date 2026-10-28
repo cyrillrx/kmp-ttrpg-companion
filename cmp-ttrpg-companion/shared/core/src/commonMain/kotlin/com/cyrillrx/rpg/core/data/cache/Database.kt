@@ -177,7 +177,6 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         dbQuery.saveDiceComposition(dice = composition.toDiceNotation(), modifier = composition.modifier.toLong())
     }
 
-    /** Dice or a modifier the current rules no longer accept are dropped rather than failing the whole roller. */
     private fun mapDiceComposition(dice: String, modifier: Long): DiceComposition = DiceComposition(
         countByDie = if (dice.isEmpty()) emptyMap() else dice.toCountByDie(),
         modifier = modifier.coerceIn(-MAX_MODIFIER.toLong(), MAX_MODIFIER.toLong()).toInt(),
