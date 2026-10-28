@@ -123,6 +123,4 @@ class DiceRollerViewModel(
     private fun rollDirectly(roll: DieRoll) {
         state.update { it.copy(lastRoll = RollPool(listOf(roll), it.modifier), rollCount = it.rollCount + 1) }
     }
-
-    private fun DiceRollerState.toDiceComposition() = DiceComposition(countByDie, modifier)
 }

@@ -10,7 +10,6 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.dice.domain.DiceComposition
 import com.cyrillrx.rpg.dice.domain.DiceExpression
-import com.cyrillrx.rpg.dice.domain.DiceTerm
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
@@ -184,16 +183,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         modifier = modifier.coerceIn(-MAX_MODIFIER.toLong(), MAX_MODIFIER.toLong()).toInt(),
     )
 
-    private fun DiceComposition.toDiceNotation(): String =
-        if (countByDie.isEmpty()) {
-            ""
-        } else {
-            DiceExpression(
-                countByDie.map { (die, count) ->
-                    DiceTerm(count, die)
-                },
-            ).toNotation()
-        }
+    private fun DiceComposition.toDiceNotation(): String = copy(modifier = 0).toExpression()?.toNotation().orEmpty()
 
     private fun String.toCountByDie(): Map<Die, Int> = when (val result = DiceExpression.parse(this)) {
         is Result.Success -> result.value.terms.associate { it.die to it.count }
