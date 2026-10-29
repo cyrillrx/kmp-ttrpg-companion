@@ -68,8 +68,8 @@ class SQLDelightDiceCompositionRepositoryTest {
             sql = "INSERT OR REPLACE INTO DiceComposition (id, dice, modifier) VALUES (1, ?, ?)",
             parameters = 2,
         ) {
-            bindString(0, dice)
-            bindLong(1, modifier)
+            bindString(index = 0, string = dice)
+            bindLong(index = 1, long = modifier)
         }
     }
 }
