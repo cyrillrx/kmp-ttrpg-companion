@@ -10,7 +10,6 @@ class DiceRollerViewModelFactory(
     private val compositionRepository: DiceCompositionRepository,
 ) : ViewModelProvider.Factory {
 
-    override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {
-        return DiceRollerViewModel(compositionRepository) as T
-    }
+    override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T =
+        DiceRollerViewModel(compositionRepository) as T
 }
