@@ -5,10 +5,16 @@ import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
 import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.core.data.cache.Database.Companion.DATABASE_NAME
+import java.nio.file.Path
+import kotlin.io.path.createDirectories
+import kotlin.io.path.div
 
-class DesktopDatabaseDriverFactory : DatabaseDriverFactory {
-    override fun createDriver(): SqlDriver =
-        JdbcSqliteDriver(URL_PREFIX + DATABASE_NAME).also { it.reconcileSchema() }
+class DesktopDatabaseDriverFactory(private val dataDirectory: Path) : DatabaseDriverFactory {
+    override fun createDriver(): SqlDriver {
+        dataDirectory.createDirectories()
+
+        return JdbcSqliteDriver(URL_PREFIX + (dataDirectory / DATABASE_NAME)).also { it.reconcileSchema() }
+    }
 
     companion object {
         const val URL_PREFIX = "jdbc:sqlite:"
