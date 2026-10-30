@@ -178,7 +178,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     private fun mapDiceComposition(dice: String, modifier: Long): DiceComposition = DiceComposition(
-        countByDie = if (dice.isEmpty()) emptyMap() else dice.toCountByDie(),
+        countByDie = dice.toCountByDie(),
         modifier = modifier.coerceIn(-MAX_MODIFIER.toLong(), MAX_MODIFIER.toLong()).toInt(),
     )
 
