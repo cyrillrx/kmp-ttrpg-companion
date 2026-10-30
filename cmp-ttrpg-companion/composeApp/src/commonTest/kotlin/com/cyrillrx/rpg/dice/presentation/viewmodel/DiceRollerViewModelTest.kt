@@ -13,7 +13,6 @@ import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.domain.d20
-import com.cyrillrx.rpg.dice.domain.d4
 import com.cyrillrx.rpg.dice.domain.d6
 import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import kotlinx.coroutines.Dispatchers
@@ -45,8 +44,11 @@ class DiceRollerViewModelTest {
     }
 
     @Test
-    fun `the roller opens on an empty composition`() {
-        assertEquals(DiceRollerState(), DiceRollerViewModel(RamDiceCompositionRepository()).state.value)
+    fun `the roller opens on an empty composition`() = runTest {
+        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository())
+        advanceUntilIdle()
+
+        assertEquals(DiceRollerState(), viewModel.state.value)
     }
 
     @Test
@@ -268,18 +270,17 @@ class DiceRollerViewModelTest {
     }
 
     @Test
-    fun `a composition that fails to save is saved with the next change`() = runTest {
+    fun `a composition that fails to save is saved again on the next state change`() = runTest {
         val repository = FirstSaveFailingRepository()
-        val viewModel = DiceRollerViewModel(repository)
+        val viewModel = DiceRollerViewModel(repository, FixedRandom(14))
         advanceUntilIdle()
 
         viewModel.addDie(Die.D4)
         advanceUntilIdle()
-        viewModel.addDie(Die.D4)
+        viewModel.rollD20()
         advanceUntilIdle()
 
-        assertEquals(2.d4, viewModel.state.value.composition())
-        assertEquals(DiceComposition(countByDie = mapOf(Die.D4 to 2)), repository.load())
+        assertEquals(DiceComposition(countByDie = mapOf(Die.D4 to 1)), repository.load())
     }
 
     @Test
