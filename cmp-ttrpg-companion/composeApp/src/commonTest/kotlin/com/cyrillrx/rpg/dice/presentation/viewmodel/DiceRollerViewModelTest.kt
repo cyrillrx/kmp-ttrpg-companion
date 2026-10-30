@@ -59,7 +59,7 @@ class DiceRollerViewModelTest {
         viewModel.addDie(Die.D6)
         viewModel.addDie(Die.D20)
 
-        assertEquals(1.d20 + 2.d6, viewModel.state.value.composition())
+        assertEquals(1.d20 + 2.d6, viewModel.state.value.expression())
     }
 
     @Test
@@ -70,7 +70,7 @@ class DiceRollerViewModelTest {
 
         viewModel.removeDie(Die.D6)
 
-        assertEquals(1.d6, viewModel.state.value.composition())
+        assertEquals(1.d6, viewModel.state.value.expression())
     }
 
     @Test
@@ -80,7 +80,7 @@ class DiceRollerViewModelTest {
 
         viewModel.removeDie(Die.D6)
 
-        assertNull(viewModel.state.value.composition())
+        assertNull(viewModel.state.value.expression())
     }
 
     @Test
@@ -117,7 +117,7 @@ class DiceRollerViewModelTest {
             RollPool(listOf(SimpleRoll(Die.D6, value = 4), SimpleRoll(Die.D6, value = 2)), modifier = 1),
             state.lastRoll,
         )
-        assertEquals(2.d6 + 1, state.composition())
+        assertEquals(2.d6 + 1, state.expression())
     }
 
     @Test
@@ -150,7 +150,7 @@ class DiceRollerViewModelTest {
 
         val state = viewModel.state.value
         assertEquals(RollPool(listOf(SimpleRoll(Die.D20, value = 14)), modifier = 1), state.lastRoll)
-        assertEquals(1.d6 + 1, state.composition())
+        assertEquals(1.d6 + 1, state.expression())
     }
 
     @Test
@@ -193,7 +193,7 @@ class DiceRollerViewModelTest {
         viewModel.clearComposition()
 
         val state = viewModel.state.value
-        assertNull(state.composition())
+        assertNull(state.expression())
         assertEquals(1, state.modifier)
         assertEquals(RollPool(listOf(SimpleRoll(Die.D8, value = 5)), modifier = 1), state.lastRoll)
     }
@@ -205,7 +205,7 @@ class DiceRollerViewModelTest {
         val viewModel = DiceRollerViewModel(RamDiceCompositionRepository(saved))
         advanceUntilIdle()
 
-        assertEquals(2.d6 + 3, viewModel.state.value.composition())
+        assertEquals(2.d6 + 3, viewModel.state.value.expression())
     }
 
     @Test
@@ -216,7 +216,7 @@ class DiceRollerViewModelTest {
         viewModel.addDie(Die.D20)
         advanceUntilIdle()
 
-        assertEquals(1.d20, viewModel.state.value.composition())
+        assertEquals(1.d20, viewModel.state.value.expression())
         assertEquals(DiceComposition(countByDie = mapOf(Die.D20 to 1)), repository.load())
     }
 

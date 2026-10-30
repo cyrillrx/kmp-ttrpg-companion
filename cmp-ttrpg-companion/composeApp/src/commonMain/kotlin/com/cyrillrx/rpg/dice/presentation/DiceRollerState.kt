@@ -14,7 +14,7 @@ data class DiceRollerState(
 ) {
     fun diceCount(): Int = countByDie.values.sum()
 
-    fun composition(): DiceExpression? = toDiceComposition().toExpression()
+    fun expression(): DiceExpression? = toDiceComposition().toExpression()
 
     fun toDiceComposition(): DiceComposition = DiceComposition(countByDie, modifier)
 }

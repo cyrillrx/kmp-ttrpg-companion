@@ -44,6 +44,6 @@ class DiceRollerViewModelFactoryTest {
         )[DiceRollerViewModel::class]
         advanceUntilIdle()
 
-        assertEquals(1.d4, viewModel.state.value.composition())
+        assertEquals(1.d4, viewModel.state.value.expression())
     }
 }
