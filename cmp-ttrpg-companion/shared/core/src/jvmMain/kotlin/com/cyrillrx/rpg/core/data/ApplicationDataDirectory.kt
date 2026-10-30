@@ -14,10 +14,13 @@ fun applicationDataDirectory(
     val lowercaseOsName = osName.lowercase()
     return when {
         lowercaseOsName.startsWith("mac") -> home / "Library" / "Application Support" / appName
-        lowercaseOsName.startsWith("windows") -> (environment.absolutePath("LOCALAPPDATA") ?: home) / appName / "data"
-        else -> (environment.absolutePath("XDG_DATA_HOME") ?: home / ".local" / "share") / appName
+        lowercaseOsName.startsWith("windows") -> {
+            val localAppData = environment.readAbsolutePath(variable = "LOCALAPPDATA")
+            (localAppData ?: home) / appName / "data"
+        }
+        else -> (environment.readAbsolutePath(variable = "XDG_DATA_HOME") ?: home / ".local" / "share") / appName
     }
 }
 
-private fun ((String) -> String?).absolutePath(variable: String): Path? =
+private fun ((String) -> String?).readAbsolutePath(variable: String): Path? =
     invoke(variable)?.let(::Path)?.takeIf(Path::isAbsolute)
