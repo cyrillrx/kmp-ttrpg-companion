@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.dice.presentation
 
 import com.cyrillrx.rpg.dice.domain.DiceExpression
-import com.cyrillrx.rpg.dice.domain.DiceRollerDraft
+import com.cyrillrx.rpg.dice.domain.DiceTerm
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.RollPool
 
@@ -14,7 +14,9 @@ data class DiceRollerState(
 ) {
     fun diceCount(): Int = countByDie.values.sum()
 
-    fun expression(): DiceExpression? = toDraft().toExpression()
-
-    fun toDraft(): DiceRollerDraft = DiceRollerDraft(countByDie, modifier)
+    fun composition(): DiceExpression? = if (countByDie.isEmpty()) {
+        null
+    } else {
+        DiceExpression(countByDie.map { (die, count) -> DiceTerm(count, die) }, modifier)
+    }
 }
