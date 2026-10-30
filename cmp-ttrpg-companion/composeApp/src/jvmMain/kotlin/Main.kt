@@ -15,7 +15,7 @@ fun main() {
         application {
             Window(
                 onCloseRequest = ::exitApplication,
-                title = "TTRPG companion",
+                title = APP_NAME,
             ) {
                 App(databaseDriverFactory)
             }
