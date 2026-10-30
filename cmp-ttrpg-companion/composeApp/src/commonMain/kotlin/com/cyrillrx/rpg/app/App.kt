@@ -36,7 +36,6 @@ import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.creature.data.JsonMonsterRepository
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouterImpl
 import com.cyrillrx.rpg.creature.presentation.navigation.handleMonsterRoutes
-import com.cyrillrx.rpg.dice.data.SQLDelightDiceRollerDraftRepository
 import com.cyrillrx.rpg.dice.presentation.navigation.handleDiceRoutes
 import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouterImpl
@@ -88,8 +87,6 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
                 remember(dbDriverFactory) { SQLDelightUserCollectionRepository(dbDriverFactory) }
             val characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) }
             val campaignRepository = remember(dbDriverFactory) { SQLDelightCampaignRepository(dbDriverFactory) }
-            val diceRollerDraftRepository =
-                remember(dbDriverFactory) { SQLDelightDiceRollerDraftRepository(dbDriverFactory) }
             val pcPresetRepository = remember(fileReader) {
                 JsonCharacterPresetRepository(fileReader, "files/pc-presets.json")
             }
@@ -157,7 +154,7 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
                         userCollectionRepository = userCollectionRepository,
                         prefsRepository = prefsRepository,
                     )
-                    handleDiceRoutes(backStack, diceRollerDraftRepository)
+                    handleDiceRoutes(backStack)
                     handleSettingsRoutes(backStack, prefsRepository)
                 },
             )

@@ -8,7 +8,6 @@ import java.io.File
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
-import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class AppDatabaseMigrationTest {
@@ -57,16 +56,6 @@ class AppDatabaseMigrationTest {
             expected = listOf("light", "grove", "meters", "last_modified", "last_modified", "added"),
             actual = preferences,
         )
-    }
-
-    @Test
-    fun `migrating from v5 adds a dice roller draft table that holds nothing yet`() {
-        val driver = v5Database()
-        AppDatabase.Schema.migrate(driver, oldVersion = 5L, newVersion = AppDatabase.Schema.version)
-
-        val draft = AppDatabase(driver).appDatabaseQueries.getDiceRollerDraft().executeAsOneOrNull()
-
-        assertNull(draft)
     }
 
     @Test
@@ -242,10 +231,6 @@ class AppDatabaseMigrationTest {
         AppDatabase.Schema.migrate(it, oldVersion = 3L, newVersion = 4L)
     }
 
-    private fun v5Database(url: String = JdbcSqliteDriver.IN_MEMORY): SqlDriver = v4Database(url).also {
-        AppDatabase.Schema.migrate(it, oldVersion = 4L, newVersion = 5L)
-    }
-
     @Suppress("UNUSED_PARAMETER", "LongParameterList")
     private fun preferenceColumns(
         id: Long,
@@ -276,8 +261,7 @@ class AppDatabaseMigrationTest {
     ).value
 
     private companion object {
-        val MIGRATED_TABLES =
-            listOf("UserPreferencesEntity", "Campaign", "Character", "UserCollection", "DiceRollerDraft")
+        val MIGRATED_TABLES = listOf("UserPreferencesEntity", "Campaign", "Character", "UserCollection")
 
         val V1_USER_PREFERENCES =
             """

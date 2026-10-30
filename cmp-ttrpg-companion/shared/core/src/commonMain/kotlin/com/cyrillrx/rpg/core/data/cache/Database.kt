@@ -2,16 +2,11 @@ package com.cyrillrx.rpg.core.data.cache
 
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.data.serialize
-import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
-import com.cyrillrx.rpg.dice.domain.DiceExpression
-import com.cyrillrx.rpg.dice.domain.DiceRollerDraft
-import com.cyrillrx.rpg.dice.domain.Die
-import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
@@ -169,28 +164,6 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         value = mapUserCollectionSelecting(id, name, type, itemIds, updatedAt),
         updatedAt = Instant.fromEpochMilliseconds(updatedAt),
     )
-
-    fun getDiceRollerDraft(): DiceRollerDraft? =
-        dbQuery.getDiceRollerDraft(::mapDiceRollerDraft).executeAsOneOrNull()
-
-    fun saveDiceRollerDraft(draft: DiceRollerDraft) {
-        dbQuery.saveDiceRollerDraft(dice = draft.toDiceNotation(), modifier = draft.modifier.toLong())
-    }
-
-    private fun mapDiceRollerDraft(dice: String, modifier: Long): DiceRollerDraft = DiceRollerDraft(
-        countByDie = if (dice.isEmpty()) emptyMap() else dice.toCountByDie(),
-        modifier = modifier.coerceIn(-MAX_MODIFIER.toLong(), MAX_MODIFIER.toLong()).toInt(),
-    )
-
-    private fun DiceRollerDraft.toDiceNotation(): String = copy(modifier = 0).toExpression()?.toNotation().orEmpty()
-
-    private fun String.toCountByDie(): Map<Die, Int> = when (val result = DiceExpression.parse(this)) {
-        is Result.Success -> result.value.terms.associate { it.die to it.count }
-        is Result.Failure -> {
-            println("WARNING: stored dice roller draft '$this' dropped: ${result.error}")
-            emptyMap()
-        }
-    }
 
     companion object {
         const val DATABASE_NAME = "ttrpg_companion.db"

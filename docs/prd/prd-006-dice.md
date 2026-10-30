@@ -52,10 +52,10 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - [x] A **Clear** key in the pad empties the composition; the modifier, shared with direct rolls, and the last roll stay.
 - [x] The last roll shows each individual die result, grouped by die, alongside its notation and total. It is read-only: a die is never added to or removed from a roll already thrown.
 - [x] Rolling is instantaneous with a visual result (animation optional).
+- [x] The composition and the modifier last while the app runs; the roller opens empty when the app starts.
 
 ### Roll History
 
-- [x] The composition, modifier included, is persisted locally, so closing the app does not lose it.
 - [ ] Each roll, composed or direct, is recorded in the history log.
 - [ ] The log entry shows: dice rolled, individual results (discarded ones included), modifier, total, and timestamp.
 - [ ] History is persisted locally across app restarts.
@@ -96,5 +96,6 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - How long should the roll history be retained? Options: session only, 7 days, indefinitely until manually cleared. **Settled**: until cleared, capped at 500 entries.
 - Should the history be scoped per campaign session or be a single global log? **Settled** for now: a single global log, since campaigns do not exist yet; to revisit with [PRD-003 — Campaigns](prd-003-campaigns.md).
 - Should there be a modifier field (e.g. +3 to add a bonus to the total)? **Settled**: yes, a −/+ modifier shared by direct rolls and the composition.
+- Should the composition survive an app restart? **Settled**: no. Reopening the app on the dice left from a previous session felt confusing for a dice roller; the history log is what keeps past rolls.
 - Should the dice roller also ship as a standalone app? A second launcher activity in the same Android package gives it its own icon but shares the app's data and installation; a separate app needs its own application module on each target. Tracked as an idea to qualify under the mini-apps entry of the [roadmap](../roadmap.md) Exploration section.
 - Should a d100 read as a tens die and a units die (00–90 plus 0–9), as rolled at the table, rather than the single number described under Supported Dice? Its rendering is to explore.
