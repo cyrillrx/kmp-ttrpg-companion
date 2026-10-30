@@ -20,11 +20,11 @@ class ApplicationDataDirectoryTest {
     }
 
     @Test
-    fun `Windows keeps the data in the local app data folder`() {
+    fun `Windows keeps the data in a subfolder of the local app data folder`() {
         val environment = mapOf("LOCALAPPDATA" to "/local")
 
         assertEquals(
-            expected = Path("/local/App"),
+            expected = Path("/local/App/data"),
             actual = applicationDataDirectory(
                 appName = "App",
                 osName = "Windows 11",
@@ -35,9 +35,9 @@ class ApplicationDataDirectoryTest {
     }
 
     @Test
-    fun `Windows without LOCALAPPDATA falls back to its conventional location`() {
+    fun `Windows without a local app data folder falls back to the home directory`() {
         assertEquals(
-            expected = Path("/Users/me/AppData/Local/App"),
+            expected = Path("/Users/me/App/data"),
             actual = applicationDataDirectory(
                 appName = "App",
                 osName = "Windows 11",

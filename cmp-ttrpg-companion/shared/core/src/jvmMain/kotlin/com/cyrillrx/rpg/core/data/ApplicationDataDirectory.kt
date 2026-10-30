@@ -14,8 +14,7 @@ fun applicationDataDirectory(
     val lowercaseOsName = osName.lowercase()
     return when {
         lowercaseOsName.startsWith("mac") -> home / "Library" / "Application Support" / appName
-        lowercaseOsName.startsWith("windows") ->
-            (environment.absolutePath("LOCALAPPDATA") ?: home / "AppData" / "Local") / appName
+        lowercaseOsName.startsWith("windows") -> (environment.absolutePath("LOCALAPPDATA") ?: home) / appName / "data"
         else -> (environment.absolutePath("XDG_DATA_HOME") ?: home / ".local" / "share") / appName
     }
 }
