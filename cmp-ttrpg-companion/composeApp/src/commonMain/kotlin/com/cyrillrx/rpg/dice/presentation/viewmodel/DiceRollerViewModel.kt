@@ -44,6 +44,10 @@ class DiceRollerViewModel(
         }
     }
 
+    override fun onCleared() {
+        commitScope.launch { saveLatestComposition() }
+    }
+
     fun addDie(die: Die) {
         state.update { current ->
             if (current.diceCount() >= MAX_DICE_COUNT) return@update current
@@ -92,10 +96,6 @@ class DiceRollerViewModel(
         state.update { it.copy(countByDie = emptyMap()) }
     }
 
-    override fun onCleared() {
-        commitScope.launch { saveLatestComposition() }
-    }
-
     private fun restoreUntouchedComposition(saved: DiceComposition) {
         state.update { current ->
             if (current.toDiceComposition() != DiceComposition()) return@update current
@@ -114,7 +114,14 @@ class DiceRollerViewModel(
             val composition = state.value.toDiceComposition()
             if (lastSaved == null || composition == lastSaved) return
 
-            saveCompositionIgnoringFailure(composition)
+            try {
+                compositionRepository.save(composition)
+                lastSaved = composition
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                println("WARNING: failed to persist the dice composition: $e")
+            }
         }
     }
 
@@ -125,16 +132,6 @@ class DiceRollerViewModel(
         throw e
     } catch (_: Exception) {
         DiceComposition()
-    }
-
-    private suspend fun saveCompositionIgnoringFailure(composition: DiceComposition) {
-        try {
-            compositionRepository.save(composition)
-            lastSaved = composition
-        } catch (e: CancellationException) {
-            throw e
-        } catch (_: Exception) {
-        }
     }
 
     private fun rollDirectly(roll: DieRoll) {
