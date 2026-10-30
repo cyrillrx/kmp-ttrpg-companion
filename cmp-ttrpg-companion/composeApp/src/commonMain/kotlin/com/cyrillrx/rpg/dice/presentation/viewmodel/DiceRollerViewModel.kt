@@ -1,23 +1,40 @@
 package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
+import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.rollWithAdvantage
 import com.cyrillrx.rpg.dice.domain.rollWithDisadvantage
 import com.cyrillrx.rpg.dice.presentation.DiceRollerState
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlin.coroutines.cancellation.CancellationException
 import kotlin.random.Random
 
-class DiceRollerViewModel(private val random: Random = Random.Default) : ViewModel() {
+class DiceRollerViewModel(
+    private val historyRepository: RollHistoryRepository,
+    private val random: Random = Random.Default,
+) : ViewModel() {
 
     val state: StateFlow<DiceRollerState>
         field = MutableStateFlow(DiceRollerState())
+
+    // A single consumer records the rolls one at a time, so the history keeps the order they were made in.
+    private val rollsToRecord = Channel<RollPool>(Channel.UNLIMITED)
+
+    init {
+        viewModelScope.launch {
+            for (pool in rollsToRecord) recordIgnoringFailure(pool)
+        }
+    }
 
     fun addDie(die: Die) {
         state.update { current ->
@@ -44,11 +61,9 @@ class DiceRollerViewModel(private val random: Random = Random.Default) : ViewMod
     }
 
     fun roll() {
-        state.update { current ->
-            val composition = current.composition() ?: return@update current
+        val composition = state.value.composition() ?: return
 
-            current.copy(lastRoll = composition.roll(random), rollCount = current.rollCount + 1)
-        }
+        show(composition.roll(random))
     }
 
     fun rollD20() {
@@ -68,6 +83,22 @@ class DiceRollerViewModel(private val random: Random = Random.Default) : ViewMod
     }
 
     private fun rollDirectly(roll: DieRoll) {
-        state.update { it.copy(lastRoll = RollPool(listOf(roll), it.modifier), rollCount = it.rollCount + 1) }
+        show(RollPool(listOf(roll), state.value.modifier))
+    }
+
+    private fun show(pool: RollPool) {
+        state.update { it.copy(lastRoll = pool, rollCount = it.rollCount + 1) }
+        rollsToRecord.trySend(pool)
+    }
+
+    // A roll missing from the history must not cost the roll itself.
+    private suspend fun recordIgnoringFailure(pool: RollPool) {
+        try {
+            historyRepository.record(pool)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            println("WARNING: failed to record the dice roll: $e")
+        }
     }
 }

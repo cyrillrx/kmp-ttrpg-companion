@@ -56,11 +56,11 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 
 ### Roll History
 
-- [ ] Each roll, composed or direct, is recorded in the history log.
+- [x] Each roll, composed or direct, is recorded in the history log.
 - [ ] The log entry shows: dice rolled, individual results (discarded ones included), modifier, total, and timestamp.
-- [ ] History is persisted locally across app restarts.
+- [x] History is persisted locally across app restarts.
 - [ ] The user can manually clear the entire history.
-- [ ] History is a single global log, kept until cleared and capped at 500 entries: past the cap, the oldest entries are dropped.
+- [x] History is a single global log, kept until cleared and capped at 500 entries: past the cap, the oldest entries are dropped.
 
 ### Dice Notation
 
