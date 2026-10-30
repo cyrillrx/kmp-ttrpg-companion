@@ -14,7 +14,7 @@ class DesktopDatabaseDriverFactoryTest {
 
     @Test
     fun `the database is created in the data directory even when it is missing`() {
-        val root = createTempDirectory("ttrpg")
+        val root = createTempDirectory(prefix = "ttrpg")
         val dataDirectory = root / "missing" / "App"
 
         try {
