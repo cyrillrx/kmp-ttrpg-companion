@@ -9,6 +9,7 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.dice.data.StoredDieRoll
 import com.cyrillrx.rpg.dice.data.toStored
+import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.MAX_RECORDED_ROLLS
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
 import com.cyrillrx.rpg.dice.domain.RollPool
@@ -175,7 +176,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             dbQuery.insertDiceRoll(
                 rolledAt = rolledAt,
                 modifier = pool.modifier.toLong(),
-                rolls = pool.rolls.map { it.toStored() }.serialize(),
+                rolls = pool.rolls.map(DieRoll::toStored).serialize(),
             )
             dbQuery.pruneDiceRolls(kept = MAX_RECORDED_ROLLS.toLong())
         }
@@ -185,7 +186,6 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         it.toRecordedRoll()
     }
 
-    /** Null, so that the history skips it, when the row no longer reads as a valid roll. */
     private fun DiceRoll.toRecordedRoll(): RecordedRoll? = try {
         RecordedRoll(
             id = id,

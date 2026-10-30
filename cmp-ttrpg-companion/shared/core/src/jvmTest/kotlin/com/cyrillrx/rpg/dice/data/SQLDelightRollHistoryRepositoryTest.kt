@@ -33,7 +33,7 @@ class SQLDelightRollHistoryRepositoryTest {
 
     @Test
     fun `a recorded roll reads back with when it was rolled`() = runTest {
-        val pool = RollPool(listOf(SimpleRoll(Die.D20, 14), SimpleRoll(Die.D6, 3)), modifier = -2)
+        val pool = RollPool(listOf(SimpleRoll(Die.D20, value = 14), SimpleRoll(Die.D6, value = 3)), modifier = -2)
 
         repository.record(pool)
 
@@ -42,7 +42,12 @@ class SQLDelightRollHistoryRepositoryTest {
 
     @Test
     fun `a double roll reads back with its discarded roll and its rule`() = runTest {
-        val advantage = DoubleRoll(kept = SimpleRoll(Die.D20, 9), discarded = SimpleRoll(Die.D20, 9), KeepRule.LOWER)
+        val advantage =
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 9),
+                discarded = SimpleRoll(Die.D20, value = 9),
+                KeepRule.LOWER,
+            )
         val pool = RollPool(listOf(advantage), modifier = 5)
 
         repository.record(pool)
@@ -75,12 +80,12 @@ class SQLDelightRollHistoryRepositoryTest {
         repository.record(d4Pool(value = 2))
         storeRow(rolls = """[{"die":"D7","value":3}]""")
         storeRow(rolls = """[{"die":"D4","value":9}]""")
+        storeRow(rolls = """[{"die":"D20","value":17,"discarded":3}]""")
 
         assertEquals(listOf(d4Pool(value = 2)), repository.getAll().map(RecordedRoll::pool))
     }
 
     private fun d4Pool(value: Int) = RollPool(listOf(SimpleRoll(Die.D4, value)))
-        storeRow(rolls = """[{"die":"D20","value":17,"discarded":3}]""")
 
     private fun storeRow(rolls: String) {
         driver.execute(

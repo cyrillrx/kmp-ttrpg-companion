@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.dice.data
 
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.MAX_RECORDED_ROLLS
+import com.cyrillrx.rpg.dice.domain.RecordedRoll
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import kotlinx.coroutines.test.runTest
@@ -17,7 +18,7 @@ class RamRollHistoryRepositoryTest {
         repository.record(d4Pool(value = 1))
         repository.record(d4Pool(value = 2))
 
-        assertEquals(listOf(d4Pool(value = 2), d4Pool(value = 1)), repository.getAll().map { it.pool })
+        assertEquals(listOf(d4Pool(value = 2), d4Pool(value = 1)), repository.getAll().map(RecordedRoll::pool))
     }
 
     @Test
