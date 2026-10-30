@@ -10,16 +10,16 @@ import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
 
 class SQLDelightDiceCompositionRepository(
-    driverFactory: DatabaseDriverFactory,
+    databaseDriverFactory: DatabaseDriverFactory,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : DiceCompositionRepository {
-    private val db = Database(driverFactory)
+    private val database = Database(databaseDriverFactory)
 
     override suspend fun load(): DiceComposition = withContext(ioDispatcher) {
-        db.getDiceComposition() ?: DiceComposition()
+        database.getDiceComposition() ?: DiceComposition()
     }
 
     override suspend fun save(composition: DiceComposition) {
-        withContext(ioDispatcher) { db.saveDiceComposition(composition) }
+        withContext(ioDispatcher) { database.saveDiceComposition(composition) }
     }
 }
