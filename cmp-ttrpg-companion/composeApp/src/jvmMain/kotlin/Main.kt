@@ -8,6 +8,7 @@ import com.cyrillrx.rpg.core.data.cache.SharedDatabaseDriverFactory
 private const val APP_NAME = "TTRPG Companion"
 
 fun main() {
+    // TODO(#343): give dev runs a data directory of their own.
     val dataDirectory = applicationDataDirectory(APP_NAME)
     val databaseDriverFactory = SharedDatabaseDriverFactory(DesktopDatabaseDriverFactory(dataDirectory))
 

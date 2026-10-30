@@ -11,6 +11,7 @@ import kotlin.io.path.div
 
 class DesktopDatabaseDriverFactory(private val dataDirectory: Path) : DatabaseDriverFactory {
     override fun createDriver(): SqlDriver {
+        // TODO(#342): create the directory in main, right before taking the single-instance lock.
         dataDirectory.createDirectories()
 
         return JdbcSqliteDriver(URL_PREFIX + (dataDirectory / DATABASE_NAME)).also { it.reconcileSchema() }
