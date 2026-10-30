@@ -10,18 +10,23 @@ class ApplicationDataDirectoryTest {
     fun `macOS keeps the data in Application Support`() {
         assertEquals(
             expected = Path("/Users/me/Library/Application Support/App"),
-            actual = applicationDataDirectory("App", osName = "Mac OS X", home = HOME, environment = { null }),
+            actual = applicationDataDirectory(
+                appName = "App",
+                osName = "Mac OS X",
+                home = HOME,
+                environment = { null },
+            ),
         )
     }
 
     @Test
-    fun `Windows keeps the data in a subfolder of the local app data folder`() {
+    fun `Windows keeps the data in the local app data folder`() {
         val environment = mapOf("LOCALAPPDATA" to "/local")
 
         assertEquals(
-            expected = Path("/local/App/data"),
+            expected = Path("/local/App"),
             actual = applicationDataDirectory(
-                "App",
+                appName = "App",
                 osName = "Windows 11",
                 home = HOME,
                 environment = environment::get,
@@ -30,10 +35,15 @@ class ApplicationDataDirectoryTest {
     }
 
     @Test
-    fun `Windows without a local app data folder falls back to the home directory`() {
+    fun `Windows without LOCALAPPDATA falls back to its conventional location`() {
         assertEquals(
-            expected = Path("/Users/me/App/data"),
-            actual = applicationDataDirectory("App", osName = "Windows 11", home = HOME, environment = { null }),
+            expected = Path("/Users/me/AppData/Local/App"),
+            actual = applicationDataDirectory(
+                appName = "App",
+                osName = "Windows 11",
+                home = HOME,
+                environment = { null },
+            ),
         )
     }
 
@@ -43,17 +53,27 @@ class ApplicationDataDirectoryTest {
 
         assertEquals(
             expected = Path("/xdg/App"),
-            actual = applicationDataDirectory("App", osName = "Linux", home = HOME, environment = environment::get),
+            actual = applicationDataDirectory(
+                appName = "App",
+                osName = "Linux",
+                home = HOME,
+                environment = environment::get,
+            ),
         )
     }
 
     @Test
-    fun `a relative XDG_DATA_HOME is ignored, as the XDG specification requires`() {
+    fun `a relative XDG_DATA_HOME is ignored as the XDG specification requires`() {
         val environment = mapOf("XDG_DATA_HOME" to "data")
 
         assertEquals(
             expected = Path("/Users/me/.local/share/App"),
-            actual = applicationDataDirectory("App", osName = "Linux", home = HOME, environment = environment::get),
+            actual = applicationDataDirectory(
+                appName = "App",
+                osName = "Linux",
+                home = HOME,
+                environment = environment::get,
+            ),
         )
     }
 
