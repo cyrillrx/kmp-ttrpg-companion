@@ -8,6 +8,7 @@ import java.io.File
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class AppDatabaseMigrationTest {
@@ -65,7 +66,7 @@ class AppDatabaseMigrationTest {
 
         val composition = AppDatabase(driver).appDatabaseQueries.getDiceComposition().executeAsOneOrNull()
 
-        assertEquals(null, composition)
+        assertNull(composition)
     }
 
     @Test
