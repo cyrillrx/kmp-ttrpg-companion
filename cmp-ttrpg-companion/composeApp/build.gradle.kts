@@ -115,6 +115,12 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.cyrillrx.rpg"
             packageVersion = Version.APP_VERSION
+            modules("java.instrument", "java.sql", "jdk.unsupported")
+        }
+
+        buildTypes.release.proguard {
+            configurationFiles.from(project.file("compose-desktop.pro"))
+            optimize.set(false)
         }
     }
 }
