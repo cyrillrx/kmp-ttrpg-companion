@@ -80,6 +80,7 @@ class SQLDelightRollHistoryRepositoryTest {
     }
 
     private fun d4Pool(value: Int) = RollPool(listOf(SimpleRoll(Die.D4, value)))
+        storeRow(rolls = """[{"die":"D20","value":17,"discarded":3}]""")
 
     private fun storeRow(rolls: String) {
         driver.execute(

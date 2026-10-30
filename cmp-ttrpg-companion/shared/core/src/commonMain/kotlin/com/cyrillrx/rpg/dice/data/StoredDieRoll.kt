@@ -18,9 +18,13 @@ internal data class StoredDieRoll(
     /** Throws [IllegalArgumentException] when the stored values no longer make a valid roll. */
     fun toDieRoll(): DieRoll {
         val kept = SimpleRoll(die, value)
-        if (discarded == null || rule == null) return kept
+        if (discarded == null && rule == null) return kept
 
-        return DoubleRoll(kept = kept, discarded = SimpleRoll(die, discarded), rule = rule)
+        return DoubleRoll(
+            kept = kept,
+            discarded = SimpleRoll(die, requireNotNull(discarded)),
+            rule = requireNotNull(rule),
+        )
     }
 }
 
