@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.core.data
 import kotlin.io.path.Path
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class ApplicationDataDirectoryTest {
 
@@ -75,6 +76,11 @@ class ApplicationDataDirectoryTest {
                 environment = environment::get,
             ),
         )
+    }
+
+    @Test
+    fun `the host environment resolves to an absolute directory by default`() {
+        assertTrue(applicationDataDirectory(appName = "App").isAbsolute)
     }
 
     private companion object {
