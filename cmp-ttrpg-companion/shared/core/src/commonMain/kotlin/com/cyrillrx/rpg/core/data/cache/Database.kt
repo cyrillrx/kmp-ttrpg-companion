@@ -7,6 +7,11 @@ import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.dice.data.StoredDieRoll
+import com.cyrillrx.rpg.dice.data.toStored
+import com.cyrillrx.rpg.dice.domain.MAX_RECORDED_ROLLS
+import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
@@ -164,6 +169,33 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         value = mapUserCollectionSelecting(id, name, type, itemIds, updatedAt),
         updatedAt = Instant.fromEpochMilliseconds(updatedAt),
     )
+
+    fun recordDiceRoll(pool: RollPool, rolledAt: Long) {
+        dbQuery.transaction {
+            dbQuery.insertDiceRoll(
+                rolledAt = rolledAt,
+                modifier = pool.modifier.toLong(),
+                rolls = pool.rolls.map { it.toStored() }.serialize(),
+            )
+            dbQuery.pruneDiceRolls(kept = MAX_RECORDED_ROLLS.toLong())
+        }
+    }
+
+    fun getAllDiceRolls(): List<RecordedRoll> = dbQuery.selectAllDiceRolls().executeAsList().mapNotNull {
+        it.toRecordedRoll()
+    }
+
+    /** Null, so that the history skips it, when the row no longer reads as a valid roll. */
+    private fun DiceRoll.toRecordedRoll(): RecordedRoll? = try {
+        RecordedRoll(
+            id = id,
+            pool = RollPool(rolls.deserialize<List<StoredDieRoll>>().map { it.toDieRoll() }, modifier.toInt()),
+            rolledAt = Instant.fromEpochMilliseconds(rolledAt),
+        )
+    } catch (e: IllegalArgumentException) {
+        println("WARNING: stored dice roll $id dropped: $e")
+        null
+    }
 
     companion object {
         const val DATABASE_NAME = "ttrpg_companion.db"
