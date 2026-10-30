@@ -142,6 +142,7 @@ sonar {
                 "**/navigation/**",
                 "**/*Screen.kt",
                 "**/app/**",
+                "**/jvmMain/kotlin/Main.kt",
                 "**/androidMain/**",
                 "**/iosMain/**",
             ).joinToString(","),
@@ -165,6 +166,8 @@ kover {
                     "*ScreenKt",
                     // Navigation root, plus locale constants and an expect declaration.
                     "*.app.*",
+                    // Desktop entry point: the window and the wiring no test can reach.
+                    "MainKt",
                     // Generated: Compose resources accessors.
                     "*.generated.resources.*",
                 )
