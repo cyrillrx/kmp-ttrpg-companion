@@ -39,7 +39,8 @@ class DiceRollerViewModel(
         viewModelScope.launch {
             val saved = loadCompositionOrEmpty()
             restoreUntouchedComposition(saved)
-            saveCompositionChanges(alreadySaved = saved)
+            lastSaved = saved
+            state.collect { saveLatestComposition() }
         }
     }
 
@@ -101,11 +102,6 @@ class DiceRollerViewModel(
 
             current.copy(countByDie = saved.countByDie, modifier = saved.modifier)
         }
-    }
-
-    private suspend fun saveCompositionChanges(alreadySaved: DiceComposition) {
-        lastSaved = alreadySaved
-        state.collect { saveLatestComposition() }
     }
 
     private suspend fun saveLatestComposition() {
