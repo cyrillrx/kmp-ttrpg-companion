@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.dice.presentation.viewmodel
 
+import androidx.lifecycle.ViewModelStore
+import com.cyrillrx.rpg.core.presentation.viewmodel.hold
 import com.cyrillrx.rpg.dice.data.RamRollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
@@ -15,7 +17,8 @@ import com.cyrillrx.rpg.dice.domain.d6
 import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -30,9 +33,11 @@ import kotlin.test.assertNull
 @OptIn(ExperimentalCoroutinesApi::class)
 class DiceRollerViewModelTest {
 
+    private val testDispatcher = StandardTestDispatcher()
+
     @BeforeTest
     fun setUp() {
-        Dispatchers.setMain(UnconfinedTestDispatcher())
+        Dispatchers.setMain(testDispatcher)
     }
 
     @AfterTest
@@ -193,7 +198,7 @@ class DiceRollerViewModelTest {
     }
 
     @Test
-    fun `every roll is recorded in the history in the order it was made`() = runTest {
+    fun `every roll is recorded in the history in the order it was made`() = runTest(testDispatcher) {
         val history = RamRollHistoryRepository()
         val viewModel = newViewModel(random = FixedRandom(4, 3, 17), historyRepository = history)
         viewModel.addDie(Die.D6)
@@ -201,6 +206,7 @@ class DiceRollerViewModelTest {
 
         viewModel.roll()
         viewModel.rollD20WithAdvantage()
+        advanceUntilIdle()
 
         val advantage =
             DoubleRoll(
@@ -216,26 +222,46 @@ class DiceRollerViewModelTest {
     }
 
     @Test
-    fun `rolling an empty composition records nothing`() = runTest {
+    fun `rolling an empty composition records nothing`() = runTest(testDispatcher) {
         val history = RamRollHistoryRepository()
         val viewModel = newViewModel(historyRepository = history)
 
         viewModel.roll()
+        advanceUntilIdle()
 
         assertEquals(emptyList(), history.getAll())
     }
 
     @Test
-    fun `a roll that fails to be recorded is still shown and the next one is recorded`() = runTest {
+    fun `a roll that fails to be recorded is still shown and the next one is recorded`() = runTest(testDispatcher) {
         val history = FirstRecordFailingRepository()
         val viewModel = newViewModel(random = FixedRandom(8, 12), historyRepository = history)
 
         viewModel.rollD20()
         viewModel.rollD20()
+        advanceUntilIdle()
 
         val lastRoll = RollPool(listOf(SimpleRoll(Die.D20, value = 12)))
         assertEquals(lastRoll, viewModel.state.value.lastRoll)
         assertEquals(listOf(lastRoll), history.getAll().map(RecordedRoll::pool))
+    }
+
+    @Test
+    fun `a roll made as the roller closes is still recorded`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val store = ViewModelStore()
+        val viewModel = store.hold(DiceRollerViewModel::class) {
+            newViewModel(random = FixedRandom(12), historyRepository = history)
+        }
+
+        viewModel.rollD20()
+        store.clear()
+        advanceUntilIdle()
+
+        assertEquals(
+            listOf(RollPool(listOf(SimpleRoll(Die.D20, value = 12)))),
+            history.getAll().map(RecordedRoll::pool),
+        )
     }
 
     private fun newViewModel(

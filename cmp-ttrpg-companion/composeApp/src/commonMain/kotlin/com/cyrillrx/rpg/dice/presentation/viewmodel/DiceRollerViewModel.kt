@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.presentation.detachedCommitScope
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
@@ -31,7 +31,7 @@ class DiceRollerViewModel(
     private val rollsToRecord = Channel<RollPool>(Channel.UNLIMITED)
 
     init {
-        viewModelScope.launch {
+        detachedCommitScope().launch {
             for (pool in rollsToRecord) recordIgnoringFailure(pool)
         }
     }
@@ -91,7 +91,10 @@ class DiceRollerViewModel(
         rollsToRecord.trySend(pool)
     }
 
-    // A roll missing from the history must not cost the roll itself.
+    override fun onCleared() {
+        rollsToRecord.close()
+    }
+
     private suspend fun recordIgnoringFailure(pool: RollPool) {
         try {
             historyRepository.record(pool)
