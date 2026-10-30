@@ -4,7 +4,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
-import com.cyrillrx.rpg.dice.domain.DiceCompositionRepository
+import com.cyrillrx.rpg.dice.domain.DiceRollerDraftRepository
 import com.cyrillrx.rpg.dice.presentation.component.DiceRollerScreen
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceRollerViewModel
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceRollerViewModelFactory
@@ -22,10 +22,10 @@ fun PolymorphicModuleBuilder<NavKey>.registerDiceRoutes() {
 
 fun EntryProviderScope<NavKey>.handleDiceRoutes(
     backStack: NavBackStack<NavKey>,
-    compositionRepository: DiceCompositionRepository,
+    draftRepository: DiceRollerDraftRepository,
 ) {
     entry<DiceRoute.Roller> {
-        val viewModel = viewModel<DiceRollerViewModel>(factory = DiceRollerViewModelFactory(compositionRepository))
+        val viewModel = viewModel<DiceRollerViewModel>(factory = DiceRollerViewModelFactory(draftRepository))
         DiceRollerScreen(viewModel, DiceRouterImpl(backStack))
     }
 }

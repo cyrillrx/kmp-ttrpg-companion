@@ -8,8 +8,8 @@ import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
-import com.cyrillrx.rpg.dice.domain.DiceComposition
 import com.cyrillrx.rpg.dice.domain.DiceExpression
+import com.cyrillrx.rpg.dice.domain.DiceRollerDraft
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
@@ -170,24 +170,24 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         updatedAt = Instant.fromEpochMilliseconds(updatedAt),
     )
 
-    fun getDiceComposition(): DiceComposition? =
-        dbQuery.getDiceComposition(::mapDiceComposition).executeAsOneOrNull()
+    fun getDiceRollerDraft(): DiceRollerDraft? =
+        dbQuery.getDiceRollerDraft(::mapDiceRollerDraft).executeAsOneOrNull()
 
-    fun saveDiceComposition(composition: DiceComposition) {
-        dbQuery.saveDiceComposition(dice = composition.toDiceNotation(), modifier = composition.modifier.toLong())
+    fun saveDiceRollerDraft(draft: DiceRollerDraft) {
+        dbQuery.saveDiceRollerDraft(dice = draft.toDiceNotation(), modifier = draft.modifier.toLong())
     }
 
-    private fun mapDiceComposition(dice: String, modifier: Long): DiceComposition = DiceComposition(
+    private fun mapDiceRollerDraft(dice: String, modifier: Long): DiceRollerDraft = DiceRollerDraft(
         countByDie = if (dice.isEmpty()) emptyMap() else dice.toCountByDie(),
         modifier = modifier.coerceIn(-MAX_MODIFIER.toLong(), MAX_MODIFIER.toLong()).toInt(),
     )
 
-    private fun DiceComposition.toDiceNotation(): String = copy(modifier = 0).toExpression()?.toNotation().orEmpty()
+    private fun DiceRollerDraft.toDiceNotation(): String = copy(modifier = 0).toExpression()?.toNotation().orEmpty()
 
     private fun String.toCountByDie(): Map<Die, Int> = when (val result = DiceExpression.parse(this)) {
         is Result.Success -> result.value.terms.associate { it.die to it.count }
         is Result.Failure -> {
-            println("WARNING: stored dice composition '$this' dropped: ${result.error}")
+            println("WARNING: stored dice roller draft '$this' dropped: ${result.error}")
             emptyMap()
         }
     }

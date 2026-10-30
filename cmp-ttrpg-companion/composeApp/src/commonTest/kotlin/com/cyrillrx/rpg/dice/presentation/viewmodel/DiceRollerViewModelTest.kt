@@ -1,8 +1,8 @@
 package com.cyrillrx.rpg.dice.presentation.viewmodel
 
-import com.cyrillrx.rpg.dice.data.RamDiceCompositionRepository
-import com.cyrillrx.rpg.dice.domain.DiceComposition
-import com.cyrillrx.rpg.dice.domain.DiceCompositionRepository
+import com.cyrillrx.rpg.dice.data.RamDiceRollerDraftRepository
+import com.cyrillrx.rpg.dice.domain.DiceRollerDraft
+import com.cyrillrx.rpg.dice.domain.DiceRollerDraftRepository
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
 import com.cyrillrx.rpg.dice.domain.KeepRule
@@ -43,7 +43,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `the roller opens on an empty composition`() = runTest {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository())
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository())
         advanceUntilIdle()
 
         assertEquals(DiceRollerState(), viewModel.state.value)
@@ -51,7 +51,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `adding dice composes the roll`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository())
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository())
 
         viewModel.addDie(Die.D6)
         viewModel.addDie(Die.D6)
@@ -62,7 +62,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `removing a die takes one of that die out of the composition`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository())
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository())
         viewModel.addDie(Die.D6)
         viewModel.addDie(Die.D6)
 
@@ -73,7 +73,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `removing the last die of a type empties the composition`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository())
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository())
         viewModel.addDie(Die.D6)
 
         viewModel.removeDie(Die.D6)
@@ -83,7 +83,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `the composition stops at the dice limit`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository())
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository())
 
         repeat(MAX_DICE_COUNT + 1) { viewModel.addDie(Die.D6) }
 
@@ -92,7 +92,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `the modifier stays within its limits`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository())
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository())
 
         repeat(MAX_MODIFIER + 1) { viewModel.increaseModifier() }
         assertEquals(MAX_MODIFIER, viewModel.state.value.modifier)
@@ -103,7 +103,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `rolling throws every composed die with the modifier and keeps the composition`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository(), FixedRandom(4, 2))
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository(), FixedRandom(4, 2))
         viewModel.addDie(Die.D6)
         viewModel.addDie(Die.D6)
         viewModel.increaseModifier()
@@ -120,7 +120,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `rolling the same result again still yields a new state`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository(), FixedRandom(14, 14))
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository(), FixedRandom(14, 14))
         viewModel.rollD20()
         val firstRoll = viewModel.state.value
 
@@ -131,7 +131,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `rolling an empty composition does nothing`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository())
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository())
 
         viewModel.roll()
 
@@ -140,7 +140,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `a direct d20 adds the modifier and leaves the composition alone`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository(), FixedRandom(14))
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository(), FixedRandom(14))
         viewModel.addDie(Die.D6)
         viewModel.increaseModifier()
 
@@ -153,7 +153,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `a d20 with advantage keeps the higher of two rolls`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository(), FixedRandom(3, 17))
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository(), FixedRandom(3, 17))
 
         viewModel.rollD20WithAdvantage()
 
@@ -168,7 +168,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `a d20 with disadvantage keeps the lower of two rolls`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository(), FixedRandom(3, 17))
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository(), FixedRandom(3, 17))
 
         viewModel.rollD20WithDisadvantage()
 
@@ -183,7 +183,7 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `clearing the composition keeps the modifier and the last roll`() {
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository(), FixedRandom(5))
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository(), FixedRandom(5))
         viewModel.addDie(Die.D8)
         viewModel.increaseModifier()
         viewModel.roll()
@@ -197,30 +197,30 @@ class DiceRollerViewModelTest {
     }
 
     @Test
-    fun `the roller opens on the composition saved last time`() = runTest {
-        val saved = DiceComposition(countByDie = mapOf(Die.D6 to 2), modifier = 3)
+    fun `the roller opens on the draft saved last time`() = runTest {
+        val saved = DiceRollerDraft(countByDie = mapOf(Die.D6 to 2), modifier = 3)
 
-        val viewModel = DiceRollerViewModel(RamDiceCompositionRepository(saved))
+        val viewModel = DiceRollerViewModel(RamDiceRollerDraftRepository(saved))
         advanceUntilIdle()
 
         assertEquals(2.d6 + 3, viewModel.state.value.expression())
     }
 
     @Test
-    fun `dice added before the saved composition loads are kept and saved`() = runTest {
-        val repository = RamDiceCompositionRepository(DiceComposition(countByDie = mapOf(Die.D8 to 1), modifier = 2))
+    fun `dice added before the saved draft loads are kept and saved`() = runTest {
+        val repository = RamDiceRollerDraftRepository(DiceRollerDraft(countByDie = mapOf(Die.D8 to 1), modifier = 2))
         val viewModel = DiceRollerViewModel(repository)
 
         viewModel.addDie(Die.D20)
         advanceUntilIdle()
 
         assertEquals(1.d20, viewModel.state.value.expression())
-        assertEquals(DiceComposition(countByDie = mapOf(Die.D20 to 1)), repository.load())
+        assertEquals(DiceRollerDraft(countByDie = mapOf(Die.D20 to 1)), repository.load())
     }
 
     @Test
     fun `composing a roll saves the dice and the modifier`() = runTest {
-        val repository = RamDiceCompositionRepository()
+        val repository = RamDiceRollerDraftRepository()
         val viewModel = DiceRollerViewModel(repository)
         advanceUntilIdle()
 
@@ -228,28 +228,28 @@ class DiceRollerViewModelTest {
         viewModel.increaseModifier()
         advanceUntilIdle()
 
-        assertEquals(DiceComposition(countByDie = mapOf(Die.D20 to 1), modifier = 1), repository.load())
+        assertEquals(DiceRollerDraft(countByDie = mapOf(Die.D20 to 1), modifier = 1), repository.load())
     }
 
     @Test
-    fun `clearing the composition saves a composition without dice`() = runTest {
-        val repository = RamDiceCompositionRepository(DiceComposition(countByDie = mapOf(Die.D8 to 1), modifier = 2))
+    fun `clearing the composition saves a draft without dice`() = runTest {
+        val repository = RamDiceRollerDraftRepository(DiceRollerDraft(countByDie = mapOf(Die.D8 to 1), modifier = 2))
         val viewModel = DiceRollerViewModel(repository)
         advanceUntilIdle()
 
         viewModel.clearComposition()
         advanceUntilIdle()
 
-        assertEquals(DiceComposition(modifier = 2), repository.load())
+        assertEquals(DiceRollerDraft(modifier = 2), repository.load())
     }
 
     @Test
-    fun `rolling does not save the composition again`() = runTest {
-        val repository = RamDiceCompositionRepository()
+    fun `rolling does not save the draft again`() = runTest {
+        val repository = RamDiceRollerDraftRepository()
         val viewModel = DiceRollerViewModel(repository, FixedRandom(4, 14))
         viewModel.addDie(Die.D6)
         advanceUntilIdle()
-        val storedElsewhere = DiceComposition(modifier = 7)
+        val storedElsewhere = DiceRollerDraft(modifier = 7)
         repository.save(storedElsewhere)
 
         viewModel.roll()
@@ -260,15 +260,15 @@ class DiceRollerViewModelTest {
     }
 
     @Test
-    fun `the roller opens empty when the saved composition cannot be read`() = runTest {
-        val viewModel = DiceRollerViewModel(FailingCompositionRepository())
+    fun `the roller opens empty when the saved draft cannot be read`() = runTest {
+        val viewModel = DiceRollerViewModel(FailingDraftRepository())
         advanceUntilIdle()
 
         assertEquals(DiceRollerState(), viewModel.state.value)
     }
 
     @Test
-    fun `a composition that fails to save is saved again on the next state change`() = runTest {
+    fun `a draft that fails to save is saved again on the next state change`() = runTest {
         val repository = FirstSaveFailingRepository()
         val viewModel = DiceRollerViewModel(repository, FixedRandom(14))
         advanceUntilIdle()
@@ -278,27 +278,27 @@ class DiceRollerViewModelTest {
         viewModel.rollD20()
         advanceUntilIdle()
 
-        assertEquals(DiceComposition(countByDie = mapOf(Die.D4 to 1)), repository.load())
+        assertEquals(DiceRollerDraft(countByDie = mapOf(Die.D4 to 1)), repository.load())
     }
 
-    private class FailingCompositionRepository : DiceCompositionRepository {
-        override suspend fun load(): DiceComposition = error("Storage unavailable")
+    private class FailingDraftRepository : DiceRollerDraftRepository {
+        override suspend fun load(): DiceRollerDraft = error("Storage unavailable")
 
-        override suspend fun save(composition: DiceComposition) = error("Storage unavailable")
+        override suspend fun save(draft: DiceRollerDraft) = error("Storage unavailable")
     }
 
     private class FirstSaveFailingRepository(
-        private val delegate: RamDiceCompositionRepository = RamDiceCompositionRepository(),
-    ) : DiceCompositionRepository by delegate {
+        private val delegate: RamDiceRollerDraftRepository = RamDiceRollerDraftRepository(),
+    ) : DiceRollerDraftRepository by delegate {
         private var hasFailed = false
 
-        override suspend fun save(composition: DiceComposition) {
+        override suspend fun save(draft: DiceRollerDraft) {
             if (!hasFailed) {
                 hasFailed = true
                 error("Storage unavailable")
             }
 
-            delegate.save(composition)
+            delegate.save(draft)
         }
     }
 

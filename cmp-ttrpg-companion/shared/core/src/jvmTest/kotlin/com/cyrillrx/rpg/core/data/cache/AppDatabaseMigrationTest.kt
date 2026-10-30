@@ -60,13 +60,13 @@ class AppDatabaseMigrationTest {
     }
 
     @Test
-    fun `migrating from v5 adds a dice composition table that holds nothing yet`() {
+    fun `migrating from v5 adds a dice roller draft table that holds nothing yet`() {
         val driver = v5Database()
         AppDatabase.Schema.migrate(driver, oldVersion = 5L, newVersion = AppDatabase.Schema.version)
 
-        val composition = AppDatabase(driver).appDatabaseQueries.getDiceComposition().executeAsOneOrNull()
+        val draft = AppDatabase(driver).appDatabaseQueries.getDiceRollerDraft().executeAsOneOrNull()
 
-        assertNull(composition)
+        assertNull(draft)
     }
 
     @Test
@@ -277,7 +277,7 @@ class AppDatabaseMigrationTest {
 
     private companion object {
         val MIGRATED_TABLES =
-            listOf("UserPreferencesEntity", "Campaign", "Character", "UserCollection", "DiceComposition")
+            listOf("UserPreferencesEntity", "Campaign", "Character", "UserCollection", "DiceRollerDraft")
 
         val V1_USER_PREFERENCES =
             """

@@ -2,8 +2,8 @@ package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
-import com.cyrillrx.rpg.dice.data.RamDiceCompositionRepository
-import com.cyrillrx.rpg.dice.domain.DiceComposition
+import com.cyrillrx.rpg.dice.data.RamDiceRollerDraftRepository
+import com.cyrillrx.rpg.dice.domain.DiceRollerDraft
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.d4
 import kotlinx.coroutines.Dispatchers
@@ -35,8 +35,8 @@ class DiceRollerViewModelFactoryTest {
     }
 
     @Test
-    fun `factory hands the composition repository to the view model`() = runTest {
-        val repository = RamDiceCompositionRepository(DiceComposition(countByDie = mapOf(Die.D4 to 1)))
+    fun `factory hands the draft repository to the view model`() = runTest {
+        val repository = RamDiceRollerDraftRepository(DiceRollerDraft(countByDie = mapOf(Die.D4 to 1)))
 
         val viewModel = ViewModelProvider.create(
             store,
