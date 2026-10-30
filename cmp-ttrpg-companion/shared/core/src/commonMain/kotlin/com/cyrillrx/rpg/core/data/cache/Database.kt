@@ -178,7 +178,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     private fun mapDiceComposition(dice: String, modifier: Long): DiceComposition = DiceComposition(
-        countByDie = dice.toCountByDie(),
+        countByDie = if (dice.isEmpty()) emptyMap() else dice.toCountByDie(),
         modifier = modifier.coerceIn(-MAX_MODIFIER.toLong(), MAX_MODIFIER.toLong()).toInt(),
     )
 
@@ -186,7 +186,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     private fun String.toCountByDie(): Map<Die, Int> = when (val result = DiceExpression.parse(this)) {
         is Result.Success -> result.value.terms.associate { it.die to it.count }
-        is Result.Failure -> emptyMap()
+        is Result.Failure -> {
+            println("WARNING: stored dice composition '$this' dropped: ${result.error}")
+            emptyMap()
+        }
     }
 
     companion object {
