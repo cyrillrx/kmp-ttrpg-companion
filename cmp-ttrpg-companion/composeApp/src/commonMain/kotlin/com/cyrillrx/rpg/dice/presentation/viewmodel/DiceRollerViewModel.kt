@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.core.presentation.detachedCommitScope
 import com.cyrillrx.rpg.dice.domain.DiceComposition
 import com.cyrillrx.rpg.dice.domain.DiceCompositionRepository
 import com.cyrillrx.rpg.dice.domain.Die
@@ -17,8 +16,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import kotlin.coroutines.cancellation.CancellationException
 import kotlin.random.Random
 
@@ -30,9 +27,6 @@ class DiceRollerViewModel(
     val state: StateFlow<DiceRollerState>
         field = MutableStateFlow(DiceRollerState())
 
-    private val commitScope = detachedCommitScope()
-    private val saveLock = Mutex()
-
     private var lastSaved = DiceComposition()
 
     init {
@@ -42,10 +36,6 @@ class DiceRollerViewModel(
             lastSaved = saved
             state.collect { saveLatestComposition() }
         }
-    }
-
-    override fun onCleared() {
-        commitScope.launch { saveLatestComposition() }
     }
 
     fun addDie(die: Die) {
@@ -105,18 +95,16 @@ class DiceRollerViewModel(
     }
 
     private suspend fun saveLatestComposition() {
-        saveLock.withLock {
-            val composition = state.value.toDiceComposition()
-            if (composition == lastSaved) return
+        val composition = state.value.toDiceComposition()
+        if (composition == lastSaved) return
 
-            try {
-                compositionRepository.save(composition)
-                lastSaved = composition
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                println("WARNING: failed to persist the dice composition: $e")
-            }
+        try {
+            compositionRepository.save(composition)
+            lastSaved = composition
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            println("WARNING: failed to persist the dice composition: $e")
         }
     }
 

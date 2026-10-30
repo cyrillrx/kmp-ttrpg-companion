@@ -1,7 +1,5 @@
 package com.cyrillrx.rpg.dice.presentation.viewmodel
 
-import androidx.lifecycle.ViewModelStore
-import com.cyrillrx.rpg.core.presentation.viewmodel.hold
 import com.cyrillrx.rpg.dice.data.RamDiceCompositionRepository
 import com.cyrillrx.rpg.dice.domain.DiceComposition
 import com.cyrillrx.rpg.dice.domain.DiceCompositionRepository
@@ -281,46 +279,6 @@ class DiceRollerViewModelTest {
         advanceUntilIdle()
 
         assertEquals(DiceComposition(countByDie = mapOf(Die.D4 to 1)), repository.load())
-    }
-
-    @Test
-    fun `a change made just before leaving the roller is still saved`() = runTest {
-        val repository = RamDiceCompositionRepository()
-        val store = ViewModelStore()
-        val viewModel = store.hold(DiceRollerViewModel::class) { DiceRollerViewModel(repository) }
-        advanceUntilIdle()
-
-        viewModel.addDie(Die.D12)
-        store.clear()
-        advanceUntilIdle()
-
-        assertEquals(DiceComposition(countByDie = mapOf(Die.D12 to 1)), repository.load())
-    }
-
-    @Test
-    fun `a die added and left before the saved composition loads is saved`() = runTest {
-        val repository = RamDiceCompositionRepository(DiceComposition(countByDie = mapOf(Die.D6 to 2), modifier = 3))
-        val store = ViewModelStore()
-        val viewModel = store.hold(DiceRollerViewModel::class) { DiceRollerViewModel(repository) }
-
-        viewModel.addDie(Die.D20)
-        store.clear()
-        advanceUntilIdle()
-
-        assertEquals(DiceComposition(countByDie = mapOf(Die.D20 to 1)), repository.load())
-    }
-
-    @Test
-    fun `leaving the roller before the saved composition loads keeps it`() = runTest {
-        val saved = DiceComposition(countByDie = mapOf(Die.D6 to 2), modifier = 3)
-        val repository = RamDiceCompositionRepository(saved)
-        val store = ViewModelStore()
-        store.hold(DiceRollerViewModel::class) { DiceRollerViewModel(repository) }
-
-        store.clear()
-        advanceUntilIdle()
-
-        assertEquals(saved, repository.load())
     }
 
     private class FailingCompositionRepository : DiceCompositionRepository {
