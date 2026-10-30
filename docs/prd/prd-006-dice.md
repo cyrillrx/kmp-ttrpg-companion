@@ -55,7 +55,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 
 ### Roll History
 
-- [ ] The composition, modifier included, is persisted locally, so closing the app does not lose it.
+- [x] The composition, modifier included, is persisted locally, so closing the app does not lose it.
 - [ ] Each roll, composed or direct, is recorded in the history log.
 - [ ] The log entry shows: dice rolled, individual results (discarded ones included), modifier, total, and timestamp.
 - [ ] History is persisted locally across app restarts.

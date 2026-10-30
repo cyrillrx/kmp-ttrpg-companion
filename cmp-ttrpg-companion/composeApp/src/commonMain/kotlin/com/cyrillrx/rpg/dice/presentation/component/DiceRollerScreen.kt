@@ -462,11 +462,11 @@ private fun CompositionPad(state: DiceRollerState, actions: DiceRollerActions) {
 
 @Composable
 private fun RollButton(state: DiceRollerState, onClick: () -> Unit) {
-    val composition = state.composition()
-    Button(onClick = onClick, enabled = composition != null, modifier = Modifier.fillMaxWidth()) {
+    val expression = state.expression()
+    Button(onClick = onClick, enabled = expression != null, modifier = Modifier.fillMaxWidth()) {
         Icon(Icons.Filled.Casino, contentDescription = null, modifier = Modifier.size(iconSizeMedium))
         Text(
-            text = composition?.let { stringResource(Res.string.btn_roll_composition, it.toNotation()) }
+            text = expression?.let { stringResource(Res.string.btn_roll_composition, it.toNotation()) }
                 ?: stringResource(Res.string.btn_roll),
             modifier = Modifier.padding(start = spacingMedium),
         )

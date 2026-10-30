@@ -1,6 +1,9 @@
 package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.dice.domain.DiceRollerDraft
+import com.cyrillrx.rpg.dice.domain.DiceRollerDraftRepository
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
@@ -12,12 +15,28 @@ import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlin.coroutines.cancellation.CancellationException
 import kotlin.random.Random
 
-class DiceRollerViewModel(private val random: Random = Random.Default) : ViewModel() {
+class DiceRollerViewModel(
+    private val draftRepository: DiceRollerDraftRepository,
+    private val random: Random = Random.Default,
+) : ViewModel() {
 
     val state: StateFlow<DiceRollerState>
         field = MutableStateFlow(DiceRollerState())
+
+    private var lastSaved = DiceRollerDraft()
+
+    init {
+        viewModelScope.launch {
+            val saved = loadDraftOrEmpty()
+            restoreUntouchedDraft(saved)
+            lastSaved = saved
+            state.collect { saveLatestDraft() }
+        }
+    }
 
     fun addDie(die: Die) {
         state.update { current ->
@@ -45,9 +64,9 @@ class DiceRollerViewModel(private val random: Random = Random.Default) : ViewMod
 
     fun roll() {
         state.update { current ->
-            val composition = current.composition() ?: return@update current
+            val expression = current.expression() ?: return@update current
 
-            current.copy(lastRoll = composition.roll(random), rollCount = current.rollCount + 1)
+            current.copy(lastRoll = expression.roll(random), rollCount = current.rollCount + 1)
         }
     }
 
@@ -65,6 +84,38 @@ class DiceRollerViewModel(private val random: Random = Random.Default) : ViewMod
 
     fun clearComposition() {
         state.update { it.copy(countByDie = emptyMap()) }
+    }
+
+    private fun restoreUntouchedDraft(saved: DiceRollerDraft) {
+        state.update { current ->
+            if (current.toDraft() != DiceRollerDraft()) return@update current
+
+            current.copy(countByDie = saved.countByDie, modifier = saved.modifier)
+        }
+    }
+
+    private suspend fun saveLatestDraft() {
+        val draft = state.value.toDraft()
+        if (draft == lastSaved) return
+
+        try {
+            draftRepository.save(draft)
+            lastSaved = draft
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            println("WARNING: failed to persist the dice roller draft: $e")
+        }
+    }
+
+    // Losing the draft only costs a few taps, so a storage failure never blocks the roller.
+    private suspend fun loadDraftOrEmpty(): DiceRollerDraft = try {
+        draftRepository.load()
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        println("WARNING: failed to load the dice roller draft: $e")
+        DiceRollerDraft()
     }
 
     private fun rollDirectly(roll: DieRoll) {
