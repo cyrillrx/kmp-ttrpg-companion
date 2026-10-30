@@ -94,3 +94,19 @@ SELECT * FROM UserCollection WHERE id = ?;
 
 deleteUserCollection:
 DELETE FROM UserCollection WHERE id = ?;
+
+CREATE TABLE IF NOT EXISTS DiceRoll (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    rolledAt INTEGER NOT NULL,
+    modifier INTEGER NOT NULL,
+    rolls TEXT NOT NULL
+);
+
+insertDiceRoll:
+INSERT INTO DiceRoll (rolledAt, modifier, rolls) VALUES (?, ?, ?);
+
+pruneDiceRolls:
+DELETE FROM DiceRoll WHERE id NOT IN (SELECT id FROM DiceRoll ORDER BY id DESC LIMIT :kept);
+
+selectAllDiceRolls:
+SELECT * FROM DiceRoll ORDER BY id DESC;
