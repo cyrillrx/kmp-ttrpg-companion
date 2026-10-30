@@ -125,7 +125,8 @@ class DiceRollerViewModel(
         compositionRepository.load()
     } catch (e: CancellationException) {
         throw e
-    } catch (_: Exception) {
+    } catch (e: Exception) {
+        println("WARNING: failed to load the dice composition: $e")
         DiceComposition()
     }
 
