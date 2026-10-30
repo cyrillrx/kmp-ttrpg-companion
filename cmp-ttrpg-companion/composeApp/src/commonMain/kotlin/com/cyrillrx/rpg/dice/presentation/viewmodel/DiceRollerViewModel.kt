@@ -33,8 +33,7 @@ class DiceRollerViewModel(
     private val commitScope = detachedCommitScope()
     private val saveLock = Mutex()
 
-    /** Null until the saved composition is loaded, so that nothing overwrites it before then. */
-    private var lastSaved: DiceComposition? = null
+    private var lastSaved = DiceComposition()
 
     init {
         viewModelScope.launch {
@@ -112,7 +111,7 @@ class DiceRollerViewModel(
     private suspend fun saveLatestComposition() {
         saveLock.withLock {
             val composition = state.value.toDiceComposition()
-            if (lastSaved == null || composition == lastSaved) return
+            if (composition == lastSaved) return
 
             try {
                 compositionRepository.save(composition)

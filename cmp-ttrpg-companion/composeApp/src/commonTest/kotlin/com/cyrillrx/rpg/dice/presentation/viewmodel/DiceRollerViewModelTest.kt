@@ -298,6 +298,19 @@ class DiceRollerViewModelTest {
     }
 
     @Test
+    fun `a die added and left before the saved composition loads is saved`() = runTest {
+        val repository = RamDiceCompositionRepository(DiceComposition(countByDie = mapOf(Die.D6 to 2), modifier = 3))
+        val store = ViewModelStore()
+        val viewModel = store.hold(DiceRollerViewModel::class) { DiceRollerViewModel(repository) }
+
+        viewModel.addDie(Die.D20)
+        store.clear()
+        advanceUntilIdle()
+
+        assertEquals(DiceComposition(countByDie = mapOf(Die.D20 to 1)), repository.load())
+    }
+
+    @Test
     fun `leaving the roller before the saved composition loads keeps it`() = runTest {
         val saved = DiceComposition(countByDie = mapOf(Die.D6 to 2), modifier = 3)
         val repository = RamDiceCompositionRepository(saved)
