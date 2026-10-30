@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.dice.presentation.viewmodel
 
+import androidx.lifecycle.ViewModelStore
+import com.cyrillrx.rpg.core.presentation.viewmodel.hold
 import com.cyrillrx.rpg.dice.data.RamDiceCompositionRepository
 import com.cyrillrx.rpg.dice.domain.DiceComposition
 import com.cyrillrx.rpg.dice.domain.DiceCompositionRepository
@@ -266,20 +268,66 @@ class DiceRollerViewModelTest {
     }
 
     @Test
-    fun `the roller keeps composing when the composition cannot be saved`() = runTest {
-        val viewModel = DiceRollerViewModel(FailingCompositionRepository())
+    fun `a composition that fails to save is saved with the next change`() = runTest {
+        val repository = FirstSaveFailingRepository()
+        val viewModel = DiceRollerViewModel(repository)
+        advanceUntilIdle()
 
         viewModel.addDie(Die.D4)
+        advanceUntilIdle()
         viewModel.addDie(Die.D4)
         advanceUntilIdle()
 
         assertEquals(2.d4, viewModel.state.value.composition())
+        assertEquals(DiceComposition(countByDie = mapOf(Die.D4 to 2)), repository.load())
+    }
+
+    @Test
+    fun `a change made just before leaving the roller is still saved`() = runTest {
+        val repository = RamDiceCompositionRepository()
+        val store = ViewModelStore()
+        val viewModel = store.hold(DiceRollerViewModel::class) { DiceRollerViewModel(repository) }
+        advanceUntilIdle()
+
+        viewModel.addDie(Die.D12)
+        store.clear()
+        advanceUntilIdle()
+
+        assertEquals(DiceComposition(countByDie = mapOf(Die.D12 to 1)), repository.load())
+    }
+
+    @Test
+    fun `leaving the roller before the saved composition loads keeps it`() = runTest {
+        val saved = DiceComposition(countByDie = mapOf(Die.D6 to 2), modifier = 3)
+        val repository = RamDiceCompositionRepository(saved)
+        val store = ViewModelStore()
+        store.hold(DiceRollerViewModel::class) { DiceRollerViewModel(repository) }
+
+        store.clear()
+        advanceUntilIdle()
+
+        assertEquals(saved, repository.load())
     }
 
     private class FailingCompositionRepository : DiceCompositionRepository {
         override suspend fun load(): DiceComposition = error("Storage unavailable")
 
         override suspend fun save(composition: DiceComposition) = error("Storage unavailable")
+    }
+
+    private class FirstSaveFailingRepository(
+        private val delegate: RamDiceCompositionRepository = RamDiceCompositionRepository(),
+    ) : DiceCompositionRepository by delegate {
+        private var hasFailed = false
+
+        override suspend fun save(composition: DiceComposition) {
+            if (!hasFailed) {
+                hasFailed = true
+                error("Storage unavailable")
+            }
+
+            delegate.save(composition)
+        }
     }
 
     private class FixedRandom(vararg values: Int) : Random() {

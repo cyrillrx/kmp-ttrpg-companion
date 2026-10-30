@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.presentation.detachedCommitScope
 import com.cyrillrx.rpg.dice.domain.DiceComposition
 import com.cyrillrx.rpg.dice.domain.DiceCompositionRepository
 import com.cyrillrx.rpg.dice.domain.Die
@@ -14,11 +15,10 @@ import com.cyrillrx.rpg.dice.domain.rollWithDisadvantage
 import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.dropWhile
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlin.coroutines.cancellation.CancellationException
 import kotlin.random.Random
 
@@ -29,6 +29,12 @@ class DiceRollerViewModel(
 
     val state: StateFlow<DiceRollerState>
         field = MutableStateFlow(DiceRollerState())
+
+    private val commitScope = detachedCommitScope()
+    private val saveLock = Mutex()
+
+    /** Null until the saved composition is loaded, so that nothing overwrites it before then. */
+    private var lastSaved: DiceComposition? = null
 
     init {
         viewModelScope.launch {
@@ -86,6 +92,10 @@ class DiceRollerViewModel(
         state.update { it.copy(countByDie = emptyMap()) }
     }
 
+    override fun onCleared() {
+        commitScope.launch { saveLatestComposition() }
+    }
+
     private fun restoreUntouchedComposition(saved: DiceComposition) {
         state.update { current ->
             if (current.toDiceComposition() != DiceComposition()) return@update current
@@ -95,10 +105,17 @@ class DiceRollerViewModel(
     }
 
     private suspend fun saveCompositionChanges(alreadySaved: DiceComposition) {
-        state.map { it.toDiceComposition() }
-            .distinctUntilChanged()
-            .dropWhile { it == alreadySaved }
-            .collect(::saveCompositionIgnoringFailure)
+        lastSaved = alreadySaved
+        state.collect { saveLatestComposition() }
+    }
+
+    private suspend fun saveLatestComposition() {
+        saveLock.withLock {
+            val composition = state.value.toDiceComposition()
+            if (lastSaved == null || composition == lastSaved) return
+
+            saveCompositionIgnoringFailure(composition)
+        }
     }
 
     // Losing the composition only costs a few taps, so a storage failure never blocks the roller.
@@ -113,6 +130,7 @@ class DiceRollerViewModel(
     private suspend fun saveCompositionIgnoringFailure(composition: DiceComposition) {
         try {
             compositionRepository.save(composition)
+            lastSaved = composition
         } catch (e: CancellationException) {
             throw e
         } catch (_: Exception) {
