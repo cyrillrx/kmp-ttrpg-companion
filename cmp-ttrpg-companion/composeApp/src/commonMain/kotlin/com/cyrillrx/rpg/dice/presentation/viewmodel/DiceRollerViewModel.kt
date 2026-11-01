@@ -27,7 +27,6 @@ class DiceRollerViewModel(
     val state: StateFlow<DiceRollerState>
         field = MutableStateFlow(DiceRollerState())
 
-    // A single consumer records the rolls one at a time, so the history keeps the order they were made in.
     private val rollsToRecord = Channel<RollPool>(Channel.UNLIMITED)
 
     init {
