@@ -42,13 +42,13 @@ class SQLDelightRollHistoryRepositoryTest {
 
     @Test
     fun `a double roll reads back with its discarded roll and its rule`() = runTest {
-        val advantage =
+        val disadvantage =
             DoubleRoll(
                 kept = SimpleRoll(Die.D20, value = 9),
                 discarded = SimpleRoll(Die.D20, value = 9),
                 KeepRule.LOWER,
             )
-        val pool = RollPool(listOf(advantage), modifier = 5)
+        val pool = RollPool(listOf(disadvantage), modifier = 5)
 
         repository.record(pool)
 
@@ -98,6 +98,6 @@ class SQLDelightRollHistoryRepositoryTest {
     }
 
     private object FixedClock : Clock {
-        override fun now(): Instant = Instant.fromEpochMilliseconds(1_700_000_000_000)
+        override fun now(): Instant = Instant.fromEpochMilliseconds(epochMilliseconds = 1_700_000_000_000)
     }
 }

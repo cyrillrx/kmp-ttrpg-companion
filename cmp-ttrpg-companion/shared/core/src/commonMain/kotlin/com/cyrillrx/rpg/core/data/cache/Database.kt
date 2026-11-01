@@ -189,7 +189,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private fun DiceRoll.toRecordedRoll(): RecordedRoll? = try {
         RecordedRoll(
             id = id,
-            pool = RollPool(rolls.deserialize<List<StoredDieRoll>>().map { it.toDieRoll() }, modifier.toInt()),
+            pool = RollPool(rolls.deserialize<List<StoredDieRoll>>().map(StoredDieRoll::toDieRoll), modifier.toInt()),
             rolledAt = Instant.fromEpochMilliseconds(rolledAt),
         )
     } catch (e: IllegalArgumentException) {
