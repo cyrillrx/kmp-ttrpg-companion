@@ -167,8 +167,8 @@ class DiceNotationTest {
 
     @Test
     fun `a double roll reads into a kept term`() {
-        val advantage = DiceExpression(listOf(DiceTerm(2, Die.D20, keep = KeepRule.HIGHER)), modifier = 5)
-        val disadvantage = DiceExpression(listOf(DiceTerm(2, Die.D20, keep = KeepRule.LOWER)))
+        val advantage = DiceExpression(listOf(DiceTerm(count = 2, die = Die.D20, keep = KeepRule.HIGHER)), modifier = 5)
+        val disadvantage = DiceExpression(listOf(DiceTerm(count = 2, die = Die.D20, keep = KeepRule.LOWER)))
 
         assertEquals(Result.Success(advantage), DiceExpression.parse("2d20kh1 + 5"))
         assertEquals(Result.Success(disadvantage), DiceExpression.parse("2D20KL1"))
