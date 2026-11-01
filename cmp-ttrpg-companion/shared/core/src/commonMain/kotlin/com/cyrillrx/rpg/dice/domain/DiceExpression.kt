@@ -11,7 +11,8 @@ private const val TERM_SEPARATOR = " + "
 internal const val DOUBLE_ROLL_DICE = 2
 
 internal val biggestDieFirst: Comparator<Die> = compareByDescending { it.sides }
-private val keptTermOrder: Comparator<DiceTerm> = compareBy(biggestDieFirst, DiceTerm::die).thenBy { it.keep }
+internal val termOrder: Comparator<DiceTerm> =
+    compareBy(biggestDieFirst, DiceTerm::die).thenBy(nullsLast(), DiceTerm::keep)
 
 /** [count] dice of [die]; with a [keep] rule, two dice of which only one counts. */
 data class DiceTerm(val count: Int, val die: Die, val keep: KeepRule? = null) {
@@ -46,13 +47,12 @@ data class DiceExpression private constructor(
         require(modifier in MODIFIER_RANGE) { "Cannot add a modifier of $modifier" }
     }
 
-    /** From the biggest die, each die's kept terms first; plain dice of a die are one term, kept ones stay apart. */
     val terms: List<DiceTerm> = (keptTerms + countByDie.map { (die, count) -> DiceTerm(count, die) })
-        .sortedWith(compareBy(biggestDieFirst, DiceTerm::die))
+        .sortedWith(termOrder)
 
     constructor(terms: List<DiceTerm>, modifier: Int = 0) : this(
         countByDie = terms.filter { it.keep == null }.countByDie(),
-        keptTerms = terms.filter { it.keep != null }.sortedWith(keptTermOrder),
+        keptTerms = terms.filter { it.keep != null }.sortedWith(termOrder),
         modifier = modifier,
     )
 

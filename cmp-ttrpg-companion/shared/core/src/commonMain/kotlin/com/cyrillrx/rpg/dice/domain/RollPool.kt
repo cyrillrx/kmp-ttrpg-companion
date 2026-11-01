@@ -21,6 +21,6 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
 
     /** The rolls grouped by die, from the biggest and each die's double rolls first, as the notation reads. */
     fun rollsByDie(): Map<Die, List<DieRoll>> = rolls
-        .sortedWith(compareBy(biggestDieFirst, DieRoll::die).thenBy { it !is DoubleRoll })
+        .sortedWith(compareBy(termOrder, DieRoll::toTerm))
         .groupBy(DieRoll::die)
 }

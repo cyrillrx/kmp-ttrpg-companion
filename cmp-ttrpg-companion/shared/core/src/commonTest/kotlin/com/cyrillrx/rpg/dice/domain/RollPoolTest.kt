@@ -124,6 +124,26 @@ class RollPoolTest {
     }
 
     @Test
+    fun `a pool lists a die's double rolls in the order the notation reads them`() {
+        val withDisadvantage =
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 5),
+                discarded = SimpleRoll(Die.D20, value = 18),
+                rule = KeepRule.LOWER,
+            )
+        val withAdvantage =
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 18),
+                discarded = SimpleRoll(Die.D20, value = 5),
+                rule = KeepRule.HIGHER,
+            )
+        val pool = RollPool(listOf(withDisadvantage, withAdvantage))
+
+        assertEquals("2d20kh1 + 2d20kl1", pool.toNotation())
+        assertEquals(listOf(Die.D20 to listOf(withAdvantage, withDisadvantage)), pool.rollsByDie().toList())
+    }
+
+    @Test
     fun `a pool without dice has no notation`() {
         assertNull(RollPool(modifier = 3).toNotation())
     }
