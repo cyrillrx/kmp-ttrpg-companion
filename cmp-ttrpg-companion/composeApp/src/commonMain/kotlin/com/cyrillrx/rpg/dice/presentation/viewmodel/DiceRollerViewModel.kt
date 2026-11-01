@@ -36,6 +36,10 @@ class DiceRollerViewModel(
         }
     }
 
+    override fun onCleared() {
+        rollsToRecord.close()
+    }
+
     fun addDie(die: Die) {
         state.update { current ->
             if (current.diceCount() >= MAX_DICE_COUNT) return@update current
@@ -63,7 +67,7 @@ class DiceRollerViewModel(
     fun roll() {
         val composition = state.value.composition() ?: return
 
-        show(composition.roll(random))
+        showAndRecord(composition.roll(random))
     }
 
     fun rollD20() {
@@ -83,16 +87,12 @@ class DiceRollerViewModel(
     }
 
     private fun rollDirectly(roll: DieRoll) {
-        show(RollPool(listOf(roll), state.value.modifier))
+        showAndRecord(RollPool(listOf(roll), state.value.modifier))
     }
 
-    private fun show(pool: RollPool) {
+    private fun showAndRecord(pool: RollPool) {
         state.update { it.copy(lastRoll = pool, rollCount = it.rollCount + 1) }
         rollsToRecord.trySend(pool)
-    }
-
-    override fun onCleared() {
-        rollsToRecord.close()
     }
 
     private suspend fun recordIgnoringFailure(pool: RollPool) {
