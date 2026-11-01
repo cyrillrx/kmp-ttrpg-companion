@@ -5,6 +5,7 @@ import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
+import kotlin.test.assertNotNull
 
 class DiceNotationTest {
     @Test
@@ -162,5 +163,42 @@ class DiceNotationTest {
     @Test
     fun `a part that is neither dice nor a number is refused and named`() {
         assertEquals(Result.Failure(DiceNotationError.Unreadable("+fire")), DiceExpression.parse("1d6+fire"))
+    }
+
+    @Test
+    fun `a double roll reads into a kept term`() {
+        val advantage = DiceExpression(listOf(DiceTerm(2, Die.D20, keep = KeepRule.HIGHER)), modifier = 5)
+        val disadvantage = DiceExpression(listOf(DiceTerm(2, Die.D20, keep = KeepRule.LOWER)))
+
+        assertEquals(Result.Success(advantage), DiceExpression.parse("2d20kh1 + 5"))
+        assertEquals(Result.Success(disadvantage), DiceExpression.parse("2D20KL1"))
+    }
+
+    @Test
+    fun `a keep on anything but one of two dice is refused and named`() {
+        assertEquals(Result.Failure(DiceNotationError.UnsupportedKeep("2d20kh2")), DiceExpression.parse("2d20kh2"))
+        assertEquals(Result.Failure(DiceNotationError.UnsupportedKeep("+4d6kh1")), DiceExpression.parse("1d8+4d6kh1"))
+        assertEquals(Result.Failure(DiceNotationError.UnsupportedKeep("d20kl1")), DiceExpression.parse("d20kl1"))
+    }
+
+    @Test
+    fun `a double roll counts its two dice against the limit`() {
+        val expected = Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT))
+
+        assertEquals(expected, DiceExpression.parse("2d20kh1 + ${MAX_DICE_COUNT - 1}d6"))
+    }
+
+    @Test
+    fun `a pool notation reads back as the expression that rolls it`() {
+        val withDisadvantage =
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 4),
+                discarded = SimpleRoll(Die.D20, value = 11),
+                rule = KeepRule.LOWER,
+            )
+        val rolls = listOf(SimpleRoll(Die.D6, value = 2), withDisadvantage, SimpleRoll(Die.D6, value = 5))
+        val expression = assertNotNull(RollPool(rolls, modifier = 3).toExpression())
+
+        assertEquals(Result.Success(expression), DiceExpression.parse(expression.toNotation()))
     }
 }

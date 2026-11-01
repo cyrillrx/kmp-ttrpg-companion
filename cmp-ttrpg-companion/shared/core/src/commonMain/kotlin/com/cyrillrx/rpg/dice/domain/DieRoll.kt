@@ -20,9 +20,11 @@ data class DoubleRoll(val kept: SimpleRoll, val discarded: SimpleRoll, val rule:
             "Keeping the $rule roll cannot keep ${kept.value} over ${discarded.value}"
         }
     }
+}
 
-    /** Writes the roll as virtual tabletops do, such as `2d20kh1` for a d20 rolled with advantage. */
-    internal fun toNotation(): String = DiceTerm(count = 2, die = die).toNotation() + rule.notation
+internal fun DieRoll.toTerm(): DiceTerm = when (this) {
+    is SimpleRoll -> DiceTerm(count = 1, die = die)
+    is DoubleRoll -> DiceTerm(count = DOUBLE_ROLL_DICE, die = die, keep = rule)
 }
 
 /** Which of two rolls counts; with equal rolls, either does. */

@@ -138,4 +138,21 @@ class RollPoolTest {
         assertFailsWith<IllegalArgumentException> { RollPool(modifier = MAX_MODIFIER + 1) }
         assertFailsWith<IllegalArgumentException> { RollPool(modifier = -MAX_MODIFIER - 1) }
     }
+
+    @Test
+    fun `a pool counts a double roll as two dice against the limit`() {
+        val withAdvantage =
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 18),
+                discarded = SimpleRoll(Die.D20, value = 5),
+                rule = KeepRule.HIGHER,
+            )
+
+        assertFailsWith<IllegalArgumentException> { RollPool(List(MAX_DICE_COUNT - 1) { d6 } + withAdvantage) }
+    }
+
+    @Test
+    fun `an empty pool has no expression`() {
+        assertNull(RollPool(modifier = 3).toExpression())
+    }
 }

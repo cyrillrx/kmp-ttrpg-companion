@@ -157,4 +157,46 @@ class DiceExpressionTest {
 
         assertEquals(expected, (1.d20 + MAX_MODIFIER).withBonus(Int.MAX_VALUE))
     }
+
+    @Test
+    fun `a kept term holds two dice keeping one`() {
+        assertFailsWith<IllegalArgumentException> { DiceTerm(3, Die.D6, keep = KeepRule.HIGHER) }
+        assertFailsWith<IllegalArgumentException> { DiceTerm(1, Die.D20, keep = KeepRule.LOWER) }
+    }
+
+    @Test
+    fun `kept terms stay apart from the plain dice of their die and come first`() {
+        val advantage = DiceTerm(2, Die.D20, keep = KeepRule.HIGHER)
+        val expression = DiceExpression(listOf(DiceTerm(1, Die.D6), DiceTerm(1, Die.D20), advantage, advantage))
+
+        assertEquals(listOf(advantage, advantage, DiceTerm(1, Die.D20), DiceTerm(1, Die.D6)), expression.terms)
+    }
+
+    @Test
+    fun `the order of kept terms does not change the expression`() {
+        val advantage = DiceTerm(2, Die.D20, keep = KeepRule.HIGHER)
+        val disadvantage = DiceTerm(2, Die.D20, keep = KeepRule.LOWER)
+
+        assertEquals(DiceExpression(listOf(advantage, disadvantage)), DiceExpression(listOf(disadvantage, advantage)))
+    }
+
+    @Test
+    fun `a kept term counts its two dice against the limit`() {
+        val terms = listOf(DiceTerm(2, Die.D20, keep = KeepRule.HIGHER), DiceTerm(MAX_DICE_COUNT - 1, Die.D6))
+
+        assertFailsWith<IllegalArgumentException> { DiceExpression(terms) }
+    }
+
+    @Test
+    fun `rolling a kept term keeps one of its two rolls`() {
+        val expression = DiceExpression(listOf(DiceTerm(2, Die.D20, keep = KeepRule.HIGHER)), modifier = 1)
+
+        val withAdvantage =
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 17),
+                discarded = SimpleRoll(Die.D20, value = 3),
+                rule = KeepRule.HIGHER,
+            )
+        assertEquals(RollPool(listOf(withAdvantage), modifier = 1), expression.roll(FixedRandom(3, 17)))
+    }
 }
