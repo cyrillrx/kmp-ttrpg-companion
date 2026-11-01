@@ -7,7 +7,6 @@ import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import kotlinx.serialization.Serializable
 
-/** A die roll as the history stores it; [discarded] and [rule] are only set for a double roll. */
 @Serializable
 internal data class StoredDieRoll(
     val die: Die,
