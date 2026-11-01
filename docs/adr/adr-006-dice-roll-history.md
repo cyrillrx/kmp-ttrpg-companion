@@ -20,7 +20,7 @@ The roller only kept the last roll on screen. The history needs every roll, in t
 
 ## Why the dice are stored as JSON
 
-A roll holds one to `MAX_DICE_COUNT` dice, each a simple or a double roll. A child table would turn every read of the log into a join and every write into several inserts, for a list that is only ever read and written whole. A JSON column keeps a roll one row. The format is owned by `StoredDieRoll` rather than by the domain types, so a domain refactor does not silently change what is on disk.
+A roll holds one to `MAX_DICE_COUNT` dice, each a simple or a double roll. A child table would turn every read of the log into a join and every write into several inserts, for a list that is only ever read and written whole. A JSON column keeps a roll one row. The format is owned by `StoredDieRoll` rather than by the domain types, so reshaping a domain class does not silently change what is on disk. `Die` and `KeepRule` are the exception: they are stored by their constant names, so renaming a constant is a format change, and the rows holding the old name are skipped on read.
 
 ## Why the order follows the id
 
@@ -35,8 +35,8 @@ A roll holds one to `MAX_DICE_COUNT` dice, each a simple or a double roll. A chi
 
 ## Alternatives considered
 
-**A child table, one row per die**: rejected, joins and multiple inserts for data that is never queried die by die.
+**A child table, one row per die**. Rejected: joins and multiple inserts for data that is never queried die by die.
 
-**Keeping the history in memory**: rejected, PRD-006 requires it to survive a restart.
+**Keeping the history in memory**. Rejected: PRD-006 requires it to survive a restart.
 
-**Pruning on read, or on a schedule**: rejected, the table would grow unbounded between prunings; pruning in the write transaction keeps the cap an invariant.
+**Pruning on read, or on a schedule**. Rejected: the table would grow unbounded between prunings; pruning in the write transaction keeps the cap an invariant.
