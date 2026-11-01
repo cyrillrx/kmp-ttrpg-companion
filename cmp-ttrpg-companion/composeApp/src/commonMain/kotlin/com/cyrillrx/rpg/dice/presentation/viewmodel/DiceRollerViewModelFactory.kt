@@ -10,7 +10,7 @@ class DiceRollerViewModelFactory(
     private val historyRepository: RollHistoryRepository,
 ) : ViewModelProvider.Factory {
 
-    override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {
-        return DiceRollerViewModel(historyRepository) as T
-    }
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T =
+        DiceRollerViewModel(historyRepository) as T
 }
