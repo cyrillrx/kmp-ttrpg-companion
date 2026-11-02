@@ -32,6 +32,11 @@ class RollRecordTest {
     }
 
     @Test
+    fun `a pool without dice is not recorded`() {
+        assertFailsWith<IllegalArgumentException> { RollPool(modifier = 2).toRecord() }
+    }
+
+    @Test
     fun `a record reads back as the pool it was written from`() {
         assertEquals(pool.toRecord(), pool.toRecord().toRollPool().toRecord())
     }

@@ -17,14 +17,18 @@ private val VALUES = Regex("""\([^)]*\)""")
 private val RECORDED_TERM = Regex("""([^+()]+)\(([^)]*)\)""")
 
 /** The pool as its notation, each term followed by the values it rolled, such as `2d20kh1(15,10)+1d6(5)+2`. */
-internal fun RollPool.toRecord(): String = buildString {
-    append(
-        recordedTerms().joinToString(TERM_SEPARATOR) { (term, values) ->
-            "$term(${values.joinToString(VALUE_SEPARATOR)})"
-        },
-    )
-    if (modifier > 0) append(TERM_SEPARATOR)
-    if (modifier != 0) append(modifier)
+internal fun RollPool.toRecord(): String {
+    require(!isEmpty()) { "Cannot record a roll without dice" }
+
+    return buildString {
+        append(
+            recordedTerms().joinToString(TERM_SEPARATOR) { (term, values) ->
+                "$term(${values.joinToString(VALUE_SEPARATOR)})"
+            },
+        )
+        if (modifier > 0) append(TERM_SEPARATOR)
+        if (modifier != 0) append(modifier)
+    }
 }
 
 /** Throws [IllegalArgumentException] when the record no longer reads as a valid pool. */
