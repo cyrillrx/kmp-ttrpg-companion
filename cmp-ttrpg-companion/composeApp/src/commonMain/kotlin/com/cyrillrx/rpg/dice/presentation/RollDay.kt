@@ -31,4 +31,4 @@ fun LocalDate.relativeTo(today: LocalDate): RelativeDay = when (this) {
 // e.g. "09:05"
 fun LocalTime.toClockTime(): String = "${hour.twoDigits()}:${minute.twoDigits()}"
 
-private fun Int.twoDigits(): String = toString().padStart(2, '0')
+internal fun Int.twoDigits(): String = toString().padStart(2, '0')

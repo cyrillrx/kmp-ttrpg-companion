@@ -25,25 +25,34 @@ class DiceHistoryViewModel(
     private val timeZone: TimeZone = TimeZone.currentSystemDefault(),
 ) : ViewModel() {
 
-    private val loaded = MutableStateFlow(false)
+    private val loading = MutableStateFlow(Loading.PENDING)
 
     /** The newest roll of each clear the undo snackbar can still cancel; the history hides up to the highest. */
     private val pendingClears = MutableStateFlow(emptySet<Long>())
 
     private val commitScope = detachedCommitScope()
 
-    val state: StateFlow<DiceHistoryState> = combine(loaded, repository.rolls, pendingClears) { loaded, rolls, clears ->
-        if (loaded) render(rolls, hiddenUpTo = clears.maxOrNull()) else DiceHistoryState.Loading
+    val state: StateFlow<DiceHistoryState> = combine(loading, repository.rolls, pendingClears) {
+        loading,
+        rolls,
+        clears,
+        ->
+        when (loading) {
+            Loading.PENDING -> DiceHistoryState.Loading
+            Loading.FAILED -> DiceHistoryState.Error
+            Loading.DONE -> render(rolls, hiddenUpTo = clears.maxOrNull())
+        }
     }.stateIn(viewModelScope, SharingStarted.Eagerly, DiceHistoryState.Loading)
 
     init {
-        viewModelScope.launch {
-            loadIgnoringFailure()
-            loaded.value = true
-        }
+        viewModelScope.launch { loading.value = load() }
     }
 
     override fun onCleared() {
+        commitPendingClears()
+    }
+
+    fun commitPendingClears() {
         pendingClears.value.forEach(::commitClear)
     }
 
@@ -81,13 +90,15 @@ class DiceHistoryViewModel(
         return DiceHistoryState.WithData(visible.groupByDay(timeZone), today = clock.todayIn(timeZone))
     }
 
-    private suspend fun loadIgnoringFailure() {
-        try {
-            repository.load()
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            println("WARNING: failed to load the dice roll history: $e")
-        }
+    private suspend fun load(): Loading = try {
+        repository.load()
+        Loading.DONE
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        println("WARNING: failed to load the dice roll history: $e")
+        Loading.FAILED
     }
+
+    private enum class Loading { PENDING, DONE, FAILED }
 }

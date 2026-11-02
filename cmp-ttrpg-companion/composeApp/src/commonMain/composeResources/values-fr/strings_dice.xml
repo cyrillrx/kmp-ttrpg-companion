@@ -21,4 +21,14 @@
     <string name="btn_remove_die_of">Retirer un %1$s</string>
     <string name="btn_decrease_modifier">Diminuer le modificateur</string>
     <string name="btn_increase_modifier">Augmenter le modificateur</string>
+
+    <string name="title_roll_history">Historique</string>
+    <string name="btn_roll_history">Tout l'historique</string>
+    <string name="btn_clear_roll_history">Effacer l'historique</string>
+    <string name="message_no_roll_yet">Aucun jet pour l'instant</string>
+    <string name="error_while_loading_roll_history">Erreur lors du chargement de l'historique.</string>
+    <string name="snackbar_roll_history_cleared">Historique effacé</string>
+    <string name="label_today">Aujourd'hui</string>
+    <string name="label_yesterday">Hier</string>
+    <string name="label_roll_day">%1$s/%2$s/%3$s</string>
 </resources>

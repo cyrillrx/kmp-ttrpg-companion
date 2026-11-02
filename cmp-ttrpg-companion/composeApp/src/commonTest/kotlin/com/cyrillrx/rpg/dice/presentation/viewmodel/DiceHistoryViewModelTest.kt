@@ -5,6 +5,7 @@ import com.cyrillrx.rpg.core.presentation.viewmodel.hold
 import com.cyrillrx.rpg.dice.data.RamRollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
@@ -43,6 +44,13 @@ class DiceHistoryViewModelTest {
     @Test
     fun `an empty history reads as empty`() {
         assertEquals(DiceHistoryState.Empty, newViewModel().state.value)
+    }
+
+    @Test
+    fun `a history that fails to load reads as an error`() {
+        val viewModel = DiceHistoryViewModel(FailingToLoadRepository(), clock = FixedClock, timeZone = TimeZone.UTC)
+
+        assertEquals(DiceHistoryState.Error, viewModel.state.value)
     }
 
     @Test
@@ -141,6 +149,10 @@ class DiceHistoryViewModelTest {
         }
 
     private fun newViewModel() = DiceHistoryViewModel(history, clock = FixedClock, timeZone = TimeZone.UTC)
+
+    private class FailingToLoadRepository : RollHistoryRepository by RamRollHistoryRepository() {
+        override suspend fun load() = throw IllegalStateException("no such column")
+    }
 
     private object FixedClock : Clock {
         override fun now(): Instant = Instant.parse("2023-11-14T22:13:20Z")

@@ -28,6 +28,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Casino
 import androidx.compose.material.icons.filled.Remove
@@ -42,6 +43,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -97,6 +99,7 @@ import rpg_companion.composeapp.generated.resources.btn_increase_modifier
 import rpg_companion.composeapp.generated.resources.btn_remove_die_of
 import rpg_companion.composeapp.generated.resources.btn_roll
 import rpg_companion.composeapp.generated.resources.btn_roll_composition
+import rpg_companion.composeapp.generated.resources.btn_roll_history
 import rpg_companion.composeapp.generated.resources.die_count
 import rpg_companion.composeapp.generated.resources.die_label
 import rpg_companion.composeapp.generated.resources.label_double_roll
@@ -136,11 +139,21 @@ fun DiceRollerScreen(viewModel: DiceRollerViewModel, router: DiceRouter) {
         )
     }
 
-    DiceRollerScreen(state = state, onNavigateUpClicked = router::navigateUp, actions = actions)
+    DiceRollerScreen(
+        state = state,
+        onNavigateUpClicked = router::navigateUp,
+        onHistoryClicked = router::openHistory,
+        actions = actions,
+    )
 }
 
 @Composable
-fun DiceRollerScreen(state: DiceRollerState, onNavigateUpClicked: () -> Unit, actions: DiceRollerActions) {
+fun DiceRollerScreen(
+    state: DiceRollerState,
+    onNavigateUpClicked: () -> Unit,
+    onHistoryClicked: () -> Unit,
+    actions: DiceRollerActions,
+) {
     Scaffold(
         topBar = {
             SimpleTopBar(titleResource = Res.string.title_dice_roller, onNavigateUpClicked = onNavigateUpClicked)
@@ -162,12 +175,12 @@ fun DiceRollerScreen(state: DiceRollerState, onNavigateUpClicked: () -> Unit, ac
                     horizontalArrangement = Arrangement.spacedBy(spacingCommon),
                     modifier = contentModifier.padding(spacingCommon),
                 ) {
-                    RollResultCard(state, modifier = Modifier.weight(1f).fillMaxHeight())
+                    RollResultCard(state, onHistoryClicked, modifier = Modifier.weight(1f).fillMaxHeight())
                     ControlPanel(state, actions, MaterialTheme.shapes.large, Modifier.weight(1f))
                 }
             } else {
                 Column(modifier = contentModifier) {
-                    RollResultCard(state, modifier = Modifier.weight(1f).padding(spacingCommon))
+                    RollResultCard(state, onHistoryClicked, modifier = Modifier.weight(1f).padding(spacingCommon))
                     ControlPanel(
                         state = state,
                         actions = actions,
@@ -183,7 +196,7 @@ fun DiceRollerScreen(state: DiceRollerState, onNavigateUpClicked: () -> Unit, ac
 }
 
 @Composable
-private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier) {
+private fun RollResultCard(state: DiceRollerState, onHistoryClicked: () -> Unit, modifier: Modifier = Modifier) {
     val lastRoll = state.lastRoll
 
     Card(
@@ -196,7 +209,8 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
             verticalArrangement = Arrangement.spacedBy(spacingCommon),
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
+                .weight(1f)
                 .verticalScroll(rememberScrollState())
                 .padding(spacingCommon),
         ) {
@@ -211,6 +225,19 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
                 RollTotal(state.rollCount, lastRoll.total())
                 RollGroups(lastRoll)
             }
+        }
+        TextButton(
+            onClick = onHistoryClicked,
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(end = spacingMedium, bottom = spacingSmall),
+        ) {
+            Text(text = stringResource(Res.string.btn_roll_history))
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                contentDescription = null,
+                modifier = Modifier.size(iconSizeMedium),
+            )
         }
     }
 }
@@ -561,17 +588,23 @@ private val previewActions = DiceRollerActions({}, {}, {}, {}, {}, {}, {}, {}, {
 @Preview
 @Composable
 private fun PreviewDiceRollerScreenLight() {
-    AppThemePreview(darkTheme = false) { DiceRollerScreen(previewState, onNavigateUpClicked = {}, previewActions) }
+    AppThemePreview(darkTheme = false) {
+        DiceRollerScreen(previewState, onNavigateUpClicked = {}, onHistoryClicked = {}, previewActions)
+    }
 }
 
 @Preview
 @Composable
 private fun PreviewDiceRollerScreenDark() {
-    AppThemePreview(darkTheme = true) { DiceRollerScreen(previewState, onNavigateUpClicked = {}, previewActions) }
+    AppThemePreview(darkTheme = true) {
+        DiceRollerScreen(previewState, onNavigateUpClicked = {}, onHistoryClicked = {}, previewActions)
+    }
 }
 
 @Preview
 @Composable
 private fun PreviewDiceRollerScreenEmpty() {
-    AppThemePreview(darkTheme = true) { DiceRollerScreen(DiceRollerState(), onNavigateUpClicked = {}, previewActions) }
+    AppThemePreview(darkTheme = true) {
+        DiceRollerScreen(DiceRollerState(), onNavigateUpClicked = {}, onHistoryClicked = {}, previewActions)
+    }
 }
