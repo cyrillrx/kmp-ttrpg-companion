@@ -7,9 +7,8 @@ import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
-import com.cyrillrx.rpg.dice.data.StoredDieRoll
-import com.cyrillrx.rpg.dice.data.toStored
-import com.cyrillrx.rpg.dice.domain.DieRoll
+import com.cyrillrx.rpg.dice.data.toRecord
+import com.cyrillrx.rpg.dice.data.toRollPool
 import com.cyrillrx.rpg.dice.domain.MAX_RECORDED_ROLLS
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
 import com.cyrillrx.rpg.dice.domain.RollPool
@@ -173,11 +172,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     fun recordDiceRoll(pool: RollPool, rolledAt: Long) {
         dbQuery.transaction {
-            dbQuery.insertDiceRoll(
-                rolledAt = rolledAt,
-                modifier = pool.modifier.toLong(),
-                rolls = pool.rolls.map(DieRoll::toStored).serialize(),
-            )
+            dbQuery.insertDiceRoll(rolledAt = rolledAt, roll = pool.toRecord())
             dbQuery.pruneDiceRolls(kept = MAX_RECORDED_ROLLS.toLong())
         }
     }
@@ -189,7 +184,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private fun DiceRoll.toRecordedRoll(): RecordedRoll? = try {
         RecordedRoll(
             id = id,
-            pool = RollPool(rolls.deserialize<List<StoredDieRoll>>().map(StoredDieRoll::toDieRoll), modifier.toInt()),
+            pool = roll.toRollPool(),
             rolledAt = Instant.fromEpochMilliseconds(rolledAt),
         )
     } catch (e: IllegalArgumentException) {

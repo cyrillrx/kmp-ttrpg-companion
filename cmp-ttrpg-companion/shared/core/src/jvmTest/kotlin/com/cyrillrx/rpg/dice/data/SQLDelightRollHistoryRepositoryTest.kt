@@ -78,22 +78,21 @@ class SQLDelightRollHistoryRepositoryTest {
     @Test
     fun `a stored roll that no longer reads is skipped`() = runTest {
         repository.record(d4Pool(value = 2))
-        storeRow(rolls = """[{"die":"D7","value":3}]""")
-        storeRow(rolls = """[{"die":"D4","value":9}]""")
-        storeRow(rolls = """[{"die":"D20","value":17,"discarded":3}]""")
+        storeRow(roll = "1d7(3)")
+        storeRow(roll = "1d4(9)")
 
         assertEquals(listOf(d4Pool(value = 2)), repository.getAll().map(RecordedRoll::pool))
     }
 
     private fun d4Pool(value: Int) = RollPool(listOf(SimpleRoll(Die.D4, value)))
 
-    private fun storeRow(rolls: String) {
+    private fun storeRow(roll: String) {
         driver.execute(
             identifier = null,
-            sql = "INSERT INTO DiceRoll (rolledAt, modifier, rolls) VALUES (0, 0, ?)",
+            sql = "INSERT INTO DiceRoll (rolledAt, roll) VALUES (0, ?)",
             parameters = 1,
         ) {
-            bindString(index = 0, string = rolls)
+            bindString(index = 0, string = roll)
         }
     }
 
