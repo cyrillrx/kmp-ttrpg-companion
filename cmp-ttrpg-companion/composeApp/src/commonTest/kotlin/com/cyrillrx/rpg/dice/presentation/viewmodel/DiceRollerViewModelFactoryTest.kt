@@ -40,6 +40,6 @@ class DiceRollerViewModelFactoryTest {
         ViewModelProvider.create(store, factory)[DiceRollerViewModel::class].rollD20()
         advanceUntilIdle()
 
-        assertEquals(1, history.getAll().size)
+        assertEquals(1, history.rolls.value.size)
     }
 }

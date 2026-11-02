@@ -181,6 +181,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         it.toRecordedRoll()
     }
 
+    fun clearDiceRollsUpTo(id: Long) {
+        dbQuery.deleteDiceRollsUpTo(id)
+    }
+
     private fun DiceRoll.toRecordedRoll(): RecordedRoll? = try {
         RecordedRoll(
             id = id,
