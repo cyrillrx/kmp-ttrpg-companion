@@ -8,6 +8,7 @@ sealed interface DiceNotationError : Error {
     data class ZeroDice(val part: String) : DiceNotationError
     data class SubtractedDice(val part: String) : DiceNotationError
     data class UnsupportedDie(val die: String) : DiceNotationError
+    data class UnsupportedKeep(val part: String) : DiceNotationError
     data object NoDice : DiceNotationError
     data class TooManyDice(val limit: Int) : DiceLimitError
     data class ModifierOutOfRange(val limit: Int) : DiceLimitError

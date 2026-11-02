@@ -6,32 +6,55 @@ import kotlin.random.Random
 const val MAX_DICE_COUNT = 100
 const val MAX_MODIFIER = 1000
 internal val MODIFIER_RANGE = -MAX_MODIFIER..MAX_MODIFIER
-internal const val TERM_SEPARATOR = " + "
+private const val TERM_SEPARATOR = " + "
+
+internal const val DOUBLE_ROLL_DICE = 2
 
 internal val biggestDieFirst: Comparator<Die> = compareByDescending { it.sides }
+internal val termOrder: Comparator<DiceTerm> =
+    compareBy(biggestDieFirst, DiceTerm::die).thenBy(nullsLast(), DiceTerm::keep)
 
-data class DiceTerm(val count: Int, val die: Die) {
+/** [count] dice of [die]; with a [keep] rule, two dice of which only one counts. */
+data class DiceTerm(val count: Int, val die: Die, val keep: KeepRule? = null) {
     init {
         require(count in 1..MAX_DICE_COUNT) { "Cannot roll $count $die" }
+        require(keep == null || count == DOUBLE_ROLL_DICE) { "Cannot keep one of $count $die" }
     }
 
-    fun toNotation(): String = "${count}d${die.sides}"
+    /** Written as virtual tabletops do, such as `2d20kh1` for a d20 rolled with advantage. */
+    fun toNotation(): String = "${count}d${die.sides}" + keep?.notation.orEmpty()
+
+    internal fun roll(random: Random): List<DieRoll> = when (keep) {
+        null -> List(count) { die.roll(random) }
+        else -> listOf(die.rollTwiceKeeping(random, keep))
+    }
 
     override fun toString(): String = toNotation()
 }
 
 /** What to roll, such as `1d20 + 3d6 + 1d4 + 3`. */
 @ConsistentCopyVisibility
-data class DiceExpression private constructor(private val countByDie: Map<Die, Int>, val modifier: Int) {
+data class DiceExpression private constructor(
+    private val countByDie: Map<Die, Int>,
+    private val keptTerms: List<DiceTerm>,
+    val modifier: Int,
+) {
     init {
-        require(countByDie.isNotEmpty()) { "Cannot roll an expression without dice" }
-        require(countByDie.values.sum() <= MAX_DICE_COUNT) { "Cannot roll more than $MAX_DICE_COUNT dice" }
+        require(countByDie.isNotEmpty() || keptTerms.isNotEmpty()) { "Cannot roll an expression without dice" }
+        require(countByDie.values.sum() + keptTerms.sumOf { it.count } <= MAX_DICE_COUNT) {
+            "Cannot roll more than $MAX_DICE_COUNT dice"
+        }
         require(modifier in MODIFIER_RANGE) { "Cannot add a modifier of $modifier" }
     }
 
-    val terms: List<DiceTerm> = countByDie.map { (die, count) -> DiceTerm(count, die) }
+    val terms: List<DiceTerm> = (keptTerms + countByDie.map { (die, count) -> DiceTerm(count, die) })
+        .sortedWith(termOrder)
 
-    constructor(terms: List<DiceTerm>, modifier: Int = 0) : this(terms.countByDieBiggestFirst(), modifier)
+    constructor(terms: List<DiceTerm>, modifier: Int = 0) : this(
+        countByDie = terms.filter { it.keep == null }.countByDie(),
+        keptTerms = terms.filter { it.keep != null }.sortedWith(termOrder),
+        modifier = modifier,
+    )
 
     operator fun plus(other: DiceExpression): DiceExpression =
         DiceExpression(terms + other.terms, modifier + other.modifier)
@@ -52,10 +75,7 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
         }
     }
 
-    fun roll(random: Random = Random.Default): RollPool {
-        val rolls = terms.flatMap { term -> List(term.count) { term.die.roll(random) } }
-        return RollPool(rolls, modifier)
-    }
+    fun roll(random: Random = Random.Default): RollPool = RollPool(terms.flatMap { it.roll(random) }, modifier)
 
     /** Writes the expression as a notation that [parse] reads back, from the biggest die. */
     fun toNotation(): String = buildString {
@@ -66,7 +86,7 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     override fun toString(): String = toNotation()
 
     companion object {
-        /** Reads a notation such as `2d6 + 1d4 + 3`; `d20` stands for `1d20`. */
+        /** Reads a notation such as `2d20kh1 + 2d6 + 3`; `d20` stands for `1d20`. */
         fun parse(notation: String): Result<DiceExpression, DiceNotationError> = readDiceNotation(notation)
     }
 }
@@ -78,14 +98,11 @@ internal fun checkedDiceExpression(terms: List<DiceTerm>, modifier: Long): Resul
         else -> Result.Success(DiceExpression(terms, modifier.toInt()))
     }
 
-internal fun Int.toModifierNotation(): String = when {
+private fun Int.toModifierNotation(): String = when {
     this > 0 -> " + $this"
     this < 0 -> " - ${-this}"
     else -> ""
 }
 
-private fun List<DiceTerm>.countByDieBiggestFirst(): Map<Die, Int> = groupingBy { it.die }
+private fun List<DiceTerm>.countByDie(): Map<Die, Int> = groupingBy { it.die }
     .fold(0) { count, term -> count + term.count }
-    .entries
-    .sortedWith(compareBy(biggestDieFirst) { it.key })
-    .associate { (die, count) -> die to count }

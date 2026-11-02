@@ -157,4 +157,50 @@ class DiceExpressionTest {
 
         assertEquals(expected, (1.d20 + MAX_MODIFIER).withBonus(Int.MAX_VALUE))
     }
+
+    @Test
+    fun `a kept term holds two dice keeping one`() {
+        assertFailsWith<IllegalArgumentException> { DiceTerm(count = 3, die = Die.D6, keep = KeepRule.HIGHER) }
+        assertFailsWith<IllegalArgumentException> { DiceTerm(count = 1, die = Die.D20, keep = KeepRule.LOWER) }
+    }
+
+    @Test
+    fun `kept terms stay apart from the plain dice of their die and come first`() {
+        val advantage = DiceTerm(count = 2, die = Die.D20, keep = KeepRule.HIGHER)
+        val oneD6 = DiceTerm(count = 1, die = Die.D6)
+        val oneD20 = DiceTerm(count = 1, die = Die.D20)
+        val expression = DiceExpression(listOf(oneD6, oneD20, advantage, advantage))
+
+        assertEquals(listOf(advantage, advantage, oneD20, oneD6), expression.terms)
+    }
+
+    @Test
+    fun `the order of kept terms does not change the expression`() {
+        val advantage = DiceTerm(count = 2, die = Die.D20, keep = KeepRule.HIGHER)
+        val disadvantage = DiceTerm(count = 2, die = Die.D20, keep = KeepRule.LOWER)
+
+        assertEquals(DiceExpression(listOf(advantage, disadvantage)), DiceExpression(listOf(disadvantage, advantage)))
+    }
+
+    @Test
+    fun `a kept term counts its two dice against the limit`() {
+        val advantage = DiceTerm(count = 2, die = Die.D20, keep = KeepRule.HIGHER)
+        val terms = listOf(advantage, DiceTerm(MAX_DICE_COUNT - 1, Die.D6))
+
+        assertFailsWith<IllegalArgumentException> { DiceExpression(terms) }
+    }
+
+    @Test
+    fun `rolling a kept term keeps one of its two rolls`() {
+        val advantage = DiceTerm(count = 2, die = Die.D20, keep = KeepRule.HIGHER)
+        val expression = DiceExpression(listOf(advantage), modifier = 1)
+
+        val withAdvantage =
+            DoubleRoll(
+                kept = SimpleRoll(Die.D20, value = 17),
+                discarded = SimpleRoll(Die.D20, value = 3),
+                rule = KeepRule.HIGHER,
+            )
+        assertEquals(RollPool(listOf(withAdvantage), modifier = 1), expression.roll(FixedRandom(3, 17)))
+    }
 }

@@ -21,7 +21,7 @@ private sealed interface NotationPart {
 }
 
 private val SIGN_BOUNDARY = Regex("(?=[+-])")
-private val DICE = Regex("""(\d*)[dD](\d+)""")
+private val DICE = Regex("""(\d*)[dD](\d+)([kK][hHlL]\d+)?""")
 private val CONSTANT = Regex("""\d+""")
 
 private fun String.toNotationPart(): Result<NotationPart, DiceNotationError> {
@@ -40,15 +40,19 @@ private fun String.toNotationPart(): Result<NotationPart, DiceNotationError> {
 }
 
 private fun MatchResult.toDicePart(part: String): Result<NotationPart, DiceNotationError> {
-    val (countText, sidesText) = destructured
+    val (countText, sidesText, keepText) = destructured
     val count = countText.ifEmpty { "1" }.toIntOrNull()
     val sides = sidesText.toIntOrNull()
     val die = Die.entries.find { it.sides == sides }
+    val keep = KeepRule.entries.find { it.notation == keepText.lowercase() }
     return when {
         count == 0 -> Result.Failure(DiceNotationError.ZeroDice(part))
         count == null || count > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT))
         die == null -> Result.Failure(DiceNotationError.UnsupportedDie("d$sidesText"))
-        else -> Result.Success(NotationPart.Dice(DiceTerm(count, die)))
+        keepText.isNotEmpty() && (keep == null || count != DOUBLE_ROLL_DICE) -> Result.Failure(
+            DiceNotationError.UnsupportedKeep(part),
+        )
+        else -> Result.Success(NotationPart.Dice(DiceTerm(count, die, keep)))
     }
 }
 

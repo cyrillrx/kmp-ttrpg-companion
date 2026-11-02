@@ -6,7 +6,7 @@ fun Die.rollWithAdvantage(random: Random = Random.Default): DoubleRoll = rollTwi
 
 fun Die.rollWithDisadvantage(random: Random = Random.Default): DoubleRoll = rollTwiceKeeping(random, KeepRule.LOWER)
 
-private fun Die.rollTwiceKeeping(random: Random, rule: KeepRule): DoubleRoll {
+internal fun Die.rollTwiceKeeping(random: Random, rule: KeepRule): DoubleRoll {
     val first = roll(random)
     val second = roll(random)
     return if (rule.keeps(first.value, over = second.value)) {
