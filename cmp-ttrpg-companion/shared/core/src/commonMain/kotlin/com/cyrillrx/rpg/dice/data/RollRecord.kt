@@ -27,6 +27,7 @@ internal fun RollPool.toRecord(): String {
             },
         )
         if (modifier > 0) append(TERM_SEPARATOR)
+
         if (modifier != 0) append(modifier)
     }
 }
@@ -38,6 +39,7 @@ internal fun String.toRollPool(): RollPool {
         val (termNotation, valuesText) = match.destructured
         parseNotation(termNotation).terms.single().toRolls(valuesText.split(VALUE_SEPARATOR).map(String::toInt))
     }
+
     val pool = RollPool(rolls.toList(), expression.modifier)
     require(pool.toExpression() == expression) { "$this records values for only some of its dice" }
 
@@ -46,12 +48,13 @@ internal fun String.toRollPool(): RollPool {
 
 private fun RollPool.recordedTerms(): List<Pair<DiceTerm, List<Int>>> {
     val doubleRolls = rolls.filterIsInstance<DoubleRoll>().map {
-        it.toTerm() to
-            listOf(it.kept.value, it.discarded.value)
+        it.toTerm() to listOf(it.kept.value, it.discarded.value)
     }
+
     val simpleRolls = rolls.filterIsInstance<SimpleRoll>().groupBy(SimpleRoll::die).map { (die, sameDie) ->
         DiceTerm(sameDie.size, die) to sameDie.map(SimpleRoll::value)
     }
+
     return (doubleRolls + simpleRolls).sortedWith(compareBy(termOrder) { it.first })
 }
 
