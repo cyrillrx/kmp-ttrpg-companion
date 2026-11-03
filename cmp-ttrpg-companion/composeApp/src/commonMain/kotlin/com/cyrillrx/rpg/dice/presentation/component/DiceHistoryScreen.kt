@@ -30,6 +30,7 @@ import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
 import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
 import com.cyrillrx.rpg.dice.presentation.navigation.DiceRouter
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceHistoryViewModel
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -53,8 +54,9 @@ fun DiceHistoryScreen(viewModel: DiceHistoryViewModel, router: DiceRouter) {
     LaunchedEffect(viewModel) {
         viewModel.events.collect { event ->
             when (event) {
-                DiceHistoryViewModel.Event.ClearError ->
+                DiceHistoryViewModel.Event.ClearError -> launch {
                     snackbarHostState.showSnackbar(getString(Res.string.error_while_clearing_roll_history))
+                }
             }
         }
     }
