@@ -39,7 +39,7 @@ import com.cyrillrx.rpg.dice.presentation.RelativeDay
 import com.cyrillrx.rpg.dice.presentation.RollDay
 import com.cyrillrx.rpg.dice.presentation.relativeTo
 import com.cyrillrx.rpg.dice.presentation.toClockTime
-import com.cyrillrx.rpg.dice.presentation.twoDigits
+import com.cyrillrx.rpg.dice.presentation.toTwoDigits
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
 import kotlinx.datetime.number
@@ -74,8 +74,8 @@ private fun DayHeader(date: LocalDate, today: LocalDate) {
         RelativeDay.YESTERDAY -> stringResource(Res.string.label_yesterday)
         RelativeDay.EARLIER -> stringResource(
             Res.string.label_roll_day,
-            date.day.twoDigits(),
-            date.month.number.twoDigits(),
+            date.day.toTwoDigits(),
+            date.month.number.toTwoDigits(),
             date.year.toString(),
         )
     }

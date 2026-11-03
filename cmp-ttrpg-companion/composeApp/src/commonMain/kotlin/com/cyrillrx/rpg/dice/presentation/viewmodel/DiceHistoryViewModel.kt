@@ -42,7 +42,7 @@ class DiceHistoryViewModel(
         val body = when (loading) {
             Loading.PENDING -> DiceHistoryState.Body.Loading
             Loading.FAILED -> DiceHistoryState.Body.Error
-            Loading.DONE -> render(rolls, clears.hiddenUpTo())
+            Loading.DONE -> render(rolls, clears.hiddenUpTo)
         }
         DiceHistoryState(body)
     }.stateIn(viewModelScope, SharingStarted.Eagerly, DiceHistoryState())
@@ -68,7 +68,7 @@ class DiceHistoryViewModel(
         val newest =
             (state.value.body as? DiceHistoryState.Body.WithData)?.days?.first()?.rolls?.first()?.id ?: return null
 
-        val hiddenUpTo = clears.value.hiddenUpTo()
+        val hiddenUpTo = clears.value.hiddenUpTo
         if (hiddenUpTo != null && newest <= hiddenUpTo) return null
 
         clears.update { it.copy(undoable = it.undoable + newest) }
@@ -132,7 +132,8 @@ class DiceHistoryViewModel(
      * until the repository call ends, so the rolls stay hidden meanwhile and the clear runs once.
      */
     private data class Clears(val undoable: Set<Long> = emptySet(), val committing: Set<Long> = emptySet()) {
-        fun hiddenUpTo(): Long? = (undoable + committing).maxOrNull()
+        val hiddenUpTo: Long?
+            get() = (undoable + committing).maxOrNull()
 
         fun claim(upTo: Long): Clears {
             if (upTo !in undoable) return this
