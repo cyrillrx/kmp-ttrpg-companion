@@ -179,7 +179,6 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
         modifier = modifier.fillMaxWidth(),
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(spacingCommon),
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
