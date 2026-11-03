@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.StateFlow
 const val MAX_RECORDED_ROLLS = 500
 
 interface RollHistoryRepository {
-    /** The recorded rolls, newest first; empty until [load] has read them. */
+    /** The recorded rolls, newest first; may stay empty until [load] has read them. */
     val rolls: StateFlow<List<RecordedRoll>>
 
     suspend fun load()
