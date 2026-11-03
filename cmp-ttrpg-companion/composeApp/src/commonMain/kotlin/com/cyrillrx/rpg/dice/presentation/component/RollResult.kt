@@ -25,6 +25,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextDecoration
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.dieLabelWidth
@@ -120,15 +122,26 @@ private fun RollTile(roll: DieRoll) {
         ) {
             when (roll) {
                 is SimpleRoll -> Text(text = roll.value.toString(), style = MaterialTheme.typography.titleMedium)
-                is DoubleRoll -> DoubleRollContent(roll)
+                is DoubleRoll -> DoubleRollContent(
+                    roll,
+                    keptStyle = MaterialTheme.typography.titleMedium,
+                    discardedStyle = MaterialTheme.typography.labelMedium,
+                )
             }
         }
     }
 }
 
 // TODO(#335): say the keep rule in the description, so that a tie tells the mode apart
+
+/** The discarded roll is struck through, so it reads as discarded without relying on color. */
 @Composable
-private fun DoubleRollContent(roll: DoubleRoll) {
+internal fun DoubleRollContent(
+    roll: DoubleRoll,
+    keptStyle: TextStyle,
+    discardedStyle: TextStyle,
+    modifier: Modifier = Modifier,
+) {
     val description = stringResource(
         Res.string.label_double_roll,
         stringResource(Res.string.die_label, roll.die.sides),
@@ -137,18 +150,19 @@ private fun DoubleRollContent(roll: DoubleRoll) {
     )
     Row(
         horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-        modifier = Modifier.clearAndSetSemantics { contentDescription = description },
+        modifier = modifier.clearAndSetSemantics { contentDescription = description },
     ) {
         Text(
             text = roll.kept.value.toString(),
-            style = MaterialTheme.typography.titleMedium,
+            style = keptStyle,
             color = rollColor(roll.kept, against = roll.discarded),
             modifier = Modifier.alignByBaseline(),
         )
         Text(
             text = roll.discarded.value.toString(),
-            style = MaterialTheme.typography.labelMedium,
+            style = discardedStyle,
             color = rollColor(roll.discarded, against = roll.kept),
+            textDecoration = TextDecoration.LineThrough,
             modifier = Modifier.alignByBaseline(),
         )
     }
