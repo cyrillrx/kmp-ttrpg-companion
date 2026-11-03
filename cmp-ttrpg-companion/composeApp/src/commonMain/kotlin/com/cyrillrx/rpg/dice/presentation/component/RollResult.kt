@@ -62,6 +62,7 @@ internal fun RollResult(roll: RollPool, rollCount: Int, modifier: Modifier = Mod
     }
 }
 
+// TODO(#353): give the private composables below a modifier parameter
 @Composable
 private fun RollTotal(rollCount: Int, total: Int) {
     AnimatedContent(
