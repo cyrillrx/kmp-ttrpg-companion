@@ -18,9 +18,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.clearAndSetSemantics
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.text.style.TextDecoration
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.historyRollTileMinSize
@@ -47,7 +44,6 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.die_label
-import rpg_companion.composeapp.generated.resources.label_double_roll
 import rpg_companion.composeapp.generated.resources.label_roll_day
 import rpg_companion.composeapp.generated.resources.label_today
 import rpg_companion.composeapp.generated.resources.label_yesterday
@@ -164,40 +160,13 @@ private fun HistoryRollTile(roll: DieRoll) {
         Box(contentAlignment = Alignment.Center, modifier = Modifier.padding(horizontal = spacingSmall)) {
             when (roll) {
                 is SimpleRoll -> Text(text = roll.value.toString(), style = MaterialTheme.typography.labelLarge)
-                is DoubleRoll -> HistoryDoubleRoll(roll)
+                is DoubleRoll -> DoubleRollContent(
+                    roll,
+                    keptStyle = MaterialTheme.typography.labelLarge,
+                    discardedStyle = MaterialTheme.typography.labelSmall,
+                )
             }
         }
-    }
-}
-
-// TODO(#335): say the keep rule in the description, so that a tie tells the mode apart
-// TODO(#333): color by DoubleRoll.rule, so that a tie still tells the mode apart
-
-/** The discarded roll is struck through, so it reads as discarded without relying on color. */
-@Composable
-private fun HistoryDoubleRoll(roll: DoubleRoll) {
-    val description = stringResource(
-        Res.string.label_double_roll,
-        stringResource(Res.string.die_label, roll.die.sides),
-        roll.kept.value,
-        roll.discarded.value,
-    )
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-        modifier = Modifier.clearAndSetSemantics { contentDescription = description },
-    ) {
-        Text(
-            text = roll.kept.value.toString(),
-            style = MaterialTheme.typography.labelLarge,
-            modifier = Modifier.alignByBaseline(),
-        )
-        Text(
-            text = roll.discarded.value.toString(),
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textDecoration = TextDecoration.LineThrough,
-            modifier = Modifier.alignByBaseline(),
-        )
     }
 }
 
