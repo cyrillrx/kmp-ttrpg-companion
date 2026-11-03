@@ -48,11 +48,7 @@ class DiceHistoryViewModel(
     }.stateIn(viewModelScope, SharingStarted.Eagerly, DiceHistoryState())
 
     val events: SharedFlow<Event>
-        field = MutableSharedFlow<Event>()
-
-    sealed interface Event {
-        data object ClearError : Event
-    }
+        field = MutableSharedFlow<Event>(extraBufferCapacity = 1)
 
     init {
         viewModelScope.launch { loading.value = load() }
@@ -120,6 +116,10 @@ class DiceHistoryViewModel(
     } catch (e: Exception) {
         println("WARNING: failed to load the dice roll history: $e")
         Loading.FAILED
+    }
+
+    sealed interface Event {
+        data object ClearError : Event
     }
 
     private enum class Loading { PENDING, DONE, FAILED }
