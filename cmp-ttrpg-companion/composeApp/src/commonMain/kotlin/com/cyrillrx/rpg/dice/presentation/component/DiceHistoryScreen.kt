@@ -47,6 +47,7 @@ fun DiceHistoryScreen(viewModel: DiceHistoryViewModel, router: DiceRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
 
+    // TODO(#355): do not commit on a configuration change, the undo snackbar is still due
     DisposableEffect(viewModel) {
         onDispose { viewModel.commitPendingClears() }
     }
