@@ -12,10 +12,12 @@ import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -33,11 +35,12 @@ import kotlin.time.Instant
 @OptIn(ExperimentalCoroutinesApi::class)
 class DiceHistoryViewModelTest {
 
+    private val testDispatcher = StandardTestDispatcher()
     private val history = RamRollHistoryRepository(clock = FixedClock)
 
     @BeforeTest
     fun setUp() {
-        Dispatchers.setMain(UnconfinedTestDispatcher())
+        Dispatchers.setMain(testDispatcher)
     }
 
     @AfterTest
@@ -46,133 +49,142 @@ class DiceHistoryViewModelTest {
     }
 
     @Test
-    fun `the history reads as loading until it is loaded`() {
-        assertEquals(DiceHistoryState.Body.Loading, newViewModel(NeverLoadedRepository()).state.value.body)
+    fun `the history reads as loading until it is loaded`() = runTest(testDispatcher) {
+        assertEquals(DiceHistoryState.Body.Loading, newViewModel().state.value.body)
     }
 
     @Test
-    fun `an empty history reads as empty`() {
-        assertEquals(DiceHistoryState.Body.Empty, newViewModel().state.value.body)
+    fun `an empty history reads as empty`() = runTest(testDispatcher) {
+        assertEquals(DiceHistoryState.Body.Empty, openHistory().state.value.body)
     }
 
     @Test
-    fun `a history that fails to load reads as an error`() {
-        val viewModel = DiceHistoryViewModel(FailingToLoadRepository(), clock = FixedClock, timeZone = TimeZone.UTC)
-
-        assertEquals(DiceHistoryState.Body.Error, viewModel.state.value.body)
+    fun `a history that fails to load reads as an error`() = runTest(testDispatcher) {
+        assertEquals(DiceHistoryState.Body.Error, openHistory(FailingToLoadRepository()).state.value.body)
     }
 
     @Test
-    fun `the history shows its rolls newest first under the day they were made`() = runTest {
+    fun `the history shows its rolls newest first under the day they were made`() = runTest(testDispatcher) {
         recordD4(value = 1)
         recordD4(value = 2)
 
-        val state = assertIs<DiceHistoryState.Body.WithData>(newViewModel().state.value.body)
+        val state = assertIs<DiceHistoryState.Body.WithData>(openHistory().state.value.body)
 
-        assertEquals(LocalDate(2023, 11, 14), state.today)
-        assertEquals(listOf(LocalDate(2023, 11, 14)), state.days.map { it.date })
+        assertEquals(LocalDate(year = 2023, month = 11, day = 14), state.today)
+        assertEquals(listOf(LocalDate(year = 2023, month = 11, day = 14)), state.days.map { it.date })
         assertEquals(listOf(2, 1), state.days.single().rolls.map { it.pool.total() })
     }
 
     @Test
-    fun `a roll made while the history is open shows up`() = runTest {
-        val viewModel = newViewModel()
+    fun `a roll made while the history is open shows up`() = runTest(testDispatcher) {
+        val viewModel = openHistory()
 
         recordD4(value = 3)
+        advanceUntilIdle()
 
         assertEquals(listOf(3), shownTotals(viewModel))
     }
 
     @Test
-    fun `clearing hides every roll until the clear is undone`() = runTest {
+    fun `clearing hides every roll until the clear is undone`() = runTest(testDispatcher) {
         recordD4(value = 1)
-        val viewModel = newViewModel()
+        val viewModel = openHistory()
 
         val clear = viewModel.clearOptimistically()!!
+        advanceUntilIdle()
         assertEquals(DiceHistoryState.Body.Empty, viewModel.state.value.body)
 
         viewModel.undoClear(clear)
+        advanceUntilIdle()
         assertEquals(listOf(1), shownTotals(viewModel))
     }
 
     @Test
-    fun `an empty history has nothing to clear`() {
-        assertNull(newViewModel().clearOptimistically())
+    fun `an empty history has nothing to clear`() = runTest(testDispatcher) {
+        assertNull(openHistory().clearOptimistically())
     }
 
     @Test
-    fun `committing a clear forgets the rolls`() = runTest {
+    fun `committing a clear forgets the rolls`() = runTest(testDispatcher) {
         recordD4(value = 1)
-        val viewModel = newViewModel()
+        val viewModel = openHistory()
 
         viewModel.commitClear(viewModel.clearOptimistically()!!)
+        advanceUntilIdle()
 
         assertEquals(emptyList(), history.rolls.value)
         assertEquals(DiceHistoryState.Body.Empty, viewModel.state.value.body)
     }
 
     @Test
-    fun `a roll made while a clear can be undone survives the clear`() = runTest {
+    fun `a roll made while a clear can be undone survives the clear`() = runTest(testDispatcher) {
         recordD4(value = 1)
-        val viewModel = newViewModel()
+        val viewModel = openHistory()
 
         val clear = viewModel.clearOptimistically()!!
         recordD4(value = 4)
         viewModel.commitClear(clear)
+        advanceUntilIdle()
 
         assertEquals(listOf(4), history.rolls.value.map { it.pool.total() })
         assertEquals(listOf(4), shownTotals(viewModel))
     }
 
     @Test
-    fun `an undone clear is not committed`() = runTest {
+    fun `an undone clear is not committed`() = runTest(testDispatcher) {
         recordD4(value = 1)
-        val viewModel = newViewModel()
+        val viewModel = openHistory()
 
         val clear = viewModel.clearOptimistically()!!
         viewModel.undoClear(clear)
         viewModel.commitClear(clear)
+        advanceUntilIdle()
 
         assertEquals(listOf(1), history.rolls.value.map { it.pool.total() })
     }
 
     @Test
-    fun `leaving the history commits the clear still pending`() = runTest {
+    fun `leaving the history commits the clear still pending`() = runTest(testDispatcher) {
         recordD4(value = 1)
         val store = ViewModelStore()
         val viewModel = store.hold(DiceHistoryViewModel::class) { newViewModel() }
+        advanceUntilIdle()
 
         viewModel.clearOptimistically()
         store.clear()
+        advanceUntilIdle()
 
         assertEquals(emptyList<RecordedRoll>(), history.rolls.value)
     }
 
     @Test
-    fun `a clear that fails shows the rolls again and reports the error`() = runTest {
+    fun `a clear that fails shows the rolls again and reports the error`() = runTest(testDispatcher) {
         val repository = FailingToClearRepository()
         repository.record(d4(value = 1))
-        val viewModel = newViewModel(repository)
+        val viewModel = openHistory(repository)
         val events = mutableListOf<DiceHistoryViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.events.toList(events) }
 
         viewModel.commitClear(viewModel.clearOptimistically()!!)
+        advanceUntilIdle()
 
         assertEquals(listOf(1), shownTotals(viewModel))
         assertEquals(listOf<DiceHistoryViewModel.Event>(DiceHistoryViewModel.Event.ClearError), events)
     }
 
     @Test
-    fun `a clear still running is not committed a second time on leaving`() = runTest {
+    fun `a clear still running is not committed a second time on leaving`() = runTest(testDispatcher) {
         val repository = SlowToClearRepository()
         repository.record(d4(value = 1))
-        val viewModel = newViewModel(repository)
+        val viewModel = openHistory(repository)
 
         viewModel.commitClear(viewModel.clearOptimistically()!!)
         viewModel.commitPendingClears()
+        advanceUntilIdle()
         assertEquals(DiceHistoryState.Body.Empty, viewModel.state.value.body)
 
         repository.release.complete(Unit)
+        advanceUntilIdle()
         assertEquals(1, repository.clearCount)
     }
 
@@ -187,15 +199,14 @@ class DiceHistoryViewModelTest {
             day.rolls.map { it.pool.total() }
         }
 
+    private fun TestScope.openHistory(repository: RollHistoryRepository = history) =
+        newViewModel(repository).also { advanceUntilIdle() }
+
     private fun newViewModel(repository: RollHistoryRepository = history) =
         DiceHistoryViewModel(repository, clock = FixedClock, timeZone = TimeZone.UTC)
 
     private class FailingToLoadRepository : RollHistoryRepository by RamRollHistoryRepository() {
         override suspend fun load() = throw IllegalStateException("no such column")
-    }
-
-    private class NeverLoadedRepository : RollHistoryRepository by RamRollHistoryRepository() {
-        override suspend fun load() = awaitCancellation()
     }
 
     private class FailingToClearRepository : RollHistoryRepository by RamRollHistoryRepository(FixedClock) {
