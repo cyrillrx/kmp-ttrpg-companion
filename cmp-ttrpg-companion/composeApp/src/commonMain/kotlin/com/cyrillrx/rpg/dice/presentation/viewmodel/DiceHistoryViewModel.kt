@@ -7,10 +7,13 @@ import com.cyrillrx.rpg.dice.domain.RecordedRoll
 import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
 import com.cyrillrx.rpg.dice.presentation.groupByDay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.getAndUpdate
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -27,12 +30,11 @@ class DiceHistoryViewModel(
 
     private val loading = MutableStateFlow(Loading.PENDING)
 
-    /** The newest roll of each clear the undo snackbar can still cancel; the history hides up to the highest. */
-    private val pendingClears = MutableStateFlow(emptySet<Long>())
+    private val clears = MutableStateFlow(Clears())
 
     private val commitScope = detachedCommitScope()
 
-    val state: StateFlow<DiceHistoryState> = combine(loading, repository.rolls, pendingClears) {
+    val state: StateFlow<DiceHistoryState> = combine(loading, repository.rolls, clears) {
         loading,
         rolls,
         clears,
@@ -40,10 +42,17 @@ class DiceHistoryViewModel(
         val body = when (loading) {
             Loading.PENDING -> DiceHistoryState.Body.Loading
             Loading.FAILED -> DiceHistoryState.Body.Error
-            Loading.DONE -> render(rolls, hiddenUpTo = clears.maxOrNull())
+            Loading.DONE -> render(rolls, clears.hiddenUpTo())
         }
         DiceHistoryState(body)
     }.stateIn(viewModelScope, SharingStarted.Eagerly, DiceHistoryState())
+
+    val events: SharedFlow<Event>
+        field = MutableSharedFlow<Event>()
+
+    sealed interface Event {
+        data object ClearError : Event
+    }
 
     init {
         viewModelScope.launch { loading.value = load() }
@@ -54,7 +63,8 @@ class DiceHistoryViewModel(
     }
 
     fun commitPendingClears() {
-        pendingClears.value.forEach(::commitClear)
+        val claimed = clears.getAndUpdate { it.copy(undoable = emptySet(), committing = it.committing + it.undoable) }
+        claimed.undoable.forEach(::commit)
     }
 
     /** Hides every roll on screen; returns what [undoClear] or [commitClear] then take, or null with nothing to clear. */
@@ -62,27 +72,37 @@ class DiceHistoryViewModel(
         val newest =
             (state.value.body as? DiceHistoryState.Body.WithData)?.days?.first()?.rolls?.first()?.id ?: return null
 
-        pendingClears.update { it + newest }
+        clears.update { it.copy(undoable = it.undoable + newest) }
         return newest
     }
 
     fun undoClear(upTo: Long) {
-        pendingClears.update { it - upTo }
+        clears.update { it.copy(undoable = it.undoable - upTo) }
     }
 
     fun commitClear(upTo: Long) {
-        if (upTo !in pendingClears.value) return
+        val claimed = clears.getAndUpdate { it.claim(upTo) }
+        if (upTo !in claimed.undoable) return
 
+        commit(upTo)
+    }
+
+    private fun commit(upTo: Long) {
         commitScope.launch {
-            try {
-                repository.clearUpTo(upTo)
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                println("WARNING: failed to clear the dice roll history: $e")
-            }
-            pendingClears.update { it - upTo }
+            val cleared = clear(upTo)
+            clears.update { it.copy(committing = it.committing - upTo) }
+            if (!cleared) events.emit(Event.ClearError)
         }
+    }
+
+    private suspend fun clear(upTo: Long): Boolean = try {
+        repository.clearUpTo(upTo)
+        true
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        println("WARNING: failed to clear the dice roll history: $e")
+        false
     }
 
     private fun render(rolls: List<RecordedRoll>, hiddenUpTo: Long?): DiceHistoryState.Body {
@@ -103,4 +123,18 @@ class DiceHistoryViewModel(
     }
 
     private enum class Loading { PENDING, DONE, FAILED }
+
+    /**
+     * The newest roll of each clear: [undoable] while the undo snackbar can still cancel it, then [committing]
+     * until the repository call ends, so the rolls stay hidden meanwhile and the clear runs once.
+     */
+    private data class Clears(val undoable: Set<Long> = emptySet(), val committing: Set<Long> = emptySet()) {
+        fun hiddenUpTo(): Long? = (undoable + committing).maxOrNull()
+
+        fun claim(upTo: Long): Clears {
+            if (upTo !in undoable) return this
+
+            return copy(undoable = undoable - upTo, committing = committing + upTo)
+        }
+    }
 }

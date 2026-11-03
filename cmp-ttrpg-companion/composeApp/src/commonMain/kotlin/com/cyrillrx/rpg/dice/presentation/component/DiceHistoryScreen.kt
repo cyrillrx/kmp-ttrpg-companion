@@ -14,6 +14,7 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -34,6 +35,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_clear_roll_history
+import rpg_companion.composeapp.generated.resources.error_while_clearing_roll_history
 import rpg_companion.composeapp.generated.resources.error_while_loading_roll_history
 import rpg_companion.composeapp.generated.resources.message_no_roll_yet
 import rpg_companion.composeapp.generated.resources.snackbar_roll_history_cleared
@@ -46,6 +48,15 @@ fun DiceHistoryScreen(viewModel: DiceHistoryViewModel, router: DiceRouter) {
 
     DisposableEffect(viewModel) {
         onDispose { viewModel.commitPendingClears() }
+    }
+
+    LaunchedEffect(viewModel) {
+        viewModel.events.collect { event ->
+            when (event) {
+                DiceHistoryViewModel.Event.ClearError ->
+                    snackbarHostState.showSnackbar(getString(Res.string.error_while_clearing_roll_history))
+            }
+        }
     }
 
     val clearOptimistically = remember(viewModel) { { _: Unit -> viewModel.clearOptimistically() } }

@@ -9,8 +9,11 @@ import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -139,19 +142,68 @@ class DiceHistoryViewModelTest {
         assertEquals(emptyList<RecordedRoll>(), history.rolls.value)
     }
 
-    private suspend fun recordD4(value: Int) {
-        history.record(RollPool(listOf(SimpleRoll(Die.D4, value))))
+    @Test
+    fun `a clear that fails shows the rolls again and reports the error`() = runTest {
+        val repository = FailingToClearRepository()
+        repository.record(d4(value = 1))
+        val viewModel = newViewModel(repository)
+        val events = mutableListOf<DiceHistoryViewModel.Event>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.events.toList(events) }
+
+        viewModel.commitClear(viewModel.clearOptimistically()!!)
+
+        assertEquals(listOf(1), shownTotals(viewModel))
+        assertEquals(listOf<DiceHistoryViewModel.Event>(DiceHistoryViewModel.Event.ClearError), events)
     }
+
+    @Test
+    fun `a clear still running is not committed a second time on leaving`() = runTest {
+        val repository = SlowToClearRepository()
+        repository.record(d4(value = 1))
+        val viewModel = newViewModel(repository)
+
+        viewModel.commitClear(viewModel.clearOptimistically()!!)
+        viewModel.commitPendingClears()
+        assertEquals(DiceHistoryState.Body.Empty, viewModel.state.value.body)
+
+        repository.release.complete(Unit)
+        assertEquals(1, repository.clearCount)
+    }
+
+    private suspend fun recordD4(value: Int) {
+        history.record(d4(value))
+    }
+
+    private fun d4(value: Int) = RollPool(listOf(SimpleRoll(Die.D4, value)))
 
     private fun shownTotals(viewModel: DiceHistoryViewModel): List<Int> =
         assertIs<DiceHistoryState.Body.WithData>(viewModel.state.value.body).days.flatMap { day ->
             day.rolls.map { it.pool.total() }
         }
 
-    private fun newViewModel() = DiceHistoryViewModel(history, clock = FixedClock, timeZone = TimeZone.UTC)
+    private fun newViewModel(repository: RollHistoryRepository = history) =
+        DiceHistoryViewModel(repository, clock = FixedClock, timeZone = TimeZone.UTC)
 
     private class FailingToLoadRepository : RollHistoryRepository by RamRollHistoryRepository() {
         override suspend fun load() = throw IllegalStateException("no such column")
+    }
+
+    private class FailingToClearRepository : RollHistoryRepository by RamRollHistoryRepository(FixedClock) {
+        override suspend fun clearUpTo(id: Long) = throw IllegalStateException("disk I/O error")
+    }
+
+    private class SlowToClearRepository(
+        private val delegate: RollHistoryRepository = RamRollHistoryRepository(FixedClock),
+    ) : RollHistoryRepository by delegate {
+        val release = CompletableDeferred<Unit>()
+        var clearCount = 0
+            private set
+
+        override suspend fun clearUpTo(id: Long) {
+            clearCount++
+            release.await()
+            delegate.clearUpTo(id)
+        }
     }
 
     private object FixedClock : Clock {
