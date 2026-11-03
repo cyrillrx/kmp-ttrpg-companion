@@ -8,10 +8,10 @@ class RelativeToTest {
 
     @Test
     fun `a day reads relative to today`() {
-        val today = LocalDate(2026, 3, 1)
+        val today = LocalDate(year = 2026, month = 3, day = 1)
 
         assertEquals(RelativeDay.TODAY, today.relativeTo(today))
-        assertEquals(RelativeDay.YESTERDAY, LocalDate(2026, 2, 28).relativeTo(today))
-        assertEquals(RelativeDay.EARLIER, LocalDate(2026, 2, 27).relativeTo(today))
+        assertEquals(RelativeDay.YESTERDAY, LocalDate(year = 2026, month = 2, day = 28).relativeTo(today))
+        assertEquals(RelativeDay.EARLIER, LocalDate(year = 2026, month = 2, day = 27).relativeTo(today))
     }
 }

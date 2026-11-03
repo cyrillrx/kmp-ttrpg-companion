@@ -8,7 +8,7 @@ class ToClockTimeTest {
 
     @Test
     fun `a clock time always reads with two digit hours and minutes`() {
-        assertEquals("09:05", LocalTime(9, 5).toClockTime())
-        assertEquals("21:40", LocalTime(21, 40).toClockTime())
+        assertEquals("09:05", LocalTime(hour = 9, minute = 5).toClockTime())
+        assertEquals("21:40", LocalTime(hour = 21, minute = 40).toClockTime())
     }
 }

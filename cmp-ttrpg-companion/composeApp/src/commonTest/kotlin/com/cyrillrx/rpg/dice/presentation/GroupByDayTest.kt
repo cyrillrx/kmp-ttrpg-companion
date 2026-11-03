@@ -25,9 +25,14 @@ class GroupByDayTest {
 
         val days = rolls.groupByDay(paris)
 
-        assertEquals(listOf(LocalDate(2026, 11, 2), LocalDate(2026, 11, 1)), days.map { it.date })
+        assertEquals(
+            listOf(LocalDate(year = 2026, month = 11, day = 2), LocalDate(year = 2026, month = 11, day = 1)),
+            days.map {
+                it.date
+            },
+        )
         assertEquals(listOf(listOf(3L, 2L), listOf(1L)), days.map { day -> day.rolls.map { it.id } })
-        assertEquals(LocalTime(0, 10), days.first().rolls.last().time)
+        assertEquals(LocalTime(hour = 0, minute = 10), days.first().rolls.last().time)
     }
 
     private fun recorded(id: Long, rolledAt: String) =
