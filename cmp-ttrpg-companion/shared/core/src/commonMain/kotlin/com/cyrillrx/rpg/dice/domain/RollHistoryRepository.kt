@@ -8,6 +8,7 @@ interface RollHistoryRepository {
     /** The recorded rolls, newest first; may stay empty until [load] has read them. */
     val rolls: StateFlow<List<RecordedRoll>>
 
+    /** Reads the stored rolls into [rolls]; throws when the store cannot be read. */
     suspend fun load()
 
     /** Keeps [pool] as the newest roll, forgetting the oldest ones beyond [MAX_RECORDED_ROLLS]. */
