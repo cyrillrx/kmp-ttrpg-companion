@@ -12,7 +12,7 @@ interface RollHistoryRepository {
     suspend fun load()
 
     /** Keeps [pool] as the newest roll, forgetting the oldest ones beyond [MAX_RECORDED_ROLLS]. */
-    suspend fun record(pool: RollPool)
+    suspend fun record(pool: RollPool, context: RollContext? = null)
 
     /** Forgets the roll [id] and every older one, so a roll recorded since is kept. */
     suspend fun clearUpTo(id: Long)

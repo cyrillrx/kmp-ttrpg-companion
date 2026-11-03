@@ -1,13 +1,16 @@
 package com.cyrillrx.rpg.dice.data
 
 import app.cash.sqldelight.db.SqlDriver
+import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.data.cache.TestDatabaseDriverFactory
+import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
 import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.MAX_RECORDED_ROLLS
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import kotlinx.coroutines.test.runTest
@@ -46,6 +49,34 @@ class SQLDelightRollHistoryRepositoryTest {
         repository.record(pool)
 
         assertEquals(listOf(RecordedRoll(id = 1, pool = pool, rolledAt = FixedClock.now())), repository.rolls.value)
+    }
+
+    @Test
+    fun `a roll recorded for a check reads back with its context`() = runTest {
+        val context = RollContext(characterId = "hero", check = D20Check.SkillCheck(Skill.PERCEPTION))
+
+        repository.record(d4Pool(value = 2), context)
+        val reopened = newRepository()
+        reopened.load()
+
+        assertEquals(listOf(context), reopened.rolls.value.map(RecordedRoll::context))
+    }
+
+    @Test
+    fun `a roll recorded without a context reads back without one`() = runTest {
+        repository.record(d4Pool(value = 2))
+        repository.load()
+
+        assertEquals(listOf(null), repository.rolls.value.map(RecordedRoll::context))
+    }
+
+    @Test
+    fun `a stored check that no longer reads drops the context but keeps the roll`() = runTest {
+        storeRow(roll = "1d4(2)", characterId = "hero", checkKey = "skill:JUGGLING")
+        repository.load()
+
+        assertEquals(listOf(null), repository.rolls.value.map(RecordedRoll::context))
+        assertEquals(listOf(d4Pool(value = 2)), repository.rolls.value.map(RecordedRoll::pool))
     }
 
     @Test
@@ -121,13 +152,15 @@ class SQLDelightRollHistoryRepositoryTest {
 
     private fun d4Pool(value: Int) = RollPool(listOf(SimpleRoll(Die.D4, value)))
 
-    private fun storeRow(roll: String) {
+    private fun storeRow(roll: String, characterId: String? = null, checkKey: String? = null) {
         driver.execute(
             identifier = null,
-            sql = "INSERT INTO DiceRoll (rolledAt, roll) VALUES (0, ?)",
-            parameters = 1,
+            sql = "INSERT INTO DiceRoll (rolledAt, roll, characterId, checkKey) VALUES (0, ?, ?, ?)",
+            parameters = 3,
         ) {
             bindString(index = 0, string = roll)
+            bindString(index = 1, string = characterId)
+            bindString(index = 2, string = checkKey)
         }
     }
 

@@ -1,0 +1,3 @@
+ALTER TABLE DiceRoll ADD COLUMN characterId TEXT;
+ALTER TABLE DiceRoll ADD COLUMN checkKey TEXT;
+CREATE INDEX IF NOT EXISTS DiceRoll_characterId ON DiceRoll(characterId);

@@ -7,10 +7,13 @@ import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.dice.data.storedRollContext
+import com.cyrillrx.rpg.dice.data.toCheckKey
 import com.cyrillrx.rpg.dice.data.toRecord
 import com.cyrillrx.rpg.dice.data.toRollPool
 import com.cyrillrx.rpg.dice.domain.MAX_RECORDED_ROLLS
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Palette
@@ -170,9 +173,14 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         updatedAt = Instant.fromEpochMilliseconds(updatedAt),
     )
 
-    fun recordDiceRoll(pool: RollPool, rolledAt: Long) {
+    fun recordDiceRoll(pool: RollPool, context: RollContext?, rolledAt: Long) {
         dbQuery.transaction {
-            dbQuery.insertDiceRoll(rolledAt = rolledAt, roll = pool.toRecord())
+            dbQuery.insertDiceRoll(
+                rolledAt = rolledAt,
+                roll = pool.toRecord(),
+                characterId = context?.characterId,
+                checkKey = context?.check?.toCheckKey(),
+            )
             dbQuery.pruneDiceRolls(kept = MAX_RECORDED_ROLLS.toLong())
         }
     }
@@ -190,6 +198,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             id = id,
             pool = roll.toRollPool(),
             rolledAt = Instant.fromEpochMilliseconds(rolledAt),
+            context = storedRollContext(characterId, checkKey),
         )
     } catch (e: IllegalArgumentException) {
         println("WARNING: stored dice roll $id dropped: $e")
