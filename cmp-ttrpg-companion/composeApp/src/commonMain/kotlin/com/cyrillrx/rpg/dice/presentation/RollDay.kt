@@ -19,7 +19,7 @@ enum class RelativeDay { TODAY, YESTERDAY, EARLIER }
 fun List<RecordedRoll>.groupByDay(timeZone: TimeZone): List<RollDay> = map { recorded ->
     val rolledAt = recorded.rolledAt.toLocalDateTime(timeZone)
     rolledAt.date to DayRoll(recorded.id, recorded.pool, rolledAt.time)
-}.groupBy(keySelector = { it.first }, valueTransform = { it.second })
+}.groupBy(keySelector = Pair<LocalDate, DayRoll>::first, valueTransform = Pair<LocalDate, DayRoll>::second)
     .map { (date, rolls) -> RollDay(date, rolls) }
 
 fun LocalDate.relativeTo(today: LocalDate): RelativeDay = when (this) {

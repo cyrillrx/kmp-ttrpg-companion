@@ -9,6 +9,7 @@ import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
+import com.cyrillrx.rpg.dice.presentation.RollDay
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -71,7 +72,7 @@ class DiceHistoryViewModelTest {
         val state = assertIs<DiceHistoryState.Body.WithData>(openHistory().state.value.body)
 
         assertEquals(LocalDate(year = 2023, month = 11, day = 14), state.today)
-        assertEquals(listOf(LocalDate(year = 2023, month = 11, day = 14)), state.days.map { it.date })
+        assertEquals(listOf(LocalDate(year = 2023, month = 11, day = 14)), state.days.map(RollDay::date))
         assertEquals(listOf(2, 1), state.days.single().rolls.map { it.pool.total() })
     }
 
