@@ -100,6 +100,16 @@ class DiceHistoryViewModelTest {
     }
 
     @Test
+    fun `a second clear before the history redraws has nothing left to clear`() = runTest(testDispatcher) {
+        recordD4(value = 1)
+        val viewModel = openHistory()
+
+        viewModel.clearOptimistically()
+
+        assertNull(viewModel.clearOptimistically())
+    }
+
+    @Test
     fun `an empty history has nothing to clear`() = runTest(testDispatcher) {
         assertNull(openHistory().clearOptimistically())
     }

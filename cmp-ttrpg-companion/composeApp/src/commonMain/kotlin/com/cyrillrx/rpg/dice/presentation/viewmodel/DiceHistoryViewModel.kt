@@ -68,6 +68,9 @@ class DiceHistoryViewModel(
         val newest =
             (state.value.body as? DiceHistoryState.Body.WithData)?.days?.first()?.rolls?.first()?.id ?: return null
 
+        val hiddenUpTo = clears.value.hiddenUpTo()
+        if (hiddenUpTo != null && newest <= hiddenUpTo) return null
+
         clears.update { it.copy(undoable = it.undoable + newest) }
         return newest
     }
