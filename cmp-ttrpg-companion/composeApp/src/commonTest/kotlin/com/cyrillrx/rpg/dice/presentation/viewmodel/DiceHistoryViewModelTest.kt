@@ -12,6 +12,7 @@ import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -42,6 +43,11 @@ class DiceHistoryViewModelTest {
     @AfterTest
     fun tearDown() {
         Dispatchers.resetMain()
+    }
+
+    @Test
+    fun `the history reads as loading until it is loaded`() {
+        assertEquals(DiceHistoryState.Body.Loading, newViewModel(NeverLoadedRepository()).state.value.body)
     }
 
     @Test
@@ -186,6 +192,10 @@ class DiceHistoryViewModelTest {
 
     private class FailingToLoadRepository : RollHistoryRepository by RamRollHistoryRepository() {
         override suspend fun load() = throw IllegalStateException("no such column")
+    }
+
+    private class NeverLoadedRepository : RollHistoryRepository by RamRollHistoryRepository() {
+        override suspend fun load() = awaitCancellation()
     }
 
     private class FailingToClearRepository : RollHistoryRepository by RamRollHistoryRepository(FixedClock) {
