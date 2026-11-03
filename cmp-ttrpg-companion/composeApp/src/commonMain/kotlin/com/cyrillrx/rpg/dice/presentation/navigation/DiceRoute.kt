@@ -5,7 +5,10 @@ import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
+import com.cyrillrx.rpg.dice.presentation.component.DiceHistoryScreen
 import com.cyrillrx.rpg.dice.presentation.component.DiceRollerScreen
+import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceHistoryViewModel
+import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceHistoryViewModelFactory
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceRollerViewModel
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceRollerViewModelFactory
 import kotlinx.serialization.Serializable
@@ -14,10 +17,14 @@ import kotlinx.serialization.modules.PolymorphicModuleBuilder
 sealed interface DiceRoute {
     @Serializable
     data object Roller : NavKey
+
+    @Serializable
+    data object History : NavKey
 }
 
 fun PolymorphicModuleBuilder<NavKey>.registerDiceRoutes() {
     subclass(DiceRoute.Roller::class, DiceRoute.Roller.serializer())
+    subclass(DiceRoute.History::class, DiceRoute.History.serializer())
 }
 
 fun EntryProviderScope<NavKey>.handleDiceRoutes(
@@ -27,5 +34,9 @@ fun EntryProviderScope<NavKey>.handleDiceRoutes(
     entry<DiceRoute.Roller> {
         val viewModel = viewModel<DiceRollerViewModel>(factory = DiceRollerViewModelFactory(historyRepository))
         DiceRollerScreen(viewModel, DiceRouterImpl(backStack))
+    }
+    entry<DiceRoute.History> {
+        val viewModel = viewModel<DiceHistoryViewModel>(factory = DiceHistoryViewModelFactory(historyRepository))
+        DiceHistoryScreen(viewModel, DiceRouterImpl(backStack))
     }
 }

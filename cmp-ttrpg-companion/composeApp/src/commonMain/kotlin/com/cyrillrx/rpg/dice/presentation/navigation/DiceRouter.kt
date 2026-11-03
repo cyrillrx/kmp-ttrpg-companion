@@ -6,10 +6,16 @@ import com.cyrillrx.rpg.core.navigation.navigateUp
 
 interface DiceRouter {
     fun navigateUp()
+
+    fun openHistory()
 }
 
 class DiceRouterImpl(private val backStack: NavBackStack<NavKey>) : DiceRouter {
     override fun navigateUp() {
         backStack.navigateUp()
+    }
+
+    override fun openHistory() {
+        backStack.add(DiceRoute.History)
     }
 }

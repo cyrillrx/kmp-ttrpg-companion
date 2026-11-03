@@ -21,4 +21,15 @@
     <string name="btn_remove_die_of">Remove a %1$s</string>
     <string name="btn_decrease_modifier">Decrease the modifier</string>
     <string name="btn_increase_modifier">Increase the modifier</string>
+
+    <string name="title_roll_history">History</string>
+    <string name="btn_roll_history">All history</string>
+    <string name="btn_clear_roll_history">Clear the history</string>
+    <string name="message_no_roll_yet">No roll yet</string>
+    <string name="error_while_loading_roll_history">Error while loading the history.</string>
+    <string name="error_while_clearing_roll_history">Error while clearing the history.</string>
+    <string name="snackbar_roll_history_cleared">History cleared</string>
+    <string name="label_today">Today</string>
+    <string name="label_yesterday">Yesterday</string>
+    <string name="label_roll_day">%2$s/%1$s/%3$s</string>
 </resources>

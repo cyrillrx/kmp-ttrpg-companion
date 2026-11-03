@@ -19,16 +19,24 @@ import kotlin.time.Instant
 class SQLDelightRollHistoryRepositoryTest {
 
     private val driver: SqlDriver = TestDatabaseDriverFactory().createDriver()
-    private val repository = SQLDelightRollHistoryRepository(
-        databaseDriverFactory = object : DatabaseDriverFactory {
-            override fun createDriver(): SqlDriver = driver
-        },
-        clock = FixedClock,
-    )
+    private val repository = newRepository()
 
     @Test
     fun `nothing recorded yet reads an empty history`() = runTest {
-        assertEquals(emptyList(), repository.getAll())
+        repository.load()
+
+        assertEquals(emptyList(), repository.rolls.value)
+    }
+
+    @Test
+    fun `loading reads the rolls recorded before`() = runTest {
+        repository.record(d4Pool(value = 1))
+        repository.record(d4Pool(value = 2))
+
+        val reopened = newRepository()
+        reopened.load()
+
+        assertEquals(listOf(d4Pool(value = 2), d4Pool(value = 1)), reopened.rolls.value.map(RecordedRoll::pool))
     }
 
     @Test
@@ -37,7 +45,7 @@ class SQLDelightRollHistoryRepositoryTest {
 
         repository.record(pool)
 
-        assertEquals(listOf(RecordedRoll(id = 1, pool = pool, rolledAt = FixedClock.now())), repository.getAll())
+        assertEquals(listOf(RecordedRoll(id = 1, pool = pool, rolledAt = FixedClock.now())), repository.rolls.value)
     }
 
     @Test
@@ -52,7 +60,7 @@ class SQLDelightRollHistoryRepositoryTest {
 
         repository.record(pool)
 
-        assertEquals(listOf(pool), repository.getAll().map(RecordedRoll::pool))
+        assertEquals(listOf(pool), repository.rolls.value.map(RecordedRoll::pool))
     }
 
     @Test
@@ -61,14 +69,14 @@ class SQLDelightRollHistoryRepositoryTest {
         repository.record(d4Pool(value = 2))
         repository.record(d4Pool(value = 3))
 
-        assertEquals(listOf(3, 2, 1), repository.getAll().map { it.pool.total() })
+        assertEquals(listOf(3, 2, 1), repository.rolls.value.map { it.pool.total() })
     }
 
     @Test
     fun `recording beyond the limit forgets the oldest rolls`() = runTest {
         repeat(MAX_RECORDED_ROLLS + 2) { repository.record(d4Pool(value = 1 + it % 4)) }
 
-        val history = repository.getAll()
+        val history = repository.rolls.value
 
         assertEquals(MAX_RECORDED_ROLLS, history.size)
         assertEquals(MAX_RECORDED_ROLLS + 2L, history.first().id)
@@ -80,9 +88,36 @@ class SQLDelightRollHistoryRepositoryTest {
         repository.record(d4Pool(value = 2))
         storeRow(roll = "1d7(3)")
         storeRow(roll = "1d4(9)")
+        repository.load()
 
-        assertEquals(listOf(d4Pool(value = 2)), repository.getAll().map(RecordedRoll::pool))
+        assertEquals(listOf(d4Pool(value = 2)), repository.rolls.value.map(RecordedRoll::pool))
     }
+
+    @Test
+    fun `clearing up to a roll forgets it and the older ones`() = runTest {
+        repeat(3) { repository.record(d4Pool(value = it + 1)) }
+
+        repository.clearUpTo(id = 2)
+
+        assertEquals(listOf(3L), repository.rolls.value.map(RecordedRoll::id))
+    }
+
+    @Test
+    fun `a cleared history stays cleared once reloaded`() = runTest {
+        repeat(2) { repository.record(d4Pool(value = it + 1)) }
+
+        repository.clearUpTo(id = 2)
+        repository.load()
+
+        assertEquals(emptyList(), repository.rolls.value)
+    }
+
+    private fun newRepository() = SQLDelightRollHistoryRepository(
+        databaseDriverFactory = object : DatabaseDriverFactory {
+            override fun createDriver(): SqlDriver = driver
+        },
+        clock = FixedClock,
+    )
 
     private fun d4Pool(value: Int) = RollPool(listOf(SimpleRoll(Die.D4, value)))
 

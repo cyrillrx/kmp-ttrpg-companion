@@ -218,7 +218,7 @@ class DiceRollerViewModelTest {
             RollPool(listOf(advantage), modifier = 1),
             RollPool(listOf(SimpleRoll(Die.D6, value = 4)), modifier = 1),
         )
-        assertEquals(expected, history.getAll().map(RecordedRoll::pool))
+        assertEquals(expected, history.rolls.value.map(RecordedRoll::pool))
     }
 
     @Test
@@ -229,7 +229,7 @@ class DiceRollerViewModelTest {
         viewModel.roll()
         advanceUntilIdle()
 
-        assertEquals(emptyList(), history.getAll())
+        assertEquals(emptyList(), history.rolls.value)
     }
 
     @Test
@@ -243,7 +243,7 @@ class DiceRollerViewModelTest {
 
         val lastRoll = RollPool(listOf(SimpleRoll(Die.D20, value = 12)))
         assertEquals(lastRoll, viewModel.state.value.lastRoll)
-        assertEquals(listOf(lastRoll), history.getAll().map(RecordedRoll::pool))
+        assertEquals(listOf(lastRoll), history.rolls.value.map(RecordedRoll::pool))
     }
 
     @Test
@@ -260,7 +260,7 @@ class DiceRollerViewModelTest {
 
         assertEquals(
             listOf(RollPool(listOf(SimpleRoll(Die.D20, value = 12)))),
-            history.getAll().map(RecordedRoll::pool),
+            history.rolls.value.map(RecordedRoll::pool),
         )
     }
 

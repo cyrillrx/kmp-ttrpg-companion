@@ -109,3 +109,6 @@ DELETE FROM DiceRoll WHERE id NOT IN (SELECT id FROM DiceRoll ORDER BY id DESC L
 
 selectAllDiceRolls:
 SELECT * FROM DiceRoll ORDER BY id DESC;
+
+deleteDiceRollsUpTo:
+DELETE FROM DiceRoll WHERE id <= ?;
