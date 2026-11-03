@@ -22,6 +22,7 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.text.style.TextDecoration
 import com.cyrillrx.rpg.core.domain.toSignedString
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.historyRollTileMinSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -43,6 +44,7 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
 import kotlinx.datetime.number
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.die_label
 import rpg_companion.composeapp.generated.resources.label_double_roll
@@ -77,6 +79,7 @@ private fun DayHeader(date: LocalDate, today: LocalDate) {
             date.year.toString(),
         )
     }
+
     Text(
         text = label,
         style = MaterialTheme.typography.labelLarge,
@@ -140,6 +143,7 @@ private fun HistoryRolls(pool: RollPool, modifier: Modifier = Modifier) {
             )
             rolls.forEach { HistoryRollTile(it) }
         }
+
         if (pool.modifier != 0) {
             Text(
                 text = pool.modifier.toSignedString(),
@@ -165,6 +169,9 @@ private fun HistoryRollTile(roll: DieRoll) {
         }
     }
 }
+
+// TODO(#335): say the keep rule in the description, so that a tie tells the mode apart
+// TODO(#333): color by DoubleRoll.rule, so that a tie still tells the mode apart
 
 /** The discarded roll is struck through, so it reads as discarded without relying on color. */
 @Composable
@@ -194,35 +201,61 @@ private fun HistoryDoubleRoll(roll: DoubleRoll) {
     }
 }
 
+@Preview
+@Composable
+private fun PreviewRollHistoryListLight() {
+    AppThemePreview(darkTheme = false) { RollHistoryList(previewHistory) }
+}
+
+@Preview
+@Composable
+private fun PreviewRollHistoryListDark() {
+    AppThemePreview(darkTheme = true) { RollHistoryList(previewHistory) }
+}
+
 internal val previewHistory = DiceHistoryState.Body.WithData(
     days = listOf(
         RollDay(
-            date = LocalDate(2026, 11, 2),
+            date = LocalDate(year = 2026, month = 11, day = 2),
             rolls = listOf(
                 DayRoll(
                     id = 3,
                     pool = RollPool(
-                        listOf(SimpleRoll(Die.D8, 6), SimpleRoll(Die.D6, 5), SimpleRoll(Die.D6, 4)),
+                        listOf(
+                            SimpleRoll(Die.D8, value = 6),
+                            SimpleRoll(Die.D6, value = 5),
+                            SimpleRoll(Die.D6, value = 4),
+                        ),
                         modifier = 2,
                     ),
-                    time = LocalTime(21, 4),
+                    time = LocalTime(hour = 21, minute = 4),
                 ),
                 DayRoll(
                     id = 2,
                     pool = RollPool(
-                        listOf(DoubleRoll(SimpleRoll(Die.D20, 17), SimpleRoll(Die.D20, 3), KeepRule.HIGHER)),
+                        listOf(
+                            DoubleRoll(
+                                kept = SimpleRoll(Die.D20, value = 17),
+                                discarded = SimpleRoll(Die.D20, value = 3),
+                                rule = KeepRule.HIGHER,
+                            ),
+                        ),
                         modifier = 2,
                     ),
-                    time = LocalTime(21, 3),
+                    time = LocalTime(hour = 21, minute = 3),
                 ),
             ),
         ),
         RollDay(
-            date = LocalDate(2026, 10, 30),
+            date = LocalDate(year = 2026, month = 10, day = 30),
             rolls = listOf(
-                DayRoll(id = 1, pool = RollPool(listOf(SimpleRoll(Die.D100, 42))), time = LocalTime(22, 15)),
+                DayRoll(
+                    id = 1,
+                    pool = RollPool(listOf(SimpleRoll(Die.D100, value = 42))),
+                    time = LocalTime(hour = 22, minute = 15),
+                ),
             ),
         ),
     ),
-    today = LocalDate(2026, 11, 2),
+    today = LocalDate(year = 2026, month = 11, day = 2),
 )
