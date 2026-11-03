@@ -1,18 +1,10 @@
 package com.cyrillrx.rpg.dice.presentation.component
 
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
-import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -22,7 +14,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerSize
@@ -50,8 +41,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.semantics.clearAndSetSemantics
-import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.toSignedString
@@ -62,7 +51,6 @@ import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
 import com.cyrillrx.rpg.core.presentation.theme.controlPanelMaxHeightFraction
-import com.cyrillrx.rpg.core.presentation.theme.dieLabelWidth
 import com.cyrillrx.rpg.core.presentation.theme.dieTileMinHeight
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconAlpha
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconSize
@@ -70,13 +58,11 @@ import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.modifierValueMinWidth
 import com.cyrillrx.rpg.core.presentation.theme.removeDieButtonSize
-import com.cyrillrx.rpg.core.presentation.theme.rollTileMinSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.core.presentation.theme.widthExpandedMin
 import com.cyrillrx.rpg.dice.domain.Die
-import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
 import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
@@ -99,7 +85,6 @@ import rpg_companion.composeapp.generated.resources.btn_roll
 import rpg_companion.composeapp.generated.resources.btn_roll_composition
 import rpg_companion.composeapp.generated.resources.die_count
 import rpg_companion.composeapp.generated.resources.die_label
-import rpg_companion.composeapp.generated.resources.label_double_roll
 import rpg_companion.composeapp.generated.resources.label_modifier
 import rpg_companion.composeapp.generated.resources.message_compose_then_roll
 import rpg_companion.composeapp.generated.resources.section_compose
@@ -193,7 +178,6 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
         modifier = modifier.fillMaxWidth(),
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(spacingCommon),
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
@@ -203,31 +187,9 @@ private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier
             if (lastRoll == null) {
                 NoRollYet()
             } else {
-                Text(
-                    text = lastRoll.toNotation().orEmpty(),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                RollTotal(state.rollCount, lastRoll.total())
-                RollGroups(lastRoll)
+                RollResult(lastRoll, state.rollCount)
             }
         }
-    }
-}
-
-@Composable
-private fun RollTotal(rollCount: Int, total: Int) {
-    AnimatedContent(
-        targetState = rollCount to total,
-        transitionSpec = {
-            (slideInVertically { it } + fadeIn()) togetherWith (slideOutVertically { -it } + fadeOut())
-        },
-    ) { (_, value) ->
-        Text(
-            text = value.toString(),
-            style = MaterialTheme.typography.displayLarge,
-            color = MaterialTheme.colorScheme.primary,
-        )
     }
 }
 
@@ -246,91 +208,6 @@ private fun NoRollYet() {
         )
         Text(text = stringResource(Res.string.message_compose_then_roll), style = MaterialTheme.typography.bodyLarge)
     }
-}
-
-@Composable
-private fun RollGroups(roll: RollPool) {
-    Column(verticalArrangement = Arrangement.spacedBy(spacingMedium), modifier = Modifier.fillMaxWidth()) {
-        roll.rollsByDie().forEach { (die, rolls) -> RollGroup(die, rolls) }
-    }
-}
-
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-private fun RollGroup(die: Die, rolls: List<DieRoll>) {
-    Row(verticalAlignment = Alignment.Top) {
-        Text(
-            text = stringResource(Res.string.die_label, die.sides),
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier
-                .widthIn(min = dieLabelWidth)
-                .padding(top = spacingMedium),
-        )
-        FlowRow(
-            horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-            verticalArrangement = Arrangement.spacedBy(spacingSmall),
-        ) {
-            rolls.forEach { roll -> RollTile(roll) }
-        }
-    }
-}
-
-@Composable
-private fun RollTile(roll: DieRoll) {
-    Surface(
-        shape = MaterialTheme.shapes.small,
-        color = MaterialTheme.colorScheme.surfaceContainerHigh,
-        modifier = Modifier.sizeIn(minWidth = rollTileMinSize, minHeight = rollTileMinSize),
-    ) {
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier.padding(horizontal = spacingMedium, vertical = spacingSmall),
-        ) {
-            when (roll) {
-                is SimpleRoll -> Text(text = roll.value.toString(), style = MaterialTheme.typography.titleMedium)
-                is DoubleRoll -> DoubleRollContent(roll)
-            }
-        }
-    }
-}
-
-// TODO(#335): say the keep rule in the description, so that a tie tells the mode apart
-@Composable
-private fun DoubleRollContent(roll: DoubleRoll) {
-    val description = stringResource(
-        Res.string.label_double_roll,
-        stringResource(Res.string.die_label, roll.die.sides),
-        roll.kept.value,
-        roll.discarded.value,
-    )
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-        modifier = Modifier.clearAndSetSemantics { contentDescription = description },
-    ) {
-        Text(
-            text = roll.kept.value.toString(),
-            style = MaterialTheme.typography.titleMedium,
-            color = rollColor(roll.kept, against = roll.discarded),
-            modifier = Modifier.alignByBaseline(),
-        )
-        Text(
-            text = roll.discarded.value.toString(),
-            style = MaterialTheme.typography.labelMedium,
-            color = rollColor(roll.discarded, against = roll.kept),
-            modifier = Modifier.alignByBaseline(),
-        )
-    }
-}
-
-// TODO(#333): color by DoubleRoll.rule, so that a tie still tells the mode apart
-
-/** The higher roll reads like healing and the lower like damage, so the kept one tells advantage from disadvantage. */
-@Composable
-private fun rollColor(roll: SimpleRoll, against: SimpleRoll): Color = when {
-    roll.value > against.value -> LocalHealthColors.current.heal
-    roll.value < against.value -> MaterialTheme.colorScheme.error
-    else -> MaterialTheme.colorScheme.onSurface
 }
 
 @Composable
