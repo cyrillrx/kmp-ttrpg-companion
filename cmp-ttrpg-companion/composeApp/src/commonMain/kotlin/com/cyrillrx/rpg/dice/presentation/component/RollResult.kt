@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.dieLabelWidth
 import com.cyrillrx.rpg.core.presentation.theme.rollTileMinSize
@@ -34,9 +35,11 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
+import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.die_label
 import rpg_companion.composeapp.generated.resources.label_double_roll
@@ -158,4 +161,29 @@ private fun rollColor(roll: SimpleRoll, against: SimpleRoll): Color = when {
     roll.value > against.value -> LocalHealthColors.current.heal
     roll.value < against.value -> MaterialTheme.colorScheme.error
     else -> MaterialTheme.colorScheme.onSurface
+}
+
+private val previewRoll = RollPool(
+    rolls = listOf(
+        DoubleRoll(
+            kept = SimpleRoll(Die.D20, value = 17),
+            discarded = SimpleRoll(Die.D20, value = 3),
+            rule = KeepRule.HIGHER,
+        ),
+        SimpleRoll(Die.D6, value = 4),
+        SimpleRoll(Die.D6, value = 2),
+    ),
+    modifier = 5,
+)
+
+@Preview
+@Composable
+private fun PreviewRollResultLight() {
+    AppThemePreview(darkTheme = false) { RollResult(previewRoll, rollCount = 1) }
+}
+
+@Preview
+@Composable
+private fun PreviewRollResultDark() {
+    AppThemePreview(darkTheme = true) { RollResult(previewRoll, rollCount = 1) }
 }
