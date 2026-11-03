@@ -43,14 +43,14 @@ class DiceHistoryViewModelTest {
 
     @Test
     fun `an empty history reads as empty`() {
-        assertEquals(DiceHistoryState.Empty, newViewModel().state.value)
+        assertEquals(DiceHistoryState.Body.Empty, newViewModel().state.value.body)
     }
 
     @Test
     fun `a history that fails to load reads as an error`() {
         val viewModel = DiceHistoryViewModel(FailingToLoadRepository(), clock = FixedClock, timeZone = TimeZone.UTC)
 
-        assertEquals(DiceHistoryState.Error, viewModel.state.value)
+        assertEquals(DiceHistoryState.Body.Error, viewModel.state.value.body)
     }
 
     @Test
@@ -58,7 +58,7 @@ class DiceHistoryViewModelTest {
         recordD4(value = 1)
         recordD4(value = 2)
 
-        val state = assertIs<DiceHistoryState.WithData>(newViewModel().state.value)
+        val state = assertIs<DiceHistoryState.Body.WithData>(newViewModel().state.value.body)
 
         assertEquals(LocalDate(2023, 11, 14), state.today)
         assertEquals(listOf(LocalDate(2023, 11, 14)), state.days.map { it.date })
@@ -80,7 +80,7 @@ class DiceHistoryViewModelTest {
         val viewModel = newViewModel()
 
         val clear = viewModel.clearOptimistically()!!
-        assertEquals(DiceHistoryState.Empty, viewModel.state.value)
+        assertEquals(DiceHistoryState.Body.Empty, viewModel.state.value.body)
 
         viewModel.undoClear(clear)
         assertEquals(listOf(1), shownTotals(viewModel))
@@ -99,7 +99,7 @@ class DiceHistoryViewModelTest {
         viewModel.commitClear(viewModel.clearOptimistically()!!)
 
         assertEquals(emptyList(), history.rolls.value)
-        assertEquals(DiceHistoryState.Empty, viewModel.state.value)
+        assertEquals(DiceHistoryState.Body.Empty, viewModel.state.value.body)
     }
 
     @Test
@@ -144,7 +144,7 @@ class DiceHistoryViewModelTest {
     }
 
     private fun shownTotals(viewModel: DiceHistoryViewModel): List<Int> =
-        assertIs<DiceHistoryState.WithData>(viewModel.state.value).days.flatMap { day ->
+        assertIs<DiceHistoryState.Body.WithData>(viewModel.state.value.body).days.flatMap { day ->
             day.rolls.map { it.pool.total() }
         }
 

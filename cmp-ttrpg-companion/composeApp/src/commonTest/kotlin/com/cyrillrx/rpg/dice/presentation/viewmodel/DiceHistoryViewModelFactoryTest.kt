@@ -44,6 +44,6 @@ class DiceHistoryViewModelFactoryTest {
             DiceHistoryViewModelFactory(history),
         )[DiceHistoryViewModel::class]
 
-        assertIs<DiceHistoryState.WithData>(viewModel.state.value)
+        assertIs<DiceHistoryState.Body.WithData>(viewModel.state.value.body)
     }
 }

@@ -51,7 +51,7 @@ import rpg_companion.composeapp.generated.resources.label_today
 import rpg_companion.composeapp.generated.resources.label_yesterday
 
 @Composable
-fun RollHistoryList(state: DiceHistoryState.WithData, modifier: Modifier = Modifier) {
+fun RollHistoryList(state: DiceHistoryState.Body.WithData, modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         state.days.forEach { day ->
             item(key = day.date.toString()) { DayHeader(day.date, state.today) }
@@ -194,7 +194,7 @@ private fun HistoryDoubleRoll(roll: DoubleRoll) {
     }
 }
 
-internal val previewHistory = DiceHistoryState.WithData(
+internal val previewHistory = DiceHistoryState.Body.WithData(
     days = listOf(
         RollDay(
             date = LocalDate(2026, 11, 2),

@@ -75,7 +75,7 @@ fun DiceHistoryScreen(
     Scaffold(
         topBar = {
             SimpleTopBar(titleResource = Res.string.title_roll_history, onNavigateUpClicked = onNavigateUpClicked) {
-                IconButton(onClick = onClearClicked, enabled = state is DiceHistoryState.WithData) {
+                IconButton(onClick = onClearClicked, enabled = state.body is DiceHistoryState.Body.WithData) {
                     Icon(Icons.Filled.Delete, contentDescription = stringResource(Res.string.btn_clear_roll_history))
                 }
             }
@@ -91,15 +91,18 @@ fun DiceHistoryScreen(
             val contentModifier = Modifier
                 .widthIn(max = contentMaxWidth)
                 .fillMaxSize()
-            when (state) {
-                is DiceHistoryState.Loading -> Loader(contentModifier)
-                is DiceHistoryState.Empty -> EmptyStateLayout(
+            when (val body = state.body) {
+                is DiceHistoryState.Body.Loading -> Loader(contentModifier)
+                is DiceHistoryState.Body.Empty -> EmptyStateLayout(
                     icon = Icons.Filled.History,
                     message = stringResource(Res.string.message_no_roll_yet),
                     modifier = contentModifier,
                 )
-                is DiceHistoryState.Error -> ErrorLayout(Res.string.error_while_loading_roll_history, contentModifier)
-                is DiceHistoryState.WithData -> RollHistoryList(state, contentModifier)
+                is DiceHistoryState.Body.Error -> ErrorLayout(
+                    Res.string.error_while_loading_roll_history,
+                    contentModifier,
+                )
+                is DiceHistoryState.Body.WithData -> RollHistoryList(body, contentModifier)
             }
         }
     }
@@ -113,17 +116,17 @@ private fun DiceHistoryScreenPreview(state: DiceHistoryState) {
 @Preview
 @Composable
 private fun PreviewDiceHistoryScreenLight() {
-    AppThemePreview(darkTheme = false) { DiceHistoryScreenPreview(previewHistory) }
+    AppThemePreview(darkTheme = false) { DiceHistoryScreenPreview(DiceHistoryState(previewHistory)) }
 }
 
 @Preview
 @Composable
 private fun PreviewDiceHistoryScreenDark() {
-    AppThemePreview(darkTheme = true) { DiceHistoryScreenPreview(previewHistory) }
+    AppThemePreview(darkTheme = true) { DiceHistoryScreenPreview(DiceHistoryState(previewHistory)) }
 }
 
 @Preview
 @Composable
 private fun PreviewDiceHistoryScreenEmpty() {
-    AppThemePreview(darkTheme = true) { DiceHistoryScreenPreview(DiceHistoryState.Empty) }
+    AppThemePreview(darkTheme = true) { DiceHistoryScreenPreview(DiceHistoryState(DiceHistoryState.Body.Empty)) }
 }

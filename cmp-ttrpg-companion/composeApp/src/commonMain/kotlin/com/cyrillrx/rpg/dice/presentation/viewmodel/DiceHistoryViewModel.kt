@@ -37,12 +37,13 @@ class DiceHistoryViewModel(
         rolls,
         clears,
         ->
-        when (loading) {
-            Loading.PENDING -> DiceHistoryState.Loading
-            Loading.FAILED -> DiceHistoryState.Error
+        val body = when (loading) {
+            Loading.PENDING -> DiceHistoryState.Body.Loading
+            Loading.FAILED -> DiceHistoryState.Body.Error
             Loading.DONE -> render(rolls, hiddenUpTo = clears.maxOrNull())
         }
-    }.stateIn(viewModelScope, SharingStarted.Eagerly, DiceHistoryState.Loading)
+        DiceHistoryState(body)
+    }.stateIn(viewModelScope, SharingStarted.Eagerly, DiceHistoryState())
 
     init {
         viewModelScope.launch { loading.value = load() }
@@ -58,7 +59,8 @@ class DiceHistoryViewModel(
 
     /** Hides every roll on screen; returns what [undoClear] or [commitClear] then take, or null with nothing to clear. */
     fun clearOptimistically(): Long? {
-        val newest = (state.value as? DiceHistoryState.WithData)?.days?.first()?.rolls?.first()?.id ?: return null
+        val newest =
+            (state.value.body as? DiceHistoryState.Body.WithData)?.days?.first()?.rolls?.first()?.id ?: return null
 
         pendingClears.update { it + newest }
         return newest
@@ -83,11 +85,11 @@ class DiceHistoryViewModel(
         }
     }
 
-    private fun render(rolls: List<RecordedRoll>, hiddenUpTo: Long?): DiceHistoryState {
+    private fun render(rolls: List<RecordedRoll>, hiddenUpTo: Long?): DiceHistoryState.Body {
         val visible = if (hiddenUpTo == null) rolls else rolls.filter { it.id > hiddenUpTo }
-        if (visible.isEmpty()) return DiceHistoryState.Empty
+        if (visible.isEmpty()) return DiceHistoryState.Body.Empty
 
-        return DiceHistoryState.WithData(visible.groupByDay(timeZone), today = clock.todayIn(timeZone))
+        return DiceHistoryState.Body.WithData(visible.groupByDay(timeZone), today = clock.todayIn(timeZone))
     }
 
     private suspend fun load(): Loading = try {
