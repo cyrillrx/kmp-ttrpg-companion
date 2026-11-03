@@ -22,6 +22,16 @@ class RamRollHistoryRepositoryTest {
     }
 
     @Test
+    fun `loading keeps the rolls already recorded`() = runTest {
+        val repository = RamRollHistoryRepository()
+        repository.record(d4Pool(value = 1))
+
+        repository.load()
+
+        assertEquals(listOf(d4Pool(value = 1)), repository.rolls.value.map(RecordedRoll::pool))
+    }
+
+    @Test
     fun `recording beyond the limit forgets the oldest rolls`() = runTest {
         val repository = RamRollHistoryRepository()
 
