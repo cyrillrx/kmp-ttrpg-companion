@@ -34,6 +34,16 @@ class RamRollHistoryRepositoryTest {
     }
 
     @Test
+    fun `recording returns the id the roll reads back with`() = runTest {
+        val repository = RamRollHistoryRepository()
+        repository.record(d4Pool(value = 1))
+
+        val id = repository.record(d4Pool(value = 2))
+
+        assertEquals(repository.rolls.value.first().id, id)
+    }
+
+    @Test
     fun `loading keeps the rolls already recorded`() = runTest {
         val repository = RamRollHistoryRepository()
         repository.record(d4Pool(value = 1))

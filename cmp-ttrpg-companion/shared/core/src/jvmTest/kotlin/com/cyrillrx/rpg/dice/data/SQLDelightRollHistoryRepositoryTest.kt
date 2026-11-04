@@ -95,6 +95,15 @@ class SQLDelightRollHistoryRepositoryTest {
     }
 
     @Test
+    fun `recording returns the id the roll reads back with`() = runTest {
+        repeat(MAX_RECORDED_ROLLS) { repository.record(d4Pool(value = 1)) }
+
+        val id = repository.record(d4Pool(value = 2))
+
+        assertEquals(repository.rolls.value.first().id, id)
+    }
+
+    @Test
     fun `the history reads newest first`() = runTest {
         repository.record(d4Pool(value = 1))
         repository.record(d4Pool(value = 2))

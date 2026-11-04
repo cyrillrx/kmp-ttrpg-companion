@@ -28,6 +28,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -69,6 +70,7 @@ import com.cyrillrx.rpg.dice.domain.DoubleRoll
 import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
+import com.cyrillrx.rpg.dice.domain.RecordedRoll
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.presentation.DiceRollerState
@@ -89,10 +91,12 @@ import rpg_companion.composeapp.generated.resources.btn_roll_history
 import rpg_companion.composeapp.generated.resources.die_count
 import rpg_companion.composeapp.generated.resources.die_label
 import rpg_companion.composeapp.generated.resources.label_modifier
+import rpg_companion.composeapp.generated.resources.label_previous_rolls
 import rpg_companion.composeapp.generated.resources.message_compose_then_roll
 import rpg_companion.composeapp.generated.resources.section_compose
 import rpg_companion.composeapp.generated.resources.section_d20_roll
 import rpg_companion.composeapp.generated.resources.title_dice_roller
+import kotlin.time.Instant
 
 /** What the roller screen can ask for, grouped so the panel does not thread ten callbacks through each level. */
 class DiceRollerActions(
@@ -204,6 +208,10 @@ private fun RollResultCard(state: DiceRollerState, onHistoryClicked: () -> Unit,
                 RollResult(lastRoll, state.rollCount)
             }
         }
+        val previousRolls = state.previousRolls()
+        if (previousRolls.isNotEmpty()) {
+            PreviousRolls(previousRolls, modifier = Modifier.padding(horizontal = spacingCommon))
+        }
         TextButton(
             onClick = onHistoryClicked,
             modifier = Modifier
@@ -217,6 +225,37 @@ private fun RollResultCard(state: DiceRollerState, onHistoryClicked: () -> Unit,
                 modifier = Modifier.size(iconSizeMedium),
             )
         }
+    }
+}
+
+@Composable
+private fun PreviousRolls(rolls: List<RecordedRoll>, modifier: Modifier = Modifier) {
+    Column(verticalArrangement = Arrangement.spacedBy(spacingSmall), modifier = modifier.fillMaxWidth()) {
+        HorizontalDivider()
+        Text(
+            text = stringResource(Res.string.label_previous_rolls),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = spacingSmall),
+        )
+        rolls.forEach { recorded -> PreviousRoll(recorded.pool) }
+    }
+}
+
+@Composable
+private fun PreviousRoll(roll: RollPool) {
+    Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium), modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = roll.toNotation().orEmpty(),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.weight(1f),
+        )
+        Text(
+            text = roll.total().toString(),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 
@@ -457,6 +496,18 @@ private val previewState = DiceRollerState(
             ),
         ),
         modifier = 5,
+    ),
+    recentRolls = listOf(
+        RecordedRoll(
+            id = 2,
+            pool = RollPool(listOf(SimpleRoll(Die.D8, value = 6), SimpleRoll(Die.D6, value = 5)), modifier = 2),
+            rolledAt = Instant.fromEpochMilliseconds(0),
+        ),
+        RecordedRoll(
+            id = 1,
+            pool = RollPool(listOf(SimpleRoll(Die.D20, value = 8))),
+            rolledAt = Instant.fromEpochMilliseconds(0),
+        ),
     ),
 )
 

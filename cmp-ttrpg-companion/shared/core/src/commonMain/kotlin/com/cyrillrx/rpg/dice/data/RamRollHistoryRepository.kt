@@ -18,9 +18,10 @@ class RamRollHistoryRepository(private val clock: Clock = Clock.System) : RollHi
 
     override suspend fun load() = Unit
 
-    override suspend fun record(pool: RollPool, context: RollContext?) {
+    override suspend fun record(pool: RollPool, context: RollContext?): Long {
         val recorded = RecordedRoll(id = ++lastId, pool = pool, rolledAt = clock.now(), context = context)
         rolls.update { (listOf(recorded) + it).take(MAX_RECORDED_ROLLS) }
+        return recorded.id
     }
 
     override suspend fun clearUpTo(id: Long) {

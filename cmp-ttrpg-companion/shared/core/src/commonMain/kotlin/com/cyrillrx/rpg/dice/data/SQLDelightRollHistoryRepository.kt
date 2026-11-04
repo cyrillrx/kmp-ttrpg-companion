@@ -32,12 +32,13 @@ class SQLDelightRollHistoryRepository(
         writeLock.withLock { withContext(ioDispatcher) { rolls.value = database.getAllDiceRolls() } }
     }
 
-    override suspend fun record(pool: RollPool, context: RollContext?) {
+    override suspend fun record(pool: RollPool, context: RollContext?): Long {
         val now = clock.now().toEpochMilliseconds()
-        writeLock.withLock {
+        return writeLock.withLock {
             withContext(ioDispatcher) {
-                database.recordDiceRoll(pool, context, rolledAt = now)
+                val id = database.recordDiceRoll(pool, context, rolledAt = now)
                 rolls.value = database.getAllDiceRolls()
+                id
             }
         }
     }

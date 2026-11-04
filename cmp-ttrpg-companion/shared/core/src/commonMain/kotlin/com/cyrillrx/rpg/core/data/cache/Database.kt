@@ -173,16 +173,16 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         updatedAt = Instant.fromEpochMilliseconds(updatedAt),
     )
 
-    fun recordDiceRoll(pool: RollPool, context: RollContext?, rolledAt: Long) {
-        dbQuery.transaction {
-            dbQuery.insertDiceRoll(
-                rolledAt = rolledAt,
-                roll = pool.toRecord(),
-                characterId = context?.characterId,
-                checkKey = context?.check?.toCheckKey(),
-            )
-            dbQuery.pruneDiceRolls(kept = MAX_RECORDED_ROLLS.toLong())
-        }
+    fun recordDiceRoll(pool: RollPool, context: RollContext?, rolledAt: Long): Long = dbQuery.transactionWithResult {
+        dbQuery.insertDiceRoll(
+            rolledAt = rolledAt,
+            roll = pool.toRecord(),
+            characterId = context?.characterId,
+            checkKey = context?.check?.toCheckKey(),
+        )
+        val id = dbQuery.lastInsertedDiceRollId().executeAsOne()
+        dbQuery.pruneDiceRolls(kept = MAX_RECORDED_ROLLS.toLong())
+        id
     }
 
     fun getAllDiceRolls(): List<RecordedRoll> = dbQuery.selectAllDiceRolls().executeAsList().mapNotNull {

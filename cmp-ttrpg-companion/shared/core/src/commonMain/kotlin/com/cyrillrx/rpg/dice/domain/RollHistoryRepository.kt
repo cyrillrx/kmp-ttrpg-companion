@@ -13,9 +13,9 @@ interface RollHistoryRepository {
 
     /**
      * Keeps [pool] as the newest roll, tagged with [context] when given,
-     * forgetting the oldest ones beyond [MAX_RECORDED_ROLLS].
+     * forgetting the oldest ones beyond [MAX_RECORDED_ROLLS]; returns its id.
      */
-    suspend fun record(pool: RollPool, context: RollContext? = null)
+    suspend fun record(pool: RollPool, context: RollContext? = null): Long
 
     /** Forgets the roll [id] and every older one, so a roll recorded since is kept. */
     suspend fun clearUpTo(id: Long)
