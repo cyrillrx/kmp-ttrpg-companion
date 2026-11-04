@@ -1,8 +1,10 @@
 package com.cyrillrx.rpg.dice.data
 
+import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.MAX_RECORDED_ROLLS
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import kotlinx.coroutines.test.runTest
@@ -19,6 +21,16 @@ class RamRollHistoryRepositoryTest {
         repository.record(d4Pool(value = 2))
 
         assertEquals(listOf(d4Pool(value = 2), d4Pool(value = 1)), repository.rolls.value.map(RecordedRoll::pool))
+    }
+
+    @Test
+    fun `a roll keeps the context it was recorded for`() = runTest {
+        val repository = RamRollHistoryRepository()
+        val context = RollContext(characterId = "hero", check = D20Check.Initiative)
+
+        repository.record(d4Pool(value = 1), context)
+
+        assertEquals(listOf(context), repository.rolls.value.map(RecordedRoll::context))
     }
 
     @Test

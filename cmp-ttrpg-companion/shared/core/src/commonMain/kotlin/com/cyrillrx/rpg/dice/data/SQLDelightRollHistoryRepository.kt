@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.dice.data
 import com.cyrillrx.rpg.core.data.cache.Database
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.RollPool
 import kotlinx.coroutines.CoroutineDispatcher
@@ -31,11 +32,11 @@ class SQLDelightRollHistoryRepository(
         writeLock.withLock { withContext(ioDispatcher) { rolls.value = database.getAllDiceRolls() } }
     }
 
-    override suspend fun record(pool: RollPool) {
+    override suspend fun record(pool: RollPool, context: RollContext?) {
         val now = clock.now().toEpochMilliseconds()
         writeLock.withLock {
             withContext(ioDispatcher) {
-                database.recordDiceRoll(pool, rolledAt = now)
+                database.recordDiceRoll(pool, context, rolledAt = now)
                 rolls.value = database.getAllDiceRolls()
             }
         }

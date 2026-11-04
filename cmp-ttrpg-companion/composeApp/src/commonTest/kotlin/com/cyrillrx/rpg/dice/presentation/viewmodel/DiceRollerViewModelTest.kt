@@ -9,6 +9,7 @@ import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
@@ -274,13 +275,13 @@ class DiceRollerViewModelTest {
     ) : RollHistoryRepository by delegate {
         private var hasFailed = false
 
-        override suspend fun record(pool: RollPool) {
+        override suspend fun record(pool: RollPool, context: RollContext?) {
             if (!hasFailed) {
                 hasFailed = true
                 error("Storage unavailable")
             }
 
-            delegate.record(pool)
+            delegate.record(pool, context)
         }
     }
 

@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.dice.data
 
 import com.cyrillrx.rpg.dice.domain.MAX_RECORDED_ROLLS
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.RollPool
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,8 +18,8 @@ class RamRollHistoryRepository(private val clock: Clock = Clock.System) : RollHi
 
     override suspend fun load() = Unit
 
-    override suspend fun record(pool: RollPool) {
-        val recorded = RecordedRoll(id = ++lastId, pool = pool, rolledAt = clock.now())
+    override suspend fun record(pool: RollPool, context: RollContext?) {
+        val recorded = RecordedRoll(id = ++lastId, pool = pool, rolledAt = clock.now(), context = context)
         rolls.update { (listOf(recorded) + it).take(MAX_RECORDED_ROLLS) }
     }
 
