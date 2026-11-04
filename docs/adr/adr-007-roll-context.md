@@ -2,7 +2,7 @@
 
 **Status**: Accepted  
 **Date**: 2026-11-03  
-**Context**: [PRD-002](../prd/prd-002-character-sheet.md) rolls skills, saving throws and initiative from the character sheet; those rolls go to the history kept by [ADR-006](adr-006-dice-roll-history.md).
+**Context**: the character sheet ([PRD-002](../prd/prd-002-character-sheet.md)) will roll its skills, saving throws and initiative, and those rolls go to the history kept by [ADR-006](adr-006-dice-roll-history.md).
 
 ## Decision
 
