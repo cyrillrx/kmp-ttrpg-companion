@@ -45,7 +45,7 @@ The history is global: a roll whose character was deleted is still a roll, and k
 
 **A generic `sourceType` / `sourceId` pair**. Rejected: see above.
 
-**The context as one JSON column**. Rejected: it cannot be indexed to filter by character.
+**The context as one JSON column**. Rejected: filtering by character would match inside a string (`LIKE '%"characterId":"hero"%'`) or need an expression index on `json_extract`. That match is fragile (quoting, key order, `hero` against `hero2`) and leaves the column's meaning to the code; a typed column states it in the schema and filters with a plain `WHERE`.
 
 **The translated label stored with the roll**. Rejected: it freezes the language of the moment the roll was made.
 
