@@ -28,7 +28,7 @@ The label is translated and follows the locale at display time. Storing the enum
 
 ## Why the check lives in the domain
 
-`RollContext` is part of `RecordedRoll`, so its check has to be typed in `shared/core`. `D20Check` carries the modifier rule of each check, which is then tested in the module that declares it.
+`RollContext` is part of `RecordedRoll`, so its check has to be typed in `shared/core`. `D20Check` only names the check; the modifier rule lives in `Character` extensions next to it, and is tested in that module.
 
 ## Why no foreign key
 
@@ -36,7 +36,7 @@ The history is global: a roll whose character was deleted is still a roll, and k
 
 ## Consequences
 
-- New `D20Check` (`SavingThrow`, `SkillCheck`, `Initiative`) in `character/domain`, with `modifier(character)`.
+- New `D20Check` (`SavingThrow`, `SkillCheck`, `Initiative`) in `character/domain`, and `Character` extensions computing their modifiers: `savingThrowModifier(ability)`, `skillModifier(skill)` and `modifierFor(check)`.
 - `RollHistoryRepository.record(pool, context = null)`; the roller keeps calling `record(pool)`.
 - A stored key this build does not know (a check added by a newer build, or a renamed enum) drops the context, not the roll.
 - `AppDatabaseMigrationTest` gains a v6 witness and a v6 → v7 case.

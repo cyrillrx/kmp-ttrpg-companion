@@ -11,7 +11,7 @@ import com.cyrillrx.rpg.creature.domain.Speeds
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class D20CheckTest {
+class CharacterModifiersExtTest {
 
     private val character = Character(
         id = "test",
@@ -37,31 +37,33 @@ class D20CheckTest {
 
     @Test
     fun `a saving throw without proficiency adds the ability modifier alone`() {
-        assertEquals(-1, D20Check.SavingThrow(Ability.INTELLIGENCE).modifier(character))
+        assertEquals(-1, character.savingThrowModifier(Ability.INTELLIGENCE))
     }
 
     @Test
     fun `a proficient saving throw adds the proficiency bonus`() {
-        assertEquals(5, D20Check.SavingThrow(Ability.WISDOM).modifier(character))
+        assertEquals(5, character.savingThrowModifier(Ability.WISDOM))
     }
 
     @Test
     fun `a skill without proficiency adds its ability modifier alone`() {
-        assertEquals(-1, D20Check.SkillCheck(Skill.ARCANA).modifier(character))
+        assertEquals(-1, character.skillModifier(Skill.ARCANA))
     }
 
     @Test
     fun `a proficient skill adds the proficiency bonus`() {
-        assertEquals(3, D20Check.SkillCheck(Skill.ATHLETICS).modifier(character))
+        assertEquals(3, character.skillModifier(Skill.ATHLETICS))
     }
 
     @Test
     fun `a skill with expertise adds twice the proficiency bonus`() {
-        assertEquals(8, D20Check.SkillCheck(Skill.PERCEPTION).modifier(character))
+        assertEquals(8, character.skillModifier(Skill.PERCEPTION))
     }
 
     @Test
-    fun `initiative adds the dexterity modifier`() {
-        assertEquals(3, D20Check.Initiative.modifier(character))
+    fun `a check reads the modifier of what it names`() {
+        assertEquals(5, character.modifierFor(D20Check.SavingThrow(Ability.WISDOM)))
+        assertEquals(8, character.modifierFor(D20Check.SkillCheck(Skill.PERCEPTION)))
+        assertEquals(3, character.modifierFor(D20Check.Initiative))
     }
 }
