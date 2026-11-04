@@ -38,7 +38,9 @@ class DiceRollerViewModel(
                 state.update { it.withLastRollRecorded(roll.rollCount, id) }
             }
         }
+
         viewModelScope.launch { loadHistoryIgnoringFailure() }
+
         viewModelScope.launch {
             historyRepository.rolls.collect { rolls -> state.update { it.withHistory(rolls) } }
         }
@@ -103,14 +105,12 @@ class DiceRollerViewModel(
         rollsToRecord.trySend(RollToRecord(pool, shown.rollCount))
     }
 
-    private suspend fun loadHistoryIgnoringFailure() {
-        try {
-            historyRepository.load()
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            println("WARNING: failed to load the dice roll history: $e")
-        }
+    private suspend fun loadHistoryIgnoringFailure() = try {
+        historyRepository.load()
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        println("WARNING: failed to load the dice roll history: $e")
     }
 
     private suspend fun recordIgnoringFailure(pool: RollPool): Long? = try {
