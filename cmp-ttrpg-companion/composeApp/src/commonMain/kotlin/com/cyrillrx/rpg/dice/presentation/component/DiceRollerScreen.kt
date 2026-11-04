@@ -503,12 +503,12 @@ private val previewState = DiceRollerState(
         RecordedRoll(
             id = 2,
             pool = RollPool(listOf(SimpleRoll(Die.D8, value = 6), SimpleRoll(Die.D6, value = 5)), modifier = 2),
-            rolledAt = Instant.fromEpochMilliseconds(0),
+            rolledAt = Instant.fromEpochMilliseconds(epochMilliseconds = 0),
         ),
         RecordedRoll(
             id = 1,
             pool = RollPool(listOf(SimpleRoll(Die.D20, value = 8))),
-            rolledAt = Instant.fromEpochMilliseconds(0),
+            rolledAt = Instant.fromEpochMilliseconds(epochMilliseconds = 0),
         ),
     ),
 )

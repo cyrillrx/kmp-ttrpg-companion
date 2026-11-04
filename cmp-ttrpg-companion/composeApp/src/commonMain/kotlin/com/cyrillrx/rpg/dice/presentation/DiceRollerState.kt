@@ -6,7 +6,7 @@ import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
 import com.cyrillrx.rpg.dice.domain.RollPool
 
-const val PREVIOUS_ROLLS_SHOWN = 2
+private const val PREVIOUS_ROLLS_SHOWN = 2
 
 /**
  * [rollCount] tells two identical rolls apart; [lastRollId] is the id [lastRoll] was recorded under, once it is;
