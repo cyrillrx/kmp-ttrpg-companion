@@ -10,7 +10,7 @@ A recorded roll may carry a context: the character it was rolled for and the che
 
 - Two nullable columns on `DiceRoll`: `characterId` and `checkKey`, with an index on `characterId` to filter the history by character.
 - In the domain, `RollContext(characterId, check: D20Check)`: both are set or neither is. A roll from the roller has no context.
-- `checkKey` is a stable, untranslated key: `save:WISDOM`, `skill:PERCEPTION`, `initiative`.
+- `checkKey` is a stable, untranslated key: `save:wisdom`, `skill:perception`, `initiative`.
 - The history stays a single global log, and the `MAX_RECORDED_ROLLS` cap stays global.
 - Schema v6 → v7 through `6.sqm`, two `ALTER TABLE` and a `CREATE INDEX`, and a regenerated snapshot `databases/7.db`.
 

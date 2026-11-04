@@ -21,15 +21,15 @@ class CheckKeyTest {
 
     @Test
     fun `a key reads as the untranslated check name`() {
-        assertEquals("skill:PERCEPTION", D20Check.SkillCheck(Skill.PERCEPTION).toCheckKey())
-        assertEquals("save:WISDOM", D20Check.SavingThrow(Ability.WISDOM).toCheckKey())
+        assertEquals("skill:perception", D20Check.SkillCheck(Skill.PERCEPTION).toCheckKey())
+        assertEquals("save:wisdom", D20Check.SavingThrow(Ability.WISDOM).toCheckKey())
         assertEquals("initiative", D20Check.Initiative.toCheckKey())
     }
 
     @Test
     fun `a key naming no known check reads as no check`() {
-        assertNull("skill:JUGGLING".toD20Check())
-        assertNull("attack:LONGSWORD".toD20Check())
+        assertNull("skill:juggling".toD20Check())
+        assertNull("attack:longsword".toD20Check())
     }
 
     @Test
@@ -40,6 +40,6 @@ class CheckKeyTest {
         )
         assertNull(storedRollContext(characterId = null, checkKey = "initiative"))
         assertNull(storedRollContext(characterId = "hero", checkKey = null))
-        assertNull(storedRollContext(characterId = "hero", checkKey = "save:LUCK"))
+        assertNull(storedRollContext(characterId = "hero", checkKey = "save:luck"))
     }
 }

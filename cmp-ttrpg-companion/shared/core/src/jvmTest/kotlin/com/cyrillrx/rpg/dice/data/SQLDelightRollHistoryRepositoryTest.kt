@@ -72,7 +72,7 @@ class SQLDelightRollHistoryRepositoryTest {
 
     @Test
     fun `a stored check that no longer reads drops the context but keeps the roll`() = runTest {
-        storeRow(roll = "1d4(2)", characterId = "hero", checkKey = "skill:JUGGLING")
+        storeRow(roll = "1d4(2)", characterId = "hero", checkKey = "skill:juggling")
         repository.load()
 
         assertEquals(listOf(null), repository.rolls.value.map(RecordedRoll::context))
