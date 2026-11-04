@@ -208,10 +208,12 @@ private fun RollResultCard(state: DiceRollerState, onHistoryClicked: () -> Unit,
                 RollResult(lastRoll, state.rollCount)
             }
         }
+
         val previousRolls = state.previousRolls()
         if (previousRolls.isNotEmpty()) {
             PreviousRolls(previousRolls, modifier = Modifier.padding(horizontal = spacingCommon))
         }
+
         TextButton(
             onClick = onHistoryClicked,
             modifier = Modifier
@@ -243,8 +245,8 @@ private fun PreviousRolls(rolls: List<RecordedRoll>, modifier: Modifier = Modifi
 }
 
 @Composable
-private fun PreviousRoll(roll: RollPool) {
-    Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium), modifier = Modifier.fillMaxWidth()) {
+private fun PreviousRoll(roll: RollPool, modifier: Modifier = Modifier) {
+    Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium), modifier = modifier.fillMaxWidth()) {
         Text(
             text = roll.toNotation().orEmpty(),
             style = MaterialTheme.typography.bodySmall,

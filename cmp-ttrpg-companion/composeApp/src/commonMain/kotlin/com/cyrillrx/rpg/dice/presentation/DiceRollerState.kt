@@ -31,7 +31,6 @@ data class DiceRollerState(
     fun withLastRollRecorded(rollCount: Int, id: Long): DiceRollerState =
         if (rollCount == this.rollCount) copy(lastRollId = id) else this
 
-    /** A [lastRoll] recorded then cleared from [rolls] leaves the card too, so it cannot vanish later unnoticed. */
     fun withHistory(rolls: List<RecordedRoll>): DiceRollerState {
         val recent = rolls.take(PREVIOUS_ROLLS_SHOWN + 1)
         if (lastRollId == null || rolls.any { it.id == lastRollId }) return copy(recentRolls = recent)
