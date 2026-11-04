@@ -13,7 +13,7 @@ class DiceRollerStateTest {
 
     @Test
     fun `the roll on the card is left out once recorded`() {
-        val state = DiceRollerState(lastRoll = d20(3), recentRolls = recorded(3, 2, 1))
+        val state = DiceRollerState(lastRoll = d20(3), lastRollId = 3, recentRolls = recorded(3, 2, 1))
 
         assertEquals(listOf(2, 1), state.previousRolls().map(::value))
     }
