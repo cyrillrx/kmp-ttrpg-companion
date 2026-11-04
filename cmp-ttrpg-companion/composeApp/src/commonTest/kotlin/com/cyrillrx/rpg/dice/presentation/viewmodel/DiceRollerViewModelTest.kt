@@ -267,9 +267,12 @@ class DiceRollerViewModelTest {
 
     @Test
     fun `the rolls already recorded are previewed as the roller opens`() = runTest(testDispatcher) {
-        val history = RamRollHistoryRepository()
-        history.record(RollPool(listOf(SimpleRoll(Die.D20, value = 5))))
-        history.record(RollPool(listOf(SimpleRoll(Die.D20, value = 9))))
+        val history = StoredRollsRepository(
+            stored = listOf(
+                RollPool(listOf(SimpleRoll(Die.D20, value = 5))),
+                RollPool(listOf(SimpleRoll(Die.D20, value = 9))),
+            ),
+        )
 
         val viewModel = newViewModel(historyRepository = history)
         advanceUntilIdle()
@@ -348,6 +351,15 @@ class DiceRollerViewModelTest {
             }
 
             return delegate.record(pool, context)
+        }
+    }
+
+    private class StoredRollsRepository(
+        private val stored: List<RollPool>,
+        private val delegate: RamRollHistoryRepository = RamRollHistoryRepository(),
+    ) : RollHistoryRepository by delegate {
+        override suspend fun load() {
+            stored.forEach { delegate.record(it) }
         }
     }
 
