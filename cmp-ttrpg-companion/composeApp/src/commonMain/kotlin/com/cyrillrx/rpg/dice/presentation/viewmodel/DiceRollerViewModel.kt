@@ -35,6 +35,7 @@ class DiceRollerViewModel(
         detachedCommitScope().launch {
             for (roll in rollsToRecord) {
                 val id = recordIgnoringFailure(roll.pool) ?: continue
+
                 state.update { it.withLastRollRecorded(roll.rollCount, id) }
             }
         }
