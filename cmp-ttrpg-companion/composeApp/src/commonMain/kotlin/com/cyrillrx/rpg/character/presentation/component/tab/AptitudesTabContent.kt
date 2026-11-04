@@ -32,17 +32,12 @@ internal fun AptitudesTabContent(
 
     SheetDivider(stringResource(Res.string.label_saving_throws))
 
-    SavingThrowsSection(
-        abilities = state.character.abilities,
-        proficiencyBonus = state.character.proficiencyBonus(),
-    )
+    SavingThrowsSection(character = state.character)
 
     SheetDivider(stringResource(Res.string.label_skills))
 
     SkillsSection(
-        skills = state.character.skills,
-        abilities = state.character.abilities,
-        proficiencyBonus = state.character.proficiencyBonus(),
+        character = state.character,
         onTap = { onFieldTapped(EditingField.Skills) },
     )
 }
