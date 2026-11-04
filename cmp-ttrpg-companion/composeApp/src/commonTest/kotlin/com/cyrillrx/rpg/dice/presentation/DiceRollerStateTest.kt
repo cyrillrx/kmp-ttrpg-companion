@@ -26,6 +26,13 @@ class DiceRollerStateTest {
     }
 
     @Test
+    fun `an earlier roll with the same result is not mistaken for the recorded roll on the card`() {
+        val state = DiceRollerState(lastRoll = d20(3), lastRollId = 9, recentRolls = recorded(3, 2, 1))
+
+        assertEquals(listOf(3, 2), state.previousRolls().map(::value))
+    }
+
+    @Test
     fun `with no roll on the card the newest recorded rolls are shown`() {
         val state = DiceRollerState(recentRolls = recorded(3, 2, 1))
 

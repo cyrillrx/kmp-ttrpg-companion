@@ -39,10 +39,14 @@ data class DiceRollerState(
         return copy(lastRoll = null, lastRollId = null, recentRolls = recent)
     }
 
-    /** The rolls before [lastRoll], which is only skipped once recorded: until then, the newest one precedes it. */
     fun previousRolls(): List<RecordedRoll> {
-        val newest = recentRolls.firstOrNull()
-        val beforeLastRoll = if (lastRoll != null && newest?.pool == lastRoll) recentRolls.drop(1) else recentRolls
+        val beforeLastRoll = if (isNewestTheLastRoll()) recentRolls.drop(1) else recentRolls
         return beforeLastRoll.take(PREVIOUS_ROLLS_SHOWN)
+    }
+
+    private fun isNewestTheLastRoll(): Boolean {
+        val newest = recentRolls.firstOrNull() ?: return false
+
+        return if (lastRollId != null) newest.id == lastRollId else newest.pool == lastRoll
     }
 }
