@@ -71,7 +71,11 @@ class AppDatabaseMigrationTest {
     @Test
     fun `migrating from v6 keeps the recorded rolls with no context`() {
         val driver = v6Database()
-        driver.execute(null, "INSERT INTO DiceRoll (rolledAt, roll) VALUES (0, '1d4(2)');", 0)
+        driver.execute(
+            identifier = null,
+            sql = "INSERT INTO DiceRoll (rolledAt, roll) VALUES (0, '1d4(2)');",
+            parameters = 0,
+        )
         AppDatabase.Schema.migrate(driver, oldVersion = 6L, newVersion = AppDatabase.Schema.version)
 
         val history = AppDatabase(driver).appDatabaseQueries.selectAllDiceRolls().executeAsList()
