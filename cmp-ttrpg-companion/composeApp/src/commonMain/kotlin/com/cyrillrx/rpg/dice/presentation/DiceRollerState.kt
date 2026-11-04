@@ -46,6 +46,6 @@ data class DiceRollerState(
     private fun isNewestTheLastRoll(): Boolean {
         val newest = recentRolls.firstOrNull() ?: return false
 
-        return if (lastRollId != null) newest.id == lastRollId else newest.pool == lastRoll
+        return if (lastRollId == null) newest.pool == lastRoll else newest.id == lastRollId
     }
 }
