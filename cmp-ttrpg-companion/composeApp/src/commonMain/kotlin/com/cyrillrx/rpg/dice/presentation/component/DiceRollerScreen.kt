@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.dice.presentation.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -26,7 +25,6 @@ import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.RestartAlt
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -41,26 +39,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
 import com.cyrillrx.rpg.core.presentation.theme.controlPanelMaxHeightFraction
-import com.cyrillrx.rpg.core.presentation.theme.dieTileMinHeight
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconAlpha
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconSize
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
-import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.modifierValueMinWidth
-import com.cyrillrx.rpg.core.presentation.theme.removeDieButtonSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -79,12 +71,9 @@ import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceRollerViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_advantage
 import rpg_companion.composeapp.generated.resources.btn_clear
 import rpg_companion.composeapp.generated.resources.btn_decrease_modifier
-import rpg_companion.composeapp.generated.resources.btn_disadvantage
 import rpg_companion.composeapp.generated.resources.btn_increase_modifier
-import rpg_companion.composeapp.generated.resources.btn_remove_die_of
 import rpg_companion.composeapp.generated.resources.btn_roll
 import rpg_companion.composeapp.generated.resources.btn_roll_composition
 import rpg_companion.composeapp.generated.resources.btn_roll_history
@@ -301,7 +290,7 @@ private fun ControlPanel(
                 ModifierStepper(state.modifier, actions.onModifierDecreased, actions.onModifierIncreased)
             }
             SectionLabel(stringResource(Res.string.section_d20_roll))
-            DirectD20Row(actions)
+            D20Row(actions.onDisadvantageClicked, actions.onD20Clicked, actions.onAdvantageClicked)
             SectionLabel(stringResource(Res.string.section_compose))
             CompositionPad(state, actions)
             RollButton(state, actions.onRollClicked)
@@ -336,34 +325,6 @@ private fun ModifierStepper(modifier: Int, onDecreased: () -> Unit, onIncreased:
                 Icon(Icons.Filled.Add, contentDescription = stringResource(Res.string.btn_increase_modifier))
             }
         }
-    }
-}
-
-@Composable
-private fun DirectD20Row(actions: DiceRollerActions) {
-    val d20 = stringResource(Res.string.die_label, Die.D20.sides)
-
-    Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium), modifier = Modifier.height(IntrinsicSize.Min)) {
-        DieTile(
-            label = d20,
-            caption = stringResource(Res.string.btn_disadvantage),
-            onClick = actions.onDisadvantageClicked,
-            accent = MaterialTheme.colorScheme.error,
-            modifier = Modifier.weight(1f),
-        )
-        DieTile(
-            label = d20,
-            caption = "",
-            onClick = actions.onD20Clicked,
-            modifier = Modifier.weight(1f),
-        )
-        DieTile(
-            label = d20,
-            caption = stringResource(Res.string.btn_advantage),
-            onClick = actions.onAdvantageClicked,
-            accent = LocalHealthColors.current.heal,
-            modifier = Modifier.weight(1f),
-        )
     }
 }
 
@@ -419,73 +380,6 @@ private fun RollButton(state: DiceRollerState, onClick: () -> Unit) {
 }
 
 /** The [caption] line is always laid out, so a count appearing under a die does not shift the pad. */
-@Composable
-private fun DieTile(
-    label: String,
-    caption: String,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    accent: Color? = null,
-    onRemove: (() -> Unit)? = null,
-    icon: ImageVector? = null,
-) {
-    Card(
-        onClick = onClick,
-        enabled = enabled,
-        shape = MaterialTheme.shapes.medium,
-        border = BorderStroke(borderWidth, (accent ?: MaterialTheme.colorScheme.outline).copy(alpha = borderAlpha)),
-        colors = dieTileColors(accent),
-        // A hovered card gains a shadow, which shows through the transparent advantage tiles.
-        elevation = CardDefaults.outlinedCardElevation(),
-        modifier = modifier
-            .fillMaxHeight()
-            .heightIn(min = dieTileMinHeight),
-    ) {
-        Box(modifier = Modifier.fillMaxSize().heightIn(min = dieTileMinHeight)) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(spacingSmall),
-            ) {
-                if (icon == null) {
-                    Text(text = label, style = MaterialTheme.typography.titleLarge)
-                } else {
-                    Icon(icon, contentDescription = null, modifier = Modifier.size(iconSizeMedium))
-                }
-                Text(
-                    text = caption,
-                    style = MaterialTheme.typography.labelMedium,
-                    color = if (accent == null) MaterialTheme.colorScheme.tertiary else Color.Unspecified,
-                )
-            }
-            onRemove?.let { remove ->
-                IconButton(
-                    onClick = remove,
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .size(removeDieButtonSize),
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Remove,
-                        contentDescription = stringResource(Res.string.btn_remove_die_of, label),
-                        modifier = Modifier.size(iconSizeSmall),
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun dieTileColors(accent: Color?): CardColors = if (accent == null) {
-    CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
-} else {
-    CardDefaults.cardColors(containerColor = Color.Transparent, contentColor = accent)
-}
-
 private val previewState = DiceRollerState(
     countByDie = mapOf(Die.D6 to 2),
     modifier = 5,
