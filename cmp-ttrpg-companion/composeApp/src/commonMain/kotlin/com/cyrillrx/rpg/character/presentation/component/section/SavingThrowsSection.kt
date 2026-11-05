@@ -13,12 +13,16 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toAbbreviationString
 import com.cyrillrx.rpg.creature.domain.Ability
 
 @Composable
-internal fun SavingThrowsSection(character: Character) {
+internal fun SavingThrowsSection(
+    character: Character,
+    modifier: Modifier = Modifier,
+) {
     StatCellGrid(
         columns = 3,
         cells = Ability.entries.map { ability ->
-            @Composable { modifier: Modifier -> SavingThrowCard(character, ability, modifier) }
+            @Composable { cellModifier: Modifier -> SavingThrowCard(character, ability, cellModifier) }
         },
+        modifier = modifier,
     )
 }
 
