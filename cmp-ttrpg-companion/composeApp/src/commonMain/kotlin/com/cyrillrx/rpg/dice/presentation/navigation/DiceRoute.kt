@@ -33,7 +33,9 @@ fun EntryProviderScope<NavKey>.handleDiceRoutes(
 ) {
     entry<DiceRoute.Roller> {
         val viewModel = viewModel<DiceRollerViewModel>(factory = DiceRollerViewModelFactory(historyRepository))
-        DiceRollerScreen(viewModel, DiceRouterImpl(backStack))
+        val historyViewModel =
+            viewModel<DiceHistoryViewModel>(factory = DiceHistoryViewModelFactory(historyRepository))
+        DiceRollerScreen(viewModel, historyViewModel, DiceRouterImpl(backStack))
     }
     entry<DiceRoute.History> {
         val viewModel = viewModel<DiceHistoryViewModel>(factory = DiceHistoryViewModelFactory(historyRepository))

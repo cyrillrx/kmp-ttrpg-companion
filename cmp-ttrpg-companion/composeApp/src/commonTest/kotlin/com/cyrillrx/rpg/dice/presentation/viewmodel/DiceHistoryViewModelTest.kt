@@ -101,6 +101,20 @@ class DiceHistoryViewModelTest {
     }
 
     @Test
+    fun `a pending clear tells up to which roll it hides until undone`() = runTest(testDispatcher) {
+        recordD4(value = 1)
+        val viewModel = openHistory()
+
+        val clear = viewModel.clearOptimistically()!!
+        advanceUntilIdle()
+        assertEquals(clear, viewModel.state.value.hiddenUpTo)
+
+        viewModel.undoClear(clear)
+        advanceUntilIdle()
+        assertNull(viewModel.state.value.hiddenUpTo)
+    }
+
+    @Test
     fun `a second clear before the history redraws has nothing left to clear`() = runTest(testDispatcher) {
         recordD4(value = 1)
         val viewModel = openHistory()

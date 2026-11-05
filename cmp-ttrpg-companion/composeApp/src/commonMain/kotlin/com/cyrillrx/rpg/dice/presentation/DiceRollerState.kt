@@ -38,6 +38,13 @@ data class DiceRollerState(
         return copy(lastRoll = null, lastRollId = null, recentRolls = recent)
     }
 
+    /** A roll not recorded yet is newer than any clear, so it stays on the card. */
+    fun hidingRollsUpTo(id: Long?): DiceRollerState {
+        if (id == null || lastRollId == null || lastRollId > id) return this
+
+        return copy(lastRoll = null, lastRollId = null)
+    }
+
     fun previousRolls(): List<RecordedRoll> {
         val beforeLastRoll = if (isNewestTheLastRoll()) recentRolls.drop(1) else recentRolls
         return beforeLastRoll.take(PREVIOUS_ROLLS_SHOWN)

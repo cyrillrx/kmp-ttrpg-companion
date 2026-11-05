@@ -44,7 +44,7 @@ class DiceHistoryViewModel(
             Loading.FAILED -> DiceHistoryState.Body.Error
             Loading.DONE -> render(rolls, clears.hiddenUpTo)
         }
-        DiceHistoryState(body)
+        DiceHistoryState(body, clears.hiddenUpTo)
     }.stateIn(viewModelScope, SharingStarted.Eagerly, DiceHistoryState())
 
     val events: SharedFlow<Event>

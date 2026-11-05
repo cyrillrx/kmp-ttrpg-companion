@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -33,6 +34,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -73,8 +76,10 @@ import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
+import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
 import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import com.cyrillrx.rpg.dice.presentation.navigation.DiceRouter
+import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceHistoryViewModel
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceRollerViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -112,8 +117,11 @@ class DiceRollerActions(
 )
 
 @Composable
-fun DiceRollerScreen(viewModel: DiceRollerViewModel, router: DiceRouter) {
+fun DiceRollerScreen(viewModel: DiceRollerViewModel, historyViewModel: DiceHistoryViewModel, router: DiceRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val history by historyViewModel.state.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val onClearHistoryClicked = rememberRollHistoryClear(historyViewModel, snackbarHostState)
     val actions = remember(viewModel) {
         DiceRollerActions(
             onDieAdded = viewModel::addDie,
@@ -127,26 +135,36 @@ fun DiceRollerScreen(viewModel: DiceRollerViewModel, router: DiceRouter) {
             onClearClicked = viewModel::clearComposition,
         )
     }
+    val historyActions = remember(router, onClearHistoryClicked) {
+        DiceHistoryActions(onOpenClicked = router::openHistory, onClearClicked = onClearHistoryClicked)
+    }
 
     DiceRollerScreen(
         state = state,
+        history = history,
+        snackbarHostState = snackbarHostState,
         onNavigateUpClicked = router::navigateUp,
-        onHistoryClicked = router::openHistory,
         actions = actions,
+        historyActions = historyActions,
     )
 }
+
+class DiceHistoryActions(val onOpenClicked: () -> Unit, val onClearClicked: () -> Unit)
 
 @Composable
 fun DiceRollerScreen(
     state: DiceRollerState,
+    history: DiceHistoryState,
+    snackbarHostState: SnackbarHostState,
     onNavigateUpClicked: () -> Unit,
-    onHistoryClicked: () -> Unit,
     actions: DiceRollerActions,
+    historyActions: DiceHistoryActions,
 ) {
     Scaffold(
         topBar = {
             SimpleTopBar(titleResource = Res.string.title_dice_roller, onNavigateUpClicked = onNavigateUpClicked)
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         BoxWithConstraints(
             modifier = Modifier
@@ -164,12 +182,27 @@ fun DiceRollerScreen(
                     horizontalArrangement = Arrangement.spacedBy(spacingCommon),
                     modifier = contentModifier.padding(spacingCommon),
                 ) {
-                    RollResultCard(state, onHistoryClicked, modifier = Modifier.weight(1f).fillMaxHeight())
+                    Column(verticalArrangement = Arrangement.spacedBy(spacingCommon), modifier = Modifier.weight(1f)) {
+                        RollResultCard(
+                            state = state.hidingRollsUpTo(history.hiddenUpTo),
+                            onHistoryClicked = null,
+                            modifier = Modifier.weight(1f),
+                        )
+                        DiceHistorySection(
+                            state = history.without(state.lastRollId),
+                            onClearClicked = historyActions.onClearClicked,
+                            modifier = Modifier.weight(1f),
+                        )
+                    }
                     ControlPanel(state, actions, MaterialTheme.shapes.large, Modifier.weight(1f))
                 }
             } else {
                 Column(modifier = contentModifier) {
-                    RollResultCard(state, onHistoryClicked, modifier = Modifier.weight(1f).padding(spacingCommon))
+                    RollResultCard(
+                        state = state,
+                        onHistoryClicked = historyActions.onOpenClicked,
+                        modifier = Modifier.weight(1f).padding(spacingCommon),
+                    )
                     ControlPanel(
                         state = state,
                         actions = actions,
@@ -184,8 +217,9 @@ fun DiceRollerScreen(
     }
 }
 
+/** Without [onHistoryClicked], the history is already on screen: the card drops its preview and its link. */
 @Composable
-private fun RollResultCard(state: DiceRollerState, onHistoryClicked: () -> Unit, modifier: Modifier = Modifier) {
+private fun RollResultCard(state: DiceRollerState, onHistoryClicked: (() -> Unit)?, modifier: Modifier = Modifier) {
     val lastRoll = state.lastRoll
 
     Card(
@@ -209,24 +243,31 @@ private fun RollResultCard(state: DiceRollerState, onHistoryClicked: () -> Unit,
             }
         }
 
-        val previousRolls = state.previousRolls()
-        if (previousRolls.isNotEmpty()) {
-            PreviousRolls(previousRolls, modifier = Modifier.padding(horizontal = spacingCommon))
+        if (onHistoryClicked != null) {
+            HistoryShortcuts(state, onHistoryClicked)
         }
+    }
+}
 
-        TextButton(
-            onClick = onHistoryClicked,
-            modifier = Modifier
-                .align(Alignment.End)
-                .padding(end = spacingMedium, bottom = spacingSmall),
-        ) {
-            Text(text = stringResource(Res.string.btn_roll_history))
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-                contentDescription = null,
-                modifier = Modifier.size(iconSizeMedium),
-            )
-        }
+@Composable
+private fun ColumnScope.HistoryShortcuts(state: DiceRollerState, onHistoryClicked: () -> Unit) {
+    val previousRolls = state.previousRolls()
+    if (previousRolls.isNotEmpty()) {
+        PreviousRolls(previousRolls, modifier = Modifier.padding(horizontal = spacingCommon))
+    }
+
+    TextButton(
+        onClick = onHistoryClicked,
+        modifier = Modifier
+            .align(Alignment.End)
+            .padding(end = spacingMedium, bottom = spacingSmall),
+    ) {
+        Text(text = stringResource(Res.string.btn_roll_history))
+        Icon(
+            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+            contentDescription = null,
+            modifier = Modifier.size(iconSizeMedium),
+        )
     }
 }
 
@@ -515,26 +556,40 @@ private val previewState = DiceRollerState(
 
 private val previewActions = DiceRollerActions({}, {}, {}, {}, {}, {}, {}, {}, {})
 
+private val previewHistoryActions = DiceHistoryActions(onOpenClicked = {}, onClearClicked = {})
+
+@Composable
+private fun DiceRollerScreenPreview(state: DiceRollerState) {
+    DiceRollerScreen(
+        state = state,
+        history = DiceHistoryState(previewHistory),
+        snackbarHostState = remember { SnackbarHostState() },
+        onNavigateUpClicked = {},
+        actions = previewActions,
+        historyActions = previewHistoryActions,
+    )
+}
+
 @Preview
 @Composable
 private fun PreviewDiceRollerScreenLight() {
-    AppThemePreview(darkTheme = false) {
-        DiceRollerScreen(previewState, onNavigateUpClicked = {}, onHistoryClicked = {}, previewActions)
-    }
+    AppThemePreview(darkTheme = false) { DiceRollerScreenPreview(previewState) }
 }
 
 @Preview
 @Composable
 private fun PreviewDiceRollerScreenDark() {
-    AppThemePreview(darkTheme = true) {
-        DiceRollerScreen(previewState, onNavigateUpClicked = {}, onHistoryClicked = {}, previewActions)
-    }
+    AppThemePreview(darkTheme = true) { DiceRollerScreenPreview(previewState) }
 }
 
 @Preview
 @Composable
 private fun PreviewDiceRollerScreenEmpty() {
-    AppThemePreview(darkTheme = true) {
-        DiceRollerScreen(DiceRollerState(), onNavigateUpClicked = {}, onHistoryClicked = {}, previewActions)
-    }
+    AppThemePreview(darkTheme = true) { DiceRollerScreenPreview(DiceRollerState()) }
+}
+
+@Preview(widthDp = 1280, heightDp = 800)
+@Composable
+private fun PreviewDiceRollerScreenWide() {
+    AppThemePreview(darkTheme = true) { DiceRollerScreenPreview(previewState) }
 }
