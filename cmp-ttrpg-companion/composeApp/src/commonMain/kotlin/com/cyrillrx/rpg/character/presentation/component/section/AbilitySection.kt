@@ -16,6 +16,7 @@ import rpg_companion.composeapp.generated.resources.ability_label_int
 import rpg_companion.composeapp.generated.resources.ability_label_str
 import rpg_companion.composeapp.generated.resources.ability_label_wis
 
+// TODO(#362): iterate Ability.entries like SavingThrowsSection
 @Composable
 internal fun AbilitySection(
     abilities: Abilities,

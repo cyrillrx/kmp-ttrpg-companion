@@ -1,13 +1,19 @@
 package com.cyrillrx.rpg.character.domain
 
 import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
+
+fun Character.savingThrowProficiency(ability: Ability): Proficiency =
+    ability.toAbilityScore(abilities).savingThrowProficiency
+
+fun Character.skillProficiency(skill: Skill): Proficiency = skill.getProficiency(skills)
 
 fun Character.savingThrowModifier(ability: Ability): Int =
     ability.toAbilityScore(abilities).getSavingThrow(proficiencyBonus())
 
 fun Character.skillModifier(skill: Skill): Int =
-    skill.computeModifier(abilities, skill.getProficiency(skills), proficiencyBonus())
+    skill.computeModifier(abilities, skillProficiency(skill), proficiencyBonus())
 
 fun Character.modifierFor(check: D20Check): Int = when (check) {
     is D20Check.SavingThrow -> savingThrowModifier(check.ability)

@@ -2,92 +2,69 @@ package com.cyrillrx.rpg.character.presentation.component.section
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.savingThrowModifier
+import com.cyrillrx.rpg.character.domain.savingThrowProficiency
 import com.cyrillrx.rpg.character.presentation.component.StatCell
 import com.cyrillrx.rpg.character.presentation.component.StatCellGrid
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
-import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.AbilityScore
-import org.jetbrains.compose.resources.stringResource
-import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.ability_label_cha
-import rpg_companion.composeapp.generated.resources.ability_label_con
-import rpg_companion.composeapp.generated.resources.ability_label_dex
-import rpg_companion.composeapp.generated.resources.ability_label_int
-import rpg_companion.composeapp.generated.resources.ability_label_str
-import rpg_companion.composeapp.generated.resources.ability_label_wis
+import com.cyrillrx.rpg.core.presentation.component.dnd.toAbbreviationString
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Proficiency
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 internal fun SavingThrowsSection(
-    abilities: Abilities,
-    proficiencyBonus: Int,
+    character: Character,
+    modifier: Modifier = Modifier,
 ) {
     StatCellGrid(
         columns = 3,
-        cells = listOf(
-            { modifier ->
-                SavingThrowCard(
-                    label = stringResource(Res.string.ability_label_str),
-                    ability = abilities.strength,
-                    proficiencyBonus = proficiencyBonus,
-                    modifier = modifier,
-                )
-            },
-            { modifier ->
-                SavingThrowCard(
-                    label = stringResource(Res.string.ability_label_dex),
-                    ability = abilities.dexterity,
-                    proficiencyBonus = proficiencyBonus,
-                    modifier = modifier,
-                )
-            },
-            { modifier ->
-                SavingThrowCard(
-                    label = stringResource(Res.string.ability_label_con),
-                    ability = abilities.constitution,
-                    proficiencyBonus = proficiencyBonus,
-                    modifier = modifier,
-                )
-            },
-            { modifier ->
-                SavingThrowCard(
-                    label = stringResource(Res.string.ability_label_int),
-                    ability = abilities.intelligence,
-                    proficiencyBonus = proficiencyBonus,
-                    modifier = modifier,
-                )
-            },
-            { modifier ->
-                SavingThrowCard(
-                    label = stringResource(Res.string.ability_label_wis),
-                    ability = abilities.wisdom,
-                    proficiencyBonus = proficiencyBonus,
-                    modifier = modifier,
-                )
-            },
-            { modifier ->
-                SavingThrowCard(
-                    label = stringResource(Res.string.ability_label_cha),
-                    ability = abilities.charisma,
-                    proficiencyBonus = proficiencyBonus,
-                    modifier = modifier,
-                )
-            },
-        ),
+        cells = Ability.entries.map { ability ->
+            @Composable { cellModifier: Modifier -> SavingThrowCard(character, ability, cellModifier) }
+        },
+        modifier = modifier,
     )
 }
 
 @Composable
 private fun SavingThrowCard(
-    label: String,
-    ability: AbilityScore,
-    proficiencyBonus: Int,
+    character: Character,
+    ability: Ability,
     modifier: Modifier = Modifier,
 ) {
     StatCell(
-        label = label,
-        value = ability.getSavingThrow(proficiencyBonus).toSignedString(),
-        valueColor = ability.savingThrowProficiency.getColor(),
+        label = ability.toAbbreviationString(),
+        value = character.savingThrowModifier(ability).toSignedString(),
+        valueColor = character.savingThrowProficiency(ability).getColor(),
         modifier = modifier,
     )
+}
+
+@Preview
+@Composable
+private fun PreviewSavingThrowsSectionLight() {
+    AppThemePreview(darkTheme = false) {
+        SavingThrowsSection(character = previewCharacter())
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSavingThrowsSectionDark() {
+    AppThemePreview(darkTheme = true) {
+        SavingThrowsSection(character = previewCharacter())
+    }
+}
+
+private fun previewCharacter(): Character {
+    val rogue = SampleCharacterRepository.elfRogue()
+    val abilities = rogue.abilities.copy(
+        dexterity = rogue.abilities.dexterity.copy(savingThrowProficiency = Proficiency.PROFICIENT),
+        intelligence = rogue.abilities.intelligence.copy(savingThrowProficiency = Proficiency.PROFICIENT),
+    )
+    return rogue.copy(abilities = abilities)
 }

@@ -14,6 +14,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.skillModifier
+import com.cyrillrx.rpg.character.domain.skillProficiency
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.relatedAbilityAbbreviation
@@ -27,8 +31,6 @@ import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.creature.domain.Skills
@@ -39,9 +41,7 @@ import rpg_companion.composeapp.generated.resources.label_skills
 
 @Composable
 internal fun SkillsSection(
-    skills: Skills,
-    abilities: Abilities,
-    proficiencyBonus: Int,
+    character: Character,
     onTap: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -70,9 +70,7 @@ internal fun SkillsSection(
                 Row(modifier = Modifier.fillMaxWidth()) {
                     SkillEntry(
                         skill = left,
-                        skills = skills,
-                        abilities = abilities,
-                        proficiencyBonus = proficiencyBonus,
+                        character = character,
                         modifier = Modifier.weight(1f),
                     )
                     val right = rightColumn.getOrNull(index)
@@ -81,9 +79,7 @@ internal fun SkillsSection(
                     } else {
                         SkillEntry(
                             skill = right,
-                            skills = skills,
-                            abilities = abilities,
-                            proficiencyBonus = proficiencyBonus,
+                            character = character,
                             modifier = Modifier.weight(1f),
                         )
                     }
@@ -96,13 +92,11 @@ internal fun SkillsSection(
 @Composable
 private fun SkillEntry(
     skill: Skill,
-    skills: Skills,
-    abilities: Abilities,
-    proficiencyBonus: Int,
+    character: Character,
     modifier: Modifier = Modifier,
 ) {
-    val proficiency = skill.getProficiency(skills)
-    val skillModifier = skill.computeModifier(abilities, proficiency, proficiencyBonus)
+    val proficiency = character.skillProficiency(skill)
+    val skillModifier = character.skillModifier(skill)
     val color = proficiency.getColor()
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -128,19 +122,7 @@ private fun SkillEntry(
 @Composable
 private fun PreviewSkillsSectionLight() {
     AppThemePreview(darkTheme = false) {
-        SkillsSection(
-            skills = Skills(acrobatics = Proficiency.PROFICIENT, perception = Proficiency.EXPERT),
-            abilities = Abilities(
-                strength = AbilityScore(10),
-                dexterity = AbilityScore(14),
-                constitution = AbilityScore(12),
-                intelligence = AbilityScore(10),
-                wisdom = AbilityScore(12),
-                charisma = AbilityScore(8),
-            ),
-            proficiencyBonus = 3,
-            onTap = {},
-        )
+        SkillsSection(character = previewCharacter(), onTap = {})
     }
 }
 
@@ -148,18 +130,9 @@ private fun PreviewSkillsSectionLight() {
 @Composable
 private fun PreviewSkillsSectionDark() {
     AppThemePreview(darkTheme = true) {
-        SkillsSection(
-            skills = Skills(acrobatics = Proficiency.PROFICIENT, perception = Proficiency.EXPERT),
-            abilities = Abilities(
-                strength = AbilityScore(10),
-                dexterity = AbilityScore(14),
-                constitution = AbilityScore(12),
-                intelligence = AbilityScore(10),
-                wisdom = AbilityScore(12),
-                charisma = AbilityScore(8),
-            ),
-            proficiencyBonus = 3,
-            onTap = {},
-        )
+        SkillsSection(character = previewCharacter(), onTap = {})
     }
 }
+
+private fun previewCharacter(): Character = SampleCharacterRepository.elfRogue()
+    .copy(skills = Skills(acrobatics = Proficiency.PROFICIENT, perception = Proficiency.EXPERT))

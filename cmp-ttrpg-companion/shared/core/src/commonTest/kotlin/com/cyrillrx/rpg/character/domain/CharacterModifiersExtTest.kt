@@ -36,6 +36,18 @@ class CharacterModifiersExtTest {
     )
 
     @Test
+    fun `a saving throw proficiency is read from its ability score`() {
+        assertEquals(Proficiency.PROFICIENT, character.savingThrowProficiency(Ability.WISDOM))
+        assertEquals(Proficiency.NONE, character.savingThrowProficiency(Ability.INTELLIGENCE))
+    }
+
+    @Test
+    fun `a skill proficiency is read from the character skills`() {
+        assertEquals(Proficiency.EXPERT, character.skillProficiency(Skill.PERCEPTION))
+        assertEquals(Proficiency.NONE, character.skillProficiency(Skill.ARCANA))
+    }
+
+    @Test
     fun `a saving throw without proficiency adds the ability modifier alone`() {
         assertEquals(-1, character.savingThrowModifier(Ability.INTELLIGENCE))
     }
