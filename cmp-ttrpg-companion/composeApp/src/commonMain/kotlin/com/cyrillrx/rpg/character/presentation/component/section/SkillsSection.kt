@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.presentation.component.section
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.skillModifier
@@ -42,11 +44,10 @@ import rpg_companion.composeapp.generated.resources.label_skills
 @Composable
 internal fun SkillsSection(
     character: Character,
-    onTap: () -> Unit,
+    onSkillTapped: (Skill) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(
-        onClick = onTap,
         border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         modifier = modifier.fillMaxWidth(),
@@ -71,6 +72,7 @@ internal fun SkillsSection(
                     SkillEntry(
                         skill = left,
                         character = character,
+                        onTap = { onSkillTapped(left) },
                         modifier = Modifier.weight(1f),
                     )
                     val right = rightColumn.getOrNull(index)
@@ -80,6 +82,7 @@ internal fun SkillsSection(
                         SkillEntry(
                             skill = right,
                             character = character,
+                            onTap = { onSkillTapped(right) },
                             modifier = Modifier.weight(1f),
                         )
                     }
@@ -93,6 +96,7 @@ internal fun SkillsSection(
 private fun SkillEntry(
     skill: Skill,
     character: Character,
+    onTap: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val proficiency = character.skillProficiency(skill)
@@ -101,7 +105,10 @@ private fun SkillEntry(
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-        modifier = modifier,
+        modifier = modifier
+            .clip(MaterialTheme.shapes.small)
+            .clickable(onClick = onTap)
+            .padding(vertical = spacingSmall),
     ) {
         Text(
             text = skillModifier.toSignedString(),
@@ -122,7 +129,7 @@ private fun SkillEntry(
 @Composable
 private fun PreviewSkillsSectionLight() {
     AppThemePreview(darkTheme = false) {
-        SkillsSection(character = previewCharacter(), onTap = {})
+        SkillsSection(character = previewCharacter(), onSkillTapped = {})
     }
 }
 
@@ -130,7 +137,7 @@ private fun PreviewSkillsSectionLight() {
 @Composable
 private fun PreviewSkillsSectionDark() {
     AppThemePreview(darkTheme = true) {
-        SkillsSection(character = previewCharacter(), onTap = {})
+        SkillsSection(character = previewCharacter(), onSkillTapped = {})
     }
 }
 

@@ -48,6 +48,8 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.component.dialog.CharacterEditDialog
+import com.cyrillrx.rpg.character.presentation.component.dialog.D20CheckActions
+import com.cyrillrx.rpg.character.presentation.component.dialog.D20CheckSheet
 import com.cyrillrx.rpg.character.presentation.component.tab.AptitudesTabContent
 import com.cyrillrx.rpg.character.presentation.component.tab.CharacterSheetTab
 import com.cyrillrx.rpg.character.presentation.component.tab.CombatTabContent
@@ -122,6 +124,15 @@ fun CharacterDetailScreen(
             }
         }
     }
+    val checkActions = remember(viewModel) {
+        D20CheckActions(
+            onCheckTapped = viewModel::rollCheck,
+            onRerollClicked = viewModel::rerollCheck,
+            onAdvantageClicked = viewModel::rollCheckWithAdvantage,
+            onDisadvantageClicked = viewModel::rollCheckWithDisadvantage,
+            onDismissed = viewModel::dismissRoll,
+        )
+    }
     when (val s = state) {
         CharacterEditState.Loading -> Scaffold { innerPadding ->
             Loader(modifier = Modifier.padding(innerPadding))
@@ -159,6 +170,7 @@ fun CharacterDetailScreen(
             onDialogDismissed = viewModel::cancelEditing,
             onExportClicked = viewModel::exportCharacter,
             onNavigateUpClicked = router::navigateUp,
+            checkActions = checkActions,
         )
     }
 }
@@ -190,6 +202,7 @@ fun CharacterDetailScreen(
     onDialogDismissed: () -> Unit,
     onExportClicked: () -> Unit,
     onNavigateUpClicked: () -> Unit,
+    checkActions: D20CheckActions,
 ) {
     val locale = currentLocale()
     val shortDescription = state.character.resolveTranslation(locale)?.shortDescription.orEmpty()
@@ -279,8 +292,10 @@ fun CharacterDetailScreen(
                     verticalArrangement = Arrangement.spacedBy(spacingMedium),
                 ) {
                     when (CharacterSheetTab.entries[page]) {
-                        CharacterSheetTab.APTITUDES -> AptitudesTabContent(state, onFieldTapped)
-                        CharacterSheetTab.COMBAT -> CombatTabContent(state, onFieldTapped)
+                        CharacterSheetTab.APTITUDES ->
+                            AptitudesTabContent(state, onFieldTapped, checkActions.onCheckTapped)
+
+                        CharacterSheetTab.COMBAT -> CombatTabContent(state, onFieldTapped, checkActions.onCheckTapped)
                         CharacterSheetTab.PROFILE -> ProfileTabContent(state, onFieldTapped)
                     }
 
@@ -311,6 +326,8 @@ fun CharacterDetailScreen(
         onSkillsConfirmed = onSkillsConfirmed,
         onDismiss = onDialogDismissed,
     )
+
+    state.sheetRoll?.let { D20CheckSheet(it, checkActions) }
 }
 
 @Preview
@@ -351,5 +368,6 @@ private fun CharacterDetailScreenPreview() {
         onDialogDismissed = {},
         onExportClicked = {},
         onNavigateUpClicked = {},
+        checkActions = D20CheckActions({}, {}, {}, {}, {}),
     )
 }

@@ -3,16 +3,22 @@ package com.cyrillrx.rpg.character.presentation.component.section
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 
 @Composable
-internal fun SheetDivider(label: String) {
+internal fun SheetDivider(label: String, onEdit: (() -> Unit)? = null, editLabel: String? = null) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingMedium),
@@ -24,6 +30,16 @@ internal fun SheetDivider(label: String) {
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.primary,
         )
+        onEdit?.let { edit ->
+            IconButton(onClick = edit) {
+                Icon(
+                    imageVector = Icons.Default.Edit,
+                    contentDescription = editLabel,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(iconSizeMedium),
+                )
+            }
+        }
         HorizontalDivider(modifier = Modifier.weight(1f))
     }
 }

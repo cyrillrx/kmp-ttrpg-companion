@@ -1,6 +1,6 @@
 # PRD-006 — Virtual Dice
 
-> **Status**: Draft | **Version**: 0.5 | **Last updated**: 2026-10-18
+> **Status**: Draft | **Version**: 0.6 | **Last updated**: 2026-11-05
 
 ## Overview
 
@@ -73,6 +73,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 ### Entry Point
 
 - [x] The dice roller is reached from a section of the Home screen.
+- [x] A skill, a saving throw or the initiative is rolled from the character sheet (see [PRD-002](prd-002-character-sheet.md)); the roll goes to the same history, tagged with the character and the check ([ADR-007](../adr/adr-007-roll-context.md)).
 
 ## Non-Functional Requirements
 

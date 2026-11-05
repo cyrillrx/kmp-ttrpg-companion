@@ -25,6 +25,7 @@ internal fun CombatRow(
     initiative: Int,
     walkSpeed: Int,
     onArmorClassTapped: () -> Unit,
+    onInitiativeTapped: () -> Unit,
     onWalkSpeedTapped: () -> Unit,
 ) {
     val unit = LocalDistanceUnit.current
@@ -45,6 +46,7 @@ internal fun CombatRow(
         StatCell(
             label = stringResource(Res.string.label_initiative),
             value = initiative.toSignedString(),
+            onClick = onInitiativeTapped,
             modifier = Modifier.weight(1f),
         )
         StatCell(

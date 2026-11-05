@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.presentation.component.tab
 
 import androidx.compose.runtime.Composable
+import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.hitPoints
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
@@ -16,6 +17,7 @@ import rpg_companion.composeapp.generated.resources.label_combat
 internal fun CombatTabContent(
     state: CharacterEditState.Loaded,
     onFieldTapped: (EditingField) -> Unit,
+    onCheckTapped: (D20Check) -> Unit,
 ) {
     SheetDivider(stringResource(Res.string.label_combat))
 
@@ -24,6 +26,7 @@ internal fun CombatTabContent(
         initiative = state.character.initiativeModifier(),
         walkSpeed = state.character.speeds.walk,
         onArmorClassTapped = { onFieldTapped(EditingField.ArmorClass) },
+        onInitiativeTapped = { onCheckTapped(D20Check.Initiative) },
         onWalkSpeedTapped = { onFieldTapped(EditingField.WalkSpeed) },
     )
 

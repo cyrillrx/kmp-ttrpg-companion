@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.presentation.component.tab
 
 import androidx.compose.runtime.Composable
+import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.component.section.AbilitySection
@@ -9,6 +10,7 @@ import com.cyrillrx.rpg.character.presentation.component.section.SheetDivider
 import com.cyrillrx.rpg.character.presentation.component.section.SkillsSection
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.btn_edit_skills
 import rpg_companion.composeapp.generated.resources.label_abilities
 import rpg_companion.composeapp.generated.resources.label_saving_throws
 import rpg_companion.composeapp.generated.resources.label_skills
@@ -17,6 +19,7 @@ import rpg_companion.composeapp.generated.resources.label_skills
 internal fun AptitudesTabContent(
     state: CharacterEditState.Loaded,
     onFieldTapped: (EditingField) -> Unit,
+    onCheckTapped: (D20Check) -> Unit,
 ) {
     SheetDivider(stringResource(Res.string.label_abilities))
 
@@ -32,12 +35,19 @@ internal fun AptitudesTabContent(
 
     SheetDivider(stringResource(Res.string.label_saving_throws))
 
-    SavingThrowsSection(character = state.character)
+    SavingThrowsSection(
+        character = state.character,
+        onSavingThrowTapped = { ability -> onCheckTapped(D20Check.SavingThrow(ability)) },
+    )
 
-    SheetDivider(stringResource(Res.string.label_skills))
+    SheetDivider(
+        label = stringResource(Res.string.label_skills),
+        onEdit = { onFieldTapped(EditingField.Skills) },
+        editLabel = stringResource(Res.string.btn_edit_skills),
+    )
 
     SkillsSection(
         character = state.character,
-        onTap = { onFieldTapped(EditingField.Skills) },
+        onSkillTapped = { skill -> onCheckTapped(D20Check.SkillCheck(skill)) },
     )
 }

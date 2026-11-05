@@ -1,6 +1,6 @@
 # PRD-002 — Character Sheet
 
-> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-05-10
+> **Status**: Draft | **Version**: 0.4 | **Last updated**: 2026-11-05
 
 ## Overview
 
@@ -24,6 +24,7 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 | User  | Create a new character sheet (PC or NPC) | I have a digital record for my character                 |
 | User  | Edit my character sheet at any time      | I can update stats, HP, inventory, etc. during a session |
 | User  | Delete a character sheet I own           | I can remove characters I no longer use                  |
+| User  | Roll a skill, a save or the initiative   | I get the total without adding the bonus myself          |
 
 **Phase 3 — Campaign integration (see PRD-003)**
 
@@ -55,11 +56,18 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 - [ ] Hit Dice (calculated from `level + class.hitDie`, not stored — see [ADR-001 §9](../adr/adr-001-data-model.md))
 
 **Skills & Proficiencies**
-- [ ] Saving throws (with proficiency toggle)
-- [ ] Skill list with proficiency and expertise toggles
+- [x] Saving throws (with proficiency toggle)
+- [x] Skill list with proficiency and expertise toggles
 - [ ] Passive Perception (auto-calculated from WIS modifier by default; trait/feat bonuses handled in a later phase)
 - [ ] Proficiency bonus (auto-calculated from level)
 - [ ] Languages and other proficiencies
+
+**Rolling from the sheet**
+- [x] Tapping a skill, a saving throw or the initiative rolls a d20 with its modifier; the roll is recorded in the dice history with the character and the check (see [PRD-006](prd-006-dice.md) and [ADR-007](../adr/adr-007-roll-context.md)).
+- [x] The result shows in a sheet over the character: the check, the roll's notation and dice, and the d20, Advantage and Disadvantage actions to roll it again.
+- [x] Skills are edited from a pencil next to the section title, since tapping a skill rolls it.
+- [ ] Raw ability checks: tapping an ability card still edits its score.
+- [ ] Attacks and cantrips: show the dice to roll at the table, then roll them virtually.
 
 **Features & Traits**
 - [ ] Class features
