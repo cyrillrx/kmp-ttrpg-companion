@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.savingThrowModifier
+import com.cyrillrx.rpg.character.domain.savingThrowProficiency
 import com.cyrillrx.rpg.character.presentation.component.StatCell
 import com.cyrillrx.rpg.character.presentation.component.StatCellGrid
 import com.cyrillrx.rpg.core.domain.toSignedString
@@ -30,7 +31,7 @@ private fun SavingThrowCard(
     StatCell(
         label = ability.toAbbreviationString(),
         value = character.savingThrowModifier(ability).toSignedString(),
-        valueColor = ability.toAbilityScore(character.abilities).savingThrowProficiency.getColor(),
+        valueColor = character.savingThrowProficiency(ability).getColor(),
         modifier = modifier,
     )
 }

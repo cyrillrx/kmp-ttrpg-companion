@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.skillModifier
+import com.cyrillrx.rpg.character.domain.skillProficiency
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.relatedAbilityAbbreviation
@@ -94,7 +95,7 @@ private fun SkillEntry(
     character: Character,
     modifier: Modifier = Modifier,
 ) {
-    val proficiency = skill.getProficiency(character.skills)
+    val proficiency = character.skillProficiency(skill)
     val skillModifier = character.skillModifier(skill)
     val color = proficiency.getColor()
     Row(
