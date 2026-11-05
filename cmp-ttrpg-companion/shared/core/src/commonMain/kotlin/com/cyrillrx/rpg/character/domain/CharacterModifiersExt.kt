@@ -13,7 +13,7 @@ fun Character.savingThrowModifier(ability: Ability): Int =
     ability.toAbilityScore(abilities).getSavingThrow(proficiencyBonus())
 
 fun Character.skillModifier(skill: Skill): Int =
-    skill.computeModifier(abilities, skill.getProficiency(skills), proficiencyBonus())
+    skill.computeModifier(abilities, skillProficiency(skill), proficiencyBonus())
 
 fun Character.modifierFor(check: D20Check): Int = when (check) {
     is D20Check.SavingThrow -> savingThrowModifier(check.ability)
