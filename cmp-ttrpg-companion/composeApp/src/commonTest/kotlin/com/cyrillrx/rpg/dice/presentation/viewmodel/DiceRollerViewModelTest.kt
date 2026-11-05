@@ -265,6 +265,75 @@ class DiceRollerViewModelTest {
         )
     }
 
+    @Test
+    fun `the rolls already recorded are previewed as the roller opens`() = runTest(testDispatcher) {
+        val history = StoredRollsRepository(
+            stored = listOf(
+                RollPool(listOf(SimpleRoll(Die.D20, value = 5))),
+                RollPool(listOf(SimpleRoll(Die.D20, value = 9))),
+            ),
+        )
+
+        val viewModel = newViewModel(historyRepository = history)
+        advanceUntilIdle()
+
+        assertEquals(listOf(9, 5), viewModel.state.value.previousRolls().map { it.pool.total() })
+    }
+
+    @Test
+    fun `a new roll pushes the one it follows into the preview`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        history.record(RollPool(listOf(SimpleRoll(Die.D20, value = 5))))
+        val viewModel = newViewModel(random = FixedRandom(9, 14), historyRepository = history)
+
+        viewModel.rollD20()
+        viewModel.rollD20()
+        advanceUntilIdle()
+
+        assertEquals(listOf(9, 5), viewModel.state.value.previousRolls().map { it.pool.total() })
+    }
+
+    @Test
+    fun `clearing the history empties the preview`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val viewModel = newViewModel(random = FixedRandom(9, 14), historyRepository = history)
+        viewModel.rollD20()
+        viewModel.rollD20()
+        advanceUntilIdle()
+
+        history.clearUpTo(history.rolls.value.first().id)
+        advanceUntilIdle()
+
+        assertEquals(emptyList(), viewModel.state.value.previousRolls())
+    }
+
+    @Test
+    fun `clearing the history takes the roll off the card`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val viewModel = newViewModel(random = FixedRandom(9), historyRepository = history)
+        viewModel.rollD20()
+        advanceUntilIdle()
+
+        history.clearUpTo(history.rolls.value.first().id)
+        advanceUntilIdle()
+
+        assertNull(viewModel.state.value.lastRoll)
+    }
+
+    @Test
+    fun `a roll made after the clear stays on the card`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val viewModel = newViewModel(random = FixedRandom(9, 14), historyRepository = history)
+        viewModel.rollD20()
+        advanceUntilIdle()
+        history.clearUpTo(history.rolls.value.first().id)
+
+        viewModel.rollD20()
+        advanceUntilIdle()
+
+        assertEquals(RollPool(listOf(SimpleRoll(Die.D20, value = 14))), viewModel.state.value.lastRoll)
+    }
+
     private fun newViewModel(
         random: Random = Random.Default,
         historyRepository: RollHistoryRepository = RamRollHistoryRepository(),
@@ -275,13 +344,22 @@ class DiceRollerViewModelTest {
     ) : RollHistoryRepository by delegate {
         private var hasFailed = false
 
-        override suspend fun record(pool: RollPool, context: RollContext?) {
+        override suspend fun record(pool: RollPool, context: RollContext?): Long {
             if (!hasFailed) {
                 hasFailed = true
                 error("Storage unavailable")
             }
 
-            delegate.record(pool, context)
+            return delegate.record(pool, context)
+        }
+    }
+
+    private class StoredRollsRepository(
+        private val stored: List<RollPool>,
+        private val delegate: RamRollHistoryRepository = RamRollHistoryRepository(),
+    ) : RollHistoryRepository by delegate {
+        override suspend fun load() {
+            stored.forEach { delegate.record(it) }
         }
     }
 

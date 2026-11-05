@@ -24,6 +24,7 @@
 
     <string name="title_roll_history">Historique</string>
     <string name="btn_roll_history">Tout l'historique</string>
+    <string name="label_previous_rolls">Jets précédents</string>
     <string name="btn_clear_roll_history">Effacer l'historique</string>
     <string name="message_no_roll_yet">Aucun jet pour l'instant</string>
     <string name="error_while_loading_roll_history">Erreur lors du chargement de l'historique.</string>

@@ -108,6 +108,9 @@ CREATE INDEX IF NOT EXISTS DiceRoll_characterId ON DiceRoll(characterId);
 insertDiceRoll:
 INSERT INTO DiceRoll (rolledAt, roll, characterId, checkKey) VALUES (?, ?, ?, ?);
 
+lastInsertedDiceRollId:
+SELECT last_insert_rowid();
+
 pruneDiceRolls:
 DELETE FROM DiceRoll WHERE id NOT IN (SELECT id FROM DiceRoll ORDER BY id DESC LIMIT :kept);
 
