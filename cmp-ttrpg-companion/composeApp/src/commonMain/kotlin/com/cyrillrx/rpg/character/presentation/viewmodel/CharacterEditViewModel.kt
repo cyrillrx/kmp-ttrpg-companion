@@ -10,6 +10,7 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.ClassLevels
+import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
@@ -17,15 +18,25 @@ import com.cyrillrx.rpg.character.domain.adjustHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidAbilityScore
 import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
+import com.cyrillrx.rpg.character.domain.modifierFor
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
+import com.cyrillrx.rpg.character.presentation.SheetRoll
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.coerceToValidArmorClass
+import com.cyrillrx.rpg.dice.domain.Die
+import com.cyrillrx.rpg.dice.domain.DieRoll
+import com.cyrillrx.rpg.dice.domain.RollContext
+import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
+import com.cyrillrx.rpg.dice.domain.RollPool
+import com.cyrillrx.rpg.dice.domain.rollWithAdvantage
+import com.cyrillrx.rpg.dice.domain.rollWithDisadvantage
+import com.cyrillrx.rpg.dice.presentation.RollRecorder
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -33,14 +44,17 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.datetime.TimeZone
+import kotlin.random.Random
 import kotlin.time.Clock
 
 class CharacterEditViewModel(
     private val characterId: String,
     private val characterRepository: CharacterRepository,
+    historyRepository: RollHistoryRepository,
     private val appVersion: String = APP_VERSION,
     private val clock: Clock = Clock.System,
     private val timeZone: TimeZone = TimeZone.currentSystemDefault(),
+    private val random: Random = Random.Default,
     adjustmentCount: Int = 0,
 ) : ViewModel() {
 
@@ -55,6 +69,8 @@ class CharacterEditViewModel(
 
     val pendingAdjustmentCount: StateFlow<Int>
         field = MutableStateFlow(adjustmentCount)
+
+    private val recorder = RollRecorder(historyRepository)
 
     init {
         viewModelScope.launch {
@@ -166,6 +182,44 @@ class CharacterEditViewModel(
 
     fun onAdjustmentsReported() {
         pendingAdjustmentCount.value = 0
+    }
+
+    fun rollCheck(check: D20Check) {
+        roll(check) { Die.D20.roll(random) }
+    }
+
+    fun rerollCheck() {
+        val check = currentCheck() ?: return
+        roll(check) { Die.D20.roll(random) }
+    }
+
+    fun rollCheckWithAdvantage() {
+        val check = currentCheck() ?: return
+        roll(check) { Die.D20.rollWithAdvantage(random) }
+    }
+
+    fun rollCheckWithDisadvantage() {
+        val check = currentCheck() ?: return
+        roll(check) { Die.D20.rollWithDisadvantage(random) }
+    }
+
+    fun dismissRoll() {
+        updateEditState { copy(sheetRoll = null) }
+    }
+
+    override fun onCleared() {
+        recorder.close()
+    }
+
+    private fun currentCheck(): D20Check? = (state.value as? Loaded)?.sheetRoll?.check
+
+    private fun roll(check: D20Check, rollD20: () -> DieRoll) {
+        val loaded = state.value as? Loaded ?: return
+
+        val pool = RollPool(listOf(rollD20()), loaded.character.modifierFor(check))
+        val rollCount = (loaded.sheetRoll?.rollCount ?: 0) + 1
+        updateEditState { copy(sheetRoll = SheetRoll(check, pool, rollCount)) }
+        recorder.record(pool, RollContext(characterId, check))
     }
 
     private fun saveAbility(ability: AbilityScore, update: Abilities.(AbilityScore) -> Abilities) {

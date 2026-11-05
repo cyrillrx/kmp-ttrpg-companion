@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
+import com.cyrillrx.rpg.dice.data.RamRollHistoryRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -31,7 +32,12 @@ class CharacterEditViewModelFactoryTest {
 
     @Test
     fun `factory hands the import adjustment count to the view model`() {
-        val factory = CharacterEditViewModelFactory("any-id", RamCharacterRepository(), adjustmentCount = 3)
+        val factory = CharacterEditViewModelFactory(
+            "any-id",
+            RamCharacterRepository(),
+            RamRollHistoryRepository(),
+            adjustmentCount = 3,
+        )
 
         val viewModel = ViewModelProvider.create(store, factory)[CharacterEditViewModel::class]
 

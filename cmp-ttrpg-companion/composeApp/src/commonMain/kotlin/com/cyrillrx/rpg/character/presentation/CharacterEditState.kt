@@ -10,6 +10,7 @@ sealed interface CharacterEditState {
     data class Loaded(
         val character: Character,
         val editingField: EditingField? = null,
+        val sheetRoll: SheetRoll? = null,
     ) : CharacterEditState {
 
         sealed interface EditingField {

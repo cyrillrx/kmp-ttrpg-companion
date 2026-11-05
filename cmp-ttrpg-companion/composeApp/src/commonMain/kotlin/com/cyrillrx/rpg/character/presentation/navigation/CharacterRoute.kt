@@ -16,6 +16,7 @@ import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModelF
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModel
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModelFactory
 import com.cyrillrx.rpg.core.navigation.navigateUp
+import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
@@ -45,6 +46,7 @@ fun PolymorphicModuleBuilder<NavKey>.registerCharacterRoutes() {
 fun EntryProviderScope<NavKey>.handleCharacterRoutes(
     backStack: NavBackStack<NavKey>,
     characterRepository: CharacterRepository,
+    rollHistoryRepository: RollHistoryRepository,
     pcPresetRepository: CharacterRepository,
     npcPresetRepository: CharacterRepository,
     prefsRepository: UserPreferencesRepository,
@@ -58,7 +60,12 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
 
     entry<CharacterRoute.Detail> { route ->
         val router = CharacterRouterImpl(backStack)
-        val factory = CharacterEditViewModelFactory(route.characterId, characterRepository, route.adjustmentCount)
+        val factory = CharacterEditViewModelFactory(
+            route.characterId,
+            characterRepository,
+            rollHistoryRepository,
+            route.adjustmentCount,
+        )
         val viewModel = viewModel<CharacterEditViewModel>(key = route.characterId, factory = factory)
         CharacterDetailScreen(viewModel, router)
     }
