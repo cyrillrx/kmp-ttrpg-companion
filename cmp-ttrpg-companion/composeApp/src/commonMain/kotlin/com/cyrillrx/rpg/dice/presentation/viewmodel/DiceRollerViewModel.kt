@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.core.presentation.detachedCommitScope
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
@@ -12,7 +11,7 @@ import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.rollWithAdvantage
 import com.cyrillrx.rpg.dice.domain.rollWithDisadvantage
 import com.cyrillrx.rpg.dice.presentation.DiceRollerState
-import kotlinx.coroutines.channels.Channel
+import com.cyrillrx.rpg.dice.presentation.RollRecorder
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -29,17 +28,9 @@ class DiceRollerViewModel(
     val state: StateFlow<DiceRollerState>
         field = MutableStateFlow(DiceRollerState())
 
-    private val rollsToRecord = Channel<RollToRecord>(Channel.UNLIMITED)
+    private val recorder = RollRecorder(historyRepository)
 
     init {
-        detachedCommitScope().launch {
-            for (roll in rollsToRecord) {
-                val id = recordIgnoringFailure(roll.pool) ?: continue
-
-                state.update { it.withLastRollRecorded(roll.rollCount, id) }
-            }
-        }
-
         viewModelScope.launch { loadHistoryIgnoringFailure() }
 
         viewModelScope.launch {
@@ -48,7 +39,7 @@ class DiceRollerViewModel(
     }
 
     override fun onCleared() {
-        rollsToRecord.close()
+        recorder.close()
     }
 
     fun addDie(die: Die) {
@@ -103,7 +94,7 @@ class DiceRollerViewModel(
 
     private fun showAndRecord(pool: RollPool) {
         val shown = state.updateAndGet { it.copy(lastRoll = pool, rollCount = it.rollCount + 1, lastRollId = null) }
-        rollsToRecord.trySend(RollToRecord(pool, shown.rollCount))
+        recorder.record(pool) { id -> state.update { it.withLastRollRecorded(shown.rollCount, id) } }
     }
 
     private suspend fun loadHistoryIgnoringFailure() = try {
@@ -113,15 +104,4 @@ class DiceRollerViewModel(
     } catch (e: Exception) {
         println("WARNING: failed to load the dice roll history: $e")
     }
-
-    private suspend fun recordIgnoringFailure(pool: RollPool): Long? = try {
-        historyRepository.record(pool)
-    } catch (e: CancellationException) {
-        throw e
-    } catch (e: Exception) {
-        println("WARNING: failed to record the dice roll: $e")
-        null
-    }
-
-    private class RollToRecord(val pool: RollPool, val rollCount: Int)
 }
