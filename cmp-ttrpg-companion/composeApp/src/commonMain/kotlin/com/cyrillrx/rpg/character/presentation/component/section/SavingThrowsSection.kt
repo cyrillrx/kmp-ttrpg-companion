@@ -13,7 +13,6 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toAbbreviationString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.domain.Ability
-import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -64,8 +63,8 @@ private fun PreviewSavingThrowsSectionDark() {
 private fun previewCharacter(): Character {
     val rogue = SampleCharacterRepository.elfRogue()
     val abilities = rogue.abilities.copy(
-        dexterity = AbilityScore(16, savingThrowProficiency = Proficiency.PROFICIENT),
-        intelligence = AbilityScore(14, savingThrowProficiency = Proficiency.PROFICIENT),
+        dexterity = rogue.abilities.dexterity.copy(savingThrowProficiency = Proficiency.PROFICIENT),
+        intelligence = rogue.abilities.intelligence.copy(savingThrowProficiency = Proficiency.PROFICIENT),
     )
     return rogue.copy(abilities = abilities)
 }
