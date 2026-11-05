@@ -1,7 +1,13 @@
 package com.cyrillrx.rpg.character.domain
 
 import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
+
+fun Character.savingThrowProficiency(ability: Ability): Proficiency =
+    ability.toAbilityScore(abilities).savingThrowProficiency
+
+fun Character.skillProficiency(skill: Skill): Proficiency = skill.getProficiency(skills)
 
 fun Character.savingThrowModifier(ability: Ability): Int =
     ability.toAbilityScore(abilities).getSavingThrow(proficiencyBonus())
