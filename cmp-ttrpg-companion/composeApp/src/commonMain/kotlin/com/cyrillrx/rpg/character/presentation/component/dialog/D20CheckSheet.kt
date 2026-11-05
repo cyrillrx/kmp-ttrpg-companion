@@ -13,9 +13,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.character.presentation.SheetRoll
+import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toNameString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingLarge
 import com.cyrillrx.rpg.creature.domain.Skill
@@ -30,7 +32,10 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.label_initiative
-import rpg_companion.composeapp.generated.resources.label_saving_throw_of
+import rpg_companion.composeapp.generated.resources.label_saving_throw
+import rpg_companion.composeapp.generated.resources.label_with_advantage
+import rpg_companion.composeapp.generated.resources.label_with_disadvantage
+import rpg_companion.composeapp.generated.resources.value_check_modifier
 
 /** What the sheet can ask for about a d20 check, grouped so the screen does not thread five callbacks. */
 class D20CheckActions(
@@ -55,8 +60,8 @@ internal fun D20CheckSheet(sheetRoll: SheetRoll, actions: D20CheckActions) {
                 .padding(horizontal = spacingCommon)
                 .padding(bottom = spacingLarge),
         ) {
-            Text(text = sheetRoll.check.toLabel(), style = MaterialTheme.typography.titleLarge)
-            RollResult(sheetRoll.lastRoll, sheetRoll.rollCount)
+            CheckHeader(sheetRoll)
+            RollResult(sheetRoll.lastRoll, sheetRoll.rollCount, showNotation = false)
             D20Row(
                 onDisadvantageClicked = actions.onDisadvantageClicked,
                 onD20Clicked = actions.onRerollClicked,
@@ -67,8 +72,45 @@ internal fun D20CheckSheet(sheetRoll: SheetRoll, actions: D20CheckActions) {
 }
 
 @Composable
-private fun D20Check.toLabel(): String = when (this) {
-    is D20Check.SavingThrow -> stringResource(Res.string.label_saving_throw_of, ability.toNameString())
+private fun CheckHeader(sheetRoll: SheetRoll) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        val check = sheetRoll.check
+        if (check is D20Check.SavingThrow) {
+            Text(
+                text = stringResource(Res.string.label_saving_throw),
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        Text(
+            text = stringResource(
+                Res.string.value_check_modifier,
+                check.toName(),
+                sheetRoll.lastRoll.modifier.toSignedString(),
+            ),
+            style = MaterialTheme.typography.titleLarge,
+        )
+        when (sheetRoll.keepRule()) {
+            KeepRule.HIGHER -> Text(
+                text = stringResource(Res.string.label_with_advantage),
+                style = MaterialTheme.typography.titleSmall,
+                color = LocalHealthColors.current.heal,
+            )
+
+            KeepRule.LOWER -> Text(
+                text = stringResource(Res.string.label_with_disadvantage),
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.error,
+            )
+
+            null -> Unit
+        }
+    }
+}
+
+@Composable
+private fun D20Check.toName(): String = when (this) {
+    is D20Check.SavingThrow -> ability.toNameString()
     is D20Check.SkillCheck -> skill.toFormattedString()
     D20Check.Initiative -> stringResource(Res.string.label_initiative)
 }
