@@ -38,9 +38,7 @@ class DiceRollerViewModel(
         }
     }
 
-    override fun onCleared() {
-        recorder.close()
-    }
+    override fun onCleared() = recorder.close()
 
     fun addDie(die: Die) {
         state.update { current ->
