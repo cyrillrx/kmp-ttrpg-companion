@@ -3,10 +3,26 @@ name: KMP Client CI
 on:
   pull_request:
     branches: [main]
-    paths: ['cmp-ttrpg-companion/**']
+    paths:
+      - 'app/**'
+      - 'buildSrc/**'
+      - 'ktlint-rules/**'
+      - 'gradle/**'
+      - 'gradlew'
+      - '*.gradle.kts'
+      - 'gradle.properties'
+      - '.github/workflows/ci-kmp.yml'
   push:
     branches: [main]
-    paths: ['cmp-ttrpg-companion/**']
+    paths:
+      - 'app/**'
+      - 'buildSrc/**'
+      - 'ktlint-rules/**'
+      - 'gradle/**'
+      - 'gradlew'
+      - '*.gradle.kts'
+      - 'gradle.properties'
+      - '.github/workflows/ci-kmp.yml'
   workflow_dispatch:
 
 jobs:
@@ -26,11 +42,9 @@ jobs:
           cache: gradle
 
       - name: Make gradlew executable
-        working-directory: cmp-ttrpg-companion
         run: chmod +x gradlew
 
       - name: Check formatting and test the ktlint rules
-        working-directory: cmp-ttrpg-companion
         run: ./gradlew ktlintCheck :ktlint-rules:test --no-daemon
 
   kmp-tests:
@@ -49,24 +63,19 @@ jobs:
           cache: gradle
 
       - name: Make gradlew executable
-        working-directory: cmp-ttrpg-companion
         run: chmod +x gradlew
 
       - name: Verify SQLDelight migrations
-        working-directory: cmp-ttrpg-companion
-        run: ./gradlew :shared:core:verifyCommonMainAppDatabaseMigration --no-daemon
+        run: ./gradlew :app:shared:domain:verifyCommonMainAppDatabaseMigration --no-daemon
 
-      - name: Run JVM tests and generate Kover reports
-        working-directory: cmp-ttrpg-companion
-        run: ./gradlew jvmTest koverXmlReportJvm --no-daemon
+      - name: Run JVM tests and generate the Kover report
+        run: ./gradlew jvmTest koverXmlReport --no-daemon
 
-      - name: Upload Kover reports
+      - name: Upload the Kover report
         uses: actions/upload-artifact@v4
         with:
-          name: kover-reports
-          path: |
-            cmp-ttrpg-companion/composeApp/build/reports/kover/reportJvm.xml
-            cmp-ttrpg-companion/shared/core/build/reports/kover/reportJvm.xml
+          name: kover-report
+          path: build/reports/kover/report.xml
 
   sonar:
     name: CMP Client - SonarCloud
@@ -87,17 +96,15 @@ jobs:
           cache: gradle
 
       - name: Make gradlew executable
-        working-directory: cmp-ttrpg-companion
         run: chmod +x gradlew
 
-      - name: Download Kover reports
+      - name: Download the Kover report
         uses: actions/download-artifact@v4
         with:
-          name: kover-reports
-          path: cmp-ttrpg-companion
+          name: kover-report
+          path: build/reports/kover
 
       - name: SonarCloud analysis
-        working-directory: cmp-ttrpg-companion
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
