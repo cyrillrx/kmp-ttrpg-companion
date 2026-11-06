@@ -188,20 +188,11 @@ class CharacterEditViewModel(
         roll(check) { Die.D20.roll(random) }
     }
 
-    fun rerollCheck() {
-        val check = currentCheck() ?: return
-        roll(check) { Die.D20.roll(random) }
-    }
+    fun rerollCheck() = rollAgain { Die.D20.roll(random) }
 
-    fun rollCheckWithAdvantage() {
-        val check = currentCheck() ?: return
-        roll(check) { Die.D20.rollWithAdvantage(random) }
-    }
+    fun rollCheckWithAdvantage() = rollAgain { Die.D20.rollWithAdvantage(random) }
 
-    fun rollCheckWithDisadvantage() {
-        val check = currentCheck() ?: return
-        roll(check) { Die.D20.rollWithDisadvantage(random) }
-    }
+    fun rollCheckWithDisadvantage() = rollAgain { Die.D20.rollWithDisadvantage(random) }
 
     fun dismissRoll() {
         updateEditState { copy(sheetRoll = null) }
@@ -209,6 +200,12 @@ class CharacterEditViewModel(
 
     override fun onCleared() {
         recorder.close()
+    }
+
+    private fun rollAgain(rollD20: () -> DieRoll) {
+        val check = currentCheck() ?: return
+
+        roll(check, rollD20)
     }
 
     private fun currentCheck(): D20Check? = (state.value as? Loaded)?.sheetRoll?.check
