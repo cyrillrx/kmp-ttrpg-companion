@@ -6,7 +6,7 @@ A digital toolkit for tabletop role-playing game sessions. Designed for Game Mas
 
 | Directory              | Description                                             |
 |------------------------|---------------------------------------------------------|
-| `cmp-ttrpg-companion/` | Kotlin Multiplatform client app (Android, iOS, Desktop) |
+| `app/`                 | Kotlin Multiplatform client app (Android, iOS, Desktop) |
 | `server-rust/`         | Rust backend server (Axum, REST API)                    |
 | `server-go/`           | Go backend server (chi, REST API)                       |
 | `data/`                | Shared compendium data (JSON files used by servers)     |
@@ -66,8 +66,9 @@ source of truth). The files below are thin pointers to it, plus any project-spec
 
 ### Client (KMP)
 
+Run from the repository root, where the Gradle build lives:
+
 ```bash
-cd cmp-ttrpg-companion
 ./gradlew build
 ```
 

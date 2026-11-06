@@ -1,12 +1,12 @@
-# :baselineprofile
+# :app:baselineprofile
 
 Macrobenchmark module that generates the app's [Baseline Profile](https://developer.android.com/topic/performance/baselineprofiles/overview)
-and measures scroll performance of the compendium lists. Targets `:androidApp`.
+and measures scroll performance of the compendium lists. Targets `:app:androidApp`.
 
 ## Generate the baseline profile
 
 ```bash
-./gradlew :androidApp:generateBaselineProfile
+./gradlew :app:androidApp:generateBaselineProfile
 ```
 
 Runs `BaselineProfileGenerator` on the managed device `pixel6Api34` and writes two profiles into
@@ -22,7 +22,7 @@ Managed Devices) do **not** report reliably — a run there yields `0 found for 
 
 ```bash
 # with a physical device connected (USB debugging on)
-./gradlew :baselineprofile:connectedBenchmarkReleaseAndroidTest
+./gradlew :app:baselineprofile:connectedBenchmarkReleaseAndroidTest
 ```
 
 Compare `frameDurationCpuMs` (P50/P90/P99) between `scrollNoCompilation` (interpreted, the warmup

@@ -28,23 +28,25 @@ For project-wide guidelines, see [`AGENTS.md`](../AGENTS.md).
 
 ## Platforms
 
-| Platform | Target              |
-|----------|---------------------|
-| Android  | `androidMain`       |
-| iOS      | `iosMain`           |
-| Desktop  | `desktopMain` (JVM) |
+| Platform | Target        |
+|----------|---------------|
+| Android  | `androidMain` |
+| iOS      | `iosMain`     |
+| Desktop  | `jvmMain`     |
 
 ## Build & Run
+
+Run from the repository root, where the Gradle build lives.
 
 ```bash
 # Build all targets
 ./gradlew build
 
 # Run on Desktop
-./gradlew desktopRun
+./gradlew :app:desktopApp:run
 
 # Run Android (requires emulator or device)
-./gradlew installDebug
+./gradlew :app:androidApp:installDebug
 
 # Check formatting
 ./gradlew ktlintCheck
@@ -53,11 +55,17 @@ For project-wide guidelines, see [`AGENTS.md`](../AGENTS.md).
 ./gradlew ktlintFormat
 ```
 
-## Architecture
+iOS builds from `iosApp/iosApp.xcodeproj` in Xcode.
 
-The app follows Clean Architecture split across two modules:
+## Modules
 
-- **`shared/core`**: Domain layer (entities, use cases) and Data layer (SQLDelight repositories). Pure Kotlin, no framework dependencies.
-- **`composeApp`**: Presentation layer — ViewModels and Compose UI screens.
+| Module            | Contains                                                                                       |
+|-------------------|------------------------------------------------------------------------------------------------|
+| `shared/domain`   | Domain layer (entities, use cases) and Data layer (SQLDelight repositories). No Compose.       |
+| `shared/ui`       | Presentation layer: ViewModels and Compose UI screens. Ships to iOS as the `Shared` framework. |
+| `androidApp`      | Android application wrapper.                                                                   |
+| `desktopApp`      | JVM application wrapper.                                                                       |
+| `baselineprofile` | Macrobenchmarks and Baseline Profile generation for `androidApp`.                              |
+| `iosApp`          | Xcode project. Its build phase calls `:app:shared:ui:embedAndSignAppleFrameworkForXcode`.      |
 
 See [`KMP_CONVENTIONS.md`](../docs/conventions/KMP_CONVENTIONS.md) for detailed architectural guidelines.

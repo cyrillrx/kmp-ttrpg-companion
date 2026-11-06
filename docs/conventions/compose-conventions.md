@@ -6,19 +6,18 @@
 > - [`conventions/compose-viewmodel-conventions.md`](https://github.com/cyrillrx/coding-conventions/blob/main/conventions/compose-viewmodel-conventions.md) — ViewModel naming, state and events, lifecycle-aware refresh
 > - [`conventions/compose-testing-conventions.md`](https://github.com/cyrillrx/coding-conventions/blob/main/conventions/compose-testing-conventions.md) — ViewModel tests and the Maestro E2E approach
 
-The Compose conventions apply as-is to the `cmp-ttrpg-companion/` client. They build on the [Kotlin conventions](kotlin-conventions.md) (naming, formatting, idioms, domain tests — including in-memory repository naming). Only the concrete bindings below are specific to this project.
+The Compose conventions apply as-is to the `app/` client. They build on the [Kotlin conventions](kotlin-conventions.md) (naming, formatting, idioms, domain tests, including in-memory repository naming). Only the concrete bindings below are specific to this project.
 
 ## Project-specific additions
 
-- **Concrete architecture** — module structure (`shared/core`, `composeApp`), package layout
+- **Concrete architecture**: module structure (`app/shared/domain`, `app/shared/ui`), package layout
   (`com.cyrillrx.rpg.*`), manual DI, the navigation/router pattern, and the design
   system are documented in [`AGENTS.md`](../../AGENTS.md) (sections 4–5).
-- **Test location** — ViewModel tests live in `composeApp/src/commonTest/`.
-- **E2E flows** — scenarios are documented in [`../testing/e2e-test-cases.md`](../testing/e2e-test-cases.md);
-  Maestro flows live in `.maestro/flows/`. Run them with:
+- **Test location**: ViewModel tests live in `app/shared/ui/src/commonTest/`.
+- **E2E flows**: scenarios are documented in [`../testing/e2e-test-cases.md`](../testing/e2e-test-cases.md);
+  Maestro flows live in `app/.maestro/flows/`. Run them with:
 
   ```bash
-  cd cmp-ttrpg-companion
-  ./gradlew installDebug
-  maestro test .maestro/flows/
+  ./gradlew :app:androidApp:installDebug
+  maestro test app/.maestro/flows/
   ```
