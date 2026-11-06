@@ -30,7 +30,7 @@ class BlankLineAfterBlockRuleTest {
             """.trimIndent()
 
         assertThatCode(code)
-            .hasLintViolation(4, 6, "Missing blank line after a block statement")
+            .hasLintViolation(line = 4, col = 6, detail = MISSING_BLANK_LINE_MESSAGE)
             .isFormattedAs(formattedCode)
     }
 
@@ -65,7 +65,7 @@ class BlankLineAfterBlockRuleTest {
             """.trimIndent()
 
         assertThatCode(code)
-            .hasLintViolation(8, 6, "Missing blank line after a block statement")
+            .hasLintViolation(line = 8, col = 6, detail = MISSING_BLANK_LINE_MESSAGE)
             .isFormattedAs(formattedCode)
     }
 
@@ -88,7 +88,7 @@ class BlankLineAfterBlockRuleTest {
             """.trimIndent()
 
         assertThatCode(code)
-            .hasLintViolation(2, 28, "Missing blank line after a block statement")
+            .hasLintViolation(line = 2, col = 28, detail = MISSING_BLANK_LINE_MESSAGE)
             .isFormattedAs(formattedCode)
     }
 
@@ -152,11 +152,11 @@ class BlankLineAfterBlockRuleTest {
 
         assertThatCode(code)
             .hasLintViolations(
-                LintViolation(4, 6, "Missing blank line after a block statement"),
-                LintViolation(11, 6, "Missing blank line after a block statement"),
-                LintViolation(14, 6, "Missing blank line after a block statement"),
-                LintViolation(17, 6, "Missing blank line after a block statement"),
-                LintViolation(20, 20, "Missing blank line after a block statement"),
+                LintViolation(line = 4, col = 6, detail = MISSING_BLANK_LINE_MESSAGE),
+                LintViolation(line = 11, col = 6, detail = MISSING_BLANK_LINE_MESSAGE),
+                LintViolation(line = 14, col = 6, detail = MISSING_BLANK_LINE_MESSAGE),
+                LintViolation(line = 17, col = 6, detail = MISSING_BLANK_LINE_MESSAGE),
+                LintViolation(line = 20, col = 20, detail = MISSING_BLANK_LINE_MESSAGE),
             ).isFormattedAs(formattedCode)
     }
 
@@ -183,7 +183,7 @@ class BlankLineAfterBlockRuleTest {
             """.trimIndent()
 
         assertThatCode(code)
-            .hasLintViolation(4, 6, "Missing blank line after a block statement")
+            .hasLintViolation(line = 4, col = 6, detail = MISSING_BLANK_LINE_MESSAGE)
             .isFormattedAs(formattedCode)
     }
 
@@ -216,7 +216,7 @@ class BlankLineAfterBlockRuleTest {
             """.trimIndent()
 
         assertThatCode(code)
-            .hasLintViolation(7, 10, "Missing blank line after a block statement")
+            .hasLintViolation(line = 7, col = 10, detail = MISSING_BLANK_LINE_MESSAGE)
             .isFormattedAs(formattedCode)
     }
 
@@ -239,7 +239,7 @@ class BlankLineAfterBlockRuleTest {
             """.trimIndent()
 
         assertThatCode(code)
-            .hasLintViolation(2, 24, "Missing blank line after a block statement")
+            .hasLintViolation(line = 2, col = 24, detail = MISSING_BLANK_LINE_MESSAGE)
             .isFormattedAs(formattedCode)
     }
 
@@ -280,8 +280,8 @@ class BlankLineAfterBlockRuleTest {
 
         assertThatCode(code)
             .hasLintViolations(
-                LintViolation(4, 39, "Missing blank line after a block statement"),
-                LintViolation(9, 10, "Missing blank line after a block statement"),
+                LintViolation(line = 4, col = 39, detail = MISSING_BLANK_LINE_MESSAGE),
+                LintViolation(line = 9, col = 10, detail = MISSING_BLANK_LINE_MESSAGE),
             ).isFormattedAs(formattedCode)
     }
 
@@ -306,7 +306,7 @@ class BlankLineAfterBlockRuleTest {
             """.trimIndent()
 
         assertThatCode(code)
-            .hasLintViolation(3, 34, "Missing blank line after a block statement")
+            .hasLintViolation(line = 3, col = 34, detail = MISSING_BLANK_LINE_MESSAGE)
             .isFormattedAs(formattedCode)
     }
 
@@ -333,12 +333,12 @@ class BlankLineAfterBlockRuleTest {
             """.trimIndent()
 
         assertThatCode(code)
-            .hasLintViolation(4, 14, "Missing blank line after a block statement")
+            .hasLintViolation(line = 4, col = 14, detail = MISSING_BLANK_LINE_MESSAGE)
             .isFormattedAs(formattedCode)
     }
 
     @Test
-    fun `ignores a block followed by a comment line`() {
+    fun `adds the blank line before a comment line that follows a block`() {
         val code =
             """
             fun foo(a: Boolean) {
@@ -349,8 +349,159 @@ class BlankLineAfterBlockRuleTest {
                 baz()
             }
             """.trimIndent()
+        val formattedCode =
+            """
+            fun foo(a: Boolean) {
+                if (a) {
+                    bar()
+                }
 
-        assertThatCode(code).hasNoLintViolations()
+                // next
+                baz()
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolation(line = 4, col = 6, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
+    fun `adds the blank line after a trailing comment on a declaration`() {
+        val code =
+            """
+            fun foo() {
+                val b = run {
+                    1
+                } // done
+                bar(b)
+            }
+            """.trimIndent()
+        val formattedCode =
+            """
+            fun foo() {
+                val b = run {
+                    1
+                } // done
+
+                bar(b)
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolation(line = 4, col = 14, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
+    fun `adds a blank line after a labeled loop`() {
+        val code =
+            """
+            fun foo(a: List<Int>) {
+                loop@ for (x in a) {
+                    bar(x)
+                }
+                baz()
+            }
+            """.trimIndent()
+        val formattedCode =
+            """
+            fun foo(a: List<Int>) {
+                loop@ for (x in a) {
+                    bar(x)
+                }
+
+                baz()
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolation(line = 4, col = 6, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
+    fun `adds a blank line after an assignment guard clause`() {
+        val code =
+            """
+            fun foo(a: String?) {
+                var b = ""
+                b = a ?: return
+                bar(b)
+            }
+            """.trimIndent()
+        val formattedCode =
+            """
+            fun foo(a: String?) {
+                var b = ""
+                b = a ?: return
+
+                bar(b)
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolation(line = 3, col = 20, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
+    fun `adds a blank line inside a when branch block`() {
+        val code =
+            """
+            fun foo(a: Int) {
+                when (a) {
+                    1 -> {
+                        if (a > 0) {
+                            bar()
+                        }
+                        baz()
+                    }
+                }
+            }
+            """.trimIndent()
+        val formattedCode =
+            """
+            fun foo(a: Int) {
+                when (a) {
+                    1 -> {
+                        if (a > 0) {
+                            bar()
+                        }
+
+                        baz()
+                    }
+                }
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolation(line = 6, col = 14, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
+    fun `adds a blank line after a block in a script`() {
+        val code =
+            """
+            plugins {
+                id("foo")
+            }
+            version = "1"
+            """.trimIndent()
+        val formattedCode =
+            """
+            plugins {
+                id("foo")
+            }
+
+            version = "1"
+            """.trimIndent()
+
+        assertThatCode(code)
+            .asKotlinScript()
+            .hasLintViolation(line = 3, col = 2, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
     }
 
     @Test
