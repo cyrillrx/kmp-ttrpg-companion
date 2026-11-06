@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.History
@@ -25,6 +26,7 @@ import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.sectionHeaderHeight
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceHistoryViewModel
 import kotlinx.coroutines.launch
@@ -51,7 +53,9 @@ fun DiceHistorySection(state: DiceHistoryState, onClearClicked: () -> Unit, modi
             Text(
                 text = stringResource(Res.string.title_roll_history),
                 style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = spacingCommon),
             )
             ClearHistoryButton(state, onClearClicked)
         }
