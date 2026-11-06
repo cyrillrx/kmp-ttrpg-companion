@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.character.presentation.viewmodel
 
+import androidx.lifecycle.ViewModelStore
 import com.cyrillrx.core.data.ExportFile
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
@@ -18,6 +19,7 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.Editing
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.HitPointsEditorState
 import com.cyrillrx.rpg.character.presentation.SheetRoll
+import com.cyrillrx.rpg.core.presentation.viewmodel.hold
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -192,6 +194,23 @@ class CharacterEditViewModelTest {
 
         val expectedContext = RollContext(fighter.id, strengthSave)
         assertEquals(List(4) { expectedContext }, history.rolls.value.map { it.context })
+    }
+
+    @Test
+    fun `a roll made as the sheet closes is still recorded`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val repo = repoWithFighter()
+        val store = ViewModelStore()
+        val viewModel = store.hold(CharacterEditViewModel::class) {
+            buildViewModel(repo = repo, history = history, random = FixedRandom(12))
+        }
+        advanceUntilIdle()
+
+        viewModel.rollCheck(strengthSave)
+        store.clear()
+        advanceUntilIdle()
+
+        assertEquals(listOf(RollContext(fighter.id, strengthSave)), history.rolls.value.map { it.context })
     }
 
     @Test
