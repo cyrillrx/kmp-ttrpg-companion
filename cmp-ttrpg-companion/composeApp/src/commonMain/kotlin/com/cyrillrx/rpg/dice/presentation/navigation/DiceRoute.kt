@@ -22,6 +22,9 @@ sealed interface DiceRoute {
     data object History : NavKey
 }
 
+private const val ROLLER_HISTORY_KEY = "roller-history"
+private const val HISTORY_KEY = "history"
+
 fun PolymorphicModuleBuilder<NavKey>.registerDiceRoutes() {
     subclass(DiceRoute.Roller::class, DiceRoute.Roller.serializer())
     subclass(DiceRoute.History::class, DiceRoute.History.serializer())
@@ -33,10 +36,17 @@ fun EntryProviderScope<NavKey>.handleDiceRoutes(
 ) {
     entry<DiceRoute.Roller> {
         val viewModel = viewModel<DiceRollerViewModel>(factory = DiceRollerViewModelFactory(historyRepository))
-        DiceRollerScreen(viewModel, DiceRouterImpl(backStack))
+        val historyViewModel = viewModel<DiceHistoryViewModel>(
+            key = ROLLER_HISTORY_KEY,
+            factory = DiceHistoryViewModelFactory(historyRepository),
+        )
+        DiceRollerScreen(viewModel, historyViewModel, DiceRouterImpl(backStack))
     }
     entry<DiceRoute.History> {
-        val viewModel = viewModel<DiceHistoryViewModel>(factory = DiceHistoryViewModelFactory(historyRepository))
+        val viewModel = viewModel<DiceHistoryViewModel>(
+            key = HISTORY_KEY,
+            factory = DiceHistoryViewModelFactory(historyRepository),
+        )
         DiceHistoryScreen(viewModel, DiceRouterImpl(backStack))
     }
 }

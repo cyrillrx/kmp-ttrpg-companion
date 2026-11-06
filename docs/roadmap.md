@@ -111,7 +111,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Independent features with no hard dependencies on other phases.
 
 - [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
-- [ ] Dice roller - [PRD-006](prd/prd-006-dice.md)
+- [x] Dice roller - [PRD-006](prd/prd-006-dice.md)
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required [PRD-005](prd/prd-005-generators.md)
 

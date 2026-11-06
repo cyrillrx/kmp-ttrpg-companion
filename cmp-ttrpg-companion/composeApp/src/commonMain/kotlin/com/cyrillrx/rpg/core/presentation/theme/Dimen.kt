@@ -38,4 +38,5 @@ val sectionHeaderHeight = 48.dp
 // Responsive layout breakpoints
 val widthExpandedMin = 840.dp
 val contentMaxWidth = 840.dp
+val readingMaxWidth = 600.dp
 val iconCardMaxHeight = 120.dp

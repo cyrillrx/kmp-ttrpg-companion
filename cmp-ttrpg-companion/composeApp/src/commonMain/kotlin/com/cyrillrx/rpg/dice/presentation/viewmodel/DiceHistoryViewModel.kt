@@ -44,7 +44,7 @@ class DiceHistoryViewModel(
             Loading.FAILED -> DiceHistoryState.Body.Error
             Loading.DONE -> render(rolls, clears.hiddenUpTo)
         }
-        DiceHistoryState(body)
+        DiceHistoryState(body, clears.hiddenUpTo)
     }.stateIn(viewModelScope, SharingStarted.Eagerly, DiceHistoryState())
 
     val events: SharedFlow<Event>
@@ -108,6 +108,7 @@ class DiceHistoryViewModel(
         val visible = if (hiddenUpTo == null) rolls else rolls.filter { it.id > hiddenUpTo }
         if (visible.isEmpty()) return DiceHistoryState.Body.Empty
 
+        // TODO(#368): refresh today when the date changes, not only when the rolls or the clears do
         return DiceHistoryState.Body.WithData(visible.groupByDay(timeZone), today = clock.todayIn(timeZone))
     }
 

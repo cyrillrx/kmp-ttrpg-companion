@@ -38,6 +38,15 @@ data class DiceRollerState(
         return copy(lastRoll = null, lastRollId = null, recentRolls = recent)
     }
 
+    fun hidingRollsUpTo(id: Long?): DiceRollerState {
+        if (id == null) return this
+
+        val shown = copy(recentRolls = recentRolls.filter { it.id > id })
+        if (lastRollId == null || lastRollId > id) return shown
+
+        return shown.copy(lastRoll = null, lastRollId = null)
+    }
+
     fun previousRolls(): List<RecordedRoll> {
         val beforeLastRoll = if (isNewestTheLastRoll()) recentRolls.drop(1) else recentRolls
         return beforeLastRoll.take(PREVIOUS_ROLLS_SHOWN)
