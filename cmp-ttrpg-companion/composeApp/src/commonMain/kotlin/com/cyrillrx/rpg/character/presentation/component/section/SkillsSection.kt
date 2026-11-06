@@ -92,6 +92,7 @@ internal fun SkillsSection(
     }
 }
 
+// TODO(#369): widen the touch target and show that a row rolls the skill.
 @Composable
 private fun SkillEntry(
     skill: Skill,
