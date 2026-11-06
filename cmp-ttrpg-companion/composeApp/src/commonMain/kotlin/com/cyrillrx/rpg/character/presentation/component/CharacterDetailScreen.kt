@@ -49,8 +49,6 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.component.dialog.CharacterEditDialog
-import com.cyrillrx.rpg.character.presentation.component.dialog.D20CheckActions
-import com.cyrillrx.rpg.character.presentation.component.dialog.D20CheckSheet
 import com.cyrillrx.rpg.character.presentation.component.tab.AptitudesTabContent
 import com.cyrillrx.rpg.character.presentation.component.tab.CharacterSheetTab
 import com.cyrillrx.rpg.character.presentation.component.tab.CombatTabContent
@@ -331,7 +329,7 @@ fun CharacterDetailScreen(
         onDismiss = onDialogDismissed,
     )
 
-    state.sheetRoll?.let { D20CheckSheet(it, checkActions) }
+    state.sheetRoll?.let { D20CheckBottomSheet(it, checkActions) }
 }
 
 @Preview

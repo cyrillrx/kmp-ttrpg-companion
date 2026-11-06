@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.character.presentation.component.dialog
+package com.cyrillrx.rpg.character.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -46,7 +46,7 @@ class D20CheckActions(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun D20CheckSheet(sheetRoll: SheetRoll, actions: D20CheckActions, modifier: Modifier = Modifier) {
+internal fun D20CheckBottomSheet(sheetRoll: SheetRoll, actions: D20CheckActions, modifier: Modifier = Modifier) {
     ModalBottomSheet(
         onDismissRequest = actions.onDismissed,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
@@ -117,14 +117,14 @@ private fun D20Check.toName(): String = when (this) {
 
 @Preview
 @Composable
-private fun PreviewD20CheckSheetLight() {
-    AppThemePreview(darkTheme = false) { D20CheckSheet(previewRoll, previewActions) }
+private fun PreviewD20CheckBottomSheetLight() {
+    AppThemePreview(darkTheme = false) { D20CheckBottomSheet(previewRoll, previewActions) }
 }
 
 @Preview
 @Composable
-private fun PreviewD20CheckSheetDark() {
-    AppThemePreview(darkTheme = true) { D20CheckSheet(previewRoll, previewActions) }
+private fun PreviewD20CheckBottomSheetDark() {
+    AppThemePreview(darkTheme = true) { D20CheckBottomSheet(previewRoll, previewActions) }
 }
 
 private val previewRoll = SheetRoll(
