@@ -122,6 +122,7 @@ internal fun DieTile(
                     color = if (accent == null) MaterialTheme.colorScheme.tertiary else Color.Unspecified,
                 )
             }
+
             onRemove?.let { remove ->
                 IconButton(
                     onClick = remove,

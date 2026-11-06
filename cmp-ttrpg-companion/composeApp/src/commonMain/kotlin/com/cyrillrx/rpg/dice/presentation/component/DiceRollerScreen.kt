@@ -290,7 +290,11 @@ private fun ControlPanel(
                 ModifierStepper(state.modifier, actions.onModifierDecreased, actions.onModifierIncreased)
             }
             SectionLabel(stringResource(Res.string.section_d20_roll))
-            D20Row(actions.onDisadvantageClicked, actions.onD20Clicked, actions.onAdvantageClicked)
+            D20Row(
+                onDisadvantageClicked = actions.onDisadvantageClicked,
+                onD20Clicked = actions.onD20Clicked,
+                onAdvantageClicked = actions.onAdvantageClicked,
+            )
             SectionLabel(stringResource(Res.string.section_compose))
             CompositionPad(state, actions)
             RollButton(state, actions.onRollClicked)
