@@ -591,6 +591,26 @@ class BlankLineAfterBlockRuleTest {
     }
 
     @Test
+    fun `adds a blank line after a top level statement of a script`() {
+        val code =
+            """
+            for (x in listOf(1)) println(x)
+            println()
+            """.trimIndent()
+        val formattedCode =
+            """
+            for (x in listOf(1)) println(x)
+
+            println()
+            """.trimIndent()
+
+        assertThatCode(code)
+            .asKotlinScript()
+            .hasLintViolation(line = 1, col = 32, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
     fun `ignores a block that ends its enclosing block`() {
         val code =
             """

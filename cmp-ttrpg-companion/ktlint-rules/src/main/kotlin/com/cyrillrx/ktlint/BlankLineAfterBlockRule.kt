@@ -24,6 +24,7 @@ import org.jetbrains.kotlin.psi.KtIfExpression
 import org.jetbrains.kotlin.psi.KtProperty
 import org.jetbrains.kotlin.psi.KtPsiUtil
 import org.jetbrains.kotlin.psi.KtReturnExpression
+import org.jetbrains.kotlin.psi.KtScriptInitializer
 import org.jetbrains.kotlin.psi.KtThrowExpression
 
 internal const val MISSING_BLANK_LINE_MESSAGE = "Missing blank line after a block statement"
@@ -64,9 +65,9 @@ class BlankLineAfterBlockRule :
         next: ASTNode,
         emit: (offset: Int, errorMessage: String, canBeAutoCorrected: Boolean) -> AutocorrectDecision,
     ) {
-        val body = statement.withoutLabelOrAnnotation()
+        val body = statement.bareStatement()
         if (!body.isBlockStatement()) return
-        if (body.isCompact() && !body.endsWithMultilineBlock() && next.withoutLabelOrAnnotation().isCompact()) return
+        if (body.isCompact() && !body.endsWithMultilineBlock() && next.bareStatement().isCompact()) return
 
         val separator = separatorAfter(statement) ?: return
         if (separator.text.count { it == '\n' } != 1) return
@@ -87,8 +88,10 @@ class BlankLineAfterBlockRule :
         return lineEnd.takeIf { it.isWhiteSpaceWithNewline() }
     }
 
-    private fun ASTNode.withoutLabelOrAnnotation(): ASTNode =
-        KtPsiUtil.deparenthesize(psi as KtExpression)?.node ?: this
+    private fun ASTNode.bareStatement(): ASTNode {
+        val expression = (psi as? KtScriptInitializer)?.body ?: psi as KtExpression
+        return KtPsiUtil.deparenthesize(expression)?.node ?: this
+    }
 
     private fun ASTNode.isBlockStatement(): Boolean =
         elementType in CONTROL_FLOW_STATEMENTS ||
