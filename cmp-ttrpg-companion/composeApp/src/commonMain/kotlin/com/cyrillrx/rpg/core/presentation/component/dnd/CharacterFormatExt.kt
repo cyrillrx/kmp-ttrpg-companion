@@ -182,18 +182,17 @@ fun Ability.toAbbreviationString(): String {
     return stringResource(stringRes)
 }
 
-@Composable
-fun Ability.toNameString(): String {
-    val stringRes = when (this) {
-        Ability.STRENGTH -> Res.string.ability_label_strength
-        Ability.DEXTERITY -> Res.string.ability_label_dexterity
-        Ability.CONSTITUTION -> Res.string.ability_label_constitution
-        Ability.INTELLIGENCE -> Res.string.ability_label_intelligence
-        Ability.WISDOM -> Res.string.ability_label_wisdom
-        Ability.CHARISMA -> Res.string.ability_label_charisma
-    }
-    return stringResource(stringRes)
+fun Ability.toStringRes(): StringResource = when (this) {
+    Ability.STRENGTH -> Res.string.ability_label_strength
+    Ability.DEXTERITY -> Res.string.ability_label_dexterity
+    Ability.CONSTITUTION -> Res.string.ability_label_constitution
+    Ability.INTELLIGENCE -> Res.string.ability_label_intelligence
+    Ability.WISDOM -> Res.string.ability_label_wisdom
+    Ability.CHARISMA -> Res.string.ability_label_charisma
 }
+
+@Composable
+fun Ability.toFormattedString(): String = stringResource(toStringRes())
 
 fun Character.Class.toStringRes(): StringResource = when (this) {
     Character.Class.ARTIFICER -> Res.string.class_artificer

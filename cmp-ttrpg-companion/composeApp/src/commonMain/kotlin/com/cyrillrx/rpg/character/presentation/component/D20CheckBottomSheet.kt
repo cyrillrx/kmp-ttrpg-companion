@@ -15,7 +15,6 @@ import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.character.presentation.SheetRoll
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
-import com.cyrillrx.rpg.core.presentation.component.dnd.toNameString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -110,7 +109,7 @@ private fun CheckHeader(sheetRoll: SheetRoll, modifier: Modifier = Modifier) {
 
 @Composable
 private fun D20Check.toName(): String = when (this) {
-    is D20Check.SavingThrow -> ability.toNameString()
+    is D20Check.SavingThrow -> ability.toFormattedString()
     is D20Check.SkillCheck -> skill.toFormattedString()
     D20Check.Initiative -> stringResource(Res.string.label_initiative)
 }
