@@ -37,7 +37,6 @@ import rpg_companion.composeapp.generated.resources.label_with_advantage
 import rpg_companion.composeapp.generated.resources.label_with_disadvantage
 import rpg_companion.composeapp.generated.resources.value_check_modifier
 
-/** What the sheet can ask for about a d20 check, grouped so the screen does not thread five callbacks. */
 class D20CheckActions(
     val onCheckTapped: (D20Check) -> Unit,
     val onRerollClicked: () -> Unit,
@@ -48,10 +47,11 @@ class D20CheckActions(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun D20CheckSheet(sheetRoll: SheetRoll, actions: D20CheckActions) {
+internal fun D20CheckSheet(sheetRoll: SheetRoll, actions: D20CheckActions, modifier: Modifier = Modifier) {
     ModalBottomSheet(
         onDismissRequest = actions.onDismissed,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+        modifier = modifier,
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -72,8 +72,8 @@ internal fun D20CheckSheet(sheetRoll: SheetRoll, actions: D20CheckActions) {
 }
 
 @Composable
-private fun CheckHeader(sheetRoll: SheetRoll) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+private fun CheckHeader(sheetRoll: SheetRoll, modifier: Modifier = Modifier) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = modifier) {
         val check = sheetRoll.check
         if (check is D20Check.SavingThrow) {
             Text(
@@ -82,6 +82,7 @@ private fun CheckHeader(sheetRoll: SheetRoll) {
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+
         Text(
             text = stringResource(
                 Res.string.value_check_modifier,
@@ -130,7 +131,7 @@ private fun PreviewD20CheckSheetDark() {
 private val previewRoll = SheetRoll(
     check = D20Check.SkillCheck(Skill.PERCEPTION),
     lastRoll = RollPool(
-        rolls = listOf(DoubleRoll(SimpleRoll(Die.D20, 17), SimpleRoll(Die.D20, 4), KeepRule.HIGHER)),
+        rolls = listOf(DoubleRoll(SimpleRoll(Die.D20, value = 17), SimpleRoll(Die.D20, value = 4), KeepRule.HIGHER)),
         modifier = 5,
     ),
     rollCount = 1,

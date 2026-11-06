@@ -37,14 +37,14 @@ internal fun SavingThrowsSection(
 private fun SavingThrowCard(
     character: Character,
     ability: Ability,
-    onTap: () -> Unit,
+    onRollClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     StatCell(
         label = ability.toAbbreviationString(),
         value = character.savingThrowModifier(ability).toSignedString(),
         valueColor = character.savingThrowProficiency(ability).getColor(),
-        onClick = onTap,
+        onClick = onRollClicked,
         modifier = modifier,
     )
 }

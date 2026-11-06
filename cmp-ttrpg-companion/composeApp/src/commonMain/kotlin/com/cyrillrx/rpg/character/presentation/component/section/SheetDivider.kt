@@ -18,11 +18,16 @@ import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 
 @Composable
-internal fun SheetDivider(label: String, onEdit: (() -> Unit)? = null, editLabel: String? = null) {
+internal fun SheetDivider(
+    label: String,
+    modifier: Modifier = Modifier,
+    onEditClicked: (() -> Unit)? = null,
+    editLabel: String? = null,
+) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
     ) {
         HorizontalDivider(modifier = Modifier.weight(1f))
         Text(
@@ -30,8 +35,8 @@ internal fun SheetDivider(label: String, onEdit: (() -> Unit)? = null, editLabel
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.primary,
         )
-        onEdit?.let { edit ->
-            IconButton(onClick = edit) {
+        onEditClicked?.let { onClick ->
+            IconButton(onClick = onClick) {
                 Icon(
                     imageVector = Icons.Default.Edit,
                     contentDescription = editLabel,
@@ -40,6 +45,7 @@ internal fun SheetDivider(label: String, onEdit: (() -> Unit)? = null, editLabel
                 )
             }
         }
+
         HorizontalDivider(modifier = Modifier.weight(1f))
     }
 }

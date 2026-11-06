@@ -42,7 +42,7 @@ internal fun AptitudesTabContent(
 
     SheetDivider(
         label = stringResource(Res.string.label_skills),
-        onEdit = { onFieldTapped(EditingField.Skills) },
+        onEditClicked = { onFieldTapped(EditingField.Skills) },
         editLabel = stringResource(Res.string.btn_edit_skills),
     )
 

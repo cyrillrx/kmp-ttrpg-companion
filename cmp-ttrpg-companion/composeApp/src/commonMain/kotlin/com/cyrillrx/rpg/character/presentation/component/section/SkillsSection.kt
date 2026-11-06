@@ -72,7 +72,7 @@ internal fun SkillsSection(
                     SkillEntry(
                         skill = left,
                         character = character,
-                        onTap = { onSkillTapped(left) },
+                        onRollClicked = { onSkillTapped(left) },
                         modifier = Modifier.weight(1f),
                     )
                     val right = rightColumn.getOrNull(index)
@@ -82,7 +82,7 @@ internal fun SkillsSection(
                         SkillEntry(
                             skill = right,
                             character = character,
-                            onTap = { onSkillTapped(right) },
+                            onRollClicked = { onSkillTapped(right) },
                             modifier = Modifier.weight(1f),
                         )
                     }
@@ -96,7 +96,7 @@ internal fun SkillsSection(
 private fun SkillEntry(
     skill: Skill,
     character: Character,
-    onTap: () -> Unit,
+    onRollClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val proficiency = character.skillProficiency(skill)
@@ -107,7 +107,7 @@ private fun SkillEntry(
         horizontalArrangement = Arrangement.spacedBy(spacingSmall),
         modifier = modifier
             .clip(MaterialTheme.shapes.small)
-            .clickable(onClick = onTap)
+            .clickable(onClick = onRollClicked)
             .padding(vertical = spacingSmall),
     ) {
         Text(
