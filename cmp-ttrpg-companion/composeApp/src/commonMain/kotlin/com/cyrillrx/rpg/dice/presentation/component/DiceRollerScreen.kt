@@ -218,7 +218,6 @@ fun DiceRollerScreen(
     }
 }
 
-/** Without [onHistoryClicked], the history is already on screen: the card drops its preview and its link. */
 @Composable
 private fun RollResultCard(state: DiceRollerState, onHistoryClicked: (() -> Unit)?, modifier: Modifier = Modifier) {
     val lastRoll = state.lastRoll
