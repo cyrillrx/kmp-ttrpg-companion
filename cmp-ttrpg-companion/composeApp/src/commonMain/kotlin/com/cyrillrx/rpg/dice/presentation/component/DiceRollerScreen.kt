@@ -616,6 +616,12 @@ private fun PreviewDiceRollerScreenEmpty() {
 
 @Preview(widthDp = 1280, heightDp = 800)
 @Composable
-private fun PreviewDiceRollerScreenWide() {
+private fun PreviewDiceRollerScreenWideLight() {
+    AppThemePreview(darkTheme = false) { DiceRollerScreenPreview(previewState) }
+}
+
+@Preview(widthDp = 1280, heightDp = 800)
+@Composable
+private fun PreviewDiceRollerScreenWideDark() {
     AppThemePreview(darkTheme = true) { DiceRollerScreenPreview(previewState) }
 }
