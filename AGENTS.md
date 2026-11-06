@@ -42,25 +42,25 @@ source of truth. The documents below are thin pointers to it; some add project-s
 
 ## 3. KMP Client — Commands
 
-All commands run from `cmp-ttrpg-companion/`:
+All commands run from the repository root, where the Gradle build lives:
 
 ```bash
-./gradlew build               # Build all targets
-./gradlew :composeApp:run     # Run on Desktop (JVM)
-./gradlew installDebug        # Install on Android
-./gradlew test                # Run all tests
-./gradlew jvmTest             # Run JVM/Desktop tests only
-./gradlew ktlintCheck         # Check formatting
-./gradlew ktlintFormat        # Auto-fix formatting
-./gradlew :ktlint-rules:test  # Test the custom ktlint rules
-./gradlew koverXmlReportJvm   # Generate the coverage reports SonarCloud reads
+./gradlew build                          # Build all targets
+./gradlew :app:desktopApp:run            # Run on Desktop (JVM)
+./gradlew :app:androidApp:installDebug   # Install on Android
+./gradlew test                           # Run all tests
+./gradlew jvmTest                        # Run JVM/Desktop tests only
+./gradlew ktlintCheck                    # Check formatting
+./gradlew ktlintFormat                   # Auto-fix formatting
+./gradlew :ktlint-rules:test             # Test the custom ktlint rules
+./gradlew koverXmlReport                 # Generate the aggregated report SonarCloud reads
 ```
 
-ktlint is **strict** in every module that applies it (`composeApp`, `shared/core`, `ktlint-rules`; `ignoreFailures=false`), and the `CMP Client - ktlint` CI job fails the build on any violation. Run `ktlintFormat` before pushing. On top of the standard rules, `composeApp` and `shared/core` run the project's own rule set, built by the `ktlint-rules` module (`cyrillrx:blank-line-after-block`).
+ktlint is **strict** in every module that applies it (`ignoreFailures=false`), and the `CMP Client - ktlint` CI job fails the build on any violation. Run `ktlintFormat` before pushing. On top of the standard rules, the app modules run the project's own rule set, built by the `ktlint-rules` module (`cyrillrx:blank-line-after-block`).
 
 ### Coverage policy
 
-Coverage is produced by `jvmTest` alone and reported to SonarCloud through Kover. Each module declares its own report path and its own exclusions — see the `sonar { }` and `kover { }` blocks in `composeApp/build.gradle.kts` and `shared/core/build.gradle.kts`.
+Coverage is produced by `jvmTest` alone and reported to SonarCloud through Kover, in **one report aggregated at the root**: a type covered only by the tests of another module still counts as covered. The Kover exclusions live in the root `build.gradle.kts`; each module declares its own `sonar.coverage.exclusions` in its `sonar { }` block (`app/shared/ui/build.gradle.kts`, `app/shared/domain/build.gradle.kts`).
 
 What is excluded, and why: composables, design tokens and route declarations (no UI test feeds Kover, so measuring them would count tests that are never collected), the Android and iOS source sets (`jvmTest` never compiles them, so no test can ever cover them), and generated code (Compose resource accessors, SQLDelight types), which Sonar does not index either.
 
@@ -76,17 +76,19 @@ Where that logic goes instead: **`core/presentation/format`** for the shared for
 
 ### Module structure
 
-Two Gradle modules hold the app code:
+The client lives under `app/`, in the same layout as `family-planner`. Two Gradle modules hold the app code:
 
-**`shared/core`** — Domain + Data layers. Pure Kotlin, no UI framework.
+**`app/shared/domain`**: Domain + Data layers. Pure Kotlin, no UI framework.
 - `domain/` — entities, repository interfaces, filters
 - `data/` — repository implementations (JSON, RAM, SQLDelight)
 - Platform-specific: `DatabaseDriverFactory` (Android/iOS/JVM SQLite drivers)
 
-**`composeApp`** — Presentation layer only.
+**`app/shared/ui`**: Presentation layer only. Ships to iOS as the `Shared` framework.
 - `core/presentation/` — shared components, theme, navigation utilities
 - `core/presentation/format/` — pure formatters, no Compose (see the coverage policy above)
 - `{feature}/presentation/` — ViewModels, screens, routers per feature
+
+`app/androidApp` and `app/desktopApp` are the application wrappers: entry point and platform wiring only, skipped by Sonar. `app/iosApp` is the Xcode project.
 
 **`ktlint-rules`** is build tooling: the project's custom ktlint rules, outside the app and skipped by Sonar.
 
@@ -119,7 +121,7 @@ composable<SpellRoute.List> {
 
 ### Navigation
 
-`App.kt` is the `NavDisplay` root. The back stack is a `NavBackStack<NavKey>` created with `rememberNavBackStack(savedStateConfig, startKey)`. Each feature registers its routes via an `EntryProviderScope<NavKey>` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.) inside the `entryProvider { }` block. Routes are `@Serializable` data objects/classes implementing `NavKey`. A `SavedStateConfiguration` with polymorphic serializers for every route type is required for non-JVM targets (iOS) — each feature exposes a `register*Routes()` extension on `PolymorphicModuleBuilder<NavKey>` for this purpose, all assembled in `app/NavSavedState.kt`. That module also declares a `defaultDeserializer` falling back to `MainRoute.Home`: routes serialize under their fully-qualified name, so moving one to another package would otherwise make an already-persisted back stack throw on restore instead of resetting. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from the `Serializer.kt` utility in the `shared/core` module.
+`App.kt` is the `NavDisplay` root. The back stack is a `NavBackStack<NavKey>` created with `rememberNavBackStack(savedStateConfig, startKey)`. Each feature registers its routes via an `EntryProviderScope<NavKey>` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.) inside the `entryProvider { }` block. Routes are `@Serializable` data objects/classes implementing `NavKey`. A `SavedStateConfiguration` with polymorphic serializers for every route type is required for non-JVM targets (iOS): each feature exposes a `register*Routes()` extension on `PolymorphicModuleBuilder<NavKey>` for this purpose, all assembled in `app/NavSavedState.kt`. That module also declares a `defaultDeserializer` falling back to `MainRoute.Home`: routes serialize under their fully-qualified name, so moving one to another package would otherwise make an already-persisted back stack throw on restore instead of resetting. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from the `Serializer.kt` utility in the `app/shared/domain` module.
 
 ### Router pattern
 
