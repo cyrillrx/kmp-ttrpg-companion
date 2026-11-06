@@ -5,8 +5,6 @@ import com.cyrillrx.rpg.dice.domain.DoubleRoll
 import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.RollPool
 
-/** [rollCount] tells two identical rolls apart. */
 data class SheetRoll(val check: D20Check, val lastRoll: RollPool, val rollCount: Int) {
-    /** Null for a plain d20. */
     fun keepRule(): KeepRule? = (lastRoll.rolls.singleOrNull() as? DoubleRoll)?.rule
 }

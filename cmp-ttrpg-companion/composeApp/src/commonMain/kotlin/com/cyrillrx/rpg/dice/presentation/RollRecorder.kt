@@ -23,12 +23,10 @@ class RollRecorder(private val historyRepository: RollHistoryRepository) {
         }
     }
 
-    /** [onRecorded] receives the id the history gave the roll, unless the write failed. */
     fun record(pool: RollPool, context: RollContext? = null, onRecorded: (Long) -> Unit = {}) {
         rollsToRecord.trySend(RollToRecord(pool, context, onRecorded))
     }
 
-    /** Lets the rolls already queued be written, then stops. */
     fun close() {
         rollsToRecord.close()
     }
