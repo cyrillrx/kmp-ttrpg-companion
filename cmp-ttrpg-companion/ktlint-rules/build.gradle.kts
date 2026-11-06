@@ -35,11 +35,6 @@ tasks.test {
     useJUnitPlatform()
 }
 
-// CI runs the tests through `jvmTest`, the task name of the multiplatform modules.
-tasks.register("jvmTest") {
-    dependsOn(tasks.test)
-}
-
 ktlint {
     version.set(libs.versions.ktlint.engine)
     android.set(false)

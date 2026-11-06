@@ -58,7 +58,7 @@ jobs:
 
       - name: Run JVM tests and generate Kover reports
         working-directory: cmp-ttrpg-companion
-        run: ./gradlew jvmTest koverXmlReportJvm --no-daemon
+        run: ./gradlew jvmTest :ktlint-rules:test koverXmlReportJvm --no-daemon
 
       - name: Upload Kover reports
         uses: actions/upload-artifact@v4
