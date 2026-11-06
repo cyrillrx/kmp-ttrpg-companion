@@ -74,14 +74,23 @@ fun ClearHistoryButton(state: DiceHistoryState, onClearClicked: () -> Unit) {
 fun RollHistoryBody(body: DiceHistoryState.Body, modifier: Modifier = Modifier) {
     when (body) {
         is DiceHistoryState.Body.Loading -> Loader(modifier)
-        is DiceHistoryState.Body.Empty -> EmptyStateLayout(
-            icon = Icons.Filled.History,
-            message = stringResource(Res.string.message_no_roll_yet),
-            modifier = modifier,
-        )
+        is DiceHistoryState.Body.Empty -> EmptyHistory(modifier)
         is DiceHistoryState.Body.Error -> ErrorLayout(Res.string.error_while_loading_roll_history, modifier)
-        is DiceHistoryState.Body.WithData -> RollHistoryList(body, modifier)
+        is DiceHistoryState.Body.WithData -> if (body.days.isEmpty()) {
+            EmptyHistory(modifier)
+        } else {
+            RollHistoryList(body, modifier)
+        }
     }
+}
+
+@Composable
+private fun EmptyHistory(modifier: Modifier) {
+    EmptyStateLayout(
+        icon = Icons.Filled.History,
+        message = stringResource(Res.string.message_no_roll_yet),
+        modifier = modifier,
+    )
 }
 
 @Composable
