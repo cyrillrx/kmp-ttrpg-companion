@@ -84,7 +84,7 @@ private fun CheckHeader(sheetRoll: SheetRoll, modifier: Modifier = Modifier) {
         Text(
             text = stringResource(
                 Res.string.value_check_modifier,
-                check.toName(),
+                check.toFormattedString(),
                 sheetRoll.lastRoll.modifier.toSignedString(),
             ),
             style = MaterialTheme.typography.titleLarge,
@@ -108,7 +108,7 @@ private fun CheckHeader(sheetRoll: SheetRoll, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun D20Check.toName(): String = when (this) {
+private fun D20Check.toFormattedString(): String = when (this) {
     is D20Check.SavingThrow -> ability.toFormattedString()
     is D20Check.SkillCheck -> skill.toFormattedString()
     D20Check.Initiative -> stringResource(Res.string.label_initiative)
