@@ -52,7 +52,7 @@ All commands run from `cmp-ttrpg-companion/`:
 ./gradlew jvmTest             # Run JVM/Desktop tests only
 ./gradlew ktlintCheck         # Check formatting
 ./gradlew ktlintFormat        # Auto-fix formatting
-./gradlew :ktlint-rules:test   # Test the custom ktlint rules
+./gradlew :ktlint-rules:test  # Test the custom ktlint rules
 ./gradlew koverXmlReportJvm   # Generate the coverage reports SonarCloud reads
 ```
 
