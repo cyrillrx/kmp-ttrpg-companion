@@ -30,9 +30,11 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
             if (content == null) currentOnReadFailed.value() else currentOnFileRead.value(content)
         }
     }
+
     return remember(delegate) {
         FilePicker {
             val presenter = topViewController() ?: return@FilePicker currentOnReadFailed.value()
+
             val picker = UIDocumentPickerViewController(forOpeningContentTypes = PICKABLE_CONTENT_TYPES, asCopy = true)
             picker.delegate = delegate
             presenter.presentViewController(picker, animated = true, completion = null)
@@ -45,6 +47,7 @@ private fun NSURL.readText(): String? {
     val attributes = path?.let { NSFileManager.defaultManager.attributesOfItemAtPath(it, null) } ?: return null
     val size = (attributes[NSFileSize] as? NSNumber)?.longLongValue ?: return null
     if (size > FilePicker.MAX_FILE_BYTES) return null
+
     return NSString.stringWithContentsOfURL(this, NSUTF8StringEncoding, null)
 }
 

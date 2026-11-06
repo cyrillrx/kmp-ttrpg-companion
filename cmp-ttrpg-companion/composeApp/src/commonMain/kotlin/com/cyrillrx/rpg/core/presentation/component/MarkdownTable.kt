@@ -63,6 +63,7 @@ fun MarkdownTableCompact(
     val density = LocalDensity.current
 
     val headerNode = node.findChildOfType(HEADER) ?: return
+
     val columnCount = headerNode.children.count { it.type == CELL }
     if (columnCount == 0) return
 
@@ -102,6 +103,7 @@ fun MarkdownTableFillWidth(
     val density = LocalDensity.current
 
     val headerNode = node.findChildOfType(HEADER) ?: return
+
     val columnCount = headerNode.children.count { it.type == CELL }
     if (columnCount == 0) return
 
@@ -146,6 +148,7 @@ private fun rememberColumnWidths(
     val density = LocalDensity.current
     return remember(content, node, density, style, tableCellPadding) {
         val headerNode = node.findChildOfType(HEADER) ?: return@remember emptyList()
+
         val dataRows = node.children.filter { it.type == ROW }
         val boldStyle = style.copy(fontWeight = FontWeight.Bold)
         val paddingPx = with(density) { (tableCellPadding * 2).roundToPx() }
@@ -164,6 +167,7 @@ private fun rememberColumnWidths(
             val dataPx = dataRows.maxOfOrNull { rowNode ->
                 val cell = rowNode.children.filter { it.type == CELL }.getOrNull(colIdx)
                     ?: return@maxOfOrNull 1
+
                 val text = content.substring(cell.startOffset, cell.endOffset).trim().stripMarkdown()
                 if (text.isEmpty()) {
                     1

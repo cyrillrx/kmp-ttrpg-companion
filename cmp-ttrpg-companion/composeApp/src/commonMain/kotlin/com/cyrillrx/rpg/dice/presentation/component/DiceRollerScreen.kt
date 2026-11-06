@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -127,6 +126,7 @@ fun DiceRollerScreen(viewModel: DiceRollerViewModel, historyViewModel: DiceHisto
             onClearClicked = viewModel::clearComposition,
         )
     }
+
     val historyActions = remember(router, onClearHistoryClicked) {
         DiceHistoryActions(onOpenClicked = router::openHistory, onClearClicked = onClearHistoryClicked)
     }
@@ -204,6 +204,7 @@ private fun ExpandedLayout(
                 modifier = Modifier.weight(1f),
             )
         }
+
         ControlPanel(state, actions, MaterialTheme.shapes.large, Modifier.weight(1f))
     }
 }
@@ -357,6 +358,7 @@ private fun ControlPanel(
                 Text(text = stringResource(Res.string.label_modifier), style = MaterialTheme.typography.titleSmall)
                 ModifierStepper(state.modifier, actions.onModifierDecreased, actions.onModifierIncreased)
             }
+
             SectionLabel(stringResource(Res.string.section_d20_roll))
             D20Row(
                 onDisadvantageClicked = actions.onDisadvantageClicked,
@@ -387,6 +389,7 @@ private fun ModifierStepper(modifier: Int, onDecreased: () -> Unit, onIncreased:
             IconButton(onClick = onDecreased, enabled = modifier > -MAX_MODIFIER) {
                 Icon(Icons.Filled.Remove, contentDescription = stringResource(Res.string.btn_decrease_modifier))
             }
+
             Text(
                 text = modifier.toSignedString(),
                 style = MaterialTheme.typography.titleLarge,
@@ -423,6 +426,7 @@ private fun CompositionPad(state: DiceRollerState, actions: DiceRollerActions) {
                         modifier = Modifier.weight(1f),
                     )
                 }
+
                 if (dice == rows.last()) {
                     DieTile(
                         label = stringResource(Res.string.btn_clear),

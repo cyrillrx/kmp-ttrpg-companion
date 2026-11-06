@@ -83,6 +83,7 @@ private fun getSubtitle(magicalItem: MagicalItem, translation: MagicalItem.Trans
     } else {
         null
     }
+
     return joinNonNull(subtype, attunement)
 }
 

@@ -95,6 +95,7 @@ class CharacterEditViewModel(
             cancelEditing()
             return
         }
+
         updateAndSave { copy(character = character.copy(name = trimmed), editingField = null) }
     }
 
@@ -144,6 +145,7 @@ class CharacterEditViewModel(
 
         val coerced = value.coerceToValidWalkSpeedInFeet()
         if (coerced != value) coercedValueEvent.tryEmit(CoercedValue.Distance(value, coerced))
+
         updateAndSave {
             copy(character = character.copy(speeds = character.speeds.copy(walk = coerced)), editingField = null)
         }
@@ -169,6 +171,7 @@ class CharacterEditViewModel(
                 val current = cleared[locale] ?: Character.Translation()
                 cleared[locale] = current.copy(shortDescription = trimmed)
             }
+
             copy(character = character.copy(translations = cleared.toMap()), editingField = null)
         }
     }
@@ -179,6 +182,7 @@ class CharacterEditViewModel(
 
     fun exportCharacter() {
         val character = (state.value as? Loaded)?.character ?: return
+
         exportEvent.tryEmit(character.toExportFile(appVersion, clock.now(), timeZone))
     }
 
@@ -219,6 +223,7 @@ class CharacterEditViewModel(
 
         val coerced = ability.value.coerceToValidAbilityScore()
         if (coerced != ability.value) coercedValueEvent.tryEmit(CoercedValue.Numeric(ability.value, coerced))
+
         val coercedAbility = ability.copy(value = coerced)
         updateAndSave {
             val updatedCharacter = character.copy(abilities = character.abilities.update(coercedAbility))
@@ -235,6 +240,7 @@ class CharacterEditViewModel(
 
         val coerced = coerce(candidate)
         if (coerced != candidate) coercedValueEvent.tryEmit(CoercedValue.Numeric(candidate, coerced))
+
         updateAndSave { applyEdit(coerced) }
     }
 

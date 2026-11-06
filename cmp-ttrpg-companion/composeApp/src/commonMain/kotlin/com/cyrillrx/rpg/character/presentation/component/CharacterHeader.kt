@@ -105,6 +105,7 @@ internal fun CharacterHeader(
                         .clickable(onClick = onShortDescriptionTapped),
                 )
             }
+
             Spacer(Modifier.height(spacingSmall))
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(spacingSmall),
@@ -118,12 +119,14 @@ internal fun CharacterHeader(
                     SubtitleDot()
                     SubtitleChip(background, onBackgroundTapped)
                 }
+
                 if (alignment != Creature.Alignment.UNKNOWN) {
                     SubtitleDot()
                     SubtitleChip(alignment.toFormattedString(), onAlignmentTapped)
                 }
             }
         }
+
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.clickable(onClick = onLevelTapped),

@@ -28,6 +28,7 @@ data class Skills(
         selected.forEach { (skill, proficiency) ->
             result = result.withProficiency(skill, proficiency)
         }
+
         return result
     }
 

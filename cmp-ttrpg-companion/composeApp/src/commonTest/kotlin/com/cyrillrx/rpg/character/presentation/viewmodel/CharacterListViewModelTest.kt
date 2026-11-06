@@ -871,6 +871,7 @@ class CharacterListViewModelTest {
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.events.collect { receivedEvents.add(it) }
         }
+
         return receivedEvents
     }
 
@@ -929,6 +930,7 @@ private class FailsOnSecondCallCharacterRepository : CharacterRepository {
 
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
         if (callCount++ == 0) return emptyList()
+
         error("Repository error")
     }
 
@@ -945,6 +947,7 @@ private class SwitchableCharacterRepository : CharacterRepository {
 
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
         if (failing) error("Repository error")
+
         return delegate.getAll(filter)
     }
 

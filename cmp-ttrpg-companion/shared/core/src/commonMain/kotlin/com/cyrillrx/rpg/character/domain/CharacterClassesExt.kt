@@ -9,6 +9,7 @@ fun Character.maxLevelFor(clazz: Character.Class): Int = (classes[clazz] ?: 0) +
 
 fun Character.withClassLevel(clazz: Character.Class, level: Int): Character {
     if (clazz !in classes) return this
+
     val coerced = level.coerceIn(MIN_CHARACTER_LEVEL, maxLevelFor(clazz))
     return copy(classes = classes + (clazz to coerced)).withRecomputedPrimary()
 }

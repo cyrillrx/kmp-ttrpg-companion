@@ -288,6 +288,7 @@ class AppDatabaseMigrationTest {
                 columns += "${cursor.getString(1)} ${cursor.getString(2)} " +
                     "notnull=${cursor.getLong(3)} default=${cursor.getString(4)}"
             }
+
             QueryResult.Value(columns)
         },
         0,

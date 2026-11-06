@@ -51,6 +51,7 @@ class DiceRollerViewModel(
     fun removeDie(die: Die) {
         state.update { current ->
             val count = current.countByDie[die] ?: return@update current
+
             val countByDie = if (count > 1) current.countByDie + (die to count - 1) else current.countByDie - die
             current.copy(countByDie = countByDie)
         }

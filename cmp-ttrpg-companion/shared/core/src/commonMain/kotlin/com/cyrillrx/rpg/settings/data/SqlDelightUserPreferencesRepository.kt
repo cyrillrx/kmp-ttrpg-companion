@@ -42,6 +42,7 @@ class SqlDelightUserPreferencesRepository(
     override suspend fun setTheme(theme: Theme) {
         writeLock.withLock {
             if (preferences.value.theme == theme) return
+
             withContext(ioDispatcher) {
                 db.updateTheme(theme)
                 preferences.update { it.copy(theme = theme) }
@@ -52,6 +53,7 @@ class SqlDelightUserPreferencesRepository(
     override suspend fun setPalette(palette: Palette) {
         writeLock.withLock {
             if (preferences.value.palette == palette) return
+
             withContext(ioDispatcher) {
                 db.updatePalette(palette)
                 preferences.update { it.copy(palette = palette) }
@@ -62,6 +64,7 @@ class SqlDelightUserPreferencesRepository(
     override suspend fun setCharacterSortOrder(order: StoredSortOrder) {
         writeLock.withLock {
             if (preferences.value.characterSortOrder == order) return
+
             withContext(ioDispatcher) {
                 db.updateCharacterSortOrder(order)
                 preferences.update { it.copy(characterSortOrder = order) }
@@ -72,6 +75,7 @@ class SqlDelightUserPreferencesRepository(
     override suspend fun setCollectionSortOrder(order: StoredSortOrder) {
         writeLock.withLock {
             if (preferences.value.collectionSortOrder == order) return
+
             withContext(ioDispatcher) {
                 db.updateCollectionSortOrder(order)
                 preferences.update { it.copy(collectionSortOrder = order) }
@@ -82,6 +86,7 @@ class SqlDelightUserPreferencesRepository(
     override suspend fun setCollectionItemOrder(order: CollectionItemOrder) {
         writeLock.withLock {
             if (preferences.value.collectionItemOrder == order) return
+
             withContext(ioDispatcher) {
                 db.updateCollectionItemOrder(order)
                 preferences.update { it.copy(collectionItemOrder = order) }
@@ -92,6 +97,7 @@ class SqlDelightUserPreferencesRepository(
     override suspend fun setDistanceUnit(distanceUnit: DistanceUnit) {
         writeLock.withLock {
             if (preferences.value.distanceUnit == distanceUnit) return
+
             withContext(ioDispatcher) {
                 db.updateDistanceUnit(distanceUnit)
                 preferences.update { it.copy(distanceUnit = distanceUnit) }

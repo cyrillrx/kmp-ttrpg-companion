@@ -27,6 +27,7 @@ internal fun ClassIcon(
     val iconState by produceState<ClassIconState>(ClassIconState.Loading, clazz) {
         value = resolveClassIconState(clazz) { Res.readBytes(it) }
     }
+
     when (val s = iconState) {
         ClassIconState.Loading -> Unit
         is ClassIconState.Loaded -> AsyncImage(

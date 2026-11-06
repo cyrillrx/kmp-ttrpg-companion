@@ -39,6 +39,7 @@ class JsonMagicalItemRepository(
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
         }
+
         return listOf()
     }
 
@@ -103,6 +104,7 @@ class JsonMagicalItemRepository(
             val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
                 t.toTranslation(itemId, locale)
             }
+
             translationErrors.forEach { println("WARNING: magical item import error: $it") }
             return parsedTranslations.takeIf { it.isNotEmpty() }
         }

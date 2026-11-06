@@ -22,4 +22,5 @@ include(
     ":baselineprofile",
     ":composeApp",
     ":shared:core",
+    ":ktlint-rules",
 )

@@ -80,6 +80,7 @@ class CollectionDetailViewModel<T : Entity>(
         if (state.value.body !is CollectionDetailState.Body.WithData) return null
 
         val pending = removals.hide(item) ?: return null
+
         renderBody()
         return pending
     }
@@ -111,6 +112,7 @@ class CollectionDetailViewModel<T : Entity>(
             } catch (e: Exception) {
                 UserCollectionRepository.Result.Error(e.message ?: "removal failed")
             }
+
             val removed = result is UserCollectionRepository.Result.Success
             removals.settle(pending, removed)
             renderBodyIfLoaded()
@@ -127,6 +129,7 @@ class CollectionDetailViewModel<T : Entity>(
                 body = if (current.body is CollectionDetailState.Body.WithData) sortedBody(order) else current.body,
             )
         }
+
         commitScope.launch {
             try {
                 prefsRepository.setCollectionItemOrder(order)
@@ -142,6 +145,7 @@ class CollectionDetailViewModel<T : Entity>(
     // TODO(#319): build on SearchableListViewModel instead of a hand-kept load job
     fun silentRefresh() {
         if (state.value.body is CollectionDetailState.Body.Loading) return
+
         activeJob?.cancel()
         activeJob = refreshDetail()
     }
@@ -176,9 +180,11 @@ class CollectionDetailViewModel<T : Entity>(
         removals.reload {
             val collection =
                 userCollectionRepository.get(collectionId) ?: error("Could not find collection $collectionId")
+
             state.update { it.copy(collectionName = collection.name) }
             repository.getByIds(collection.itemIds)
         }
+
         renderBody()
     }
 

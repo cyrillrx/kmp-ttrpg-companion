@@ -41,6 +41,7 @@ class SkillsApplySelectionTest {
         val selected = Skill.entries.associateWith { skill ->
             if (skill == Skill.PERCEPTION) Proficiency.PROFICIENT else Proficiency.NONE
         }
+
         val result = empty.applySelection(selected)
         assertEquals(Proficiency.PROFICIENT, result.perception)
         assertEquals(Proficiency.NONE, result.acrobatics)

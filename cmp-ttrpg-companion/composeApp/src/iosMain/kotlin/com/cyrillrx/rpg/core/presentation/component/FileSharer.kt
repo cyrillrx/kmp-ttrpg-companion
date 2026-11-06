@@ -38,6 +38,7 @@ private class IosFileSharer : FileSharer {
             sourceRect = CGRectMake(CGRectGetMidX(view.bounds), CGRectGetMidY(view.bounds), 0.0, 0.0)
             permittedArrowDirections = 0u
         }
+
         presenter.presentViewController(controller, animated = true, completion = null)
     }
 }

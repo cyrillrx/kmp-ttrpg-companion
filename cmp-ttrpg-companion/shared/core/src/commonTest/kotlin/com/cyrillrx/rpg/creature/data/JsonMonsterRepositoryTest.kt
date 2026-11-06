@@ -199,6 +199,7 @@ class JsonMonsterRepositoryTest {
             add(""""conditionImmunities": {}""")
             translations?.let { add(""""translations": $it""") }
         }
+
         return "{${fields.joinToString(", ")}}"
     }
 }

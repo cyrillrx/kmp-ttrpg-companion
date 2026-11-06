@@ -33,6 +33,7 @@ internal fun CombatRow(
         DistanceUnit.FEET -> Res.string.settings_unit_feet_abbr
         DistanceUnit.METERS -> Res.string.settings_unit_meters_abbr
     }
+
     Row(
         horizontalArrangement = Arrangement.spacedBy(spacingMedium),
         modifier = Modifier.fillMaxWidth(),

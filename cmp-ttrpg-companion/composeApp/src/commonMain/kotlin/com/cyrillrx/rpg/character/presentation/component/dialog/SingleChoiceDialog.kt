@@ -53,6 +53,7 @@ internal fun <T : Any> SingleChoiceDialog(
                     onClick = { onConfirm(null) },
                 )
             }
+
             options.forEach { option ->
                 ChoiceRow(
                     label = optionLabel(option),
@@ -108,6 +109,7 @@ private fun Modifier.bleedHorizontally(amount: Dp): Modifier = layout { measurab
     } else {
         constraints
     }
+
     val placeable = measurable.measure(expanded)
     val reportedWidth = (placeable.width - grow).coerceAtLeast(0)
     layout(reportedWidth, placeable.height) {

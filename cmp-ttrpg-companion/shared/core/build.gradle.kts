@@ -46,19 +46,24 @@ kotlin {
 
             implementation(libs.sqldelight.runtime)
         }
+
         commonTest.dependencies {
             implementation(kotlin("test"))
             implementation(libs.kotlinx.coroutines.test)
         }
+
         androidMain.dependencies {
             implementation(libs.sqldelight.android)
         }
+
         iosMain.dependencies {
             implementation(libs.sqldelight.native)
         }
+
         jvmMain.dependencies {
             implementation(libs.sqldelight.jvm)
         }
+
         jvmTest.dependencies {
             implementation(libs.sqldelight.jvm)
         }
@@ -107,9 +112,14 @@ sonar {
 }
 
 ktlint {
+    version.set(libs.versions.ktlint.engine)
     debug.set(true)
     verbose.set(true)
     android.set(false)
     outputToConsole.set(true)
     ignoreFailures.set(false)
+}
+
+dependencies {
+    ktlintRuleset(projects.ktlintRules)
 }

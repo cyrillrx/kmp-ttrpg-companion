@@ -128,6 +128,7 @@ private fun <T : Entity> ColumnScope.AddToCollectionBottomSheetContent(
                             .padding(spacingMedium),
                     )
                 }
+
                 items(body.selectableCollections, key = { it.collection.id }) { item ->
                     SelectableUserCollectionItem(
                         collection = item.collection,
@@ -137,6 +138,7 @@ private fun <T : Entity> ColumnScope.AddToCollectionBottomSheetContent(
                         modifier = Modifier.fillMaxWidth(),
                     )
                 }
+
                 item {
                     TextButton(
                         onClick = onCreateCollectionClicked,

@@ -12,6 +12,7 @@ internal fun readDiceNotation(notation: String): Result<DiceExpression, DiceNota
             is Result.Failure -> return part
         }
     }
+
     return parts.toDiceExpression()
 }
 

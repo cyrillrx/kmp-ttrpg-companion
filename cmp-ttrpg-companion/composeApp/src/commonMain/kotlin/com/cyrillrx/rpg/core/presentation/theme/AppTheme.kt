@@ -22,6 +22,7 @@ fun AppTheme(
         Theme.DARK -> true
         Theme.SYSTEM -> isSystemInDarkTheme()
     }
+
     val appPalette = palette.toAppPalette()
     CompositionLocalProvider(
         LocalHealthColors provides if (darkTheme) healthColorsDark else healthColorsLight,

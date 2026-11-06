@@ -58,6 +58,7 @@ class JsonMagicalItemRepositoryTest {
             add(""""attunement": $attunement""")
             translations?.let { add(""""translations": $it""") }
         }
+
         return "{${fields.joinToString(", ")}}"
     }
 }

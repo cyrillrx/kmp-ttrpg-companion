@@ -60,6 +60,7 @@ fun DiceHistorySection(state: DiceHistoryState, onClearClicked: () -> Unit, modi
             )
             ClearHistoryButton(state, onClearClicked)
         }
+
         RollHistoryBody(state.body, Res.string.message_no_previous_roll, Modifier.fillMaxSize())
     }
 }

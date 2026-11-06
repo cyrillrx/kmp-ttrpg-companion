@@ -62,10 +62,12 @@ kotlin {
         commonMain {
             kotlin.srcDir(generateAppVersion)
         }
+
         commonTest.dependencies {
             implementation(kotlin("test"))
             implementation(libs.kotlinx.coroutines.test)
         }
+
         commonMain.dependencies {
             implementation(projects.shared.core)
 
@@ -88,6 +90,7 @@ kotlin {
             implementation(libs.jetbrains.lifecycle.runtime.compose)
             implementation(libs.jetbrains.lifecycle.viewmodel.compose)
         }
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -98,6 +101,7 @@ kotlin {
 
             implementation(libs.legacy.material)
         }
+
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
 
@@ -177,9 +181,14 @@ kover {
 }
 
 ktlint {
+    version.set(libs.versions.ktlint.engine)
     debug.set(true)
     verbose.set(true)
     android.set(false)
     outputToConsole.set(true)
     ignoreFailures.set(false)
+}
+
+dependencies {
+    ktlintRuleset(projects.ktlintRules)
 }

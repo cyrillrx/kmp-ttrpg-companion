@@ -88,6 +88,7 @@ fun SpellDetail(
                     accent,
                 )
             }
+
             Row(
                 horizontalArrangement = Arrangement.spacedBy(spacingSmall),
                 modifier = Modifier.height(IntrinsicSize.Min),
@@ -147,6 +148,7 @@ private fun SpellHeader(spell: Spell, accent: Color, titleModifier: Modifier = M
             if (spell.ritual) add(stringResource(Res.string.spell_ritual))
             if (spell.concentration) add(stringResource(Res.string.spell_concentration))
         }
+
         if (tags.isNotEmpty()) {
             Row(horizontalArrangement = Arrangement.spacedBy(spacingSmall)) {
                 tags.forEach { TintedTag(it, accent) }

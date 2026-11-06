@@ -49,5 +49,6 @@ fun ClassLevels.toClassNames(nameOf: (Character.Class) -> String): String =
 fun ClassLevels.toClassBreakdown(nameOf: (Character.Class) -> String): String {
     val sorted = sortedByLevelThenName(nameOf)
     if (sorted.size == 1) return nameOf(sorted.first().first)
+
     return sorted.joinToString(" / ") { (clazz, level) -> "${nameOf(clazz)} $level" }
 }

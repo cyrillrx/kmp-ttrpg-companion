@@ -32,6 +32,7 @@ class HomeViewModel(
 
     fun silentRefresh() {
         if (state.value.body is HomeState.Body.Loading) return
+
         activeJob?.cancel()
         activeJob = loadCharacters(showLoading = false)
     }
@@ -39,6 +40,7 @@ class HomeViewModel(
     private fun loadCharacters(showLoading: Boolean): Job =
         viewModelScope.launch {
             if (showLoading) state.update { it.copy(body = HomeState.Body.Loading) }
+
             try {
                 val characters = repository.getAll(filter = null)
                     .applySort(StoredSortOrder.LAST_MODIFIED, locale)

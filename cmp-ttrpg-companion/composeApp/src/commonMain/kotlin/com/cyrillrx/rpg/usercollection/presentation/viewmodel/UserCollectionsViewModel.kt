@@ -77,6 +77,7 @@ class UserCollectionsViewModel(
                 events.emit(Event.CreationError(name))
                 return@launch
             }
+
             activeJob?.cancel()
             activeJob = loadCollections()
         }
@@ -88,6 +89,7 @@ class UserCollectionsViewModel(
         if (state.value.body !is UserCollectionsState.Body.WithData) return null
 
         val pending = deletions.hide(stored) ?: return null
+
         renderBody()
         return pending
     }
@@ -118,6 +120,7 @@ class UserCollectionsViewModel(
             } catch (e: Exception) {
                 false
             }
+
             deletions.settle(pending, deleted)
             renderBodyIfLoaded()
             if (!deleted) events.emit(Event.DeletionError(pending.item.value))
@@ -133,6 +136,7 @@ class UserCollectionsViewModel(
                 body = if (current.body is UserCollectionsState.Body.WithData) sortedBody(order) else current.body,
             )
         }
+
         commitScope.launch {
             try {
                 prefsRepository.setCollectionSortOrder(order)
@@ -148,6 +152,7 @@ class UserCollectionsViewModel(
     // TODO(#319): build on SearchableListViewModel instead of a hand-kept load job
     fun silentRefresh() {
         if (state.value.body is UserCollectionsState.Body.Loading) return
+
         activeJob?.cancel()
         activeJob = refreshCollections()
     }

@@ -97,6 +97,7 @@ fun CharacterPresetGalleryScreen(
                             text = { Text(stringResource(Res.string.tab_non_player_characters)) },
                         )
                     }
+
                     PresetList(
                         presets = presets,
                         onPresetSelected = onPresetSelected,

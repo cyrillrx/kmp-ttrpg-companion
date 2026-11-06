@@ -40,6 +40,7 @@ internal fun SqlDriver.reconcileSchema() {
         } else {
             AppDatabase.Schema.migrate(this, storedVersion, targetVersion)
         }
+
         execute(null, "PRAGMA user_version = $targetVersion", 0)
     }
 }

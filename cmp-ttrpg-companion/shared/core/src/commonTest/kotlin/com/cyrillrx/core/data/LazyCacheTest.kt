@@ -45,6 +45,7 @@ class LazyCacheTest {
         val cache = LazyCache {
             loads++
             if (loads == 1) error("boom")
+
             "value"
         }
 

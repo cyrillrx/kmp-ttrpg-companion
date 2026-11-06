@@ -18,13 +18,7 @@ AI/agent configuration changes use the `docs(agents)` scope (see [`AGENTS.md`](.
 
 ### CI pipeline
 
-CI is split per component under [`.github/workflows/`](../../.github/workflows/):
-[`ci-kmp.yml`](../../.github/workflows/ci-kmp.yml) (KMP client — JVM tests via `./gradlew jvmTest`
-in `cmp-ttrpg-companion/`), [`ci-server-rust.yml`](../../.github/workflows/ci-server-rust.yml),
-[`ci-server-go.yml`](../../.github/workflows/ci-server-go.yml),
-[`ci-bruno.yml`](../../.github/workflows/ci-bruno.yml), and
-[`ci-compendium.yml`](../../.github/workflows/ci-compendium.yml). The relevant checks must pass
-for a PR to be mergeable.
+CI is split per component under [`.github/workflows/`](../../.github/workflows/): [`ci-kmp.yml`](../../.github/workflows/ci-kmp.yml) (KMP client, in `cmp-ttrpg-companion/`: ktlint with the custom rule tests via `./gradlew ktlintCheck :ktlint-rules:test`, and JVM tests via `./gradlew jvmTest`), [`ci-server-rust.yml`](../../.github/workflows/ci-server-rust.yml), [`ci-server-go.yml`](../../.github/workflows/ci-server-go.yml), [`ci-bruno.yml`](../../.github/workflows/ci-bruno.yml), and [`ci-compendium.yml`](../../.github/workflows/ci-compendium.yml). The relevant checks must pass for a PR to be mergeable.
 
 ### ADRs
 

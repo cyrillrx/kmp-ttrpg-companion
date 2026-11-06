@@ -89,6 +89,7 @@ fun CreateCampaignScreen(
             snackbarHostState.showSnackbar(message = errorMessage)
         }
     }
+
     Scaffold(
         topBar = {
             SimpleTopBar(
@@ -173,6 +174,7 @@ fun ChooseRuleSetButton(
         DropdownMenu(expanded = showMenu, onDismissRequest = { showMenu = false }) {
             ruleSets.forEach { ruleSet ->
                 if (ruleSet.value == RuleSet.UNDEFINED) return@forEach
+
                 DropdownMenuItem(
                     onClick = {
                         onRuleSetSelected(ruleSet.value)

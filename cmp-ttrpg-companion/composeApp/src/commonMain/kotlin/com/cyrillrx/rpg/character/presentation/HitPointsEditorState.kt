@@ -53,6 +53,7 @@ internal data class HitPointsEditorState(
     val signedAmount: String
         get() {
             if (amount == 0) return "0"
+
             return when (adjustment) {
                 HitPointAdjustment.DAMAGE -> (-amount).toSignedString()
                 HitPointAdjustment.HEALING -> amount.toSignedString()

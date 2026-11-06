@@ -40,10 +40,12 @@ internal fun NumberKeypad(
                 row.forEach { digit -> DigitKey(digit, onDigit) }
             }
         }
+
         KeyRow {
             Key(onClick = onClear, contentDescription = stringResource(Res.string.btn_clear)) {
                 KeyLabel("C")
             }
+
             DigitKey(0, onDigit)
             Key(onClick = onBackspace, contentDescription = stringResource(Res.string.btn_backspace)) {
                 Icon(Icons.AutoMirrored.Filled.Backspace, contentDescription = null)

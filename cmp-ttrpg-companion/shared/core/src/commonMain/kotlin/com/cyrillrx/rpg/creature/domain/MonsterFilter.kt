@@ -12,6 +12,7 @@ data class MonsterFilter(
 
 fun List<Monster>.applyFilter(filter: MonsterFilter?): List<Monster> {
     if (filter == null) return this
+
     return filter { it.matches(filter) }
 }
 

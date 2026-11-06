@@ -29,6 +29,7 @@ fun SwipeToDelete(
             if (value == SwipeToDismissBoxValue.EndToStart) {
                 onSwiped()
             }
+
             false
         },
     )

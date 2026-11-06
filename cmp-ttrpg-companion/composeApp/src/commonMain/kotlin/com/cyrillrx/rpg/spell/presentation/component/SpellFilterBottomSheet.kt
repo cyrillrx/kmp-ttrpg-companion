@@ -161,11 +161,13 @@ private fun ComponentFilterChip(
         ComponentFilterState.REQUIRED -> Icons.Default.Check
         ComponentFilterState.EXCLUDED -> Icons.Default.Close
     }
+
     val iconContentDescription = when (state) {
         ComponentFilterState.NONE -> null
         ComponentFilterState.REQUIRED -> stringResource(Res.string.filter_component_required)
         ComponentFilterState.EXCLUDED -> stringResource(Res.string.filter_component_excluded)
     }
+
     val colors = when (state) {
         ComponentFilterState.EXCLUDED -> FilterChipDefaults.filterChipColors(
             selectedContainerColor = MaterialTheme.colorScheme.errorContainer,
@@ -174,6 +176,7 @@ private fun ComponentFilterChip(
         )
         else -> FilterChipDefaults.filterChipColors()
     }
+
     FilterChip(
         selected = state != ComponentFilterState.NONE,
         onClick = onClick,

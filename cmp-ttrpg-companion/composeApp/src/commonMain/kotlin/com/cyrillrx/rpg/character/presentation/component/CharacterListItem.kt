@@ -127,6 +127,7 @@ private fun CharacterListItemPreview() {
         SampleCharacterRepository.getAll().forEach {
             CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
         }
+
         listOf(
             SampleCharacterRepository.multiclassBarbarian(),
             described,

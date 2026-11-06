@@ -19,6 +19,7 @@ fun ProficiencyCheckbox(
         Proficiency.PROFICIENT -> Icons.Filled.CheckBox
         Proficiency.EXPERT -> Icons.Filled.Star
     }
+
     Icon(
         imageVector = icon,
         contentDescription = proficiency.toFormattedString(),

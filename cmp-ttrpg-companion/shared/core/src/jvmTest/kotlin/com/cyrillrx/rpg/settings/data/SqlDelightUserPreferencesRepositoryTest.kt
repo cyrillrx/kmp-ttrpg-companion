@@ -68,6 +68,7 @@ class SqlDelightUserPreferencesRepositoryTest {
             assertEquals(order, repository.preferences.value.characterSortOrder)
             assertEquals(otherOrder, repository.preferences.value.collectionSortOrder)
         }
+
         for (order in CollectionItemOrder.entries) {
             val repository = buildRepository()
             repository.initialize()

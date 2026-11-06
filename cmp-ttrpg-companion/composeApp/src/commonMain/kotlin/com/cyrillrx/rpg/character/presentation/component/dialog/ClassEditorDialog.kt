@@ -87,6 +87,7 @@ internal fun ClassEditorDialog(
                     onRemove = { working = working.withClassRemoved(clazz) },
                 )
             }
+
             TextButton(
                 onClick = { showPicker = true },
                 enabled = working.canAddClass() && untakenExists,
@@ -132,6 +133,7 @@ private fun ClassLevelRow(
                 modifier = Modifier.weight(1f),
             )
         }
+
         DecrementIncrementRow(
             value = level,
             minValue = MIN_CHARACTER_LEVEL,

@@ -29,6 +29,7 @@ private class AndroidFileSharer(private val context: Context) : FileSharer {
                 .resolve(file.name)
                 .apply { writeText(file.content) }
         }
+
         val uri = FileProvider.getUriForFile(context, context.packageName + FILE_PROVIDER_AUTHORITY_SUFFIX, exported)
         val send = Intent(Intent.ACTION_SEND).apply {
             type = file.mimeType
@@ -37,6 +38,7 @@ private class AndroidFileSharer(private val context: Context) : FileSharer {
             clipData = ClipData.newRawUri(file.name, uri)
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
+
         context.startActivity(Intent.createChooser(send, null))
     }
 }

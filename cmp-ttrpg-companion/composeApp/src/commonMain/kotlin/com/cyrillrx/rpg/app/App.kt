@@ -65,16 +65,19 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
             .components { add(SvgDecoder.Factory()) }
             .build()
     }
+
     // TODO(#280): held in the composition, so an Activity recreation builds a second instance while the
     // surviving view models keep reading the first one.
     val prefsRepository: UserPreferencesRepository = remember(dbDriverFactory) {
         SqlDelightUserPreferencesRepository(dbDriverFactory)
     }
+
     var prefsInitialized by remember { mutableStateOf(false) }
     LaunchedEffect(prefsRepository) {
         prefsRepository.initialize()
         prefsInitialized = true
     }
+
     val prefs by prefsRepository.preferences.collectAsState()
 
     if (!prefsInitialized) return
@@ -92,9 +95,11 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
             val pcPresetRepository = remember(fileReader) {
                 JsonCharacterPresetRepository(fileReader, "files/pc-presets.json")
             }
+
             val npcPresetRepository = remember(fileReader) {
                 JsonCharacterPresetRepository(fileReader, "files/npc-presets.json")
             }
+
             val spellRepository = remember(fileReader) { JsonSpellRepository(fileReader) }
             val magicalItemRepository = remember(fileReader) { JsonMagicalItemRepository(fileReader) }
             val monsterRepository = remember(fileReader) { JsonMonsterRepository(fileReader) }

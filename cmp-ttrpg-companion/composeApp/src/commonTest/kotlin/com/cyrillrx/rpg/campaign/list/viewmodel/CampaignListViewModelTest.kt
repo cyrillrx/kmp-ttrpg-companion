@@ -218,6 +218,7 @@ private class TestCampaignRepository : CampaignRepository {
 
     override suspend fun getAll(filter: CampaignFilter?): List<Campaign> {
         filter ?: return campaigns
+
         val query = filter.query
         return if (query.isBlank()) campaigns else campaigns.filter { it.name.contains(query, ignoreCase = true) }
     }
@@ -243,6 +244,7 @@ private class FailsOnSecondCallCampaignRepository : CampaignRepository {
 
     override suspend fun getAll(filter: CampaignFilter?): List<Campaign> {
         if (callCount++ == 0) return emptyList()
+
         error("Repository error")
     }
 
@@ -254,6 +256,7 @@ private class FailsOnSecondCallCampaignRepository : CampaignRepository {
 private class SlowUnfilteredCampaignRepository(private val gate: CompletableDeferred<Unit>) : CampaignRepository {
     override suspend fun getAll(filter: CampaignFilter?): List<Campaign> {
         if (!filter?.query.isNullOrBlank()) return emptyList()
+
         gate.await()
         return listOf(Campaign("1", "Campaign 1", RuleSet.DND5E))
     }

@@ -40,6 +40,7 @@ class JsonSpellRepository(
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
         }
+
         return listOf()
     }
 
@@ -57,6 +58,7 @@ class JsonSpellRepository(
                 ?: return Result.Failure(SpellImportError.MissingSource(id))
             val level = level
                 ?: return Result.Failure(SpellImportError.MissingLevel(id))
+
             val apiSchool = school
             val school = apiSchool?.toSchool()
                 ?: return Result.Failure(SpellImportError.UnknownSchool(id, apiSchool.orEmpty()))
@@ -106,6 +108,7 @@ class JsonSpellRepository(
                     Result.Success(characterClass)
                 }
             }
+
             classErrors.forEach { println("WARNING: $it") }
 
             return availableClasses.takeIf { it.isNotEmpty() }
@@ -118,6 +121,7 @@ class JsonSpellRepository(
             val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
                 t.toTranslation(spellId, locale)
             }
+
             translationErrors.forEach { println("WARNING: spell import error: $it") }
             return parsedTranslations.takeIf { it.isNotEmpty() }
         }

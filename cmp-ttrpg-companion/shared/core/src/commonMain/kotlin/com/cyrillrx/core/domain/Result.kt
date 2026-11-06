@@ -16,6 +16,7 @@ fun <T, Data, E : Error> List<T>.partitionBy(
             is Result.Failure -> failures.add(result.error)
         }
     }
+
     return successes to failures
 }
 
@@ -32,5 +33,6 @@ fun <K, V, NewV, E : Error> Map<K, V>.partitionBy(
             is Result.Failure -> failures.add(result.error)
         }
     }
+
     return successes to failures
 }

@@ -104,6 +104,7 @@ private fun MonsterHeader(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+
         Text(
             text = monster.getSubtitle().uppercase(),
             style = MaterialTheme.typography.labelMedium,

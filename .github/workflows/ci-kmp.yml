@@ -29,9 +29,9 @@ jobs:
         working-directory: cmp-ttrpg-companion
         run: chmod +x gradlew
 
-      - name: Check formatting
+      - name: Check formatting and test the ktlint rules
         working-directory: cmp-ttrpg-companion
-        run: ./gradlew ktlintCheck --no-daemon
+        run: ./gradlew ktlintCheck :ktlint-rules:test --no-daemon
 
   kmp-tests:
     name: CMP Client - JVM Tests

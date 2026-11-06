@@ -64,6 +64,7 @@ internal fun DecrementIncrementRow(
                 Text("-", style = MaterialTheme.typography.headlineMedium)
             }
         }
+
         Text(
             text = valueLabel,
             style = MaterialTheme.typography.displaySmall,
@@ -95,6 +96,7 @@ private fun RepeatingIconButton(
     var consumedByRepeat by remember { mutableStateOf(false) }
     LaunchedEffect(isPressed) {
         if (!isPressed) return@LaunchedEffect
+
         consumedByRepeat = false
         delay(REPEAT_INITIAL_DELAY_MS)
         while (currentEnabled) {
@@ -103,6 +105,7 @@ private fun RepeatingIconButton(
             delay(REPEAT_INTERVAL_MS)
         }
     }
+
     FilledTonalIconButton(
         onClick = { if (!consumedByRepeat) onClick() },
         enabled = enabled,
