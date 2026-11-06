@@ -28,11 +28,13 @@ fun readCharacterExport(
     if (formatVersion > CHARACTER_EXPORT_FORMAT_VERSION) {
         return Result.Failure(CharacterFileImportError.UnsupportedFormatVersion(formatVersion))
     }
+
     val entityType = envelope.primitive("entityType")?.contentOrNull
         ?: return Result.Failure(CharacterFileImportError.MalformedEnvelope)
     if (entityType != ENTITY_TYPE_CHARACTER) {
         return Result.Failure(CharacterFileImportError.UnsupportedEntityType(entityType))
     }
+
     val character = envelope["character"]?.decodeCharacterOrNull()
         ?: return Result.Failure(CharacterFileImportError.MalformedEnvelope)
 
