@@ -56,6 +56,7 @@ coil3-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coil3" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-coreKtx" }
+androidx-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidx-compose" }
 androidx-ui = { module = "androidx.compose.ui:ui", version.ref = "androidx-compose" }
 androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidx-compose" }
 legacy-material = { module = "com.google.android.material:material", version.ref = "legacy-materialVersion" }
