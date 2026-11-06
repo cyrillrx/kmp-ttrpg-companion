@@ -1,9 +1,13 @@
 server-rust/target/
 .git/
 .github/
-androidApp/
-cmp-ttrpg-companion/
+app/
+buildSrc/
+ktlint-rules/
 gradle/
+gradlew*
+*.gradle.kts
+gradle.properties
 .gradle/
 build/
 *.md

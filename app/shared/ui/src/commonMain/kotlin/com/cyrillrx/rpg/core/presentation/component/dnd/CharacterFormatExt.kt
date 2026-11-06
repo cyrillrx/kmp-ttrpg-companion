@@ -1,0 +1,244 @@
+package com.cyrillrx.rpg.core.presentation.component.dnd
+
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.capitalize
+import androidx.compose.ui.text.intl.Locale
+import com.cyrillrx.rpg.character.domain.Background
+import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
+import com.cyrillrx.rpg.character.domain.Language
+import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.core.presentation.format.toClassBreakdown
+import com.cyrillrx.rpg.core.presentation.format.toClassNames
+import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Proficiency
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
+import rpg_companion.app.shared.ui.generated.resources.Res
+import rpg_companion.app.shared.ui.generated.resources.ability_label_cha
+import rpg_companion.app.shared.ui.generated.resources.ability_label_charisma
+import rpg_companion.app.shared.ui.generated.resources.ability_label_con
+import rpg_companion.app.shared.ui.generated.resources.ability_label_constitution
+import rpg_companion.app.shared.ui.generated.resources.ability_label_dex
+import rpg_companion.app.shared.ui.generated.resources.ability_label_dexterity
+import rpg_companion.app.shared.ui.generated.resources.ability_label_int
+import rpg_companion.app.shared.ui.generated.resources.ability_label_intelligence
+import rpg_companion.app.shared.ui.generated.resources.ability_label_str
+import rpg_companion.app.shared.ui.generated.resources.ability_label_strength
+import rpg_companion.app.shared.ui.generated.resources.ability_label_wis
+import rpg_companion.app.shared.ui.generated.resources.ability_label_wisdom
+import rpg_companion.app.shared.ui.generated.resources.background_acolyte
+import rpg_companion.app.shared.ui.generated.resources.background_charlatan
+import rpg_companion.app.shared.ui.generated.resources.background_criminal
+import rpg_companion.app.shared.ui.generated.resources.background_entertainer
+import rpg_companion.app.shared.ui.generated.resources.background_folk_hero
+import rpg_companion.app.shared.ui.generated.resources.background_guild_artisan
+import rpg_companion.app.shared.ui.generated.resources.background_hermit
+import rpg_companion.app.shared.ui.generated.resources.background_noble
+import rpg_companion.app.shared.ui.generated.resources.background_outlander
+import rpg_companion.app.shared.ui.generated.resources.background_sage
+import rpg_companion.app.shared.ui.generated.resources.background_sailor
+import rpg_companion.app.shared.ui.generated.resources.background_soldier
+import rpg_companion.app.shared.ui.generated.resources.background_urchin
+import rpg_companion.app.shared.ui.generated.resources.class_artificer
+import rpg_companion.app.shared.ui.generated.resources.class_barbarian
+import rpg_companion.app.shared.ui.generated.resources.class_bard
+import rpg_companion.app.shared.ui.generated.resources.class_cleric
+import rpg_companion.app.shared.ui.generated.resources.class_druid
+import rpg_companion.app.shared.ui.generated.resources.class_fighter
+import rpg_companion.app.shared.ui.generated.resources.class_monk
+import rpg_companion.app.shared.ui.generated.resources.class_paladin
+import rpg_companion.app.shared.ui.generated.resources.class_ranger
+import rpg_companion.app.shared.ui.generated.resources.class_rogue
+import rpg_companion.app.shared.ui.generated.resources.class_sorcerer
+import rpg_companion.app.shared.ui.generated.resources.class_unknown
+import rpg_companion.app.shared.ui.generated.resources.class_warlock
+import rpg_companion.app.shared.ui.generated.resources.class_wizard
+import rpg_companion.app.shared.ui.generated.resources.language_abyssal
+import rpg_companion.app.shared.ui.generated.resources.language_celestial
+import rpg_companion.app.shared.ui.generated.resources.language_common
+import rpg_companion.app.shared.ui.generated.resources.language_deep_speech
+import rpg_companion.app.shared.ui.generated.resources.language_draconic
+import rpg_companion.app.shared.ui.generated.resources.language_druidic
+import rpg_companion.app.shared.ui.generated.resources.language_dwarvish
+import rpg_companion.app.shared.ui.generated.resources.language_elvish
+import rpg_companion.app.shared.ui.generated.resources.language_giant
+import rpg_companion.app.shared.ui.generated.resources.language_gnomish
+import rpg_companion.app.shared.ui.generated.resources.language_goblin
+import rpg_companion.app.shared.ui.generated.resources.language_halfling
+import rpg_companion.app.shared.ui.generated.resources.language_infernal
+import rpg_companion.app.shared.ui.generated.resources.language_orc
+import rpg_companion.app.shared.ui.generated.resources.language_primordial
+import rpg_companion.app.shared.ui.generated.resources.language_sylvan
+import rpg_companion.app.shared.ui.generated.resources.language_thieves_cant
+import rpg_companion.app.shared.ui.generated.resources.language_undercommon
+import rpg_companion.app.shared.ui.generated.resources.proficiency_expert
+import rpg_companion.app.shared.ui.generated.resources.proficiency_none
+import rpg_companion.app.shared.ui.generated.resources.proficiency_proficient
+import rpg_companion.app.shared.ui.generated.resources.race_dragonborn
+import rpg_companion.app.shared.ui.generated.resources.race_dwarf
+import rpg_companion.app.shared.ui.generated.resources.race_elf
+import rpg_companion.app.shared.ui.generated.resources.race_gnome
+import rpg_companion.app.shared.ui.generated.resources.race_half_elf
+import rpg_companion.app.shared.ui.generated.resources.race_half_orc
+import rpg_companion.app.shared.ui.generated.resources.race_halfling
+import rpg_companion.app.shared.ui.generated.resources.race_human
+import rpg_companion.app.shared.ui.generated.resources.race_tiefling
+import rpg_companion.app.shared.ui.generated.resources.value_race_classes
+
+fun Background.toStringRes(): StringResource = when (this) {
+    Background.ACOLYTE -> Res.string.background_acolyte
+    Background.CHARLATAN -> Res.string.background_charlatan
+    Background.CRIMINAL -> Res.string.background_criminal
+    Background.ENTERTAINER -> Res.string.background_entertainer
+    Background.FOLK_HERO -> Res.string.background_folk_hero
+    Background.GUILD_ARTISAN -> Res.string.background_guild_artisan
+    Background.HERMIT -> Res.string.background_hermit
+    Background.NOBLE -> Res.string.background_noble
+    Background.OUTLANDER -> Res.string.background_outlander
+    Background.SAGE -> Res.string.background_sage
+    Background.SAILOR -> Res.string.background_sailor
+    Background.SOLDIER -> Res.string.background_soldier
+    Background.URCHIN -> Res.string.background_urchin
+}
+
+@Composable
+fun Background?.toFormattedString(): String {
+    this ?: return ""
+
+    return stringResource(toStringRes())
+}
+
+fun Language.toStringRes(): StringResource = when (this) {
+    Language.ABYSSAL -> Res.string.language_abyssal
+    Language.CELESTIAL -> Res.string.language_celestial
+    Language.COMMON -> Res.string.language_common
+    Language.DEEP_SPEECH -> Res.string.language_deep_speech
+    Language.DRACONIC -> Res.string.language_draconic
+    Language.DRUIDIC -> Res.string.language_druidic
+    Language.DWARVISH -> Res.string.language_dwarvish
+    Language.ELVISH -> Res.string.language_elvish
+    Language.GIANT -> Res.string.language_giant
+    Language.GNOMISH -> Res.string.language_gnomish
+    Language.GOBLIN -> Res.string.language_goblin
+    Language.HALFLING -> Res.string.language_halfling
+    Language.INFERNAL -> Res.string.language_infernal
+    Language.ORC -> Res.string.language_orc
+    Language.PRIMORDIAL -> Res.string.language_primordial
+    Language.SYLVAN -> Res.string.language_sylvan
+    Language.THIEVES_CANT -> Res.string.language_thieves_cant
+    Language.UNDERCOMMON -> Res.string.language_undercommon
+}
+
+@Composable
+fun Language.toFormattedString(): String = stringResource(toStringRes())
+
+fun Race.toStringRes(): StringResource = when (this) {
+    Race.HUMAN -> Res.string.race_human
+    Race.ELF -> Res.string.race_elf
+    Race.DWARF -> Res.string.race_dwarf
+    Race.HALFLING -> Res.string.race_halfling
+    Race.HALF_ELF -> Res.string.race_half_elf
+    Race.HALF_ORC -> Res.string.race_half_orc
+    Race.DRAGONBORN -> Res.string.race_dragonborn
+    Race.GNOME -> Res.string.race_gnome
+    Race.TIEFLING -> Res.string.race_tiefling
+}
+
+@Composable
+private fun Race.toAdjective(): String = stringResource(toStringRes())
+
+@Composable
+fun Race.toFormattedString(): String = toAdjective().capitalize(Locale.current)
+
+@Composable
+fun Proficiency.toFormattedString(): String {
+    val stringRes = when (this) {
+        Proficiency.NONE -> Res.string.proficiency_none
+        Proficiency.PROFICIENT -> Res.string.proficiency_proficient
+        Proficiency.EXPERT -> Res.string.proficiency_expert
+    }
+
+    return stringResource(stringRes)
+}
+
+@Composable
+fun Proficiency.getColor(): Color = when (this) {
+    Proficiency.NONE -> Color.Unspecified
+    Proficiency.PROFICIENT -> MaterialTheme.colorScheme.primary
+    Proficiency.EXPERT -> MaterialTheme.colorScheme.tertiary
+}
+
+@Composable
+fun Ability.toAbbreviationString(): String {
+    val stringRes = when (this) {
+        Ability.STRENGTH -> Res.string.ability_label_str
+        Ability.DEXTERITY -> Res.string.ability_label_dex
+        Ability.CONSTITUTION -> Res.string.ability_label_con
+        Ability.INTELLIGENCE -> Res.string.ability_label_int
+        Ability.WISDOM -> Res.string.ability_label_wis
+        Ability.CHARISMA -> Res.string.ability_label_cha
+    }
+
+    return stringResource(stringRes)
+}
+
+fun Ability.toStringRes(): StringResource = when (this) {
+    Ability.STRENGTH -> Res.string.ability_label_strength
+    Ability.DEXTERITY -> Res.string.ability_label_dexterity
+    Ability.CONSTITUTION -> Res.string.ability_label_constitution
+    Ability.INTELLIGENCE -> Res.string.ability_label_intelligence
+    Ability.WISDOM -> Res.string.ability_label_wisdom
+    Ability.CHARISMA -> Res.string.ability_label_charisma
+}
+
+@Composable
+fun Ability.toFormattedString(): String = stringResource(toStringRes())
+
+fun Character.Class.toStringRes(): StringResource = when (this) {
+    Character.Class.ARTIFICER -> Res.string.class_artificer
+    Character.Class.BARBARIAN -> Res.string.class_barbarian
+    Character.Class.BARD -> Res.string.class_bard
+    Character.Class.CLERIC -> Res.string.class_cleric
+    Character.Class.DRUID -> Res.string.class_druid
+    Character.Class.FIGHTER -> Res.string.class_fighter
+    Character.Class.MONK -> Res.string.class_monk
+    Character.Class.PALADIN -> Res.string.class_paladin
+    Character.Class.RANGER -> Res.string.class_ranger
+    Character.Class.ROGUE -> Res.string.class_rogue
+    Character.Class.SORCERER -> Res.string.class_sorcerer
+    Character.Class.WARLOCK -> Res.string.class_warlock
+    Character.Class.WIZARD -> Res.string.class_wizard
+    Character.Class.UNKNOWN -> Res.string.class_unknown
+}
+
+@Composable
+fun Character.Class.toFormattedString(): String = stringResource(toStringRes())
+
+@Composable
+private fun ClassLevels.localizedNames(): Map<Character.Class, String> =
+    keys.associateWith { it.toFormattedString() }
+
+// e.g. "Fighter 3 / Rogue 2", or "Fighter" for a single class.
+@Composable
+fun ClassLevels.toClassesLabel(): String {
+    val names = localizedNames()
+    return toClassBreakdown { names.getValue(it) }
+}
+
+// e.g. "Dwarf Cleric/Ranger" (en), "Clerc/Rôdeur nain" (fr); the race alone when no class is set.
+@Composable
+fun ClassLevels.toClassesRaceLabel(race: Race): String {
+    val names = localizedNames()
+    val classNames = toClassNames { names.getValue(it) }
+    val raceAdjective = race.toAdjective()
+    val label = if (classNames.isEmpty()) {
+        raceAdjective
+    } else {
+        stringResource(Res.string.value_race_classes, raceAdjective, classNames)
+    }
+
+    return label.capitalize(Locale.current)
+}

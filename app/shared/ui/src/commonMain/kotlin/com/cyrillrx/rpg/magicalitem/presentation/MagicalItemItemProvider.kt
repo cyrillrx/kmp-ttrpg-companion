@@ -1,0 +1,27 @@
+package com.cyrillrx.rpg.magicalitem.presentation
+
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Stars
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
+import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListItem
+import com.cyrillrx.rpg.usercollection.presentation.CollectionItemProvider
+import org.jetbrains.compose.resources.StringResource
+import rpg_companion.app.shared.ui.generated.resources.Res
+import rpg_companion.app.shared.ui.generated.resources.empty_collection_browse_magical_items
+
+class MagicalItemItemProvider(
+    private val onItemClicked: (MagicalItem) -> Unit,
+    override val onEmptyLayoutBtnClicked: () -> Unit = {},
+) : CollectionItemProvider<MagicalItem> {
+
+    override val emptyLayoutIcon: ImageVector = Icons.Outlined.Stars
+    override val emptyLayoutBtnText: StringResource = Res.string.empty_collection_browse_magical_items
+
+    @Composable
+    override fun ListItem(entity: MagicalItem, modifier: Modifier) {
+        MagicalItemListItem(magicalItem = entity, onClick = { onItemClicked(entity) }, modifier = modifier)
+    }
+}

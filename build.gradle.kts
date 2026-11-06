@@ -1,0 +1,36 @@
+import org.sonarqube.gradle.SonarExtension
+
+plugins {
+    // trick: for the same plugin versions in all submodules
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.test) apply false
+    alias(libs.plugins.android.kotlin.multiplatform.library) apply false
+    alias(libs.plugins.androidx.baselineprofile) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.jetbrains.compose) apply false
+    alias(libs.plugins.ktlint) apply false
+    alias(libs.plugins.sonarqube)
+}
+
+// The Android shells have no analyzable code and trip a scanner/AGP 9 incompatibility
+// (sonarResolver queries res providers before their producing task runs).
+// The ktlint rules are build tooling, outside the app the quality gate measures.
+listOf(":app:androidApp", ":app:baselineprofile", ":ktlint-rules").forEach { path ->
+    project(path) {
+        extensions.configure<SonarExtension>("sonar") {
+            isSkipProject = true
+        }
+    }
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "cyrillrx_ttrpg-companion_client-cmp")
+        property("sonar.organization", "cyrillrx")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
+}

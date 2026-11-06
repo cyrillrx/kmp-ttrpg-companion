@@ -1,0 +1,208 @@
+package com.cyrillrx.rpg.magicalitem.presentation.component
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.presentation.COMPENDIUM_LIST_TEST_TAG
+import com.cyrillrx.rpg.core.presentation.ScrollPosition
+import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnEvent
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
+import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
+import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToCollectionProvider
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
+import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
+import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.app.shared.ui.generated.resources.Res
+import rpg_companion.app.shared.ui.generated.resources.hint_search_magical_item
+
+@Composable
+fun MagicalItemListScreen(
+    viewModel: MagicalItemListViewModel,
+    router: MagicalItemRouter,
+    addToCollectionProvider: AddToCollectionProvider<MagicalItem>,
+) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
+    MagicalItemListScreen(
+        state = state,
+        onNavigateUpClicked = router::navigateUp,
+        onSearchQueryChanged = viewModel::filterByQuery,
+        onMagicalItemClicked = router::openDetail,
+        onTypeToggled = viewModel::onTypeToggled,
+        onRarityToggled = viewModel::onRarityToggled,
+        onResetFilters = viewModel::onResetFilters,
+        addToCollectionProvider = addToCollectionProvider,
+        initialScrollPosition = viewModel.savedScrollPosition,
+        scrollToTopEvents = viewModel.scrollToTopEvents,
+        onScrollPositionChanged = viewModel::saveScrollPosition,
+    )
+}
+
+@Composable
+fun MagicalItemListScreen(
+    state: MagicalItemListState,
+    onNavigateUpClicked: () -> Unit,
+    onSearchQueryChanged: (String) -> Unit,
+    onMagicalItemClicked: (MagicalItem) -> Unit,
+    onTypeToggled: (MagicalItem.Type) -> Unit,
+    onRarityToggled: (MagicalItem.Rarity) -> Unit,
+    onResetFilters: () -> Unit,
+    addToCollectionProvider: AddToCollectionProvider<MagicalItem>,
+    initialScrollPosition: ScrollPosition = ScrollPosition(),
+    scrollToTopEvents: Flow<Unit> = emptyFlow(),
+    onScrollPositionChanged: (ScrollPosition) -> Unit = {},
+) {
+    var showFilterSheet by remember { mutableStateOf(false) }
+    var itemToAdd by remember { mutableStateOf<MagicalItem?>(null) }
+
+    Scaffold(
+        topBar = {
+            SearchBarWithBack(
+                hint = stringResource(Res.string.hint_search_magical_item),
+                query = state.filter.query,
+                onQueryChanged = onSearchQueryChanged,
+                onNavigateUpClicked = onNavigateUpClicked,
+                onFilterClicked = { showFilterSheet = true },
+                hasActiveFilters = state.filter.hasActiveFilters,
+            )
+        },
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            when (val body = state.body) {
+                is MagicalItemListState.Body.Loading -> Loader()
+                is MagicalItemListState.Body.Empty -> EmptySearch(state.filter.query)
+                is MagicalItemListState.Body.Error -> ErrorLayout(body.errorMessage)
+                is MagicalItemListState.Body.WithData -> MagicalItemList(
+                    magicalItems = body.searchResults,
+                    onMagicalItemClicked = onMagicalItemClicked,
+                    showAddToCollection = { item -> itemToAdd = item },
+                    initialScrollPosition = initialScrollPosition,
+                    scrollToTopEvents = scrollToTopEvents,
+                    onScrollPositionChanged = onScrollPositionChanged,
+                )
+            }
+        }
+    }
+
+    if (showFilterSheet) {
+        MagicalItemFilterBottomSheet(
+            filter = state.filter,
+            onTypeToggled = onTypeToggled,
+            onRarityToggled = onRarityToggled,
+            onResetFilters = onResetFilters,
+            onDismiss = { showFilterSheet = false },
+        )
+    }
+
+    itemToAdd?.let { item ->
+        addToCollectionProvider.BottomSheet(
+            entityId = item.id,
+            onDismiss = { itemToAdd = null },
+        )
+    }
+}
+
+@Composable
+private fun MagicalItemList(
+    magicalItems: List<MagicalItem>,
+    onMagicalItemClicked: (MagicalItem) -> Unit,
+    showAddToCollection: (MagicalItem) -> Unit,
+    initialScrollPosition: ScrollPosition,
+    scrollToTopEvents: Flow<Unit>,
+    onScrollPositionChanged: (ScrollPosition) -> Unit,
+) {
+    val listState = rememberLazyListState(
+        initialFirstVisibleItemIndex = initialScrollPosition.index,
+        initialFirstVisibleItemScrollOffset = initialScrollPosition.offset,
+    )
+    ScrollToTopOnEvent(events = scrollToTopEvents, listState = listState)
+    val currentOnScrollPositionChanged by rememberUpdatedState(onScrollPositionChanged)
+    LaunchedEffect(listState) {
+        snapshotFlow {
+            ScrollPosition(
+                listState.firstVisibleItemIndex,
+                listState.firstVisibleItemScrollOffset,
+            )
+        }.collect { currentOnScrollPositionChanged(it) }
+    }
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize().testTag(COMPENDIUM_LIST_TEST_TAG),
+        state = listState,
+        contentPadding = PaddingValues(spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+    ) {
+        items(magicalItems, key = { it.id }) { item ->
+            SwipeToAdd(
+                onSwiped = { showAddToCollection(item) },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                MagicalItemListItem(
+                    magicalItem = item,
+                    onClick = { onMagicalItemClicked(item) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+        }
+    }
+}
+
+private val stateWithSampleData = MagicalItemListState(
+    body = MagicalItemListState.Body.WithData(SampleMagicalItemRepository.getAll()),
+)
+
+@Preview
+@Composable
+private fun PreviewMagicalItemListScreenLight() {
+    AppThemePreview(darkTheme = false) { MagicalItemListScreenPreview() }
+}
+
+@Preview
+@Composable
+private fun PreviewMagicalItemListScreenDark() {
+    AppThemePreview(darkTheme = true) { MagicalItemListScreenPreview() }
+}
+
+@Composable
+private fun MagicalItemListScreenPreview() {
+    val addToCollectionProvider =
+        MagicalItemAddToCollectionProvider(SampleMagicalItemRepository(), SampleUserCollectionRepository())
+    MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToCollectionProvider)
+}

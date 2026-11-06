@@ -56,8 +56,9 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fi
 DATA_DIR = os.path.join(REPO_ROOT, "data", "compendium")
 APP_RESOURCES_DIR = os.path.join(
     REPO_ROOT,
-    "cmp-ttrpg-companion",
-    "composeApp",
+    "app",
+    "shared",
+    "ui",
     "src",
     "commonMain",
     "composeResources",

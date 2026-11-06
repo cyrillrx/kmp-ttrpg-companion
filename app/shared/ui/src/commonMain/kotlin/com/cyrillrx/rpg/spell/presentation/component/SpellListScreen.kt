@@ -1,0 +1,216 @@
+package com.cyrillrx.rpg.spell.presentation.component
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.presentation.COMPENDIUM_LIST_TEST_TAG
+import com.cyrillrx.rpg.core.presentation.ScrollPosition
+import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnEvent
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
+import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.spell.data.SampleSpellRepository
+import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.presentation.SpellAddToCollectionProvider
+import com.cyrillrx.rpg.spell.presentation.SpellListState
+import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.app.shared.ui.generated.resources.Res
+import rpg_companion.app.shared.ui.generated.resources.hint_search_spell
+
+@Composable
+fun SpellListScreen(
+    viewModel: SpellListViewModel,
+    router: SpellRouter,
+    addToCollectionProvider: AddToCollectionProvider<Spell>,
+) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
+    SpellListScreen(
+        state = state,
+        onNavigateUpClicked = router::navigateUp,
+        onSearchQueryChanged = viewModel::filterByQuery,
+        onSpellClicked = router::openDetail,
+        onLevelToggled = viewModel::onLevelToggled,
+        onSchoolToggled = viewModel::onSchoolToggled,
+        onClassToggled = viewModel::onClassToggled,
+        onComponentToggled = viewModel::onComponentToggled,
+        onResetFilters = viewModel::onResetFilters,
+        addToCollectionProvider = addToCollectionProvider,
+        initialScrollPosition = viewModel.savedScrollPosition,
+        scrollToTopEvents = viewModel.scrollToTopEvents,
+        onScrollPositionChanged = viewModel::saveScrollPosition,
+    )
+}
+
+@Composable
+fun SpellListScreen(
+    state: SpellListState,
+    onNavigateUpClicked: () -> Unit,
+    onSearchQueryChanged: (String) -> Unit,
+    onSpellClicked: (Spell) -> Unit,
+    onLevelToggled: (Int) -> Unit,
+    onSchoolToggled: (Spell.School) -> Unit,
+    onClassToggled: (Character.Class) -> Unit,
+    onComponentToggled: (Spell.ComponentType) -> Unit,
+    onResetFilters: () -> Unit,
+    addToCollectionProvider: AddToCollectionProvider<Spell>,
+    initialScrollPosition: ScrollPosition = ScrollPosition(),
+    scrollToTopEvents: Flow<Unit> = emptyFlow(),
+    onScrollPositionChanged: (ScrollPosition) -> Unit = {},
+) {
+    var showFilterSheet by remember { mutableStateOf(false) }
+    var spellToAdd by remember { mutableStateOf<Spell?>(null) }
+
+    Scaffold(
+        topBar = {
+            SearchBarWithBack(
+                hint = stringResource(Res.string.hint_search_spell),
+                query = state.filter.query,
+                onQueryChanged = onSearchQueryChanged,
+                onNavigateUpClicked = onNavigateUpClicked,
+                onFilterClicked = { showFilterSheet = true },
+                hasActiveFilters = state.filter.hasActiveFilters,
+            )
+        },
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            when (val body = state.body) {
+                is SpellListState.Body.Loading -> Loader()
+                is SpellListState.Body.Empty -> EmptySearch(state.filter.query)
+                is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
+                is SpellListState.Body.WithData -> SpellList(
+                    spells = body.searchResults,
+                    onSpellClicked = onSpellClicked,
+                    showAddToCollection = { spell -> spellToAdd = spell },
+                    initialScrollPosition = initialScrollPosition,
+                    scrollToTopEvents = scrollToTopEvents,
+                    onScrollPositionChanged = onScrollPositionChanged,
+                )
+            }
+        }
+    }
+
+    if (showFilterSheet) {
+        SpellFilterBottomSheet(
+            filter = state.filter,
+            onLevelToggled = onLevelToggled,
+            onSchoolToggled = onSchoolToggled,
+            onClassToggled = onClassToggled,
+            onComponentToggled = onComponentToggled,
+            onResetFilters = onResetFilters,
+            onDismiss = { showFilterSheet = false },
+        )
+    }
+
+    spellToAdd?.let { spell ->
+        addToCollectionProvider.BottomSheet(
+            entityId = spell.id,
+            onDismiss = { spellToAdd = null },
+        )
+    }
+}
+
+@Composable
+private fun SpellList(
+    spells: List<Spell>,
+    onSpellClicked: (Spell) -> Unit,
+    showAddToCollection: (Spell) -> Unit,
+    initialScrollPosition: ScrollPosition,
+    scrollToTopEvents: Flow<Unit>,
+    onScrollPositionChanged: (ScrollPosition) -> Unit,
+) {
+    val searchResultsListState = rememberLazyListState(
+        initialFirstVisibleItemIndex = initialScrollPosition.index,
+        initialFirstVisibleItemScrollOffset = initialScrollPosition.offset,
+    )
+    ScrollToTopOnEvent(events = scrollToTopEvents, listState = searchResultsListState)
+    val currentOnScrollPositionChanged by rememberUpdatedState(onScrollPositionChanged)
+    LaunchedEffect(searchResultsListState) {
+        snapshotFlow {
+            ScrollPosition(
+                searchResultsListState.firstVisibleItemIndex,
+                searchResultsListState.firstVisibleItemScrollOffset,
+            )
+        }.collect { currentOnScrollPositionChanged(it) }
+    }
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize().testTag(COMPENDIUM_LIST_TEST_TAG),
+        state = searchResultsListState,
+        contentPadding = PaddingValues(spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+    ) {
+        items(spells, key = { it.id }) { spell ->
+            SwipeToAdd(
+                onSwiped = { showAddToCollection(spell) },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                SpellListItem(
+                    spell = spell,
+                    onClick = { onSpellClicked(spell) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewSpellListPeekScreenLight() {
+    AppThemePreview(darkTheme = false) { SpellListPeekScreenPreview() }
+}
+
+@Preview
+@Composable
+fun PreviewSpellListPeekScreenDark() {
+    AppThemePreview(darkTheme = true) { SpellListPeekScreenPreview() }
+}
+
+@Composable
+private fun SpellListPeekScreenPreview() {
+    val userCollectionRepository = SampleUserCollectionRepository()
+    val spellRepository = SampleSpellRepository()
+    val stateWithSampleData = SpellListState(
+        body = SpellListState.Body.WithData(SampleSpellRepository.getAll()),
+    )
+    val bottomSheetProvider = SpellAddToCollectionProvider(spellRepository, userCollectionRepository)
+
+    SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, {}, bottomSheetProvider)
+}
