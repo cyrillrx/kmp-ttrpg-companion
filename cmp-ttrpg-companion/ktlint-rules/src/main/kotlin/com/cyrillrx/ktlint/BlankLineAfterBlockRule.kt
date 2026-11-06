@@ -29,13 +29,6 @@ import org.jetbrains.kotlin.psi.KtThrowExpression
 
 internal const val MISSING_BLANK_LINE_MESSAGE = "Missing blank line after a block statement"
 
-/**
- * Requires a blank line between a block statement and the statement that follows it in the same block.
- *
- * A block statement is a control-flow statement (`if`, `when`, `try`, `for`, `while`, `do`), a guard clause
- * (`val x = y ?: return`, `if (x) return`) or any statement ending with a multiline block, such as `x?.let { }`.
- * Consecutive guard clauses and single-line conditionals form a group and may stay together.
- */
 class BlankLineAfterBlockRule :
     Rule(
         ruleId = RuleId("$RULE_SET_ID:blank-line-after-block"),
@@ -76,10 +69,6 @@ class BlankLineAfterBlockRule :
             .ifAutocorrectAllowed { (separator as LeafPsiElement).rawReplaceWithText("\n" + separator.text) }
     }
 
-    /**
-     * The whitespace that ends the statement's line, after its trailing comments if any, or `null` when another
-     * statement shares that line.
-     */
     private fun separatorAfter(statement: ASTNode): ASTNode? {
         val lineEnd =
             generateSequence(statement.treeNext) { it.treeNext }
