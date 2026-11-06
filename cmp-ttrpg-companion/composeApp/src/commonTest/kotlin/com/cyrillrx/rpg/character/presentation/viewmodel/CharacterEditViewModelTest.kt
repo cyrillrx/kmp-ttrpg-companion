@@ -174,7 +174,24 @@ class CharacterEditViewModelTest {
         viewModel.rerollCheck()
 
         val sheetRoll = assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll
-        assertEquals(2, sheetRoll?.rollCount)
+        assertEquals(expected = 2, actual = sheetRoll?.rollCount)
+    }
+
+    @Test
+    fun `every roll again is recorded with the same check`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val viewModel =
+            buildViewModel(repo = repoWithFighter(), history = history, random = FixedRandom(1, 2, 3, 4, 5, 6))
+        advanceUntilIdle()
+        viewModel.rollCheck(strengthSave)
+
+        viewModel.rerollCheck()
+        viewModel.rollCheckWithAdvantage()
+        viewModel.rollCheckWithDisadvantage()
+        advanceUntilIdle()
+
+        val expectedContext = RollContext(fighter.id, strengthSave)
+        assertEquals(List(4) { expectedContext }, history.rolls.value.map { it.context })
     }
 
     @Test
