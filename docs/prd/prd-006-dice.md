@@ -61,6 +61,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - [x] History is persisted locally across app restarts.
 - [x] The user can manually clear the entire history.
 - [x] History is a single global log, kept until cleared and capped at 500 entries: past the cap, the oldest entries are dropped.
+- [x] On a wide screen, the history shows beside the roller, below the last roll; the last roll then gives up its link to the history and its preview of the previous rolls.
 
 ### Dice Notation
 
