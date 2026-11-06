@@ -29,10 +29,10 @@ class DiceHistoryStateTest {
     }
 
     @Test
-    fun `a history emptied this way still has data to clear`() {
+    fun `a history emptied this way has nothing left to clear`() {
         val state = history(RollDay(today, listOf(roll(id = 1))))
 
-        assertEquals(DiceHistoryState.Body.WithData(emptyList(), today), state.without(rollId = 1).body)
+        assertEquals(DiceHistoryState.Body.Empty, state.without(rollId = 1).body)
     }
 
     @Test

@@ -21,6 +21,7 @@ import com.cyrillrx.rpg.dice.presentation.navigation.DiceRouter
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceHistoryViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.message_no_roll_yet
 import rpg_companion.composeapp.generated.resources.title_roll_history
 
 @Composable
@@ -60,6 +61,7 @@ fun DiceHistoryScreen(
         ) {
             RollHistoryBody(
                 body = state.body,
+                emptyMessage = Res.string.message_no_roll_yet,
                 modifier = Modifier
                     .widthIn(max = readingMaxWidth)
                     .fillMaxSize(),

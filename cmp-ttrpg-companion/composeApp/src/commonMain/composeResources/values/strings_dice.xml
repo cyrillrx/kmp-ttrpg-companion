@@ -26,6 +26,7 @@
     <string name="btn_roll_history">All history</string>
     <string name="label_previous_rolls">Previous rolls</string>
     <string name="btn_clear_roll_history">Clear the history</string>
+    <string name="message_no_previous_roll">No previous roll</string>
     <string name="message_no_roll_yet">No roll yet</string>
     <string name="error_while_loading_roll_history">Error while loading the history.</string>
     <string name="error_while_clearing_roll_history">Error while clearing the history.</string>

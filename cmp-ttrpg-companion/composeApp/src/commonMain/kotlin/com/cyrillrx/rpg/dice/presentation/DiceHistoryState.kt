@@ -21,6 +21,6 @@ data class DiceHistoryState(val body: Body = Body.Loading, val hiddenUpTo: Long?
         val days = withData.days
             .map { day -> day.copy(rolls = day.rolls.filterNot { it.id == rollId }) }
             .filter { day -> day.rolls.isNotEmpty() }
-        return copy(body = withData.copy(days = days))
+        return copy(body = if (days.isEmpty()) Body.Empty else withData.copy(days = days))
     }
 }

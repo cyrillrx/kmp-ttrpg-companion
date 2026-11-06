@@ -30,6 +30,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.dice.presentation.DiceHistoryState
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceHistoryViewModel
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -37,7 +38,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_clear_roll_history
 import rpg_companion.composeapp.generated.resources.error_while_clearing_roll_history
 import rpg_companion.composeapp.generated.resources.error_while_loading_roll_history
-import rpg_companion.composeapp.generated.resources.message_no_roll_yet
+import rpg_companion.composeapp.generated.resources.message_no_previous_roll
 import rpg_companion.composeapp.generated.resources.snackbar_roll_history_cleared
 import rpg_companion.composeapp.generated.resources.title_roll_history
 
@@ -59,7 +60,7 @@ fun DiceHistorySection(state: DiceHistoryState, onClearClicked: () -> Unit, modi
             )
             ClearHistoryButton(state, onClearClicked)
         }
-        RollHistoryBody(state.body, Modifier.fillMaxSize())
+        RollHistoryBody(state.body, Res.string.message_no_previous_roll, Modifier.fillMaxSize())
     }
 }
 
@@ -71,26 +72,17 @@ fun ClearHistoryButton(state: DiceHistoryState, onClearClicked: () -> Unit, modi
 }
 
 @Composable
-fun RollHistoryBody(body: DiceHistoryState.Body, modifier: Modifier = Modifier) {
+fun RollHistoryBody(body: DiceHistoryState.Body, emptyMessage: StringResource, modifier: Modifier = Modifier) {
     when (body) {
         is DiceHistoryState.Body.Loading -> Loader(modifier)
-        is DiceHistoryState.Body.Empty -> EmptyHistory(modifier)
+        is DiceHistoryState.Body.Empty -> EmptyStateLayout(
+            icon = Icons.Filled.History,
+            message = stringResource(emptyMessage),
+            modifier = modifier,
+        )
         is DiceHistoryState.Body.Error -> ErrorLayout(Res.string.error_while_loading_roll_history, modifier)
-        is DiceHistoryState.Body.WithData -> if (body.days.isEmpty()) {
-            EmptyHistory(modifier)
-        } else {
-            RollHistoryList(body, modifier)
-        }
+        is DiceHistoryState.Body.WithData -> RollHistoryList(body, modifier)
     }
-}
-
-@Composable
-private fun EmptyHistory(modifier: Modifier) {
-    EmptyStateLayout(
-        icon = Icons.Filled.History,
-        message = stringResource(Res.string.message_no_roll_yet),
-        modifier = modifier,
-    )
 }
 
 @Composable
