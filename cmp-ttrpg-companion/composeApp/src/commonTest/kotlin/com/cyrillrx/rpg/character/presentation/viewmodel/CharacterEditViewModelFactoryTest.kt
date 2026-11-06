@@ -33,9 +33,9 @@ class CharacterEditViewModelFactoryTest {
     @Test
     fun `factory hands the import adjustment count to the view model`() {
         val factory = CharacterEditViewModelFactory(
-            "any-id",
-            RamCharacterRepository(),
-            RamRollHistoryRepository(),
+            characterId = "any-id",
+            characterRepository = RamCharacterRepository(),
+            historyRepository = RamRollHistoryRepository(),
             adjustmentCount = 3,
         )
 

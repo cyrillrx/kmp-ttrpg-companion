@@ -121,7 +121,8 @@ class CharacterEditViewModelTest {
         viewModel.rollCheck(strengthSave)
 
         val sheetRoll = assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll
-        assertEquals(SheetRoll(strengthSave, RollPool(listOf(SimpleRoll(Die.D20, 12)), modifier = 5), 1), sheetRoll)
+        val expectedPool = RollPool(listOf(SimpleRoll(Die.D20, value = 12)), modifier = 5)
+        assertEquals(SheetRoll(strengthSave, expectedPool, rollCount = 1), sheetRoll)
     }
 
     @Test
@@ -135,7 +136,7 @@ class CharacterEditViewModelTest {
 
         val recorded = history.rolls.value.single()
         assertEquals(RollContext(fighter.id, D20Check.Initiative), recorded.context)
-        assertEquals(RollPool(listOf(SimpleRoll(Die.D20, 12)), modifier = 1), recorded.pool)
+        assertEquals(RollPool(listOf(SimpleRoll(Die.D20, value = 12)), modifier = 1), recorded.pool)
     }
 
     @Test
@@ -147,8 +148,8 @@ class CharacterEditViewModelTest {
         viewModel.rollCheckWithAdvantage()
 
         val sheetRoll = assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll
-        val advantage = DoubleRoll(SimpleRoll(Die.D20, 15), SimpleRoll(Die.D20, 8), KeepRule.HIGHER)
-        assertEquals(SheetRoll(strengthSave, RollPool(listOf(advantage), modifier = 5), 2), sheetRoll)
+        val advantage = DoubleRoll(SimpleRoll(Die.D20, value = 15), SimpleRoll(Die.D20, value = 8), KeepRule.HIGHER)
+        assertEquals(SheetRoll(strengthSave, RollPool(listOf(advantage), modifier = 5), rollCount = 2), sheetRoll)
     }
 
     @Test
@@ -160,7 +161,7 @@ class CharacterEditViewModelTest {
         viewModel.rollCheckWithDisadvantage()
 
         val sheetRoll = assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll
-        val disadvantage = DoubleRoll(SimpleRoll(Die.D20, 8), SimpleRoll(Die.D20, 15), KeepRule.LOWER)
+        val disadvantage = DoubleRoll(SimpleRoll(Die.D20, value = 8), SimpleRoll(Die.D20, value = 15), KeepRule.LOWER)
         assertEquals(RollPool(listOf(disadvantage), modifier = 5), sheetRoll?.lastRoll)
     }
 

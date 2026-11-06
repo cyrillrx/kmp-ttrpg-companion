@@ -15,22 +15,26 @@ class SheetRollTest {
 
     @Test
     fun `a plain d20 has no keep rule`() {
-        assertNull(sheetRoll(SimpleRoll(Die.D20, 12)).keepRule())
+        assertNull(sheetRoll(SimpleRoll(Die.D20, value = 12)).keepRule())
     }
 
     @Test
     fun `a roll with advantage keeps the higher`() {
-        val advantage = DoubleRoll(SimpleRoll(Die.D20, 15), SimpleRoll(Die.D20, 8), KeepRule.HIGHER)
+        val advantage = DoubleRoll(SimpleRoll(Die.D20, value = 15), SimpleRoll(Die.D20, value = 8), KeepRule.HIGHER)
 
         assertEquals(KeepRule.HIGHER, sheetRoll(advantage).keepRule())
     }
 
     @Test
     fun `a roll with disadvantage keeps the lower`() {
-        val disadvantage = DoubleRoll(SimpleRoll(Die.D20, 8), SimpleRoll(Die.D20, 15), KeepRule.LOWER)
+        val disadvantage = DoubleRoll(SimpleRoll(Die.D20, value = 8), SimpleRoll(Die.D20, value = 15), KeepRule.LOWER)
 
         assertEquals(KeepRule.LOWER, sheetRoll(disadvantage).keepRule())
     }
 
-    private fun sheetRoll(roll: DieRoll) = SheetRoll(D20Check.Initiative, RollPool(listOf(roll), modifier = 2), 1)
+    private fun sheetRoll(roll: DieRoll) = SheetRoll(
+        D20Check.Initiative,
+        RollPool(listOf(roll), modifier = 2),
+        rollCount = 1,
+    )
 }
