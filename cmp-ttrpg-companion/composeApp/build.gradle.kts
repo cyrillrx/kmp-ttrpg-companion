@@ -177,9 +177,14 @@ kover {
 }
 
 ktlint {
+    version.set(libs.versions.ktlint.engine)
     debug.set(true)
     verbose.set(true)
     android.set(false)
     outputToConsole.set(true)
     ignoreFailures.set(false)
+}
+
+dependencies {
+    ktlintRuleset(projects.ktlintRules)
 }

@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.android.kotlin.multiplatform.library) apply false
     alias(libs.plugins.androidx.baselineprofile) apply false
     alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.compose.compiler) apply false
@@ -15,9 +16,10 @@ plugins {
     alias(libs.plugins.sonarqube)
 }
 
-// These modules have no analyzable code and trip a scanner/AGP 9 incompatibility
+// The Android shells have no analyzable code and trip a scanner/AGP 9 incompatibility
 // (sonarResolver queries res providers before their producing task runs).
-listOf(":androidApp", ":baselineprofile").forEach { path ->
+// The ktlint rules are build tooling, outside the app the quality gate measures.
+listOf(":androidApp", ":baselineprofile", ":ktlint-rules").forEach { path ->
     project(path) {
         extensions.configure<SonarExtension>("sonar") {
             isSkipProject = true

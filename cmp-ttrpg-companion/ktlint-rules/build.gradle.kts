@@ -1,0 +1,48 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
+plugins {
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktlint)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
+        // The rules run inside ktlint, on the Kotlin stdlib it ships.
+        apiVersion.set(KotlinVersion.KOTLIN_2_1)
+    }
+}
+
+dependencies {
+    compileOnly(libs.ktlint.cli.ruleset.core)
+    compileOnly(libs.ktlint.rule.engine.core)
+
+    testImplementation(libs.ktlint.cli.ruleset.core)
+    testImplementation(libs.ktlint.rule.engine.core)
+    testImplementation(libs.ktlint.test)
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.platform.launcher)
+    testRuntimeOnly(libs.slf4j.simple)
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+// CI runs the tests through `jvmTest`, the task name of the multiplatform modules.
+tasks.register("jvmTest") {
+    dependsOn(tasks.test)
+}
+
+ktlint {
+    version.set(libs.versions.ktlint.engine)
+    android.set(false)
+    outputToConsole.set(true)
+    ignoreFailures.set(false)
+}
