@@ -7,6 +7,8 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class DiceHistoryStateTest {
 
@@ -29,10 +31,22 @@ class DiceHistoryStateTest {
     }
 
     @Test
-    fun `a history emptied this way has nothing left to clear`() {
+    fun `a history emptied this way shows as empty`() {
         val state = history(RollDay(today, listOf(roll(id = 1))))
 
         assertEquals(DiceHistoryState.Body.Empty, state.without(rollId = 1).body)
+    }
+
+    @Test
+    fun `a history emptied this way can still be cleared`() {
+        val state = history(RollDay(today, listOf(roll(id = 1))))
+
+        assertTrue(state.without(rollId = 1).canClear)
+    }
+
+    @Test
+    fun `an empty history cannot be cleared`() {
+        assertFalse(DiceHistoryState(DiceHistoryState.Body.Empty).canClear)
     }
 
     @Test

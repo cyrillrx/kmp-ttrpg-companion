@@ -2,7 +2,11 @@ package com.cyrillrx.rpg.dice.presentation
 
 import kotlinx.datetime.LocalDate
 
-data class DiceHistoryState(val body: Body = Body.Loading, val hiddenUpTo: Long? = null) {
+data class DiceHistoryState(
+    val body: Body = Body.Loading,
+    val hiddenUpTo: Long? = null,
+    val canClear: Boolean = body is Body.WithData,
+) {
     sealed interface Body {
         data object Loading : Body
 
