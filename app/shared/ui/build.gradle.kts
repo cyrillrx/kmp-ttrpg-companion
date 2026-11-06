@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -69,7 +68,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.app.shared.domain)
+            api(projects.app.shared.domain)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -103,28 +102,7 @@ kotlin {
         }
 
         jvmMain.dependencies {
-            implementation(compose.desktop.currentOs)
-
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.kotlinx.coroutines.swing)
-        }
-    }
-}
-
-compose.desktop {
-    application {
-        mainClass = "MainKt"
-
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.cyrillrx.rpg"
-            packageVersion = Version.APP_VERSION
-            modules("java.instrument", "java.sql", "jdk.unsupported")
-        }
-
-        buildTypes.release.proguard {
-            configurationFiles.from(project.file("compose-desktop.pro"))
-            optimize.set(false)
         }
     }
 }
@@ -146,7 +124,6 @@ sonar {
                 "**/navigation/**",
                 "**/*Screen.kt",
                 "**/app/**",
-                "**/jvmMain/kotlin/Main.kt",
                 "**/androidMain/**",
                 "**/iosMain/**",
             ).joinToString(","),
@@ -170,8 +147,6 @@ kover {
                     "*ScreenKt",
                     // Navigation root, plus locale constants and an expect declaration.
                     "*.app.*",
-                    // Desktop entry point: the window and the wiring no test can reach.
-                    "MainKt",
                     // Generated: Compose resources accessors.
                     "*.generated.resources.*",
                 )

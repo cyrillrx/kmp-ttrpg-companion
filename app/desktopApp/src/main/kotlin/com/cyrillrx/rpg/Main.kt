@@ -1,3 +1,5 @@
+package com.cyrillrx.rpg
+
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import com.cyrillrx.rpg.app.App

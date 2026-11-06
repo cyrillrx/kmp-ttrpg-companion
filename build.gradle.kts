@@ -16,10 +16,10 @@ plugins {
     alias(libs.plugins.sonarqube)
 }
 
-// The Android shells have no analyzable code and trip a scanner/AGP 9 incompatibility
+// The application shells have no analyzable code and trip a scanner/AGP 9 incompatibility
 // (sonarResolver queries res providers before their producing task runs).
 // The ktlint rules are build tooling, outside the app the quality gate measures.
-listOf(":app:androidApp", ":app:baselineprofile", ":ktlint-rules").forEach { path ->
+listOf(":app:androidApp", ":app:baselineprofile", ":app:desktopApp", ":ktlint-rules").forEach { path ->
     project(path) {
         extensions.configure<SonarExtension>("sonar") {
             isSkipProject = true
