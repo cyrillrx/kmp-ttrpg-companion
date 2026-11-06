@@ -64,7 +64,7 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 
 **Rolling from the sheet**
 - [x] Tapping a skill, a saving throw or the initiative rolls a d20 with its modifier; the roll is recorded in the dice history with the character and the check (see [PRD-006](prd-006-dice.md) and [ADR-007](../adr/adr-007-roll-context.md)).
-- [x] The result shows in a sheet over the character: the check, the roll's notation and dice, and the d20, Advantage and Disadvantage actions to roll it again.
+- [x] The result shows in a sheet over the character: the check and its bonus, the dice, and the d20, Advantage and Disadvantage actions to roll it again.
 - [x] Skills are edited from a pencil next to the section title, since tapping a skill rolls it.
 - [ ] Raw ability checks: tapping an ability card still edits its score.
 - [ ] Attacks and cantrips: show the dice to roll at the table, then roll them virtually.
