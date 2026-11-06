@@ -193,6 +193,7 @@ fun DiceRollerScreen(
     }
 }
 
+// TODO(#367): reconcile the roller and history states in one screen state, tested outside the composables
 @Composable
 private fun ExpandedLayout(
     state: DiceRollerState,
