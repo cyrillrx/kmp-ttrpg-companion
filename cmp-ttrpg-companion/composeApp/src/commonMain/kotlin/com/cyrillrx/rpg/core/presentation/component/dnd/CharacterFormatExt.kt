@@ -18,11 +18,17 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.ability_label_cha
+import rpg_companion.composeapp.generated.resources.ability_label_charisma
 import rpg_companion.composeapp.generated.resources.ability_label_con
+import rpg_companion.composeapp.generated.resources.ability_label_constitution
 import rpg_companion.composeapp.generated.resources.ability_label_dex
+import rpg_companion.composeapp.generated.resources.ability_label_dexterity
 import rpg_companion.composeapp.generated.resources.ability_label_int
+import rpg_companion.composeapp.generated.resources.ability_label_intelligence
 import rpg_companion.composeapp.generated.resources.ability_label_str
+import rpg_companion.composeapp.generated.resources.ability_label_strength
 import rpg_companion.composeapp.generated.resources.ability_label_wis
+import rpg_companion.composeapp.generated.resources.ability_label_wisdom
 import rpg_companion.composeapp.generated.resources.background_acolyte
 import rpg_companion.composeapp.generated.resources.background_charlatan
 import rpg_companion.composeapp.generated.resources.background_criminal
@@ -175,6 +181,18 @@ fun Ability.toAbbreviationString(): String {
     }
     return stringResource(stringRes)
 }
+
+fun Ability.toStringRes(): StringResource = when (this) {
+    Ability.STRENGTH -> Res.string.ability_label_strength
+    Ability.DEXTERITY -> Res.string.ability_label_dexterity
+    Ability.CONSTITUTION -> Res.string.ability_label_constitution
+    Ability.INTELLIGENCE -> Res.string.ability_label_intelligence
+    Ability.WISDOM -> Res.string.ability_label_wisdom
+    Ability.CHARISMA -> Res.string.ability_label_charisma
+}
+
+@Composable
+fun Ability.toFormattedString(): String = stringResource(toStringRes())
 
 fun Character.Class.toStringRes(): StringResource = when (this) {
     Character.Class.ARTIFICER -> Res.string.class_artificer

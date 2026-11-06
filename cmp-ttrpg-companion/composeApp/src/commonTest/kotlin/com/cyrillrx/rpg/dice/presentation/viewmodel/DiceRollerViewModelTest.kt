@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.dice.presentation.viewmodel
 
 import androidx.lifecycle.ViewModelStore
 import com.cyrillrx.rpg.core.presentation.viewmodel.hold
+import com.cyrillrx.rpg.dice.FixedRandom
 import com.cyrillrx.rpg.dice.data.RamRollHistoryRepository
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
@@ -361,13 +362,5 @@ class DiceRollerViewModelTest {
         override suspend fun load() {
             stored.forEach { delegate.record(it) }
         }
-    }
-
-    private class FixedRandom(vararg values: Int) : Random() {
-        private val values = ArrayDeque(values.toList())
-
-        override fun nextBits(bitCount: Int): Int = error("FixedRandom only serves nextInt(from, until)")
-
-        override fun nextInt(from: Int, until: Int): Int = values.removeFirst()
     }
 }

@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.character.presentation.viewmodel
 
+import androidx.lifecycle.ViewModelStore
 import com.cyrillrx.core.data.ExportFile
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
@@ -8,6 +9,7 @@ import com.cyrillrx.rpg.character.data.characterExportFileName
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
@@ -16,10 +18,22 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.HitPointsEditorState
+import com.cyrillrx.rpg.character.presentation.SheetRoll
+import com.cyrillrx.rpg.core.presentation.viewmodel.hold
+import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
+import com.cyrillrx.rpg.dice.FixedRandom
+import com.cyrillrx.rpg.dice.data.RamRollHistoryRepository
+import com.cyrillrx.rpg.dice.domain.Die
+import com.cyrillrx.rpg.dice.domain.DoubleRoll
+import com.cyrillrx.rpg.dice.domain.KeepRule
+import com.cyrillrx.rpg.dice.domain.RollContext
+import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
+import com.cyrillrx.rpg.dice.domain.RollPool
+import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -31,6 +45,7 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
+import kotlin.random.Random
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -47,6 +62,7 @@ class CharacterEditViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val fighter = SampleCharacterRepository.humanFighter()
+    private val strengthSave = D20Check.SavingThrow(Ability.STRENGTH)
     private val wounded = fighter.copy(maxHitPoints = 24, currentHitPoints = 22, temporaryHitPoints = 5)
 
     @BeforeTest
@@ -71,7 +87,18 @@ class CharacterEditViewModelTest {
         characterId: String = fighter.id,
         repo: CharacterRepository,
         adjustmentCount: Int = 0,
-    ) = CharacterEditViewModel(characterId, repo, APP_VERSION, fixedClock, TimeZone.UTC, adjustmentCount)
+        history: RollHistoryRepository = RamRollHistoryRepository(),
+        random: Random = Random.Default,
+    ) = CharacterEditViewModel(
+        characterId = characterId,
+        characterRepository = repo,
+        historyRepository = history,
+        appVersion = APP_VERSION,
+        clock = fixedClock,
+        timeZone = TimeZone.UTC,
+        random = random,
+        adjustmentCount = adjustmentCount,
+    )
 
     private fun loadedCharacter(viewModel: CharacterEditViewModel): Character =
         assertIs<CharacterEditState.Loaded>(viewModel.state.value).character
@@ -84,6 +111,132 @@ class CharacterEditViewModelTest {
             saveCount++
             delegate.save(character)
         }
+    }
+
+    // ─── Rolling from the sheet ────────────────────────────────────────────────
+
+    @Test
+    fun `rolling a check shows a d20 with the check modifier`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter(), random = FixedRandom(12))
+        advanceUntilIdle()
+
+        viewModel.rollCheck(strengthSave)
+
+        val sheetRoll = assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll
+        val expectedPool = RollPool(listOf(SimpleRoll(Die.D20, value = 12)), modifier = 5)
+        assertEquals(SheetRoll(strengthSave, expectedPool, rollCount = 1), sheetRoll)
+    }
+
+    @Test
+    fun `a check rolled from the sheet is recorded with the character and the check`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val viewModel = buildViewModel(repo = repoWithFighter(), history = history, random = FixedRandom(12))
+        advanceUntilIdle()
+
+        viewModel.rollCheck(D20Check.Initiative)
+        advanceUntilIdle()
+
+        val recorded = history.rolls.value.single()
+        assertEquals(RollContext(fighter.id, D20Check.Initiative), recorded.context)
+        assertEquals(RollPool(listOf(SimpleRoll(Die.D20, value = 12)), modifier = 1), recorded.pool)
+    }
+
+    @Test
+    fun `rolling with advantage keeps the higher of two d20 for the same check`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter(), random = FixedRandom(3, 8, 15))
+        advanceUntilIdle()
+        viewModel.rollCheck(strengthSave)
+
+        viewModel.rollCheckWithAdvantage()
+
+        val sheetRoll = assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll
+        val advantage = DoubleRoll(SimpleRoll(Die.D20, value = 15), SimpleRoll(Die.D20, value = 8), KeepRule.HIGHER)
+        assertEquals(SheetRoll(strengthSave, RollPool(listOf(advantage), modifier = 5), rollCount = 2), sheetRoll)
+    }
+
+    @Test
+    fun `rolling with disadvantage keeps the lower of two d20 for the same check`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter(), random = FixedRandom(3, 8, 15))
+        advanceUntilIdle()
+        viewModel.rollCheck(strengthSave)
+
+        viewModel.rollCheckWithDisadvantage()
+
+        val sheetRoll = assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll
+        val disadvantage = DoubleRoll(SimpleRoll(Die.D20, value = 8), SimpleRoll(Die.D20, value = 15), KeepRule.LOWER)
+        assertEquals(RollPool(listOf(disadvantage), modifier = 5), sheetRoll?.lastRoll)
+    }
+
+    @Test
+    fun `rerolling the same result still counts as a new roll`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter(), random = FixedRandom(12, 12))
+        advanceUntilIdle()
+        viewModel.rollCheck(strengthSave)
+
+        viewModel.rerollCheck()
+
+        val sheetRoll = assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll
+        assertEquals(expected = 2, actual = sheetRoll?.rollCount)
+    }
+
+    @Test
+    fun `every roll again is recorded with the same check`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val viewModel =
+            buildViewModel(repo = repoWithFighter(), history = history, random = FixedRandom(1, 2, 3, 4, 5, 6))
+        advanceUntilIdle()
+        viewModel.rollCheck(strengthSave)
+
+        viewModel.rerollCheck()
+        viewModel.rollCheckWithAdvantage()
+        viewModel.rollCheckWithDisadvantage()
+        advanceUntilIdle()
+
+        val expectedContext = RollContext(fighter.id, strengthSave)
+        assertEquals(List(4) { expectedContext }, history.rolls.value.map { it.context })
+    }
+
+    @Test
+    fun `a roll made as the sheet closes is still recorded`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val repo = repoWithFighter()
+        val store = ViewModelStore()
+        val viewModel = store.hold(CharacterEditViewModel::class) {
+            buildViewModel(repo = repo, history = history, random = FixedRandom(12))
+        }
+        advanceUntilIdle()
+
+        viewModel.rollCheck(strengthSave)
+        store.clear()
+        advanceUntilIdle()
+
+        assertEquals(listOf(RollContext(fighter.id, strengthSave)), history.rolls.value.map { it.context })
+    }
+
+    @Test
+    fun `dismissing the roll closes it`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter(), random = FixedRandom(12))
+        advanceUntilIdle()
+        viewModel.rollCheck(strengthSave)
+
+        viewModel.dismissRoll()
+
+        assertNull(assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll)
+    }
+
+    @Test
+    fun `rolling again without an open roll does nothing`() = runTest(testDispatcher) {
+        val history = RamRollHistoryRepository()
+        val viewModel = buildViewModel(repo = repoWithFighter(), history = history)
+        advanceUntilIdle()
+
+        viewModel.rerollCheck()
+        viewModel.rollCheckWithAdvantage()
+        viewModel.rollCheckWithDisadvantage()
+        advanceUntilIdle()
+
+        assertNull(assertIs<CharacterEditState.Loaded>(viewModel.state.value).sheetRoll)
+        assertEquals(emptyList(), history.rolls.value)
     }
 
     // ─── Init ──────────────────────────────────────────────────────────────────

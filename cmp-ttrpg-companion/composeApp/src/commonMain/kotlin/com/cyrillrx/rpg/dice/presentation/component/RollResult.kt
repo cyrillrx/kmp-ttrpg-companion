@@ -48,17 +48,20 @@ import rpg_companion.composeapp.generated.resources.label_double_roll
 
 /** [rollCount] tells two identical rolls apart, so the total animates on each new roll. */
 @Composable
-internal fun RollResult(roll: RollPool, rollCount: Int, modifier: Modifier = Modifier) {
+internal fun RollResult(roll: RollPool, rollCount: Int, modifier: Modifier = Modifier, showNotation: Boolean = true) {
     Column(
         verticalArrangement = Arrangement.spacedBy(spacingCommon),
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxWidth(),
     ) {
-        Text(
-            text = roll.toNotation().orEmpty(),
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+        if (showNotation) {
+            Text(
+                text = roll.toNotation().orEmpty(),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+
         RollTotal(rollCount, roll.total())
         RollGroups(roll)
     }

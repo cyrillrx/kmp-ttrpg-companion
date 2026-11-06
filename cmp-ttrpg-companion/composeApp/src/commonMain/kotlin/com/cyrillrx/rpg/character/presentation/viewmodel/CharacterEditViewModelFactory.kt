@@ -4,13 +4,20 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.dice.domain.RollHistoryRepository
 import kotlin.reflect.KClass
 
 class CharacterEditViewModelFactory(
     private val characterId: String,
     private val characterRepository: CharacterRepository,
+    private val historyRepository: RollHistoryRepository,
     private val adjustmentCount: Int,
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T =
-        CharacterEditViewModel(characterId, characterRepository, adjustmentCount = adjustmentCount) as T
+        CharacterEditViewModel(
+            characterId,
+            characterRepository,
+            historyRepository,
+            adjustmentCount = adjustmentCount,
+        ) as T
 }

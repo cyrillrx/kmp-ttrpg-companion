@@ -129,6 +129,7 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
                     handleCharacterRoutes(
                         backStack = backStack,
                         characterRepository = characterRepository,
+                        rollHistoryRepository = rollHistoryRepository,
                         pcPresetRepository = pcPresetRepository,
                         npcPresetRepository = npcPresetRepository,
                         prefsRepository = prefsRepository,

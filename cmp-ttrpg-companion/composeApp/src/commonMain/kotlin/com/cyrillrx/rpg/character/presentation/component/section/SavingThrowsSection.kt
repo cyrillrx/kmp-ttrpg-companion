@@ -19,12 +19,15 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 internal fun SavingThrowsSection(
     character: Character,
+    onSavingThrowTapped: (Ability) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     StatCellGrid(
         columns = 3,
         cells = Ability.entries.map { ability ->
-            @Composable { cellModifier: Modifier -> SavingThrowCard(character, ability, cellModifier) }
+            @Composable { cellModifier: Modifier ->
+                SavingThrowCard(character, ability, { onSavingThrowTapped(ability) }, cellModifier)
+            }
         },
         modifier = modifier,
     )
@@ -34,12 +37,14 @@ internal fun SavingThrowsSection(
 private fun SavingThrowCard(
     character: Character,
     ability: Ability,
+    onRollClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     StatCell(
         label = ability.toAbbreviationString(),
         value = character.savingThrowModifier(ability).toSignedString(),
         valueColor = character.savingThrowProficiency(ability).getColor(),
+        onClick = onRollClicked,
         modifier = modifier,
     )
 }
@@ -48,7 +53,7 @@ private fun SavingThrowCard(
 @Composable
 private fun PreviewSavingThrowsSectionLight() {
     AppThemePreview(darkTheme = false) {
-        SavingThrowsSection(character = previewCharacter())
+        SavingThrowsSection(character = previewCharacter(), onSavingThrowTapped = {})
     }
 }
 
@@ -56,7 +61,7 @@ private fun PreviewSavingThrowsSectionLight() {
 @Composable
 private fun PreviewSavingThrowsSectionDark() {
     AppThemePreview(darkTheme = true) {
-        SavingThrowsSection(character = previewCharacter())
+        SavingThrowsSection(character = previewCharacter(), onSavingThrowTapped = {})
     }
 }
 
