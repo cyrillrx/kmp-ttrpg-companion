@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.presentation.component.section
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
@@ -14,8 +15,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.btn_edit_skills
+import rpg_companion.composeapp.generated.resources.label_abilities
+import rpg_companion.composeapp.generated.resources.label_skills
 
 @Composable
 internal fun SheetDivider(
@@ -47,5 +55,29 @@ internal fun SheetDivider(
         }
 
         HorizontalDivider(modifier = Modifier.weight(1f))
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSheetDividerLight() {
+    AppThemePreview(darkTheme = false) { SheetDividerPreview() }
+}
+
+@Preview
+@Composable
+private fun PreviewSheetDividerDark() {
+    AppThemePreview(darkTheme = true) { SheetDividerPreview() }
+}
+
+@Composable
+private fun SheetDividerPreview() {
+    Column {
+        SheetDivider(stringResource(Res.string.label_abilities))
+        SheetDivider(
+            label = stringResource(Res.string.label_skills),
+            onEditClicked = {},
+            editLabel = stringResource(Res.string.btn_edit_skills),
+        )
     }
 }
