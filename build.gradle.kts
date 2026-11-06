@@ -13,6 +13,7 @@ plugins {
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.jetbrains.compose) apply false
     alias(libs.plugins.ktlint) apply false
+    alias(libs.plugins.kover)
     alias(libs.plugins.sonarqube)
 }
 
@@ -25,6 +26,40 @@ listOf(":app:androidApp", ":app:baselineprofile", ":app:desktopApp", ":ktlint-ru
             isSkipProject = true
         }
     }
+}
+
+kover {
+    reports {
+        filters {
+            // Coverage only comes from jvmTest and no Compose UI test feeds Kover, so measuring
+            // composables would only count tests that are never collected.
+            excludes {
+                classes(
+                    "*.presentation.component.*",
+                    "*.presentation.theme.*",
+                    // Route declarations, mostly kotlinx.serialization generated members.
+                    "*.navigation.*",
+                    "*.ComposableSingletons*",
+                    "*Screen",
+                    "*ScreenKt",
+                    // Nested: the lambdas of a screen compile into ScreenKt$Screen$1$1 and
+                    // the exact-match pattern above does not reach them.
+                    "*ScreenKt$*",
+                    // Navigation root, plus locale constants and an expect declaration.
+                    "*.app.*",
+                    // Generated: Compose resources accessors.
+                    "*.generated.resources.*",
+                    // Generated: SQLDelight database, queries and row types.
+                    "com.cyrillrx.rpg.cache.*",
+                )
+            }
+        }
+    }
+}
+
+dependencies {
+    kover(projects.app.shared.domain)
+    kover(projects.app.shared.ui)
 }
 
 sonar {

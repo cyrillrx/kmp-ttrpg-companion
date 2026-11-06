@@ -110,13 +110,16 @@ kotlin {
 
 sonar {
     properties {
-        // Absolute: the report is then found whatever base directory Sonar resolves against.
+        // One aggregated report for the whole build: the tests that exercise a type do not always
+        // live in its module. Absolute, so it is found whatever base directory Sonar resolves
+        // against; each module reads the same file and finds only its own sources in it.
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
-            layout.buildDirectory.file("reports/kover/reportJvm.xml").get().asFile.absolutePath,
+            rootProject.layout.buildDirectory.file("reports/kover/report.xml").get().asFile.absolutePath,
         )
         // Sonar indexes these files either way and reads their absence from the report as zero
-        // coverage. See the coverage policy in AGENTS.md.
+        // coverage. Every entry here has its counterpart in the root kover block: Kover matches
+        // class names, Sonar matches file paths. See the coverage policy in AGENTS.md.
         property(
             "sonar.coverage.exclusions",
             listOf(
@@ -129,30 +132,6 @@ sonar {
                 "**/iosMain/**",
             ).joinToString(","),
         )
-    }
-}
-
-kover {
-    reports {
-        filters {
-            // Coverage only comes from jvmTest and no Compose UI test feeds Kover, so measuring
-            // composables would only count tests that are never collected.
-            excludes {
-                classes(
-                    "*.presentation.component.*",
-                    "*.presentation.theme.*",
-                    // Route declarations, mostly kotlinx.serialization generated members.
-                    "*.navigation.*",
-                    "*.ComposableSingletons*",
-                    "*Screen",
-                    "*ScreenKt",
-                    // Navigation root, plus locale constants and an expect declaration.
-                    "*.app.*",
-                    // Generated: Compose resources accessors.
-                    "*.generated.resources.*",
-                )
-            }
-        }
     }
 }
 

@@ -81,23 +81,14 @@ sqldelight {
     }
 }
 
-kover {
-    reports {
-        filters {
-            excludes {
-                // Generated: SQLDelight database, queries and row types.
-                classes("com.cyrillrx.rpg.cache.*")
-            }
-        }
-    }
-}
-
 sonar {
     properties {
-        // Absolute: the report is then found whatever base directory Sonar resolves against.
+        // One aggregated report for the whole build: the tests that exercise a type do not always
+        // live in its module. Absolute, so it is found whatever base directory Sonar resolves
+        // against; each module reads the same file and finds only its own sources in it.
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
-            layout.buildDirectory.file("reports/kover/reportJvm.xml").get().asFile.absolutePath,
+            rootProject.layout.buildDirectory.file("reports/kover/report.xml").get().asFile.absolutePath,
         )
         // Sonar indexes these files either way and reads their absence from the report as zero
         // coverage. See the coverage policy in AGENTS.md.
