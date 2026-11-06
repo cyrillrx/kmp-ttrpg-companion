@@ -48,6 +48,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -175,46 +176,71 @@ fun DiceRollerScreen(
                 .align(Alignment.TopCenter)
                 .widthIn(max = contentMaxWidth)
                 .fillMaxSize()
-            val controlPanelMaxHeight = maxHeight * controlPanelMaxHeightFraction
-            val shownState = state.hidingRollsUpTo(history.hiddenUpTo)
 
             if (maxWidth >= widthExpandedMin) {
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(spacingCommon),
-                    modifier = contentModifier.padding(spacingCommon),
-                ) {
-                    Column(verticalArrangement = Arrangement.spacedBy(spacingCommon), modifier = Modifier.weight(1f)) {
-                        RollResultCard(
-                            state = shownState,
-                            onHistoryClicked = null,
-                            modifier = Modifier.weight(1f),
-                        )
-                        DiceHistorySection(
-                            state = history.without(state.lastRollId),
-                            onClearClicked = historyActions.onClearClicked,
-                            modifier = Modifier.weight(1f),
-                        )
-                    }
-                    ControlPanel(state, actions, MaterialTheme.shapes.large, Modifier.weight(1f))
-                }
+                ExpandedLayout(state, history, actions, historyActions.onClearClicked, contentModifier)
             } else {
-                Column(modifier = contentModifier) {
-                    RollResultCard(
-                        state = shownState,
-                        onHistoryClicked = historyActions.onOpenClicked,
-                        modifier = Modifier.weight(1f).padding(spacingCommon),
-                    )
-                    ControlPanel(
-                        state = state,
-                        actions = actions,
-                        shape = MaterialTheme.shapes.large.copy(bottomStart = CornerSize(0), bottomEnd = CornerSize(0)),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .heightIn(max = controlPanelMaxHeight),
-                    )
-                }
+                CompactLayout(
+                    state = state,
+                    history = history,
+                    actions = actions,
+                    onHistoryClicked = historyActions.onOpenClicked,
+                    controlPanelMaxHeight = maxHeight * controlPanelMaxHeightFraction,
+                    modifier = contentModifier,
+                )
             }
         }
+    }
+}
+
+@Composable
+private fun ExpandedLayout(
+    state: DiceRollerState,
+    history: DiceHistoryState,
+    actions: DiceRollerActions,
+    onClearHistoryClicked: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Row(horizontalArrangement = Arrangement.spacedBy(spacingCommon), modifier = modifier.padding(spacingCommon)) {
+        Column(verticalArrangement = Arrangement.spacedBy(spacingCommon), modifier = Modifier.weight(1f)) {
+            RollResultCard(
+                state = state.hidingRollsUpTo(history.hiddenUpTo),
+                onHistoryClicked = null,
+                modifier = Modifier.weight(1f),
+            )
+            DiceHistorySection(
+                state = history.without(state.lastRollId),
+                onClearClicked = onClearHistoryClicked,
+                modifier = Modifier.weight(1f),
+            )
+        }
+        ControlPanel(state, actions, MaterialTheme.shapes.large, Modifier.weight(1f))
+    }
+}
+
+@Composable
+private fun CompactLayout(
+    state: DiceRollerState,
+    history: DiceHistoryState,
+    actions: DiceRollerActions,
+    onHistoryClicked: () -> Unit,
+    controlPanelMaxHeight: Dp,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier) {
+        RollResultCard(
+            state = state.hidingRollsUpTo(history.hiddenUpTo),
+            onHistoryClicked = onHistoryClicked,
+            modifier = Modifier.weight(1f).padding(spacingCommon),
+        )
+        ControlPanel(
+            state = state,
+            actions = actions,
+            shape = MaterialTheme.shapes.large.copy(bottomStart = CornerSize(0), bottomEnd = CornerSize(0)),
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(max = controlPanelMaxHeight),
+        )
     }
 }
 
