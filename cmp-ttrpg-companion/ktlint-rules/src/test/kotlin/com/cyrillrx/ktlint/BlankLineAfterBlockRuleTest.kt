@@ -505,6 +505,92 @@ class BlankLineAfterBlockRuleTest {
     }
 
     @Test
+    fun `adds a blank line after a multi-line guard clause`() {
+        val code =
+            """
+            fun foo(a: Boolean, b: Boolean) {
+                if (a) {
+                    return
+                }
+                if (b) bar()
+                baz()
+            }
+            """.trimIndent()
+        val formattedCode =
+            """
+            fun foo(a: Boolean, b: Boolean) {
+                if (a) {
+                    return
+                }
+
+                if (b) bar()
+
+                baz()
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolations(
+                LintViolation(line = 4, col = 6, detail = MISSING_BLANK_LINE_MESSAGE),
+                LintViolation(line = 5, col = 17, detail = MISSING_BLANK_LINE_MESSAGE),
+            ).isFormattedAs(formattedCode)
+    }
+
+    @Test
+    fun `adds the blank line after several trailing comments`() {
+        val code =
+            """
+            fun foo(a: Boolean) {
+                if (a) {
+                    bar()
+                } /* x */ // y
+                baz()
+            }
+            """.trimIndent()
+        val formattedCode =
+            """
+            fun foo(a: Boolean) {
+                if (a) {
+                    bar()
+                } /* x */ // y
+
+                baz()
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolation(line = 4, col = 19, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
+    fun `adds a blank line after an annotated statement`() {
+        val code =
+            """
+            fun foo(a: List<Int>) {
+                @Suppress("UNUSED") for (x in a) {
+                    bar(x)
+                }
+                baz()
+            }
+            """.trimIndent()
+        val formattedCode =
+            """
+            fun foo(a: List<Int>) {
+                @Suppress("UNUSED") for (x in a) {
+                    bar(x)
+                }
+
+                baz()
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolation(line = 4, col = 6, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
     fun `ignores a block that ends its enclosing block`() {
         val code =
             """

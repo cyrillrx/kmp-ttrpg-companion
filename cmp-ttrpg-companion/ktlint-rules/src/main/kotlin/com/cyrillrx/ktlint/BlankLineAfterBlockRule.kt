@@ -66,7 +66,7 @@ class BlankLineAfterBlockRule :
     ) {
         val body = statement.withoutLabelOrAnnotation()
         if (!body.isBlockStatement()) return
-        if (body.isCompact() && next.withoutLabelOrAnnotation().isCompact()) return
+        if (body.isCompact() && !body.endsWithMultilineBlock() && next.withoutLabelOrAnnotation().isCompact()) return
 
         val separator = separatorAfter(statement) ?: return
         if (separator.text.count { it == '\n' } != 1) return
@@ -76,15 +76,15 @@ class BlankLineAfterBlockRule :
     }
 
     /**
-     * The whitespace that ends the statement's line, after its trailing comment if any, or `null` when another
+     * The whitespace that ends the statement's line, after its trailing comments if any, or `null` when another
      * statement shares that line.
      */
     private fun separatorAfter(statement: ASTNode): ASTNode? {
-        var current = statement.treeNext
-        if (current.isWhiteSpaceWithoutNewline() && current.treeNext.psi is PsiComment) current = current.treeNext
-        if (current.psi is PsiComment) current = current.treeNext
+        val lineEnd =
+            generateSequence(statement.treeNext) { it.treeNext }
+                .first { !it.isWhiteSpaceWithoutNewline() && it.psi !is PsiComment }
 
-        return current.takeIf { it.isWhiteSpaceWithNewline() }
+        return lineEnd.takeIf { it.isWhiteSpaceWithNewline() }
     }
 
     private fun ASTNode.withoutLabelOrAnnotation(): ASTNode =
