@@ -55,7 +55,7 @@ All commands run from `cmp-ttrpg-companion/`:
 ./gradlew koverXmlReportJvm   # Generate the coverage reports SonarCloud reads
 ```
 
-ktlint is **strict** in both modules (`ignoreFailures=false`), and the `CMP Client - ktlint` CI job fails the build on any violation. Run `ktlintFormat` before pushing.
+ktlint is **strict** in every module (`ignoreFailures=false`), and the `CMP Client - ktlint` CI job fails the build on any violation. Run `ktlintFormat` before pushing. On top of the standard rules, `composeApp` and `shared/core` run the project's own rule set, built by the `ktlint-rules` module (`cyrillrx:blank-line-after-block`). Its tests run with `./gradlew :ktlint-rules:test`, which `jvmTest` does not cover.
 
 ### Coverage policy
 
@@ -75,7 +75,7 @@ Where that logic goes instead: **`core/presentation/format`** for the shared for
 
 ### Module structure
 
-Two Gradle modules:
+Two Gradle modules hold the app code:
 
 **`shared/core`** — Domain + Data layers. Pure Kotlin, no UI framework.
 - `domain/` — entities, repository interfaces, filters
@@ -86,6 +86,8 @@ Two Gradle modules:
 - `core/presentation/` — shared components, theme, navigation utilities
 - `core/presentation/format/` — pure formatters, no Compose (see the coverage policy above)
 - `{feature}/presentation/` — ViewModels, screens, routers per feature
+
+**`ktlint-rules`** is build tooling: the project's custom ktlint rules, outside the app and skipped by Sonar.
 
 ### Package structure
 
