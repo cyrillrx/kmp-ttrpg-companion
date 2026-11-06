@@ -116,6 +116,8 @@ class DiceRollerActions(
     val onClearClicked: () -> Unit,
 )
 
+class DiceHistoryActions(val onOpenClicked: () -> Unit, val onClearClicked: () -> Unit)
+
 @Composable
 fun DiceRollerScreen(viewModel: DiceRollerViewModel, historyViewModel: DiceHistoryViewModel, router: DiceRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -148,8 +150,6 @@ fun DiceRollerScreen(viewModel: DiceRollerViewModel, historyViewModel: DiceHisto
         historyActions = historyActions,
     )
 }
-
-class DiceHistoryActions(val onOpenClicked: () -> Unit, val onClearClicked: () -> Unit)
 
 @Composable
 fun DiceRollerScreen(
