@@ -61,6 +61,7 @@ internal fun RollResult(roll: RollPool, rollCount: Int, modifier: Modifier = Mod
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+
         RollTotal(rollCount, roll.total())
         RollGroups(roll)
     }

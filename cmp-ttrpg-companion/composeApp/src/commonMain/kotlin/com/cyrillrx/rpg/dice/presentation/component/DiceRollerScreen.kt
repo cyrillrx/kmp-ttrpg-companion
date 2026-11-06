@@ -379,7 +379,6 @@ private fun RollButton(state: DiceRollerState, onClick: () -> Unit) {
     }
 }
 
-/** The [caption] line is always laid out, so a count appearing under a die does not shift the pad. */
 private val previewState = DiceRollerState(
     countByDie = mapOf(Die.D6 to 2),
     modifier = 5,

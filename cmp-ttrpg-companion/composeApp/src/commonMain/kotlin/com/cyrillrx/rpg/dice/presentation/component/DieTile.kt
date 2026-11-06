@@ -22,11 +22,11 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
@@ -38,6 +38,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.dice.domain.Die
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_advantage
 import rpg_companion.composeapp.generated.resources.btn_disadvantage
@@ -77,6 +78,7 @@ internal fun D20Row(
     }
 }
 
+/** The [caption] line is always laid out, so a count appearing under a die does not shift the pad. */
 @Composable
 internal fun DieTile(
     label: String,
@@ -113,6 +115,7 @@ internal fun DieTile(
                 } else {
                     Icon(icon, contentDescription = null, modifier = Modifier.size(iconSizeMedium))
                 }
+
                 Text(
                     text = caption,
                     style = MaterialTheme.typography.labelMedium,
@@ -142,4 +145,18 @@ private fun dieTileColors(accent: Color?): CardColors = if (accent == null) {
     CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
 } else {
     CardDefaults.cardColors(containerColor = Color.Transparent, contentColor = accent)
+}
+
+@Preview
+@Composable
+private fun PreviewD20RowLight() {
+    AppThemePreview(darkTheme = false) {
+        D20Row(onDisadvantageClicked = {}, onD20Clicked = {}, onAdvantageClicked = {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewD20RowDark() {
+    AppThemePreview(darkTheme = true) { D20Row(onDisadvantageClicked = {}, onD20Clicked = {}, onAdvantageClicked = {}) }
 }
