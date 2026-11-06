@@ -180,6 +180,7 @@ class CollectionDetailViewModel<T : Entity>(
         removals.reload {
             val collection =
                 userCollectionRepository.get(collectionId) ?: error("Could not find collection $collectionId")
+
             state.update { it.copy(collectionName = collection.name) }
             repository.getByIds(collection.itemIds)
         }
