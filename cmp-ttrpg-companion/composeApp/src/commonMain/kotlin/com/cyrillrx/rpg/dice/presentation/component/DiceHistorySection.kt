@@ -64,8 +64,8 @@ fun DiceHistorySection(state: DiceHistoryState, onClearClicked: () -> Unit, modi
 }
 
 @Composable
-fun ClearHistoryButton(state: DiceHistoryState, onClearClicked: () -> Unit) {
-    IconButton(onClick = onClearClicked, enabled = state.body is DiceHistoryState.Body.WithData) {
+fun ClearHistoryButton(state: DiceHistoryState, onClearClicked: () -> Unit, modifier: Modifier = Modifier) {
+    IconButton(onClick = onClearClicked, enabled = state.body is DiceHistoryState.Body.WithData, modifier = modifier) {
         Icon(Icons.Filled.Delete, contentDescription = stringResource(Res.string.btn_clear_roll_history))
     }
 }
