@@ -79,6 +79,8 @@ class CharacterEditViewModel(
         }
     }
 
+    override fun onCleared() = recorder.close()
+
     fun editField(field: EditingField) {
         updateEditState { copy(editingField = field) }
     }
@@ -184,9 +186,7 @@ class CharacterEditViewModel(
         pendingAdjustmentCount.value = 0
     }
 
-    fun rollCheck(check: D20Check) {
-        roll(check) { Die.D20.roll(random) }
-    }
+    fun rollCheck(check: D20Check) = roll(check) { Die.D20.roll(random) }
 
     fun rerollCheck() = rollAgain { Die.D20.roll(random) }
 
@@ -194,13 +194,7 @@ class CharacterEditViewModel(
 
     fun rollCheckWithDisadvantage() = rollAgain { Die.D20.rollWithDisadvantage(random) }
 
-    fun dismissRoll() {
-        updateEditState { copy(sheetRoll = null) }
-    }
-
-    override fun onCleared() {
-        recorder.close()
-    }
+    fun dismissRoll() = updateEditState { copy(sheetRoll = null) }
 
     private fun rollAgain(rollD20: () -> DieRoll) {
         val check = currentCheck() ?: return
