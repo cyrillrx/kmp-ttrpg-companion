@@ -176,6 +176,7 @@ fun DiceRollerScreen(
                 .widthIn(max = contentMaxWidth)
                 .fillMaxSize()
             val controlPanelMaxHeight = maxHeight * controlPanelMaxHeightFraction
+            val shownState = state.hidingRollsUpTo(history.hiddenUpTo)
 
             if (maxWidth >= widthExpandedMin) {
                 Row(
@@ -184,7 +185,7 @@ fun DiceRollerScreen(
                 ) {
                     Column(verticalArrangement = Arrangement.spacedBy(spacingCommon), modifier = Modifier.weight(1f)) {
                         RollResultCard(
-                            state = state.hidingRollsUpTo(history.hiddenUpTo),
+                            state = shownState,
                             onHistoryClicked = null,
                             modifier = Modifier.weight(1f),
                         )
@@ -199,7 +200,7 @@ fun DiceRollerScreen(
             } else {
                 Column(modifier = contentModifier) {
                     RollResultCard(
-                        state = state,
+                        state = shownState,
                         onHistoryClicked = historyActions.onOpenClicked,
                         modifier = Modifier.weight(1f).padding(spacingCommon),
                     )
