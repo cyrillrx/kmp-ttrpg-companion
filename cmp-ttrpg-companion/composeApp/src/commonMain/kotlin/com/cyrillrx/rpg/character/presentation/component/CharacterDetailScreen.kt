@@ -41,6 +41,7 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
+import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
@@ -124,15 +125,16 @@ fun CharacterDetailScreen(
             }
         }
     }
+
     val checkActions = remember(viewModel) {
         D20CheckActions(
-            onCheckTapped = viewModel::rollCheck,
             onRerollClicked = viewModel::rerollCheck,
             onAdvantageClicked = viewModel::rollCheckWithAdvantage,
             onDisadvantageClicked = viewModel::rollCheckWithDisadvantage,
             onDismissed = viewModel::dismissRoll,
         )
     }
+
     when (val s = state) {
         CharacterEditState.Loading -> Scaffold { innerPadding ->
             Loader(modifier = Modifier.padding(innerPadding))
@@ -170,6 +172,7 @@ fun CharacterDetailScreen(
             onDialogDismissed = viewModel::cancelEditing,
             onExportClicked = viewModel::exportCharacter,
             onNavigateUpClicked = router::navigateUp,
+            onCheckTapped = viewModel::rollCheck,
             checkActions = checkActions,
         )
     }
@@ -202,6 +205,7 @@ fun CharacterDetailScreen(
     onDialogDismissed: () -> Unit,
     onExportClicked: () -> Unit,
     onNavigateUpClicked: () -> Unit,
+    onCheckTapped: (D20Check) -> Unit,
     checkActions: D20CheckActions,
 ) {
     val locale = currentLocale()
@@ -293,9 +297,9 @@ fun CharacterDetailScreen(
                 ) {
                     when (CharacterSheetTab.entries[page]) {
                         CharacterSheetTab.APTITUDES ->
-                            AptitudesTabContent(state, onFieldTapped, checkActions.onCheckTapped)
+                            AptitudesTabContent(state, onFieldTapped, onCheckTapped)
 
-                        CharacterSheetTab.COMBAT -> CombatTabContent(state, onFieldTapped, checkActions.onCheckTapped)
+                        CharacterSheetTab.COMBAT -> CombatTabContent(state, onFieldTapped, onCheckTapped)
                         CharacterSheetTab.PROFILE -> ProfileTabContent(state, onFieldTapped)
                     }
 
@@ -368,6 +372,7 @@ private fun CharacterDetailScreenPreview() {
         onDialogDismissed = {},
         onExportClicked = {},
         onNavigateUpClicked = {},
-        checkActions = D20CheckActions({}, {}, {}, {}, {}),
+        onCheckTapped = {},
+        checkActions = D20CheckActions({}, {}, {}, {}),
     )
 }

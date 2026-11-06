@@ -38,7 +38,6 @@ import rpg_companion.composeapp.generated.resources.label_with_disadvantage
 import rpg_companion.composeapp.generated.resources.value_check_modifier
 
 class D20CheckActions(
-    val onCheckTapped: (D20Check) -> Unit,
     val onRerollClicked: () -> Unit,
     val onAdvantageClicked: () -> Unit,
     val onDisadvantageClicked: () -> Unit,
@@ -137,4 +136,4 @@ private val previewRoll = SheetRoll(
     rollCount = 1,
 )
 
-private val previewActions = D20CheckActions({}, {}, {}, {}, {})
+private val previewActions = D20CheckActions({}, {}, {}, {})
