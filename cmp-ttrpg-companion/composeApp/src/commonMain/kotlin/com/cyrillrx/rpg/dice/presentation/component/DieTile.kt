@@ -78,7 +78,6 @@ internal fun D20Row(
     }
 }
 
-/** The [caption] line is always laid out, so a count appearing under a die does not shift the pad. */
 @Composable
 internal fun DieTile(
     label: String,
