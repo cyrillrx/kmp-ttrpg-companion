@@ -204,6 +204,7 @@ class CharacterEditViewModelTest {
         val viewModel = store.hold(CharacterEditViewModel::class) {
             buildViewModel(repo = repo, history = history, random = FixedRandom(12))
         }
+
         advanceUntilIdle()
 
         viewModel.rollCheck(strengthSave)

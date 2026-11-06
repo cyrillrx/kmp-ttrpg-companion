@@ -48,6 +48,7 @@ fun SelectableUserCollectionItem(
                     style = MaterialTheme.typography.bodySmall,
                 )
             }
+
             if (isSelected) {
                 Icon(
                     imageVector = Icons.Filled.CheckCircle,

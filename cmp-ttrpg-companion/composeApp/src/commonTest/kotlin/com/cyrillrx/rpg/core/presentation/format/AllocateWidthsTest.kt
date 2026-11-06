@@ -105,6 +105,7 @@ class AllocateWidthsTest {
         result.zip(minimums).forEach { (actual, min) ->
             assertTrue(actual.value >= min.value - 0.01f, "Column $actual shrank below minimum $min")
         }
+
         assertDpApprox(available, result.fold(0.dp) { acc, dp -> acc + dp })
     }
 

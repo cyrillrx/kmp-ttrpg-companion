@@ -9,12 +9,14 @@ class CharacterFilter(
 
 fun List<Character>.applyFilter(filter: CharacterFilter?): List<Character> {
     if (filter == null) return this
+
     return filter { it.matches(filter) }
 }
 
 @JvmName("applyFilterToStored")
 fun List<Stored<Character>>.applyFilter(filter: CharacterFilter?): List<Stored<Character>> {
     if (filter == null) return this
+
     return filter { it.value.matches(filter) }
 }
 

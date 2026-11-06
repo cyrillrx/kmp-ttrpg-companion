@@ -20,12 +20,14 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 fun LabeledParagraph(label: String, value: String, modifier: Modifier = Modifier) {
     if (value.isBlank()) return
+
     Text(
         text = buildAnnotatedString {
             withStyle(SpanStyle(fontWeight = FontWeight.Bold, fontStyle = FontStyle.Italic)) {
                 append(label)
                 append(". ")
             }
+
             append(value)
         },
         style = MaterialTheme.typography.bodyLarge,

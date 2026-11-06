@@ -46,6 +46,7 @@ class JsonCharacterPresetRepository(
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
         }
+
         return listOf()
     }
 

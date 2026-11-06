@@ -33,6 +33,7 @@ internal fun HealthGauge(
         // A zero weight is not a valid constraint, so an empty segment is left out rather than sized.
         GaugeSegment(state.currentFraction, state.level.color)
         if (state.missingFraction > 0f) Spacer(Modifier.weight(state.missingFraction))
+
         GaugeSegment(state.temporaryFraction, MaterialTheme.colorScheme.tertiary)
     }
 }
@@ -40,6 +41,7 @@ internal fun HealthGauge(
 @Composable
 private fun RowScope.GaugeSegment(fraction: Float, color: Color) {
     if (fraction <= 0f) return
+
     Box(
         modifier = Modifier
             .weight(fraction)

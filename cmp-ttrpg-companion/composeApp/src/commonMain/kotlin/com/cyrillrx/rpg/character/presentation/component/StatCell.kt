@@ -54,6 +54,7 @@ internal fun StatCell(
             }
         }
     }
+
     if (onClick == null) {
         ElevatedCard(modifier = modifier, content = cardContent)
     } else {

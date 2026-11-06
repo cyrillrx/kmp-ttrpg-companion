@@ -12,5 +12,6 @@ internal fun topViewController(): UIViewController? {
         .firstOrNull { it.isKeyWindow() }
         ?.rootViewController
         ?: return null
+
     return generateSequence(root) { it.presentedViewController }.last()
 }

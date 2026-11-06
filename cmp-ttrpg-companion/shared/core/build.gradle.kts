@@ -46,19 +46,24 @@ kotlin {
 
             implementation(libs.sqldelight.runtime)
         }
+
         commonTest.dependencies {
             implementation(kotlin("test"))
             implementation(libs.kotlinx.coroutines.test)
         }
+
         androidMain.dependencies {
             implementation(libs.sqldelight.android)
         }
+
         iosMain.dependencies {
             implementation(libs.sqldelight.native)
         }
+
         jvmMain.dependencies {
             implementation(libs.sqldelight.jvm)
         }
+
         jvmTest.dependencies {
             implementation(libs.sqldelight.jvm)
         }

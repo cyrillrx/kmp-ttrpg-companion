@@ -35,6 +35,7 @@ fun readCharacterExport(
     }
     val character = envelope["character"]?.decodeCharacterOrNull()
         ?: return Result.Failure(CharacterFileImportError.MalformedEnvelope)
+
     return when (val result = character.toCharacter()) {
         is Result.Success -> result
         is Result.Failure -> Result.Failure(CharacterFileImportError.InvalidCharacter(result.error))

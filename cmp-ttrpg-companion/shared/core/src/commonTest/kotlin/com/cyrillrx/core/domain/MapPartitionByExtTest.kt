@@ -29,6 +29,7 @@ class MapPartitionByExtTest {
         val (result, errors) = input.partitionBy<String, Int, Int, Error> { _, v ->
             if (v % 2 == 0) Result.Success(v) else Result.Failure(TestError)
         }
+
         assertEquals(expected = mapOf("b" to 2, "d" to 4), actual = result)
         assertEquals(expected = 2, actual = errors.size)
     }
@@ -38,6 +39,7 @@ class MapPartitionByExtTest {
         val (result, errors) = emptyMap<String, Int>().partitionBy<String, Int, Int, Error> { _, v ->
             Result.Success(v)
         }
+
         assertTrue(result.isEmpty())
         assertTrue(errors.isEmpty())
     }
@@ -48,6 +50,7 @@ class MapPartitionByExtTest {
         val (result, _) = input.partitionBy<String, String, String, Error> { _, v ->
             Result.Success(v.uppercase())
         }
+
         assertEquals(expected = "VALUE", actual = result["locale"])
     }
 

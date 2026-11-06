@@ -49,6 +49,7 @@ fun MagicalItem.Rarity.toFormattedString(): String {
         MagicalItem.Rarity.ARTIFACT -> Res.string.item_rarity_artifact
         MagicalItem.Rarity.VARIES -> Res.string.item_rarity_varies
     }
+
     return stringResource(stringRes)
 }
 

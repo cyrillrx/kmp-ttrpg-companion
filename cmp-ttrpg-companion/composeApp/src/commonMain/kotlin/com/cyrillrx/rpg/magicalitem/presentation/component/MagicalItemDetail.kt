@@ -75,6 +75,7 @@ private fun MagicalItemHeader(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+
         Text(
             text = magicalItem.getSubtitle().uppercase(),
             style = MaterialTheme.typography.labelMedium,

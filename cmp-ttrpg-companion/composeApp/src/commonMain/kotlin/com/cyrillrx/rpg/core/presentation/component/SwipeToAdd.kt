@@ -37,6 +37,7 @@ fun SwipeToAdd(
                 confirmed = true
                 onSwiped()
             }
+
             false
         },
     )
@@ -45,6 +46,7 @@ fun SwipeToAdd(
             confirmed = false
         }
     }
+
     SwipeToDismissBox(
         state = dismissState,
         modifier = modifier,

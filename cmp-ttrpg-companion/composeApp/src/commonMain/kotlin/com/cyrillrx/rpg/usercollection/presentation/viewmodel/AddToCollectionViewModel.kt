@@ -68,9 +68,11 @@ class AddToCollectionViewModel<T : Entity>(
     fun toggleSelection(collectionId: String) {
         state.update { state ->
             val body = state.body as? AddToCollectionState.Body.WithData ?: return@update state
+
             val updated = body.selectableCollections.map { item ->
                 if (item.collection.id == collectionId) item.copy(isSelected = !item.isSelected) else item
             }
+
             state.copy(body = body.copy(selectableCollections = updated))
         }
     }
@@ -96,10 +98,12 @@ class AddToCollectionViewModel<T : Entity>(
                 events.emit(Event.CreationError(name))
                 return@launch
             }
+
             val stored = Stored(newCollection, Clock.System.now())
 
             state.update { state ->
                 val body = state.body as? AddToCollectionState.Body.WithData ?: return@update state
+
                 val newCollections = (
                     body.selectableCollections + SelectableUserCollection(
                         stored,
@@ -123,6 +127,7 @@ class AddToCollectionViewModel<T : Entity>(
     fun confirmSelection() {
         viewModelScope.launch {
             val body = state.value.body as? AddToCollectionState.Body.WithData ?: return@launch
+
             body.selectableCollections.forEach { it.confirmSelection() }
             events.emit(Event.Dismiss)
         }

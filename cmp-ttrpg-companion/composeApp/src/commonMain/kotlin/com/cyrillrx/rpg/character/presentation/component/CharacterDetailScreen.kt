@@ -99,10 +99,12 @@ fun CharacterDetailScreen(
                     event.originalFeet.toDistanceString(distanceUnit) to
                         event.coercedFeet.toDistanceString(distanceUnit)
             }
+
             val message = getString(Res.string.info_value_coerced, from, to)
             snackbarHostState.showSnackbar(message)
         }
     }
+
     LaunchedEffect(viewModel) {
         viewModel.pendingAdjustmentCount.collect { count ->
             if (count == 0) return@collect
@@ -111,6 +113,7 @@ fun CharacterDetailScreen(
             snackbarHostState.showSnackbar(getPluralString(Res.plurals.info_import_values_adjusted, count, count))
         }
     }
+
     val fileSharer = rememberFileSharer()
     LaunchedEffect(viewModel, fileSharer) {
         viewModel.exportEvent.collect { file ->
@@ -234,6 +237,7 @@ fun CharacterDetailScreen(
                         contentDescription = stringResource(Res.string.btn_back),
                     )
                 }
+
                 Spacer(modifier = Modifier.weight(1f))
                 OverflowMenu { dismiss ->
                     DropdownMenuItem(

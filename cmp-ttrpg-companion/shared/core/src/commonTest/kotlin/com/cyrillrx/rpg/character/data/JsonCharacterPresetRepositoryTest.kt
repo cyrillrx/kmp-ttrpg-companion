@@ -298,6 +298,7 @@ class JsonCharacterPresetRepositoryTest {
                 languages?.let { add(""""languages": $it""") }
                 translations?.let { add(""""translations": $it""") }
             }
+
         return "[{${fields.joinToString(", ")}}]"
     }
 }

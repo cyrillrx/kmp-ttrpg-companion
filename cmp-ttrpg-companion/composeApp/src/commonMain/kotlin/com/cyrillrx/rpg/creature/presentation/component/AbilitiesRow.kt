@@ -80,6 +80,7 @@ fun AbilitiesLayout(
                 modifier = Modifier.weight(1f),
             )
         }
+
         Row(modifier = Modifier.fillMaxWidth()) {
             Text(
                 text = str,

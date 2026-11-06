@@ -44,6 +44,7 @@ data class DiceExpression private constructor(
         require(countByDie.values.sum() + keptTerms.sumOf { it.count } <= MAX_DICE_COUNT) {
             "Cannot roll more than $MAX_DICE_COUNT dice"
         }
+
         require(modifier in MODIFIER_RANGE) { "Cannot add a modifier of $modifier" }
     }
 

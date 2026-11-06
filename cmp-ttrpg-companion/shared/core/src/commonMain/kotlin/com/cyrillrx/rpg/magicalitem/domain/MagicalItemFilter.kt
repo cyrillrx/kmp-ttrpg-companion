@@ -12,6 +12,7 @@ data class MagicalItemFilter(
 
 fun List<MagicalItem>.applyFilter(filter: MagicalItemFilter?): List<MagicalItem> {
     if (filter == null) return this
+
     return filter { it.matches(filter) }
 }
 

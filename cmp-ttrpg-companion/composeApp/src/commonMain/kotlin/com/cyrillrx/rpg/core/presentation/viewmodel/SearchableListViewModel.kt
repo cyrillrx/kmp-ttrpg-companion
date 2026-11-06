@@ -49,6 +49,7 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
     fun silentRefresh() {
         if (updateJob?.isActive == true && !updateJobIsSilent) {
             if (updateJobReadStarted && showsContent(mutableState.value.body())) silentRefreshQueued = true
+
             return
         }
 
@@ -79,8 +80,10 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
                     println("WARNING: silent list refresh failed: $e")
                     return@launch
                 }
+
                 errorBody()
             }
+
             mutableState.update { it.withBody(body) }
             if (silentRefreshQueued) {
                 updateJob = null

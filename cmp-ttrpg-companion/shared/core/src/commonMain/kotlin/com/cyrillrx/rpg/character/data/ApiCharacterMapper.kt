@@ -31,6 +31,7 @@ import com.cyrillrx.rpg.creature.domain.coerceToValidMaxHitPoints
 internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImportWarning>, CharacterImportError> {
     val id = id
         ?: return Result.Failure(CharacterImportError.MissingId)
+
     val warnings = mutableListOf<CharacterImportWarning>()
 
     fun <T> T.coerce(field: String, coerce: (T) -> T): T = coerce(this).also {
@@ -41,10 +42,12 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
         ?: return Result.Failure(CharacterImportError.MissingName(id))
     val apiTranslations = translations
         ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
+
     val (translations, translationErrors) = apiTranslations.partitionBy { locale, t -> t.toTranslation(id, locale) }
     if (translations.isEmpty() && translationErrors.isNotEmpty()) {
         return Result.Failure(CharacterImportError.MissingTranslations(id))
     }
+
     translationErrors.forEach { warnings += CharacterImportWarning.TranslationDropped(it) }
     val apiSize = size
         ?: return Result.Failure(CharacterImportError.MissingSize(id))
@@ -58,6 +61,7 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
         ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
     val maxHitPoints = maxHitPoints?.coerce("max hit points", Int::coerceToValidMaxHitPoints)
         ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
+
     val currentHitPoints = currentHitPoints
         ?.coerce("current hit points") { it.coerceToValidCurrentHitPoints(maxHitPoints) }
         ?: maxHitPoints
@@ -74,16 +78,20 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
         ?: return Result.Failure(CharacterImportError.UnknownRace(id, apiRace))
     val apiClasses = classes?.takeIf { it.isNotEmpty() }
         ?: return Result.Failure(CharacterImportError.MissingClasses(id))
+
     val classLevels = apiClasses.entries.associate { (apiClass, level) ->
         val clazz = apiClass.toClass()
             ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClass))
+
         clazz to level.coerce("class level", Int::coerceToValidCharacterLevel)
     }
+
     val apiLanguages = languages.orEmpty()
     val unknownLanguages = apiLanguages.filter { it.toLanguage() == null }
     if (unknownLanguages.isNotEmpty()) {
         return Result.Failure(CharacterImportError.UnknownLanguages(id, unknownLanguages))
     }
+
     val languages = apiLanguages.mapNotNull { it.toLanguage() }
     val background = background?.let { apiBackground ->
         apiBackground.toBackground()
@@ -124,6 +132,7 @@ private fun ApiCharacter.Translation.toTranslation(
         ?: return Result.Failure(
             CharacterImportError.InvalidTranslation(characterId, locale, field = "description"),
         )
+
     return Result.Success(
         Character.Translation(
             shortDescription = shortDescription,
@@ -168,6 +177,7 @@ internal fun Character.toApiCharacter(): ApiCharacter = ApiCharacter(
 
 private fun Character.classesPrimaryFirst(): Map<Character.Class, Int> {
     val primaryLevel = classes[primaryClass] ?: return classes
+
     return mapOf(primaryClass to primaryLevel) + (classes - primaryClass)
 }
 

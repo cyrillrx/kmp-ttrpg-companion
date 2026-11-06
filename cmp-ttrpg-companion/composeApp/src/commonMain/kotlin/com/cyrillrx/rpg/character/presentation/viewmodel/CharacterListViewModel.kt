@@ -81,6 +81,7 @@ class CharacterListViewModel(
                 body = if (showsContent(current.body)) sortedBody(order) else current.body,
             )
         }
+
         commitScope.launch {
             try {
                 prefsRepository.setCharacterSortOrder(order)
@@ -110,6 +111,7 @@ class CharacterListViewModel(
             } catch (e: Exception) {
                 Event.ImportFailed(CharacterImportFailure.Unexpected)
             }
+
             events.emit(event)
         }
     }
@@ -122,6 +124,7 @@ class CharacterListViewModel(
         if (state.value.body !is CharacterListState.Body.WithData) return null
 
         val pending = deletions.hide(stored) ?: return null
+
         renderBody()
         return pending
     }
@@ -152,6 +155,7 @@ class CharacterListViewModel(
             } catch (e: Exception) {
                 false
             }
+
             deletions.settle(pending, deleted)
             renderBody()
             if (!deleted) events.emit(Event.DeletionError(pending.item.value))

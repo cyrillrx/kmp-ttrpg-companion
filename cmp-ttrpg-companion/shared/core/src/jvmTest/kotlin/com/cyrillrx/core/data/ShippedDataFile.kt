@@ -13,7 +13,9 @@ fun shippedDataFile(name: String): File {
     while (directory != null) {
         val candidate = File(directory, relativePath)
         if (candidate.isFile) return candidate
+
         directory = directory.parentFile
     }
+
     fail("could not find $relativePath above ${File(".").absolutePath}")
 }

@@ -110,6 +110,7 @@ private fun HistoryEntry(roll: DayRoll) {
                 color = MaterialTheme.colorScheme.primary,
             )
         }
+
         Row(verticalAlignment = Alignment.Bottom) {
             HistoryRolls(roll.pool, modifier = Modifier.weight(1f))
             Text(

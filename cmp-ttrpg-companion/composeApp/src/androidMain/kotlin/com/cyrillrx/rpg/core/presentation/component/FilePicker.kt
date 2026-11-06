@@ -26,6 +26,7 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
     val currentOnReadFailed = rememberUpdatedState(onReadFailed)
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         if (uri == null) return@rememberLauncherForActivityResult
+
         scope.launch {
             val content = try {
                 withContext(Dispatchers.IO) { context.readText(uri) }
@@ -34,9 +35,11 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
             } catch (_: Exception) {
                 null
             }
+
             if (content == null) currentOnReadFailed.value() else currentOnFileRead.value(content)
         }
     }
+
     return remember(launcher) {
         FilePicker {
             try {
@@ -61,7 +64,9 @@ private fun InputStream.readAtMost(limit: Int): ByteArray {
     while (total < limit) {
         val read = read(buffer, total, limit - total)
         if (read == -1) break
+
         total += read
     }
+
     return buffer.copyOf(total)
 }

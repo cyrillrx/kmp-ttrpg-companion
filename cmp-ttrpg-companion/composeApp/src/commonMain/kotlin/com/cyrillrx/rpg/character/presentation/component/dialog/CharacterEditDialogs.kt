@@ -186,6 +186,7 @@ internal fun CharacterEditDialog(
                 DistanceUnit.FEET -> Res.string.settings_unit_feet_abbr
                 DistanceUnit.METERS -> Res.string.settings_unit_meters_abbr
             }
+
             NumberStepperDialog(
                 title = stringResource(Res.string.label_walk_speed, stringResource(unitAbbrRes)),
                 initialValue = state.character.speeds.walk,
@@ -333,6 +334,7 @@ private fun SkillSelectDialog(
     var selected by remember(current) {
         mutableStateOf(Skill.entries.associateWith { it.getProficiency(current) })
     }
+
     EditDialog(
         title = stringResource(Res.string.label_skills),
         onDismiss = onDismiss,

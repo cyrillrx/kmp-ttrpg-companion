@@ -28,6 +28,7 @@ private class DesktopFileSharer(private val dialogTitle: String) : FileSharer {
             } finally {
                 dialog.dispose()
             }
+
         withContext(Dispatchers.IO) { target.writeText(file.content) }
     }
 }

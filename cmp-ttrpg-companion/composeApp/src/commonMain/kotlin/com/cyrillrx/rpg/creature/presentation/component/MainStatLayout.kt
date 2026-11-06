@@ -33,6 +33,7 @@ fun MainStatLayout(
                     append(stringResource(Res.string.label_armor_class))
                     append(" ")
                 }
+
                 append(monster.armorClass.toString())
             },
             color = MaterialTheme.colorScheme.onBackground,
@@ -43,6 +44,7 @@ fun MainStatLayout(
                     append(stringResource(Res.string.label_hit_points))
                     append(" ")
                 }
+
                 append(monster.maxHitPoints.toString())
             },
             color = MaterialTheme.colorScheme.onBackground,
@@ -53,6 +55,7 @@ fun MainStatLayout(
                     append(stringResource(Res.string.label_speed))
                     append(" ")
                 }
+
                 append(monster.speeds.toFormattedString(LocalDistanceUnit.current))
             },
             color = MaterialTheme.colorScheme.onBackground,

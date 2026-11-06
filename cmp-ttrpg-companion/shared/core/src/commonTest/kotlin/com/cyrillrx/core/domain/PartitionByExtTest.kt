@@ -29,6 +29,7 @@ class PartitionByExtTest {
         val (data, errors) = input.partitionBy<Int, Int, Error> { n ->
             if (n % 2 == 0) Result.Success(n) else Result.Failure(TestError)
         }
+
         assertEquals(expected = listOf(2, 4), actual = data)
         assertEquals(expected = 2, actual = errors.size)
     }

@@ -39,6 +39,7 @@ fun Spell.ComponentType.toFormattedString(): String {
         Spell.ComponentType.SOMATIC -> Res.string.component_somatic
         Spell.ComponentType.MATERIAL -> Res.string.component_material
     }
+
     return stringResource(stringRes)
 }
 

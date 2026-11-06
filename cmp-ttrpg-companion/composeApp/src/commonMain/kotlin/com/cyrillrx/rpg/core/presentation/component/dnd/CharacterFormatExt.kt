@@ -107,6 +107,7 @@ fun Background.toStringRes(): StringResource = when (this) {
 @Composable
 fun Background?.toFormattedString(): String {
     this ?: return ""
+
     return stringResource(toStringRes())
 }
 
@@ -159,6 +160,7 @@ fun Proficiency.toFormattedString(): String {
         Proficiency.PROFICIENT -> Res.string.proficiency_proficient
         Proficiency.EXPERT -> Res.string.proficiency_expert
     }
+
     return stringResource(stringRes)
 }
 
@@ -179,6 +181,7 @@ fun Ability.toAbbreviationString(): String {
         Ability.WISDOM -> Res.string.ability_label_wis
         Ability.CHARISMA -> Res.string.ability_label_cha
     }
+
     return stringResource(stringRes)
 }
 
@@ -236,5 +239,6 @@ fun ClassLevels.toClassesRaceLabel(race: Race): String {
     } else {
         stringResource(Res.string.value_race_classes, raceAdjective, classNames)
     }
+
     return label.capitalize(Locale.current)
 }

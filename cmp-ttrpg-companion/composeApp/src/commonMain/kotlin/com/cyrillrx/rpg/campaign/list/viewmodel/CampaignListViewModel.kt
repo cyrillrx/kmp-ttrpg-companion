@@ -34,6 +34,7 @@ class CampaignListViewModel(
 
     fun silentRefresh() {
         if (state.value.body is CampaignListState.Body.Loading) return
+
         activeJob?.cancel()
         activeJob = refreshCampaigns()
     }
@@ -71,6 +72,7 @@ class CampaignListViewModel(
             query.isBlank() -> CampaignListState.Body.Empty
             else -> CampaignListState.Body.NoSearchResult
         }
+
         state.update { it.copy(body = body) }
     }
 }

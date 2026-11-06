@@ -44,6 +44,7 @@ fun SearchBarWithBack(
                 contentDescription = stringResource(Res.string.btn_back),
             )
         }
+
         SearchBar(
             hint = hint,
             query = query,
@@ -65,6 +66,7 @@ fun SearchBarWithBack(
                 )
             }
         }
+
         actions()
     }
 }

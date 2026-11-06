@@ -627,6 +627,7 @@ class CollectionDetailViewModelTest {
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
         }
+
         advanceUntilIdle()
 
         viewModel.removeItemOptimistically(spell) // no commit
@@ -653,6 +654,7 @@ class CollectionDetailViewModelTest {
             backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
                 viewModel.state.collect {}
             }
+
             advanceUntilIdle()
 
             viewModel.removeItemOptimistically(spell) // no commit

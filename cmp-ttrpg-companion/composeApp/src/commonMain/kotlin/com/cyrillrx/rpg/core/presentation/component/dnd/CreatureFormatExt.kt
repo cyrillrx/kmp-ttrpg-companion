@@ -49,6 +49,7 @@ fun Creature.Size.toFormattedString(): String {
         Creature.Size.HUGE_OR_SMALLER -> Res.string.creature_size_huge_or_smaller
         Creature.Size.UNKNOWN -> Res.string.creature_size_unknown
     }
+
     return stringResource(stringRes)
 }
 
@@ -67,6 +68,7 @@ fun Speeds.toFormattedString(unit: DistanceUnit): String {
             val suffix = if (hover) " ($hoverLabel)" else ""
             add("$flyLabel ${it.format()}$suffix")
         }
+
         swim?.let { add("$swimLabel ${it.format()}") }
         climb?.let { add("$climbLabel ${it.format()}") }
         burrow?.let { add("$burrowLabel ${it.format()}") }
@@ -89,5 +91,6 @@ fun Creature.Alignment.toFormattedString(): String {
         Creature.Alignment.ANY_ALIGNMENT -> Res.string.creature_alignment_any_alignment
         Creature.Alignment.UNKNOWN -> Res.string.creature_alignment_unknown
     }
+
     return stringResource(stringRes)
 }

@@ -24,6 +24,7 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
     return remember(dialogTitle, scope) {
         FilePicker {
             val file = chooseFile(dialogTitle) ?: return@FilePicker
+
             scope.launch {
                 val content = try {
                     withContext(Dispatchers.IO) {
@@ -31,6 +32,7 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
                         check(bytes.size <= FilePicker.MAX_FILE_BYTES) {
                             "$file exceeds ${FilePicker.MAX_FILE_BYTES} bytes"
                         }
+
                         bytes.decodeToString(throwOnInvalidSequence = true)
                     }
                 } catch (e: CancellationException) {
@@ -38,6 +40,7 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
                 } catch (_: Exception) {
                     null
                 }
+
                 if (content == null) currentOnReadFailed.value() else currentOnFileRead.value(content)
             }
         }

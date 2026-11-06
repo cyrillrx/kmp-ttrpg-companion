@@ -15,6 +15,7 @@ fun EmptySearch(searchQuery: String) {
     } else {
         stringResource(Res.string.no_result_found_for_query, searchQuery)
     }
+
     ErrorLayout(text)
 }
 

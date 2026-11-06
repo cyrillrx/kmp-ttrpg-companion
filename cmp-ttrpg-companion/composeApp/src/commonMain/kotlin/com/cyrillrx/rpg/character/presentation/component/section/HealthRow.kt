@@ -82,6 +82,7 @@ internal fun HealthRow(
                             color = MaterialTheme.colorScheme.error,
                         )
                     }
+
                     Text(
                         text = state.ratio,
                         style = MaterialTheme.typography.bodyMedium,
@@ -96,6 +97,7 @@ internal fun HealthRow(
                         )
                     }
                 }
+
                 HealthGauge(state)
             }
         }

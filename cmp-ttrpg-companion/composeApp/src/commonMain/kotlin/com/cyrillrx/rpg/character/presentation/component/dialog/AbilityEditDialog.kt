@@ -47,6 +47,7 @@ internal fun AbilityEditDialog(
     var value by remember(initialAbility) {
         mutableIntStateOf(initialAbility.value.coerceIn(MIN_ABILITY_SCORE, MAX_ABILITY_SCORE))
     }
+
     var proficiency by remember(initialAbility) { mutableStateOf(initialAbility.savingThrowProficiency) }
 
     EditDialog(

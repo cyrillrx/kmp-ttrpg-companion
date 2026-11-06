@@ -41,6 +41,7 @@ data class SpellFilter(
 
 fun List<Spell>.applyFilter(filter: SpellFilter?): List<Spell> {
     if (filter == null) return this
+
     return filter { it.matches(filter) }
 }
 

@@ -37,6 +37,7 @@ class ShippedPresetBoundsTest {
             classes?.forEach { (name, level) ->
                 if (!isValidCharacterLevel(level)) add("$label $name level $level")
             }
+
             speeds?.let { speeds ->
                 speeds.walk
                     ?.takeUnless { isValidWalkSpeedInFeet(it) }

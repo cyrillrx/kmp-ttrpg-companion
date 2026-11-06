@@ -43,6 +43,7 @@ class JsonMonsterRepository(
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
         }
+
         return listOf()
     }
 
@@ -119,6 +120,7 @@ class JsonMonsterRepository(
             val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
                 t.toTranslation(monsterId, locale)
             }
+
             translationErrors.forEach { println("WARNING: monster import error: $it") }
             return parsedTranslations.takeIf { it.isNotEmpty() }
         }

@@ -87,6 +87,7 @@ fun DamageType.toFormattedString(): String {
         DamageType.PIERCING_NONMAGICAL -> Res.string.damage_type_piercing_nonmagical
         DamageType.SLASHING_NONMAGICAL -> Res.string.damage_type_slashing_nonmagical
     }
+
     return stringResource(stringRes)
 }
 
@@ -108,6 +109,7 @@ fun Condition.toFormattedString(): String {
         Condition.STUNNED -> Res.string.condition_stunned
         Condition.UNCONSCIOUS -> Res.string.condition_unconscious
     }
+
     return stringResource(stringRes)
 }
 
