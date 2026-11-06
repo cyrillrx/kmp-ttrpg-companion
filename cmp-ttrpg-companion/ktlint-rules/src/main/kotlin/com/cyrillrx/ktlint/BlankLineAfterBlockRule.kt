@@ -18,7 +18,9 @@ import org.jetbrains.kotlin.lexer.KtTokens
 import org.jetbrains.kotlin.psi.KtBinaryExpression
 import org.jetbrains.kotlin.psi.KtBlockExpression
 import org.jetbrains.kotlin.psi.KtBreakExpression
+import org.jetbrains.kotlin.psi.KtCallExpression
 import org.jetbrains.kotlin.psi.KtContinueExpression
+import org.jetbrains.kotlin.psi.KtDestructuringDeclaration
 import org.jetbrains.kotlin.psi.KtExpression
 import org.jetbrains.kotlin.psi.KtIfExpression
 import org.jetbrains.kotlin.psi.KtProperty
@@ -97,6 +99,7 @@ class BlankLineAfterBlockRule :
     private fun ASTNode.isGuard(): Boolean =
         when (val psi = psi) {
             is KtProperty -> psi.initializer.isElvisJump()
+            is KtDestructuringDeclaration -> psi.initializer.isElvisJump()
             is KtBinaryExpression -> psi.isElvisJump() || psi.isAssignedFromElvisJump()
             is KtIfExpression -> psi.`else` == null && psi.then.isJumpBranch()
             else -> false
@@ -115,9 +118,12 @@ class BlankLineAfterBlockRule :
         this is KtReturnExpression ||
             this is KtThrowExpression ||
             this is KtBreakExpression ||
-            this is KtContinueExpression
+            this is KtContinueExpression ||
+            (this is KtCallExpression && calleeExpression?.text in NOTHING_FUNCTIONS)
 
     private companion object {
+        val NOTHING_FUNCTIONS = setOf("error", "TODO")
+
         val CONTROL_FLOW_STATEMENTS =
             setOf(
                 ElementType.IF,

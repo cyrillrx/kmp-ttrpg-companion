@@ -244,6 +244,52 @@ class BlankLineAfterBlockRuleTest {
     }
 
     @Test
+    fun `adds a blank line after a guard clause ending with error`() {
+        val code =
+            """
+            fun foo(a: String?) {
+                val b = a ?: error("missing")
+                bar(b)
+            }
+            """.trimIndent()
+        val formattedCode =
+            """
+            fun foo(a: String?) {
+                val b = a ?: error("missing")
+
+                bar(b)
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolation(line = 2, col = 34, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
+    fun `adds a blank line after a destructuring guard clause`() {
+        val code =
+            """
+            fun foo(a: Pair<Int, Int>?) {
+                val (b, c) = a ?: return
+                bar(b, c)
+            }
+            """.trimIndent()
+        val formattedCode =
+            """
+            fun foo(a: Pair<Int, Int>?) {
+                val (b, c) = a ?: return
+
+                bar(b, c)
+            }
+            """.trimIndent()
+
+        assertThatCode(code)
+            .hasLintViolation(line = 2, col = 29, detail = MISSING_BLANK_LINE_MESSAGE)
+            .isFormattedAs(formattedCode)
+    }
+
+    @Test
     fun `keeps consecutive guard clauses together`() {
         val code =
             """
