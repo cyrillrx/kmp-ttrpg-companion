@@ -29,9 +29,9 @@ jobs:
         working-directory: cmp-ttrpg-companion
         run: chmod +x gradlew
 
-      - name: Check formatting
+      - name: Check formatting and test the ktlint rules
         working-directory: cmp-ttrpg-companion
-        run: ./gradlew ktlintCheck --no-daemon
+        run: ./gradlew ktlintCheck :ktlint-rules:test --no-daemon
 
   kmp-tests:
     name: CMP Client - JVM Tests
@@ -59,11 +59,6 @@ jobs:
       - name: Run JVM tests and generate Kover reports
         working-directory: cmp-ttrpg-companion
         run: ./gradlew jvmTest koverXmlReportJvm --no-daemon
-
-      - name: Run ktlint rule tests
-        if: ${{ !cancelled() }}
-        working-directory: cmp-ttrpg-companion
-        run: ./gradlew :ktlint-rules:test --no-daemon
 
       - name: Upload Kover reports
         uses: actions/upload-artifact@v4
