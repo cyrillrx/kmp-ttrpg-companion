@@ -52,10 +52,11 @@ All commands run from `cmp-ttrpg-companion/`:
 ./gradlew jvmTest             # Run JVM/Desktop tests only
 ./gradlew ktlintCheck         # Check formatting
 ./gradlew ktlintFormat        # Auto-fix formatting
+./gradlew :ktlint-rules:test   # Test the custom ktlint rules
 ./gradlew koverXmlReportJvm   # Generate the coverage reports SonarCloud reads
 ```
 
-ktlint is **strict** in every module that applies it (`composeApp`, `shared/core`, `ktlint-rules`; `ignoreFailures=false`), and the `CMP Client - ktlint` CI job fails the build on any violation. Run `ktlintFormat` before pushing. On top of the standard rules, `composeApp` and `shared/core` run the project's own rule set, built by the `ktlint-rules` module (`cyrillrx:blank-line-after-block`). Its tests run with `./gradlew :ktlint-rules:test`, which `jvmTest` does not cover.
+ktlint is **strict** in every module that applies it (`composeApp`, `shared/core`, `ktlint-rules`; `ignoreFailures=false`), and the `CMP Client - ktlint` CI job fails the build on any violation. Run `ktlintFormat` before pushing. On top of the standard rules, `composeApp` and `shared/core` run the project's own rule set, built by the `ktlint-rules` module (`cyrillrx:blank-line-after-block`).
 
 ### Coverage policy
 
