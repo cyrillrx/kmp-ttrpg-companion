@@ -50,8 +50,6 @@
     <string name="value_race_classes">%2$s %1$s</string>
     <string name="label_saving_throw">Jet de sauvegarde</string>
     <string name="value_check_modifier">%1$s (%2$s)</string>
-    <string name="label_with_advantage">Avec avantage</string>
-    <string name="label_with_disadvantage">Avec désavantage</string>
     <string name="btn_edit_skills">Modifier les compétences</string>
     <string name="label_saving_throw_proficiency">Maîtrise de sauvegarde</string>
     <string name="label_aptitudes">Aptitudes</string>

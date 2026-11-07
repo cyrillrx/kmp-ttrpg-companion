@@ -16,7 +16,6 @@ import com.cyrillrx.rpg.character.presentation.SheetRoll
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingLarge
 import com.cyrillrx.rpg.creature.domain.Skill
@@ -26,14 +25,13 @@ import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.presentation.component.D20Row
+import com.cyrillrx.rpg.dice.presentation.component.KeepRuleLabel
 import com.cyrillrx.rpg.dice.presentation.component.RollResult
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.app.shared.ui.generated.resources.Res
 import rpg_companion.app.shared.ui.generated.resources.label_initiative
 import rpg_companion.app.shared.ui.generated.resources.label_saving_throw
-import rpg_companion.app.shared.ui.generated.resources.label_with_advantage
-import rpg_companion.app.shared.ui.generated.resources.label_with_disadvantage
 import rpg_companion.app.shared.ui.generated.resources.value_check_modifier
 
 class D20CheckActions(
@@ -89,20 +87,8 @@ private fun CheckHeader(sheetRoll: SheetRoll, modifier: Modifier = Modifier) {
             ),
             style = MaterialTheme.typography.titleLarge,
         )
-        when (sheetRoll.keepRule()) {
-            KeepRule.HIGHER -> Text(
-                text = stringResource(Res.string.label_with_advantage),
-                style = MaterialTheme.typography.titleSmall,
-                color = LocalHealthColors.current.heal,
-            )
-
-            KeepRule.LOWER -> Text(
-                text = stringResource(Res.string.label_with_disadvantage),
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.error,
-            )
-
-            null -> Unit
+        sheetRoll.lastRoll.keepRule()?.let { rule ->
+            KeepRuleLabel(rule, style = MaterialTheme.typography.titleSmall)
         }
     }
 }

@@ -16,6 +16,8 @@
 
     <string name="btn_advantage">Advantage</string>
     <string name="btn_disadvantage">Disadvantage</string>
+    <string name="label_with_advantage">With advantage</string>
+    <string name="label_with_disadvantage">With disadvantage</string>
     <string name="btn_roll">Roll</string>
     <string name="btn_roll_composition">Roll %1$s</string>
     <string name="btn_remove_die_of">Remove a %1$s</string>

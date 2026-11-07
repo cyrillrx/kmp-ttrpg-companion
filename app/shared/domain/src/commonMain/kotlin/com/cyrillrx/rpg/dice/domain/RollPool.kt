@@ -19,6 +19,9 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
 
     fun toNotation(): String? = toExpression()?.toNotation()
 
+    /** The rule of a lone double roll, such as a d20 with advantage; null for any other pool. */
+    fun keepRule(): KeepRule? = (rolls.singleOrNull() as? DoubleRoll)?.rule
+
     /** The rolls grouped by die, from the biggest and each die's double rolls first, as the notation reads. */
     fun rollsByDie(): Map<Die, List<DieRoll>> = rolls
         .sortedWith(compareBy(termOrder, DieRoll::toTerm))

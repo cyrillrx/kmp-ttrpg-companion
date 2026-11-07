@@ -175,4 +175,30 @@ class RollPoolTest {
     fun `an empty pool has no expression`() {
         assertNull(RollPool(modifier = 3).toExpression())
     }
+
+    @Test
+    fun `a plain roll has no keep rule`() {
+        assertNull(RollPool(listOf(d20), modifier = 2).keepRule())
+    }
+
+    @Test
+    fun `a roll with advantage keeps the higher`() {
+        val advantage = DoubleRoll(SimpleRoll(Die.D20, value = 15), SimpleRoll(Die.D20, value = 8), KeepRule.HIGHER)
+
+        assertEquals(KeepRule.HIGHER, RollPool(listOf(advantage), modifier = 2).keepRule())
+    }
+
+    @Test
+    fun `a roll with disadvantage keeps the lower`() {
+        val disadvantage = DoubleRoll(SimpleRoll(Die.D20, value = 8), SimpleRoll(Die.D20, value = 15), KeepRule.LOWER)
+
+        assertEquals(KeepRule.LOWER, RollPool(listOf(disadvantage), modifier = 2).keepRule())
+    }
+
+    @Test
+    fun `a double roll among other dice gives the pool no keep rule`() {
+        val advantage = DoubleRoll(SimpleRoll(Die.D20, value = 15), SimpleRoll(Die.D20, value = 8), KeepRule.HIGHER)
+
+        assertNull(RollPool(listOf(advantage, d6)).keepRule())
+    }
 }
