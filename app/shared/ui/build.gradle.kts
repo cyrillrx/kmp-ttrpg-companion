@@ -69,7 +69,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.app.shared.domain)
+            api(projects.app.shared.domain)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
