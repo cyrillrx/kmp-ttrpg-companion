@@ -1,7 +1,6 @@
 # :app:baselineprofile
 
-Macrobenchmark module that generates the app's [Baseline Profile](https://developer.android.com/topic/performance/baselineprofiles/overview)
-and measures scroll performance of the compendium lists. Targets `:app:androidApp`.
+Macrobenchmark module that generates the app's [Baseline Profile](https://developer.android.com/topic/performance/baselineprofiles/overview) and measures scroll performance of the compendium lists. Targets `:app:androidApp`.
 
 ## Generate the baseline profile
 

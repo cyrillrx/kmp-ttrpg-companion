@@ -10,12 +10,9 @@ The Compose conventions apply as-is to the `app/` client. They build on the [Kot
 
 ## Project-specific additions
 
-- **Concrete architecture**: module structure (`app/shared/domain`, `app/shared/ui`), package layout
-  (`com.cyrillrx.rpg.*`), manual DI, the navigation/router pattern, and the design
-  system are documented in [`AGENTS.md`](../../AGENTS.md) (sections 4–5).
+- **Concrete architecture**: module structure (`app/shared/domain`, `app/shared/ui`), package layout (`com.cyrillrx.rpg.*`), manual DI, the navigation/router pattern, and the design system are documented in [`AGENTS.md`](../../AGENTS.md) (sections 4–5).
 - **Test location**: ViewModel tests live in `app/shared/ui/src/commonTest/`.
-- **E2E flows**: scenarios are documented in [`../testing/e2e-test-cases.md`](../testing/e2e-test-cases.md);
-  Maestro flows live in `app/.maestro/flows/`. Run them with:
+- **E2E flows**: scenarios are documented in [`../testing/e2e-test-cases.md`](../testing/e2e-test-cases.md); Maestro flows live in `app/.maestro/flows/`. Run them with:
 
   ```bash
   ./gradlew :app:androidApp:installDebug
