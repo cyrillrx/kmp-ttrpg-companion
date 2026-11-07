@@ -27,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.dieTileMinHeight
@@ -37,6 +36,7 @@ import com.cyrillrx.rpg.core.presentation.theme.removeDieButtonSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.dice.domain.Die
+import com.cyrillrx.rpg.dice.domain.KeepRule
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.app.shared.ui.generated.resources.Res
@@ -59,7 +59,7 @@ internal fun D20Row(
             label = d20,
             caption = stringResource(Res.string.btn_disadvantage),
             onClick = onDisadvantageClicked,
-            accent = MaterialTheme.colorScheme.error,
+            accent = KeepRule.LOWER.color(),
             modifier = Modifier.weight(1f),
         )
         DieTile(
@@ -72,7 +72,7 @@ internal fun D20Row(
             label = d20,
             caption = stringResource(Res.string.btn_advantage),
             onClick = onAdvantageClicked,
-            accent = LocalHealthColors.current.heal,
+            accent = KeepRule.HIGHER.color(),
             modifier = Modifier.weight(1f),
         )
     }
