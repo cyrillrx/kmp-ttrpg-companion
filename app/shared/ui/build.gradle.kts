@@ -134,7 +134,7 @@ sonar {
                 "**/presentation/theme/**",
                 "**/navigation/**",
                 "**/*Screen.kt",
-                "**/app/**",
+                "**/com/cyrillrx/rpg/app/**",
                 "**/androidMain/**",
                 "**/iosMain/**",
             ).joinToString(","),
