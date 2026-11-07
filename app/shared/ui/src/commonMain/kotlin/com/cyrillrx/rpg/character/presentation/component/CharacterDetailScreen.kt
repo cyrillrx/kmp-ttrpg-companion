@@ -283,7 +283,6 @@ fun CharacterDetailScreen(
                 }
             }
 
-            // Only the tab content scrolls (vertically) and swipes (horizontally).
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier.weight(1f),

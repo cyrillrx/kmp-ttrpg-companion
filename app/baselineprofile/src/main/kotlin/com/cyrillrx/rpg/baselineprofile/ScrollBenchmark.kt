@@ -12,7 +12,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/** Measures scroll jank on the spell list with and without the baseline profile. */
 @RunWith(AndroidJUnit4::class)
 class ScrollBenchmark {
 
