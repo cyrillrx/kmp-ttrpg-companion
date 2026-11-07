@@ -101,6 +101,9 @@ val copyCmpResourcesToAssets = tasks.register("copyCmpResourcesToAssets", Copy::
 tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }
     .configureEach { dependsOn(copyCmpResourcesToAssets) }
 
+tasks.matching { it.name.startsWith("lint") || it.name.contains("Lint") }
+    .configureEach { dependsOn(copyCmpResourcesToAssets) }
+
 ktlint {
     version.set(libs.versions.ktlint.engine)
     debug.set(true)
@@ -109,7 +112,3 @@ ktlint {
     outputToConsole.set(true)
     ignoreFailures.set(false)
 }
-
-tasks
-    .matching { it.name.startsWith("lint") || it.name.contains("Lint") }
-    .configureEach { dependsOn("copyCmpResourcesToAssets") }
