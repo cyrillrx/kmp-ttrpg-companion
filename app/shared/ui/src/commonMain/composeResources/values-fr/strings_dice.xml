@@ -16,6 +16,8 @@
 
     <string name="btn_advantage">Avantage</string>
     <string name="btn_disadvantage">Désavantage</string>
+    <string name="label_with_advantage">Avec avantage</string>
+    <string name="label_with_disadvantage">Avec désavantage</string>
     <string name="btn_roll">Lancer</string>
     <string name="btn_roll_composition">Lancer %1$s</string>
     <string name="btn_remove_die_of">Retirer un %1$s</string>
