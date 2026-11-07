@@ -29,7 +29,7 @@ A `ListPreference(key, value)` table would absorb new screens without a migratio
 
 ## Why the enum moves to the shared module
 
-`UserPreferences` lives in `app/shared/domain`, which cannot depend on `app/shared/ui`. `CollectionItemOrder` describes how a collection's entries are ordered — a property of the entity, not of the screen that displays it — so `usercollection/domain`, next to `UserCollection`, is where it belongs. `applySort`'s counterpart `applyOrder` follows it, using only `Entity` and `sortedByName`, both already in `app/shared/domain`.
+`UserPreferences` lives in `app/shared/domain`, which cannot depend on `app/shared/ui`. `CollectionItemOrder` describes how a collection's entries are ordered (a property of the entity, not of the screen that displays it), so `usercollection/domain`, next to `UserCollection`, is where it belongs. `applySort`'s counterpart `applyOrder` follows it, using only `Entity` and `sortedByName`, both already in `app/shared/domain`.
 
 ## Consequences
 
