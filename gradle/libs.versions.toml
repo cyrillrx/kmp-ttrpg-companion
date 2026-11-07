@@ -11,7 +11,7 @@ kotlinx-coroutines-core = "1.10.2"
 kotlinx-serialization = "1.11.0"
 kotlinx-datetime = "0.8.0"
 
-sqlDelight = "2.3.2"
+sqlDelight = "2.4.1"
 
 androidx-compose = "1.12.1"
 androidx-appcompat = "1.7.1"
