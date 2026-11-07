@@ -15,18 +15,18 @@ android {
         applicationId = "com.cyrillrx.rpg"
         minSdk = Version.MIN_SDK
         targetSdk = Version.COMPILE_SDK
-        versionCode = providers.gradleProperty("versionCode").orNull?.toInt() ?: 1
+        versionCode = providers.gradleProperty("ttrpgVersionCode").orNull?.toInt() ?: 1
         versionName = Version.APP_VERSION
     }
 
-    val releaseStoreFile = providers.gradleProperty("releaseStoreFile").orNull
+    val releaseStoreFile = providers.gradleProperty("ttrpgReleaseStoreFile").orNull
     signingConfigs {
         if (releaseStoreFile != null) {
             create("release") {
                 storeFile = file(releaseStoreFile)
-                storePassword = providers.gradleProperty("releaseStorePassword").get()
-                keyAlias = providers.gradleProperty("releaseKeyAlias").get()
-                keyPassword = providers.gradleProperty("releaseKeyPassword").get()
+                storePassword = providers.gradleProperty("ttrpgReleaseStorePassword").get()
+                keyAlias = providers.gradleProperty("ttrpgReleaseKeyAlias").get()
+                keyPassword = providers.gradleProperty("ttrpgReleaseKeyPassword").get()
             }
         }
     }
