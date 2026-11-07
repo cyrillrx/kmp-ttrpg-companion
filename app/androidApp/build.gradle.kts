@@ -44,6 +44,7 @@ android {
         }
 
         getByName("release") {
+            // TODO(#395): give R8 the default and app rules files
             isMinifyEnabled = true
             signingConfig = signingConfigs.findByName("release")
         }
@@ -101,6 +102,7 @@ val copyCmpResourcesToAssets = tasks.register("copyCmpResourcesToAssets", Copy::
 tasks.named { it.startsWith("merge") && it.endsWith("Assets") }
     .configureEach { dependsOn(copyCmpResourcesToAssets) }
 
+// TODO(#394): register the copied resources as a generated assets source instead of wiring consumers by name
 tasks.named { it.startsWith("lint") || it.contains("Lint") }
     .configureEach { dependsOn(copyCmpResourcesToAssets) }
 
