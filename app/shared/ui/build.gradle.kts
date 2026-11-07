@@ -126,8 +126,7 @@ sonar {
             rootProject.layout.buildDirectory.file("reports/kover/reportJvmOnly.xml").get().asFile.absolutePath,
         )
         // Sonar indexes these files either way and reads their absence from the report as zero
-        // coverage. Every entry here has its counterpart in the root kover block: Kover matches
-        // class names, Sonar matches file paths. See the coverage policy in AGENTS.md.
+        // coverage. See the coverage policy in AGENTS.md.
         property(
             "sonar.coverage.exclusions",
             listOf(
