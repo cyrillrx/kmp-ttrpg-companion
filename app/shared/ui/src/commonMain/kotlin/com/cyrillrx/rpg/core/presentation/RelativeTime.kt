@@ -13,7 +13,6 @@ import rpg_companion.app.shared.ui.generated.resources.time_ago_years
 import kotlin.time.Clock
 import kotlin.time.Instant
 
-/** Coarse relative-time bucket computed from the elapsed duration between two instants. */
 sealed interface RelativeTimePeriod {
     object Now : RelativeTimePeriod
     data class Minutes(val count: Int) : RelativeTimePeriod
@@ -23,10 +22,7 @@ sealed interface RelativeTimePeriod {
     data class Years(val count: Int) : RelativeTimePeriod
 }
 
-/**
- * Computes the relative-time bucket between this instant and [now].
- * Returns null for the epoch-zero sentinel, i.e. when no modification date is known.
- */
+/** Returns null for the epoch-zero sentinel, i.e. when no modification date is known. */
 fun Instant.getRelativeTimePeriod(now: Instant): RelativeTimePeriod? {
     if (toEpochMilliseconds() == 0L) return null
 
@@ -44,10 +40,7 @@ fun Instant.getRelativeTimePeriod(now: Instant): RelativeTimePeriod? {
     }
 }
 
-/**
- * Formats this instant as a human-readable "x ago" string (now / minutes / hours / days / months / years).
- * Returns null for the epoch-zero sentinel, i.e. when no modification date is known.
- */
+/** Returns null for the epoch-zero sentinel, i.e. when no modification date is known. */
 @Composable
 fun Instant.formatRelativeTime(now: Instant = Clock.System.now()): String? {
     return when (val period = getRelativeTimePeriod(now)) {
