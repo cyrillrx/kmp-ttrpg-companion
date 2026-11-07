@@ -15,8 +15,20 @@ android {
         applicationId = "com.cyrillrx.rpg"
         minSdk = Version.MIN_SDK
         targetSdk = Version.COMPILE_SDK
-        versionCode = 1
+        versionCode = providers.gradleProperty("ttrpgVersionCode").orNull?.toInt() ?: 1
         versionName = Version.APP_VERSION
+    }
+
+    val releaseStoreFile = providers.gradleProperty("ttrpgReleaseStoreFile").orNull
+    signingConfigs {
+        if (releaseStoreFile != null) {
+            create("release") {
+                storeFile = file(releaseStoreFile)
+                storePassword = providers.gradleProperty("ttrpgReleaseStorePassword").get()
+                keyAlias = providers.gradleProperty("ttrpgReleaseKeyAlias").get()
+                keyPassword = providers.gradleProperty("ttrpgReleaseKeyPassword").get()
+            }
+        }
     }
 
     packaging {
@@ -26,8 +38,15 @@ android {
     }
 
     buildTypes {
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+        }
+
         getByName("release") {
+            // TODO(#395): give R8 the default and app rules files
             isMinifyEnabled = true
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 
@@ -79,7 +98,11 @@ val copyCmpResourcesToAssets = tasks.register("copyCmpResourcesToAssets", Copy::
 
 // Every variant's asset merge must wait for the Compose resources to be copied into assets,
 // including the baseline-profile plugin's benchmarkRelease and nonMinifiedRelease variants.
-tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }
+tasks.named { it.startsWith("merge") && it.endsWith("Assets") }
+    .configureEach { dependsOn(copyCmpResourcesToAssets) }
+
+// TODO(#394): register the copied resources as a generated assets source instead of wiring consumers by name
+tasks.named { it.startsWith("lint") || it.contains("Lint") }
     .configureEach { dependsOn(copyCmpResourcesToAssets) }
 
 ktlint {

@@ -72,6 +72,35 @@ Run from the repository root, where the Gradle build lives:
 ./gradlew build
 ```
 
+#### Android release
+
+The release build is signed with the upload key from four Gradle properties: `ttrpgReleaseStoreFile`, `ttrpgReleaseKeyAlias`, `ttrpgReleaseStorePassword` and `ttrpgReleaseKeyPassword`. Gradle reads them from `~/.gradle/gradle.properties`, from `-P<name>=<value>`, or from `ORG_GRADLE_PROJECT_<name>` environment variables. Never put them in the repository's `gradle.properties`.
+
+Locally, keep the paths in `~/.gradle/gradle.properties` and the passwords in the macOS Keychain, so no file holds them in plain text:
+
+```properties
+# ~/.gradle/gradle.properties
+ttrpgReleaseStoreFile=/absolute/path/to/upload.jks
+ttrpgReleaseKeyAlias=upload
+```
+
+```bash
+# Once: store the password (the store and key passwords are identical in a PKCS12 keystore)
+security add-generic-password -U -s ttrpg-upload -a "$USER" -w
+
+# In ~/.zshrc
+export ORG_GRADLE_PROJECT_ttrpgReleaseStorePassword="$(security find-generic-password -s ttrpg-upload -w)"
+export ORG_GRADLE_PROJECT_ttrpgReleaseKeyPassword="$ORG_GRADLE_PROJECT_ttrpgReleaseStorePassword"
+```
+
+Allow `security` permanently the first time the Keychain asks. An IDE launched from the Dock does not read `~/.zshrc`: start it from a shell (`open -a "Android Studio"`), or build the release from the terminal.
+
+On the CI, expose the four values as `ORG_GRADLE_PROJECT_*` secrets.
+
+Once `ttrpgReleaseStoreFile` is set, the three other properties are required: without them, every build fails to configure, debug included. Without `ttrpgReleaseStoreFile`, the release builds unsigned.
+
+Each Play upload needs a higher version code, passed with `-PttrpgVersionCode=<n>`. It defaults to 1.
+
 ### Server (Rust)
 
 ```bash
