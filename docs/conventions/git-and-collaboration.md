@@ -11,8 +11,7 @@ all live in the canonical document. Only the project-specific bindings below dif
 
 ### Commit scopes
 
-Use short, consistent scopes matching this repository's structure, e.g.
-`project`, `app`, `server-rust`, `server-go`, `bruno-api`, `agents`, `prd`, `spell`, `campaign`.
+Use short, consistent scopes matching this repository's structure, e.g. `project`, `app`, `server-rust`, `server-go`, `bruno-api`, `agents`, `prd`, `spell`, `campaign`.
 
 AI/agent configuration changes use the `docs(agents)` scope (see [`AGENTS.md`](../../AGENTS.md)).
 
