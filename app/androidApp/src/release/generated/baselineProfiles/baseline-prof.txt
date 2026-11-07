@@ -18308,7 +18308,7 @@ HSPLcom/cyrillrx/rpg/core/presentation/component/AppCardKt;->AppCard(Lkotlin/jvm
 Lcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarKt;
 HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarKt;-><clinit>()V
 HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarKt;-><init>()V
-HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarKt;->getLambda$1241736499$composeApp()Lkotlin/jvm/functions/Function2;
+HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarKt;->getLambda$1241736499$ui()Lkotlin/jvm/functions/Function2;
 HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarKt;->lambda_1241736499$lambda$0(Landroidx/compose/runtime/Composer;I)Lkotlin/Unit;
 Lcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarKt$$ExternalSyntheticLambda1;
 HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarKt$$ExternalSyntheticLambda1;-><init>()V
@@ -18320,7 +18320,7 @@ HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarK
 Lcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarWithBackKt;
 HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarWithBackKt;-><clinit>()V
 HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarWithBackKt;-><init>()V
-HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarWithBackKt;->getLambda$1087907866$composeApp()Lkotlin/jvm/functions/Function2;
+HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarWithBackKt;->getLambda$1087907866$ui()Lkotlin/jvm/functions/Function2;
 HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarWithBackKt;->lambda_1087907866$lambda$0(Landroidx/compose/runtime/Composer;I)Lkotlin/Unit;
 Lcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarWithBackKt$$ExternalSyntheticLambda0;
 HSPLcom/cyrillrx/rpg/core/presentation/component/ComposableSingletons$SearchBarWithBackKt$$ExternalSyntheticLambda0;-><init>()V
@@ -18949,7 +18949,7 @@ HSPLcom/cyrillrx/rpg/home/presentation/CharacterPreviewSectionKt$CharacterPrevie
 Lcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;
 HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;-><clinit>()V
 HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;-><init>()V
-HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;->getLambda$685901810$composeApp()Lkotlin/jvm/functions/Function2;
+HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;->getLambda$685901810$ui()Lkotlin/jvm/functions/Function2;
 HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;->lambda_685901810$lambda$0(Landroidx/compose/runtime/Composer;I)Lkotlin/Unit;
 Lcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt$$ExternalSyntheticLambda0;
 HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt$$ExternalSyntheticLambda0;-><init>()V

@@ -13371,7 +13371,7 @@ HSPLcom/cyrillrx/rpg/home/presentation/CharacterPreviewSectionKt$CharacterPrevie
 Lcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;
 HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;-><clinit>()V
 HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;-><init>()V
-HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;->getLambda$685901810$composeApp()Lkotlin/jvm/functions/Function2;
+HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;->getLambda$685901810$ui()Lkotlin/jvm/functions/Function2;
 HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt;->lambda_685901810$lambda$0(Landroidx/compose/runtime/Composer;I)Lkotlin/Unit;
 Lcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt$$ExternalSyntheticLambda0;
 HSPLcom/cyrillrx/rpg/home/presentation/ComposableSingletons$HomeScreenKt$$ExternalSyntheticLambda0;-><init>()V
