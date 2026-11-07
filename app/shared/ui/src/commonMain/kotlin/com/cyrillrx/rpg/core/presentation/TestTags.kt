@@ -5,7 +5,7 @@ package com.cyrillrx.rpg.core.presentation
  * Android entry point), so macrobenchmarks can target nodes reliably regardless of device locale
  * (unlike matching localized button text) or transient layout (unlike `By.scrollable(true)`).
  *
- * The `:baselineprofile` module cannot depend on this module, so it duplicates these values; keep
+ * The `:app:baselineprofile` module cannot depend on this module, so it duplicates these values; keep
  * the two in sync.
  */
 const val COMPENDIUM_LIST_TEST_TAG = "compendium_list"
