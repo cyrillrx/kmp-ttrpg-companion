@@ -28,7 +28,7 @@ The label is translated and follows the locale at display time. Storing the enum
 
 ## Why the check lives in the domain
 
-`RollContext` is part of `RecordedRoll`, so its check has to be typed in `shared/core`. `D20Check` only names the check; the modifier rule lives in `Character` extensions next to it, and is tested in that module.
+`RollContext` is part of `RecordedRoll`, so its check has to be typed in `app/shared/domain`. `D20Check` only names the check; the modifier rule lives in `Character` extensions next to it, and is tested in that module.
 
 ## Why no foreign key
 
