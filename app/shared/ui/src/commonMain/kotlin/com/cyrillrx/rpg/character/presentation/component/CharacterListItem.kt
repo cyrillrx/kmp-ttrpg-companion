@@ -55,7 +55,6 @@ fun CharacterListItem(
                 .fillMaxWidth()
                 .padding(spacingCommon),
         ) {
-            // Title line: character name on the left, total level on the right.
             Row(
                 horizontalArrangement = Arrangement.spacedBy(spacingCommon),
                 verticalAlignment = Alignment.CenterVertically,
@@ -86,7 +85,6 @@ fun CharacterListItem(
                 overflow = TextOverflow.Ellipsis,
             )
 
-            // Stats line: armor class / hit points on the left, last-modified date on the right.
             Row(
                 horizontalArrangement = Arrangement.spacedBy(spacingCommon),
                 verticalAlignment = Alignment.CenterVertically,

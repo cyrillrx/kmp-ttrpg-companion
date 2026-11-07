@@ -11,10 +11,6 @@ import rpg_companion.app.shared.ui.generated.resources.Res
 import rpg_companion.app.shared.ui.generated.resources.btn_cancel
 import rpg_companion.app.shared.ui.generated.resources.btn_confirm
 
-/**
- * Shared base dialog for editing/input operations across features.
- * Wraps [AlertDialog] with a title (+ optional subtitle), a content slot, and confirm/cancel buttons.
- */
 @Composable
 fun EditDialog(
     title: String,

@@ -24,7 +24,6 @@ import rpg_companion.app.shared.ui.generated.resources.btn_new_character_subtitl
 import rpg_companion.app.shared.ui.generated.resources.btn_quick_create
 import rpg_companion.app.shared.ui.generated.resources.btn_quick_create_subtitle
 
-/** The pair of "New character" / "Quick create" action cards shown above the character list. */
 @Composable
 fun CharacterCreateActions(
     onNewCharacterClicked: () -> Unit,

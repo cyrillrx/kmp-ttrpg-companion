@@ -157,7 +157,7 @@ class CollectionDetailViewModel<T : Entity>(
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                // Silently ignore — don't overwrite existing content with an error
+                // Keep existing state on refresh failure
             }
         }
 

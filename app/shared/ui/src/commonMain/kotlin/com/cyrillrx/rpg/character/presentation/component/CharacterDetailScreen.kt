@@ -250,7 +250,6 @@ fun CharacterDetailScreen(
                 }
             }
 
-            // Pinned rich identity header.
             Column(
                 modifier = Modifier
                     .padding(horizontal = spacingCommon)
@@ -274,7 +273,6 @@ fun CharacterDetailScreen(
                 )
             }
 
-            // Pinned tab row, kept in sync with the pager.
             PrimaryTabRow(selectedTabIndex = pagerState.currentPage) {
                 CharacterSheetTab.entries.forEachIndexed { index, tab ->
                     Tab(

@@ -15,9 +15,6 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.app.shared.ui.generated.resources.Res
 import rpg_companion.app.shared.ui.generated.resources.btn_reset_all
 
-/**
- * Header row for a filter bottom sheet: a title on the left and a "reset all" button on the right.
- */
 @Composable
 fun FilterSheetHeader(
     title: String,

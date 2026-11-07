@@ -5,8 +5,6 @@ import kotlin.test.fail
 
 private const val RESOURCES_PATH = "app/shared/ui/src/commonMain/composeResources/files"
 
-// Walking up rather than resolving a fixed path: the resources live in the ui module, which has no JVM
-// test source set of its own.
 fun shippedDataFile(name: String): File {
     val relativePath = "$RESOURCES_PATH/$name"
     var directory: File? = File(".").absoluteFile

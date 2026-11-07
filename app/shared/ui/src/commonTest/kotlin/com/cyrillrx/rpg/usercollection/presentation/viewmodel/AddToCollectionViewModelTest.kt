@@ -285,7 +285,7 @@ class AddToCollectionViewModelTest {
                 UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
             userCollectionRepository.save(newCollection)
 
-            // Re-call loadEntity — simulates the bottom sheet being re-opened
+            // Re-call loadEntity: simulates the bottom sheet being re-opened
             viewModel.loadEntity(spell.id)
             advanceUntilIdle()
 
