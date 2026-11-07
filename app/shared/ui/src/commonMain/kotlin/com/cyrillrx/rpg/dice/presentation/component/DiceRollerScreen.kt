@@ -298,24 +298,14 @@ private fun PreviousRolls(rolls: List<RecordedRoll>, modifier: Modifier = Modifi
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(top = spacingSmall),
         )
-        rolls.forEach { recorded -> PreviousRoll(recorded.pool) }
-    }
-}
-
-@Composable
-private fun PreviousRoll(roll: RollPool, modifier: Modifier = Modifier) {
-    Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium), modifier = modifier.fillMaxWidth()) {
-        Text(
-            text = roll.toNotation().orEmpty(),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.weight(1f),
-        )
-        Text(
-            text = roll.total().toString(),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+        rolls.forEach { recorded ->
+            RollLine(
+                recorded.pool,
+                notationStyle = MaterialTheme.typography.bodySmall,
+                totalStyle = MaterialTheme.typography.bodySmall,
+                totalColor = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
     }
 }
 
