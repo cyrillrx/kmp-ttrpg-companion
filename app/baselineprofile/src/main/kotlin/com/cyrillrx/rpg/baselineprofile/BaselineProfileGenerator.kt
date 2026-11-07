@@ -10,12 +10,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/**
- * Generates the app's baseline and startup profiles.
- *
- * Run on the managed device with `./gradlew :app:androidApp:generateBaselineProfile`. Home entries are
- * targeted by resource id (not localized text), so this works regardless of the device locale.
- */
 @RunWith(AndroidJUnit4::class)
 class BaselineProfileGenerator {
 
@@ -68,9 +62,9 @@ private const val APP_PACKAGE = "com.cyrillrx.rpg"
 private const val WAIT_TIMEOUT = 5_000L
 private const val SCROLL_ITERATIONS = 3
 
-// Keep in sync with the test tags in the ui module's core/presentation/TestTags.kt. This module cannot
-// depend on the ui module, so the values are duplicated rather than referenced. Targeting by resource
-// id (not localized home-button text) keeps generation independent of the device locale.
+// This module cannot depend on the ui module, so the tags are duplicated rather than referenced.
+// Targeting by resource id (not localized home-button text) keeps generation independent of the
+// device locale.
 private const val COMPENDIUM_LIST_TAG = "compendium_list"
 private const val HOME_SPELL_ENTRY_TAG = "home_spell_entry"
 private const val HOME_MAGICAL_ITEM_ENTRY_TAG = "home_magical_item_entry"

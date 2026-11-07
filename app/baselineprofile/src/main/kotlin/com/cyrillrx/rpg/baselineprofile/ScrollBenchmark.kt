@@ -16,9 +16,7 @@ import org.junit.runner.RunWith
  * Measures scroll jank on the spell list with and without the baseline profile.
  *
  * Compare `frameDurationCpuMs` (P50/P90/P99) between [scrollNoCompilation] (interpreted, i.e. the
- * warmup case) and [scrollBaselineProfile] (AOT-compiled hot paths). Run on the managed device with
- * `./gradlew :app:baselineprofile:pixel6Api34BenchmarkReleaseAndroidTest`, or on a physical device (for
- * trustworthy frame timings) with `./gradlew :app:baselineprofile:connectedBenchmarkReleaseAndroidTest`.
+ * warmup case) and [scrollBaselineProfile] (AOT-compiled hot paths).
  */
 @RunWith(AndroidJUnit4::class)
 class ScrollBenchmark {
@@ -68,8 +66,8 @@ private const val WAIT_TIMEOUT = 5_000L
 private const val ITERATIONS = 10
 private const val SCROLL_ITERATIONS = 3
 
-// Keep in sync with the test tags in the ui module's core/presentation/TestTags.kt. This module cannot
-// depend on the ui module, so the values are duplicated rather than referenced. Targeting by resource
-// id (not localized home-button text) keeps the benchmark independent of the device locale.
+// This module cannot depend on the ui module, so the tags are duplicated rather than referenced.
+// Targeting by resource id (not localized home-button text) keeps the benchmark independent of the
+// device locale.
 private const val COMPENDIUM_LIST_TAG = "compendium_list"
 private const val SPELL_ENTRY_TAG = "home_spell_entry"
