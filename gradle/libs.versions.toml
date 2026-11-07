@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.3.20"
+kotlin = "2.4.21"
 ktlint = "14.2.0"
 # The engine the ktlint plugin runs, which the custom rules compile against.
 ktlint-engine = "1.5.0"
