@@ -27,7 +27,6 @@ android {
         targetCompatibility = Version.java
     }
 
-    // The application module whose journeys we profile / benchmark.
     targetProjectPath = ":app:androidApp"
 
     // AOSP image (no Play Store) so the device is rootable for profile capture.
@@ -46,7 +45,6 @@ kotlin {
     }
 }
 
-// Run generation/benchmarks on the managed device by default (no physical device needed).
 baselineProfile {
     managedDevices += "pixel6Api34"
     useConnectedDevices = false

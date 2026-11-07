@@ -91,15 +91,12 @@ kover {
 
 sonar {
     properties {
-        // One aggregated report for the whole build: the tests that exercise a type do not always
-        // live in its module. Absolute, so it is found whatever base directory Sonar resolves
-        // against; each module reads the same file and finds only its own sources in it.
+        // Absolute, so Sonar finds it whatever base directory it resolves against.
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
             rootProject.layout.buildDirectory.file("reports/kover/reportJvmOnly.xml").get().asFile.absolutePath,
         )
-        // Sonar indexes these files either way and reads their absence from the report as zero
-        // coverage. See the coverage policy in AGENTS.md.
+        // See the coverage policy in AGENTS.md.
         property(
             "sonar.coverage.exclusions",
             listOf(

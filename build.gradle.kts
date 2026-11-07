@@ -17,8 +17,8 @@ plugins {
     alias(libs.plugins.sonarqube)
 }
 
-// The application shells have no analyzable code and trip a scanner/AGP 9 incompatibility
-// (sonarResolver queries res providers before their producing task runs).
+// The application shells hold only entry points, and the Android ones trip a scanner/AGP 9
+// incompatibility (sonarResolver queries res providers before their producing task runs).
 // The ktlint rules are build tooling, outside the app the quality gate measures.
 listOf(":app:androidApp", ":app:baselineprofile", ":app:desktopApp", ":ktlint-rules").forEach { path ->
     project(path) {
@@ -30,19 +30,16 @@ listOf(":app:androidApp", ":app:baselineprofile", ":app:desktopApp", ":ktlint-ru
 
 kover {
     currentProject {
-        // Merges the modules' jvmOnly variants: coverage comes from jvmTest alone, and the
-        // default total variant would also compile and report the Android target.
+        // The default total variant would also compile and report the Android target.
         createVariant("jvmOnly") {}
     }
     reports {
         filters {
-            // Coverage only comes from jvmTest and no Compose UI test feeds Kover, so measuring
-            // composables would only count tests that are never collected.
+            // See the coverage policy in AGENTS.md.
             excludes {
                 classes(
                     "*.presentation.component.*",
                     "*.presentation.theme.*",
-                    // Route declarations, mostly kotlinx.serialization generated members.
                     "*.navigation.*",
                     "*.ComposableSingletons*",
                     "*Screen",
@@ -50,7 +47,6 @@ kover {
                     // Nested: the lambdas of a screen compile into ScreenKt$Screen$1$1 and
                     // the exact-match pattern above does not reach them.
                     "*ScreenKt$*",
-                    // Navigation root, plus locale constants and an expect declaration.
                     "*.app.*",
                     // Generated: Compose resources accessors.
                     "*.generated.resources.*",

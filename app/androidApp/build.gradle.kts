@@ -62,9 +62,6 @@ dependencies {
 // the AAR, so androidApp copies them from the ui module's prepared resources output.
 // The CMP task copyAndroidMainComposeResourcesToAndroidAssets has no outputDirectory configured
 // for this plugin variant. See: https://youtrack.jetbrains.com/issue/CMP-7877
-//
-// Source: app/shared/ui/build/generated/compose/resourceGenerator/preparedResources/commonMain/composeResources/
-// Destination: app/androidApp/build/generated/cmpResources/assets/composeResources/rpg_companion.app.shared.ui.generated.resources/
 
 // Register the assets source dir at configuration time (static path required by the old SourceSet API).
 @Suppress("DEPRECATION")
@@ -72,7 +69,6 @@ android.sourceSets.getByName("main").assets.srcDir(
     projectDir.resolve("build/generated/cmpResources/assets"),
 )
 
-// Register the copy task and task dependencies after both projects are evaluated.
 val copyCmpResourcesToAssets = tasks.register("copyCmpResourcesToAssets", Copy::class.java) {
     dependsOn(":app:shared:ui:prepareComposeResourcesTaskForCommonMain")
     val preparedResources = "generated/compose/resourceGenerator/preparedResources/commonMain/composeResources"
