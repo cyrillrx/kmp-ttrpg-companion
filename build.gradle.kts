@@ -29,6 +29,11 @@ listOf(":app:androidApp", ":app:baselineprofile", ":app:desktopApp", ":ktlint-ru
 }
 
 kover {
+    currentProject {
+        // Merges the modules' jvmOnly variants: coverage comes from jvmTest alone, and the
+        // default total variant would also compile and report the Android target.
+        createVariant("jvmOnly") {}
+    }
     reports {
         filters {
             // Coverage only comes from jvmTest and no Compose UI test feeds Kover, so measuring

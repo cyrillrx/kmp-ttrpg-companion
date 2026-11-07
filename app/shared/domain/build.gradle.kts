@@ -81,6 +81,14 @@ sqldelight {
     }
 }
 
+kover {
+    currentProject {
+        createVariant("jvmOnly") {
+            add("jvm")
+        }
+    }
+}
+
 sonar {
     properties {
         // One aggregated report for the whole build: the tests that exercise a type do not always
@@ -88,7 +96,7 @@ sonar {
         // against; each module reads the same file and finds only its own sources in it.
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
-            rootProject.layout.buildDirectory.file("reports/kover/report.xml").get().asFile.absolutePath,
+            rootProject.layout.buildDirectory.file("reports/kover/reportJvmOnly.xml").get().asFile.absolutePath,
         )
         // Sonar indexes these files either way and reads their absence from the report as zero
         // coverage. See the coverage policy in AGENTS.md.
