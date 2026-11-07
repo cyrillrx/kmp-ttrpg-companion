@@ -53,7 +53,7 @@ All commands run from the repository root, where the Gradle build lives:
 ./gradlew ktlintCheck                    # Check formatting
 ./gradlew ktlintFormat                   # Auto-fix formatting
 ./gradlew :ktlint-rules:test             # Test the custom ktlint rules
-./gradlew koverXmlReport                 # Generate the aggregated report SonarCloud reads
+./gradlew :koverXmlReportJvmOnly         # Generate the aggregated report SonarCloud reads
 ```
 
 ktlint is **strict** in every module that applies it (`ignoreFailures=false`), and the `CMP Client - ktlint` CI job fails the build on any violation. Run `ktlintFormat` before pushing. On top of the standard rules, the app modules run the project's own rule set, built by the `ktlint-rules` module (`cyrillrx:blank-line-after-block`).
