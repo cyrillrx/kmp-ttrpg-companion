@@ -17,8 +17,8 @@ import org.junit.runner.RunWith
  *
  * Compare `frameDurationCpuMs` (P50/P90/P99) between [scrollNoCompilation] (interpreted, i.e. the
  * warmup case) and [scrollBaselineProfile] (AOT-compiled hot paths). Run on the managed device with
- * `./gradlew :baselineprofile:pixel6Api34BenchmarkReleaseAndroidTest`, or on a physical device (for
- * trustworthy frame timings) with `./gradlew :baselineprofile:connectedBenchmarkReleaseAndroidTest`.
+ * `./gradlew :app:baselineprofile:pixel6Api34BenchmarkReleaseAndroidTest`, or on a physical device (for
+ * trustworthy frame timings) with `./gradlew :app:baselineprofile:connectedBenchmarkReleaseAndroidTest`.
  */
 @RunWith(AndroidJUnit4::class)
 class ScrollBenchmark {

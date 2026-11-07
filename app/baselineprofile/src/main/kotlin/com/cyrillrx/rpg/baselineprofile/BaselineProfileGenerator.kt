@@ -13,7 +13,7 @@ import org.junit.runner.RunWith
 /**
  * Generates the app's baseline and startup profiles.
  *
- * Run on the managed device with `./gradlew :androidApp:generateBaselineProfile`. Home entries are
+ * Run on the managed device with `./gradlew :app:androidApp:generateBaselineProfile`. Home entries are
  * targeted by resource id (not localized text), so this works regardless of the device locale.
  */
 @RunWith(AndroidJUnit4::class)
