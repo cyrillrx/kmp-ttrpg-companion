@@ -15,6 +15,7 @@ kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
         // The rules run inside ktlint, on the Kotlin stdlib it ships.
+        // TODO(#391): raise to 2.2 once the ktlint engine ships a newer stdlib
         apiVersion.set(KotlinVersion.KOTLIN_2_1)
     }
 }

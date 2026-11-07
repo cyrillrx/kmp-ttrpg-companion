@@ -7,12 +7,6 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
 }
 
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xexplicit-backing-fields")
-    }
-}
-
 dependencies {
     implementation(projects.app.shared.domain)
     implementation(projects.app.shared.ui)

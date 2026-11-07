@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -11,11 +10,6 @@ plugins {
 }
 
 kotlin {
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    compilerOptions {
-        freeCompilerArgs.addAll("-Xexplicit-backing-fields")
-    }
-
     android {
         namespace = "com.cyrillrx.rpg.core"
         compileSdk = Version.COMPILE_SDK

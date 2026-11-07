@@ -40,7 +40,6 @@ android {
 kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.fromTarget(Version.java.majorVersion))
-        freeCompilerArgs.add("-Xexplicit-backing-fields")
     }
 }
 
