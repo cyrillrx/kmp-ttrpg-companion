@@ -7,7 +7,7 @@ junit-jupiter = "5.11.4"
 slf4j = "2.0.16"
 agp = "9.3.0"
 compose-plugin = "1.12.1"
-kotlinx-coroutines-core = "1.10.2"
+kotlinx-coroutines-core = "1.11.0"
 kotlinx-serialization = "1.11.0"
 kotlinx-datetime = "0.8.0"
 
