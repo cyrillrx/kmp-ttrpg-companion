@@ -12,7 +12,7 @@ plugins {
 }
 
 // Common code has no BuildConfig: the version an exported file records is generated from the build.
-val generateAppVersion by tasks.registering {
+val generateAppVersion = tasks.register("generateAppVersion") {
     val appVersion = Version.APP_VERSION
     val outputDir = layout.buildDirectory.dir("generated/appVersion/commonMain/kotlin")
     inputs.property("appVersion", appVersion)
@@ -27,7 +27,7 @@ val generateAppVersion by tasks.registering {
 composeCompiler {
     reportsDestination = layout.buildDirectory.dir("compose_reports")
     metricsDestination = layout.buildDirectory.dir("compose_metrics")
-    stabilityConfigurationFile = project.file("compose_stability.conf")
+    stabilityConfigurationFiles.add(layout.projectDirectory.file("compose_stability.conf"))
 }
 
 kotlin {
@@ -72,14 +72,14 @@ kotlin {
         commonMain.dependencies {
             api(projects.app.shared.domain)
 
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.materialIconsExtended)
-            implementation(compose.material3)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.material)
+            implementation(libs.compose.material.icons.extended)
+            implementation(libs.compose.material3)
+            implementation(libs.compose.ui)
+            implementation(libs.compose.components.resources)
+            implementation(libs.compose.components.ui.tooling.preview)
 
             implementation(libs.mikepenz.markdown.m3)
 
@@ -94,7 +94,7 @@ kotlin {
 
         // TODO(#379): drop the unused AppCompat and Material, and keep ui-tooling debug only
         androidMain.dependencies {
-            implementation(compose.preview)
+            implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.appcompat)
             implementation(libs.androidx.core.ktx)
