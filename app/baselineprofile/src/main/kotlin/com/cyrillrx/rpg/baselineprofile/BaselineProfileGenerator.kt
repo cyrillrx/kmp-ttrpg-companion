@@ -62,9 +62,6 @@ private const val APP_PACKAGE = "com.cyrillrx.rpg"
 private const val WAIT_TIMEOUT = 5_000L
 private const val SCROLL_ITERATIONS = 3
 
-// This module cannot depend on the ui module, so the tags are duplicated rather than referenced.
-// Targeting by resource id (not localized home-button text) keeps generation independent of the
-// device locale.
 private const val COMPENDIUM_LIST_TAG = "compendium_list"
 private const val HOME_SPELL_ENTRY_TAG = "home_spell_entry"
 private const val HOME_MAGICAL_ITEM_ENTRY_TAG = "home_magical_item_entry"

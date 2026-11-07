@@ -4,9 +4,6 @@ package com.cyrillrx.rpg.core.presentation
  * Stable UI test tags. Exposed to UiAutomator as resource ids via `testTagsAsResourceId` (see the
  * Android entry point), so macrobenchmarks can target nodes reliably regardless of device locale
  * (unlike matching localized button text) or transient layout (unlike `By.scrollable(true)`).
- *
- * The `:app:baselineprofile` module cannot depend on this module, so it duplicates these values; keep
- * the two in sync.
  */
 const val COMPENDIUM_LIST_TEST_TAG = "compendium_list"
 
