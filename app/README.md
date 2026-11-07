@@ -68,4 +68,4 @@ iOS builds from `iosApp/iosApp.xcodeproj` in Xcode.
 | `baselineprofile` | Macrobenchmarks and Baseline Profile generation for `androidApp`.                              |
 | `iosApp`          | Xcode project. Its build phase calls `:app:shared:ui:embedAndSignAppleFrameworkForXcode`.      |
 
-See [`KMP_CONVENTIONS.md`](../docs/conventions/KMP_CONVENTIONS.md) for detailed architectural guidelines.
+See [`compose-conventions.md`](../docs/conventions/compose-conventions.md) for detailed architectural guidelines.
