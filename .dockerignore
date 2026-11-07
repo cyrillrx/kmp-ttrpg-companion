@@ -13,3 +13,5 @@ build/
 *.md
 *.iml
 .idea/
+.kotlin/
+local.properties
