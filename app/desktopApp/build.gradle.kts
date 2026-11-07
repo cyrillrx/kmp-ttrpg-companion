@@ -14,6 +14,7 @@ kotlin {
 }
 
 dependencies {
+    implementation(projects.app.shared.domain)
     implementation(projects.app.shared.ui)
 
     implementation(compose.desktop.currentOs)
