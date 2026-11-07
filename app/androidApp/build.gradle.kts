@@ -98,10 +98,10 @@ val copyCmpResourcesToAssets = tasks.register("copyCmpResourcesToAssets", Copy::
 
 // Every variant's asset merge must wait for the Compose resources to be copied into assets,
 // including the baseline-profile plugin's benchmarkRelease and nonMinifiedRelease variants.
-tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }
+tasks.named { it.startsWith("merge") && it.endsWith("Assets") }
     .configureEach { dependsOn(copyCmpResourcesToAssets) }
 
-tasks.matching { it.name.startsWith("lint") || it.name.contains("Lint") }
+tasks.named { it.startsWith("lint") || it.contains("Lint") }
     .configureEach { dependsOn(copyCmpResourcesToAssets) }
 
 ktlint {
