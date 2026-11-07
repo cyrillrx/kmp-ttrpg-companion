@@ -101,10 +101,6 @@ kotlin {
 
             implementation(libs.legacy.material)
         }
-
-        jvmMain.dependencies {
-            implementation(libs.kotlinx.coroutines.core)
-        }
     }
 }
 
