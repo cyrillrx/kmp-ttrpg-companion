@@ -68,8 +68,8 @@ jobs:
       - name: Verify SQLDelight migrations
         run: ./gradlew :app:shared:domain:verifyCommonMainAppDatabaseMigration --no-daemon
 
-      - name: Run JVM tests and generate the Kover report
-        run: ./gradlew jvmTest :koverXmlReportJvmOnly --no-daemon
+      - name: Run JVM tests, generate the Kover report and compile the desktop app
+        run: ./gradlew jvmTest :koverXmlReportJvmOnly :app:desktopApp:compileKotlin --no-daemon
 
       - name: Upload the Kover report
         uses: actions/upload-artifact@v4
