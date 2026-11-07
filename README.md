@@ -74,13 +74,23 @@ Run from the repository root, where the Gradle build lives:
 
 #### Android release
 
-The release build is signed with the upload key when these Gradle properties are set. They hold secrets, so they belong in `~/.gradle/gradle.properties`, never in the repository's `gradle.properties`:
+The release build is signed with the upload key when these Gradle properties are set:
 
 ```properties
 ttrpgReleaseStoreFile=/absolute/path/to/upload.jks
 ttrpgReleaseStorePassword=...
 ttrpgReleaseKeyAlias=...
 ttrpgReleaseKeyPassword=...
+```
+
+Gradle reads them from `~/.gradle/gradle.properties`, from `-P<name>=<value>`, or from `ORG_GRADLE_PROJECT_<name>` environment variables. Never put them in the repository's `gradle.properties`.
+
+- **CI**: expose the secrets as `ORG_GRADLE_PROJECT_*` environment variables.
+- **Local**: keep the store file and the alias in `~/.gradle/gradle.properties`, and the passwords out of any plain-text file, for example in the macOS Keychain:
+
+```bash
+security add-generic-password -s ttrpg-upload-store -a "$USER" -w
+export ORG_GRADLE_PROJECT_ttrpgReleaseStorePassword="$(security find-generic-password -s ttrpg-upload-store -w)"
 ```
 
 Each Play upload needs a higher version code, passed with `-PttrpgVersionCode=<n>`. Without these properties, `./gradlew :app:androidApp:bundleRelease` still builds, unsigned and with version code 1.
