@@ -28,6 +28,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.dieLabelWidth
 import com.cyrillrx.rpg.core.presentation.theme.rollTileMinSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -175,8 +176,8 @@ internal fun DoubleRollContent(
 /** The higher roll reads like healing and the lower like damage, so the kept one tells advantage from disadvantage. */
 @Composable
 private fun rollColor(roll: SimpleRoll, against: SimpleRoll): Color = when {
-    roll.value > against.value -> KeepRule.HIGHER.color()
-    roll.value < against.value -> KeepRule.LOWER.color()
+    roll.value > against.value -> LocalHealthColors.current.heal
+    roll.value < against.value -> MaterialTheme.colorScheme.error
     else -> MaterialTheme.colorScheme.onSurface
 }
 
