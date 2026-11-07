@@ -5,7 +5,8 @@
 *~*
 
 # built application files
-*.keystroke
+*.jks
+*.keystore
 *.apk
 *.ap_
 
