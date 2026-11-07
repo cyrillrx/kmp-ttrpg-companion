@@ -15,8 +15,20 @@ android {
         applicationId = "com.cyrillrx.rpg"
         minSdk = Version.MIN_SDK
         targetSdk = Version.COMPILE_SDK
-        versionCode = 1
+        versionCode = providers.gradleProperty("versionCode").orNull?.toInt() ?: 1
         versionName = Version.APP_VERSION
+    }
+
+    val releaseStoreFile = providers.gradleProperty("releaseStoreFile").orNull
+    signingConfigs {
+        if (releaseStoreFile != null) {
+            create("release") {
+                storeFile = file(releaseStoreFile)
+                storePassword = providers.gradleProperty("releaseStorePassword").get()
+                keyAlias = providers.gradleProperty("releaseKeyAlias").get()
+                keyPassword = providers.gradleProperty("releaseKeyPassword").get()
+            }
+        }
     }
 
     packaging {
@@ -26,8 +38,14 @@ android {
     }
 
     buildTypes {
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+        }
+
         getByName("release") {
             isMinifyEnabled = true
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 
@@ -91,3 +109,7 @@ ktlint {
     outputToConsole.set(true)
     ignoreFailures.set(false)
 }
+
+tasks
+    .matching { it.name.startsWith("lint") || it.name.contains("Lint") }
+    .configureEach { dependsOn("copyCmpResourcesToAssets") }
