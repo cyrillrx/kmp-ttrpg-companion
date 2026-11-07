@@ -91,3 +91,7 @@ ktlint {
     outputToConsole.set(true)
     ignoreFailures.set(false)
 }
+
+tasks
+    .matching { it.name.startsWith("lint") || it.name.contains("Lint") }
+    .configureEach { dependsOn("copyCmpResourcesToAssets") }
