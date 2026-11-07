@@ -72,6 +72,19 @@ Run from the repository root, where the Gradle build lives:
 ./gradlew build
 ```
 
+#### Android release
+
+The release build is signed with the upload key when these Gradle properties are set. They hold secrets, so they belong in `~/.gradle/gradle.properties`, never in the repository's `gradle.properties`:
+
+```properties
+ttrpgReleaseStoreFile=/absolute/path/to/upload.jks
+ttrpgReleaseStorePassword=...
+ttrpgReleaseKeyAlias=...
+ttrpgReleaseKeyPassword=...
+```
+
+Each Play upload needs a higher version code, passed with `-PttrpgVersionCode=<n>`. Without these properties, `./gradlew :app:androidApp:bundleRelease` still builds, unsigned and with version code 1.
+
 ### Server (Rust)
 
 ```bash
