@@ -68,6 +68,7 @@ kotlin {
 
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
+            // TODO(#392): drop, nothing outside the icons uses Material 2
             implementation(libs.compose.material)
             implementation(libs.compose.material.icons.extended)
             implementation(libs.compose.material3)
