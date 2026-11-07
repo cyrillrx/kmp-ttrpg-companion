@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -30,13 +29,8 @@ composeCompiler {
     stabilityConfigurationFiles.add(layout.projectDirectory.file("compose_stability.conf"))
 }
 
+// TODO(#382): set a module name distinct from Compose's ui
 kotlin {
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    // TODO(#382): set a module name distinct from Compose's ui
-    compilerOptions {
-        freeCompilerArgs.addAll("-Xexplicit-backing-fields")
-    }
-
     android {
         namespace = "com.cyrillrx.rpg"
         compileSdk = Version.COMPILE_SDK
