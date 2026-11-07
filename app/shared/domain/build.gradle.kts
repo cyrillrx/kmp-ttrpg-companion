@@ -27,6 +27,7 @@ kotlin {
 
     jvm()
 
+    // TODO(#376): stop building this framework, Xcode only embeds Shared
     listOf(
         iosArm64(),
         iosSimulatorArm64(),

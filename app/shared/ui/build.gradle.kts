@@ -32,6 +32,7 @@ composeCompiler {
 
 kotlin {
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    // TODO(#382): set a module name distinct from Compose's ui
     compilerOptions {
         freeCompilerArgs.addAll("-Xexplicit-backing-fields")
     }
@@ -91,6 +92,7 @@ kotlin {
             implementation(libs.jetbrains.lifecycle.viewmodel.compose)
         }
 
+        // TODO(#379): drop the unused AppCompat and Material, and keep ui-tooling debug only
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)

@@ -72,6 +72,7 @@ android.sourceSets.getByName("main").assets.srcDir(
 val copyCmpResourcesToAssets = tasks.register("copyCmpResourcesToAssets", Copy::class.java) {
     dependsOn(":app:shared:ui:prepareComposeResourcesTaskForCommonMain")
     val preparedResources = "generated/compose/resourceGenerator/preparedResources/commonMain/composeResources"
+    // TODO(#374): read the package the ui module pins instead of hardcoding it
     val resourcesPackage = "rpg_companion.app.shared.ui.generated.resources"
     from(project(":app:shared:ui").layout.buildDirectory.dir(preparedResources))
     into(layout.buildDirectory.dir("generated/cmpResources/assets/composeResources/$resourcesPackage"))

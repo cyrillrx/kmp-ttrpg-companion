@@ -27,6 +27,7 @@ compose.desktop {
     application {
         mainClass = "com.cyrillrx.rpg.MainKt"
 
+        // TODO(#377): align with the desktop distribution conventions
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.cyrillrx.rpg"

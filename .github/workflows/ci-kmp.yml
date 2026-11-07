@@ -3,6 +3,7 @@ name: KMP Client CI
 on:
   pull_request:
     branches: [main]
+    # TODO(#373): also trigger on data/compendium/** and .editorconfig
     paths:
       - 'app/**'
       - 'buildSrc/**'
@@ -68,6 +69,7 @@ jobs:
       - name: Verify SQLDelight migrations
         run: ./gradlew :app:shared:domain:verifyCommonMainAppDatabaseMigration --no-daemon
 
+      # TODO(#381): build the Android and iOS targets
       - name: Run JVM tests, generate the Kover report and compile the desktop app
         run: ./gradlew jvmTest :koverXmlReportJvmOnly :app:desktopApp:compileKotlin --no-daemon
 
