@@ -9,3 +9,15 @@ updates:
       time: "08:00"
       timezone: "Europe/Paris"
     open-pull-requests-limit: 4
+    # A toolchain minor or major release changes the DSL and the defaults the build relies on: bump it by hand, release notes in hand.
+    ignore:
+      - dependency-name: "org.jetbrains.kotlin.jvm"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
+      - dependency-name: "org.jetbrains.kotlin.multiplatform"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
+      - dependency-name: "org.jetbrains.kotlin.plugin.*"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
+      - dependency-name: "org.jetbrains.compose"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
+      - dependency-name: "com.android.*"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
