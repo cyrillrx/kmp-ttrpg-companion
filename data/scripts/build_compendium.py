@@ -56,8 +56,9 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fi
 DATA_DIR = os.path.join(REPO_ROOT, "data", "compendium")
 APP_RESOURCES_DIR = os.path.join(
     REPO_ROOT,
-    "cmp-ttrpg-companion",
-    "composeApp",
+    "app",
+    "shared",
+    "ui",
     "src",
     "commonMain",
     "composeResources",
@@ -128,7 +129,6 @@ def build_collection(name: str, check: bool) -> tuple[int, bool]:
         return len(entities), ok
 
     write_json(out_path, entities)
-    # The app resource files are symlinks to data/compendium/ — no copy needed.
     if os.path.exists(app_path) and not os.path.samefile(out_path, app_path):
         shutil.copy2(out_path, app_path)
     print(f"  {name}: {len(entities)} entities → {out_path}")

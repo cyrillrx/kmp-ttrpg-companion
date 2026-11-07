@@ -81,7 +81,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - Roll result must appear in under 100ms after tap.
 - History must support at least 500 entries without degrading scroll performance.
 - Results come from the platform's default PRNG (`kotlin.random.Random`); the source is injectable so tests can fix the outcome.
-- The roll model lives in `shared/core`, so combat actions and monster hit dice (`2d8+4`) can reuse it. A roll gives a die and a value, nothing more; advantage and disadvantage read two rolls and keep one. Later rules that interpret a set of rolls are separate objects that read the rolls without altering them.
+- The roll model lives in `app/shared/domain`, so combat actions and monster hit dice (`2d8+4`) can reuse it. A roll gives a die and a value, nothing more; advantage and disadvantage read two rolls and keep one. Later rules that interpret a set of rolls are separate objects that read the rolls without altering them.
 - The feature depends on no other feature's navigation, so it can later ship on its own (see Open Questions).
 
 ## Out of Scope

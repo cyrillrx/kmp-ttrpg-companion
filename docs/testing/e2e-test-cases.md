@@ -1,7 +1,7 @@
 # E2E Test Cases
 
 Functional test scenarios per feature, independent of tooling.
-Automated flows are implemented with Maestro in `cmp-ttrpg-companion/.maestro/flows/`.
+Automated flows are implemented with Maestro in `app/.maestro/flows/`.
 
 ## Collections
 

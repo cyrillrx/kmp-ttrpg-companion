@@ -1,0 +1,211 @@
+package com.cyrillrx.rpg.creature.presentation.component
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.presentation.COMPENDIUM_LIST_TEST_TAG
+import com.cyrillrx.rpg.core.presentation.ScrollPosition
+import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnEvent
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
+import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
+import com.cyrillrx.rpg.creature.domain.Monster
+import com.cyrillrx.rpg.creature.presentation.MonsterAddToCollectionProvider
+import com.cyrillrx.rpg.creature.presentation.MonsterListState
+import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
+import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterListViewModel
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.app.shared.ui.generated.resources.Res
+import rpg_companion.app.shared.ui.generated.resources.hint_search_creature
+
+@Composable
+fun MonsterListScreen(
+    viewModel: MonsterListViewModel,
+    router: MonsterRouter,
+    addToCollectionProvider: AddToCollectionProvider<Monster>,
+) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
+    MonsterListScreen(
+        state = state,
+        onNavigateUpClicked = router::navigateUp,
+        onSearchQueryChanged = viewModel::filterByQuery,
+        onMonsterClicked = router::openDetail,
+        onTypeToggled = viewModel::onTypeToggled,
+        onChallengeRatingToggled = viewModel::onChallengeRatingToggled,
+        onResetFilters = viewModel::onResetFilters,
+        addToCollectionProvider = addToCollectionProvider,
+        initialScrollPosition = viewModel.savedScrollPosition,
+        scrollToTopEvents = viewModel.scrollToTopEvents,
+        onScrollPositionChanged = viewModel::saveScrollPosition,
+    )
+}
+
+@Composable
+fun MonsterListScreen(
+    state: MonsterListState,
+    onNavigateUpClicked: () -> Unit,
+    onSearchQueryChanged: (String) -> Unit,
+    onMonsterClicked: (Monster) -> Unit,
+    onTypeToggled: (Monster.Type) -> Unit,
+    onChallengeRatingToggled: (Float) -> Unit,
+    onResetFilters: () -> Unit,
+    addToCollectionProvider: AddToCollectionProvider<Monster>,
+    initialScrollPosition: ScrollPosition = ScrollPosition(),
+    scrollToTopEvents: Flow<Unit> = emptyFlow(),
+    onScrollPositionChanged: (ScrollPosition) -> Unit = {},
+) {
+    var showFilterSheet by remember { mutableStateOf(false) }
+    var creatureToAdd by remember { mutableStateOf<Monster?>(null) }
+
+    Scaffold(
+        topBar = {
+            SearchBarWithBack(
+                hint = stringResource(Res.string.hint_search_creature),
+                query = state.filter.query,
+                onQueryChanged = onSearchQueryChanged,
+                onNavigateUpClicked = onNavigateUpClicked,
+                onFilterClicked = { showFilterSheet = true },
+                hasActiveFilters = state.filter.hasActiveFilters,
+            )
+        },
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            when (val body = state.body) {
+                is MonsterListState.Body.Loading -> Loader()
+                is MonsterListState.Body.Empty -> EmptySearch(state.filter.query)
+                is MonsterListState.Body.Error -> ErrorLayout(body.errorMessage)
+                is MonsterListState.Body.WithData -> MonsterList(
+                    monsters = body.searchResults,
+                    onMonsterClicked = onMonsterClicked,
+                    showAddToCollection = { creature -> creatureToAdd = creature },
+                    initialScrollPosition = initialScrollPosition,
+                    scrollToTopEvents = scrollToTopEvents,
+                    onScrollPositionChanged = onScrollPositionChanged,
+                )
+            }
+        }
+    }
+
+    if (showFilterSheet) {
+        MonsterFilterBottomSheet(
+            filter = state.filter,
+            onTypeToggled = onTypeToggled,
+            onChallengeRatingToggled = onChallengeRatingToggled,
+            onResetFilters = onResetFilters,
+            onDismiss = { showFilterSheet = false },
+        )
+    }
+
+    creatureToAdd?.let { creature ->
+        addToCollectionProvider.BottomSheet(
+            entityId = creature.id,
+            onDismiss = { creatureToAdd = null },
+        )
+    }
+}
+
+@Composable
+private fun MonsterList(
+    monsters: List<Monster>,
+    onMonsterClicked: (Monster) -> Unit,
+    showAddToCollection: (Monster) -> Unit,
+    initialScrollPosition: ScrollPosition,
+    scrollToTopEvents: Flow<Unit>,
+    onScrollPositionChanged: (ScrollPosition) -> Unit,
+) {
+    val listState = rememberLazyListState(
+        initialFirstVisibleItemIndex = initialScrollPosition.index,
+        initialFirstVisibleItemScrollOffset = initialScrollPosition.offset,
+    )
+    ScrollToTopOnEvent(events = scrollToTopEvents, listState = listState)
+    val currentOnScrollPositionChanged by rememberUpdatedState(onScrollPositionChanged)
+    LaunchedEffect(listState) {
+        snapshotFlow {
+            ScrollPosition(
+                listState.firstVisibleItemIndex,
+                listState.firstVisibleItemScrollOffset,
+            )
+        }.collect { currentOnScrollPositionChanged(it) }
+    }
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize().testTag(COMPENDIUM_LIST_TEST_TAG),
+        state = listState,
+        contentPadding = PaddingValues(spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+    ) {
+        items(monsters, key = { it.id }) { creature ->
+            SwipeToAdd(
+                onSwiped = { showAddToCollection(creature) },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                MonsterListItem(
+                    monster = creature,
+                    onClick = { onMonsterClicked(creature) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewMonsterListScreenLight() {
+    AppThemePreview(darkTheme = false) {
+        MonsterListScreenPreview()
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewMonsterListScreenDark() {
+    AppThemePreview(darkTheme = true) {
+        MonsterListScreenPreview()
+    }
+}
+
+@Composable
+private fun MonsterListScreenPreview() {
+    val stateWithSampleData = MonsterListState(
+        body = MonsterListState.Body.WithData(SampleMonsterRepository.getAll()),
+    )
+    val addToCollectionProvider =
+        MonsterAddToCollectionProvider(SampleMonsterRepository(), SampleUserCollectionRepository())
+    MonsterListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToCollectionProvider)
+}

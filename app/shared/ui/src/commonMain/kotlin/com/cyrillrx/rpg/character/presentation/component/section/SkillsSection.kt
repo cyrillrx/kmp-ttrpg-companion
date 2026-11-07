@@ -1,0 +1,146 @@
+package com.cyrillrx.rpg.character.presentation.component.section
+
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.skillModifier
+import com.cyrillrx.rpg.character.domain.skillProficiency
+import com.cyrillrx.rpg.core.domain.toSignedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.relatedAbilityAbbreviation
+import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.toStringRes
+import com.cyrillrx.rpg.core.presentation.component.sortedByLocalizedName
+import com.cyrillrx.rpg.core.presentation.format.getFontWeight
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
+import com.cyrillrx.rpg.core.presentation.theme.borderWidth
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.creature.domain.Proficiency
+import com.cyrillrx.rpg.creature.domain.Skill
+import com.cyrillrx.rpg.creature.domain.Skills
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.app.shared.ui.generated.resources.Res
+import rpg_companion.app.shared.ui.generated.resources.label_skills
+
+@Composable
+internal fun SkillsSection(
+    character: Character,
+    onSkillTapped: (Skill) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        modifier = modifier.fillMaxWidth(),
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = spacingCommon, vertical = spacingMedium),
+            verticalArrangement = Arrangement.spacedBy(spacingSmall),
+        ) {
+            Text(
+                text = stringResource(Res.string.label_skills),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            val sortedSkills = Skill.entries.sortedByLocalizedName { it.toStringRes() }
+            val skillColumns = sortedSkills.chunked((sortedSkills.size + 1) / 2)
+            val leftColumn = skillColumns.getOrElse(0) { emptyList() }
+            val rightColumn = skillColumns.getOrElse(1) { emptyList() }
+            leftColumn.forEachIndexed { index, left ->
+                Row(modifier = Modifier.fillMaxWidth()) {
+                    SkillEntry(
+                        skill = left,
+                        character = character,
+                        onRollClicked = { onSkillTapped(left) },
+                        modifier = Modifier.weight(1f),
+                    )
+                    val right = rightColumn.getOrNull(index)
+                    if (right == null) {
+                        Spacer(modifier = Modifier.weight(1f))
+                    } else {
+                        SkillEntry(
+                            skill = right,
+                            character = character,
+                            onRollClicked = { onSkillTapped(right) },
+                            modifier = Modifier.weight(1f),
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+// TODO(#369): widen the touch target and show that a row rolls the skill.
+@Composable
+private fun SkillEntry(
+    skill: Skill,
+    character: Character,
+    onRollClicked: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val proficiency = character.skillProficiency(skill)
+    val skillModifier = character.skillModifier(skill)
+    val color = proficiency.getColor()
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(spacingSmall),
+        modifier = modifier
+            .clip(MaterialTheme.shapes.small)
+            .clickable(onClick = onRollClicked)
+            .padding(vertical = spacingSmall),
+    ) {
+        Text(
+            text = skillModifier.toSignedString(),
+            style = MaterialTheme.typography.bodySmall,
+            fontWeight = proficiency.getFontWeight(),
+            color = color,
+        )
+        Text(
+            text = "${skill.toFormattedString()} (${skill.relatedAbilityAbbreviation()})",
+            style = MaterialTheme.typography.bodySmall,
+            fontWeight = proficiency.getFontWeight(),
+            color = color,
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSkillsSectionLight() {
+    AppThemePreview(darkTheme = false) {
+        SkillsSection(character = previewCharacter(), onSkillTapped = {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSkillsSectionDark() {
+    AppThemePreview(darkTheme = true) {
+        SkillsSection(character = previewCharacter(), onSkillTapped = {})
+    }
+}
+
+private fun previewCharacter(): Character = SampleCharacterRepository.elfRogue()
+    .copy(skills = Skills(acrobatics = Proficiency.PROFICIENT, perception = Proficiency.EXPERT))

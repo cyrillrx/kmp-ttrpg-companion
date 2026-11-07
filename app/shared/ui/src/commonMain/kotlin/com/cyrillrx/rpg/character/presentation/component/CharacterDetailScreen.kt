@@ -1,0 +1,377 @@
+package com.cyrillrx.rpg.character.presentation.component
+
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.PrimaryTabRow
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Tab
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.app.currentLocale
+import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.domain.Background
+import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
+import com.cyrillrx.rpg.character.domain.D20Check
+import com.cyrillrx.rpg.character.domain.HitPointAdjustment
+import com.cyrillrx.rpg.character.domain.Language
+import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.presentation.CharacterEditState
+import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.character.presentation.CoercedValue
+import com.cyrillrx.rpg.character.presentation.component.dialog.CharacterEditDialog
+import com.cyrillrx.rpg.character.presentation.component.tab.AptitudesTabContent
+import com.cyrillrx.rpg.character.presentation.component.tab.CharacterSheetTab
+import com.cyrillrx.rpg.character.presentation.component.tab.CombatTabContent
+import com.cyrillrx.rpg.character.presentation.component.tab.ProfileTabContent
+import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
+import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
+import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.OverflowMenu
+import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.component.rememberFileSharer
+import com.cyrillrx.rpg.core.presentation.format.toDistanceString
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.topAppBarHeight
+import com.cyrillrx.rpg.creature.domain.AbilityScore
+import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Skills
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.getPluralString
+import org.jetbrains.compose.resources.getString
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.app.shared.ui.generated.resources.Res
+import rpg_companion.app.shared.ui.generated.resources.btn_back
+import rpg_companion.app.shared.ui.generated.resources.btn_export
+import rpg_companion.app.shared.ui.generated.resources.character_not_found
+import rpg_companion.app.shared.ui.generated.resources.error_export_failed
+import rpg_companion.app.shared.ui.generated.resources.info_import_values_adjusted
+import rpg_companion.app.shared.ui.generated.resources.info_value_coerced
+
+@Composable
+fun CharacterDetailScreen(
+    viewModel: CharacterEditViewModel,
+    router: CharacterRouter,
+) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val distanceUnit by rememberUpdatedState(LocalDistanceUnit.current)
+    LaunchedEffect(viewModel) {
+        viewModel.coercedValueEvent.collect { event ->
+            val (from, to) = when (event) {
+                is CoercedValue.Numeric -> event.original.toString() to event.coerced.toString()
+                is CoercedValue.Distance ->
+                    event.originalFeet.toDistanceString(distanceUnit) to
+                        event.coercedFeet.toDistanceString(distanceUnit)
+            }
+
+            val message = getString(Res.string.info_value_coerced, from, to)
+            snackbarHostState.showSnackbar(message)
+        }
+    }
+
+    LaunchedEffect(viewModel) {
+        viewModel.pendingAdjustmentCount.collect { count ->
+            if (count == 0) return@collect
+
+            viewModel.onAdjustmentsReported()
+            snackbarHostState.showSnackbar(getPluralString(Res.plurals.info_import_values_adjusted, count, count))
+        }
+    }
+
+    val fileSharer = rememberFileSharer()
+    LaunchedEffect(viewModel, fileSharer) {
+        viewModel.exportEvent.collect { file ->
+            try {
+                fileSharer.share(file)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                snackbarHostState.showSnackbar(getString(Res.string.error_export_failed))
+            }
+        }
+    }
+
+    val checkActions = remember(viewModel) {
+        D20CheckActions(
+            onRerollClicked = viewModel::rerollCheck,
+            onAdvantageClicked = viewModel::rollCheckWithAdvantage,
+            onDisadvantageClicked = viewModel::rollCheckWithDisadvantage,
+            onDismissed = viewModel::dismissRoll,
+        )
+    }
+
+    when (val s = state) {
+        CharacterEditState.Loading -> Scaffold { innerPadding ->
+            Loader(modifier = Modifier.padding(innerPadding))
+        }
+
+        is CharacterEditState.NotFound -> Scaffold { innerPadding ->
+            ErrorLayout(
+                errorMessage = stringResource(Res.string.character_not_found, s.characterId),
+                modifier = Modifier.padding(innerPadding),
+            )
+        }
+
+        is CharacterEditState.Loaded -> CharacterDetailScreen(
+            state = s,
+            snackbarHostState = snackbarHostState,
+            onFieldTapped = viewModel::editField,
+            onNameConfirmed = viewModel::saveName,
+            onShortDescriptionTapped = { viewModel.editField(EditingField.ShortDescription) },
+            onShortDescriptionConfirmed = viewModel::saveShortDescription,
+            onRaceConfirmed = viewModel::saveRace,
+            onClassesConfirmed = viewModel::saveClasses,
+            onBackgroundConfirmed = viewModel::saveBackground,
+            onStrengthConfirmed = viewModel::saveStrength,
+            onDexterityConfirmed = viewModel::saveDexterity,
+            onConstitutionConfirmed = viewModel::saveConstitution,
+            onIntelligenceConfirmed = viewModel::saveIntelligence,
+            onWisdomConfirmed = viewModel::saveWisdom,
+            onCharismaConfirmed = viewModel::saveCharisma,
+            onArmorClassConfirmed = viewModel::saveArmorClass,
+            onHitPointsConfirmed = viewModel::saveHitPoints,
+            onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
+            onLanguagesConfirmed = viewModel::saveLanguages,
+            onAlignmentConfirmed = viewModel::saveAlignment,
+            onSkillsConfirmed = viewModel::saveSkills,
+            onDialogDismissed = viewModel::cancelEditing,
+            onExportClicked = viewModel::exportCharacter,
+            onNavigateUpClicked = router::navigateUp,
+            onCheckTapped = viewModel::rollCheck,
+            checkActions = checkActions,
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun CharacterDetailScreen(
+    state: CharacterEditState.Loaded,
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    onFieldTapped: (EditingField) -> Unit,
+    onNameConfirmed: (String) -> Unit,
+    onShortDescriptionTapped: () -> Unit,
+    onShortDescriptionConfirmed: (String) -> Unit,
+    onRaceConfirmed: (Race) -> Unit,
+    onClassesConfirmed: (ClassLevels, Character.Class) -> Unit,
+    onBackgroundConfirmed: (Background?) -> Unit,
+    onStrengthConfirmed: (AbilityScore) -> Unit,
+    onDexterityConfirmed: (AbilityScore) -> Unit,
+    onConstitutionConfirmed: (AbilityScore) -> Unit,
+    onIntelligenceConfirmed: (AbilityScore) -> Unit,
+    onWisdomConfirmed: (AbilityScore) -> Unit,
+    onCharismaConfirmed: (AbilityScore) -> Unit,
+    onArmorClassConfirmed: (Int) -> Unit,
+    onHitPointsConfirmed: (HitPointAdjustment, Int) -> Unit,
+    onWalkSpeedConfirmed: (Int) -> Unit,
+    onLanguagesConfirmed: (List<Language>) -> Unit,
+    onAlignmentConfirmed: (Creature.Alignment) -> Unit,
+    onSkillsConfirmed: (Skills) -> Unit,
+    onDialogDismissed: () -> Unit,
+    onExportClicked: () -> Unit,
+    onNavigateUpClicked: () -> Unit,
+    onCheckTapped: (D20Check) -> Unit,
+    checkActions: D20CheckActions,
+) {
+    val locale = currentLocale()
+    val shortDescription = state.character.resolveTranslation(locale)?.shortDescription.orEmpty()
+    val pagerState = rememberPagerState(pageCount = { CharacterSheetTab.entries.size })
+    val coroutineScope = rememberCoroutineScope()
+
+    Scaffold(
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+    ) { paddingValues ->
+        val focusManager = LocalFocusManager.current
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize()
+                .pointerInput(focusManager) { detectTapGestures(onTap = { focusManager.clearFocus() }) },
+        ) {
+            // Pinned compact bar: no title, the name lives in the header below.
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(topAppBarHeight),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                IconButton(onClick = onNavigateUpClicked) {
+                    Icon(
+                        Icons.AutoMirrored.Rounded.ArrowBack,
+                        contentDescription = stringResource(Res.string.btn_back),
+                    )
+                }
+
+                Spacer(modifier = Modifier.weight(1f))
+                OverflowMenu { dismiss ->
+                    DropdownMenuItem(
+                        text = { Text(text = stringResource(Res.string.btn_export)) },
+                        onClick = {
+                            onExportClicked()
+                            dismiss()
+                        },
+                    )
+                }
+            }
+
+            Column(
+                modifier = Modifier
+                    .padding(horizontal = spacingCommon)
+                    .padding(bottom = spacingMedium),
+            ) {
+                CharacterHeader(
+                    name = state.character.name,
+                    shortDescription = shortDescription,
+                    race = state.character.race,
+                    classes = state.character.classes,
+                    primaryClass = state.character.primaryClass,
+                    background = state.character.background.toFormattedString(),
+                    alignment = state.character.alignment,
+                    onNameConfirmed = onNameConfirmed,
+                    onShortDescriptionTapped = onShortDescriptionTapped,
+                    onClassTapped = { onFieldTapped(EditingField.Classes) },
+                    onRaceTapped = { onFieldTapped(EditingField.Race) },
+                    onLevelTapped = { onFieldTapped(EditingField.Classes) },
+                    onBackgroundTapped = { onFieldTapped(EditingField.Background) },
+                    onAlignmentTapped = { onFieldTapped(EditingField.Alignment) },
+                )
+            }
+
+            PrimaryTabRow(selectedTabIndex = pagerState.currentPage) {
+                CharacterSheetTab.entries.forEachIndexed { index, tab ->
+                    Tab(
+                        selected = pagerState.currentPage == index,
+                        onClick = { coroutineScope.launch { pagerState.animateScrollToPage(index) } },
+                        text = { Text(stringResource(tab.label)) },
+                    )
+                }
+            }
+
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier.weight(1f),
+            ) { page ->
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(spacingCommon),
+                    verticalArrangement = Arrangement.spacedBy(spacingMedium),
+                ) {
+                    when (CharacterSheetTab.entries[page]) {
+                        CharacterSheetTab.APTITUDES ->
+                            AptitudesTabContent(state, onFieldTapped, onCheckTapped)
+
+                        CharacterSheetTab.COMBAT -> CombatTabContent(state, onFieldTapped, onCheckTapped)
+                        CharacterSheetTab.PROFILE -> ProfileTabContent(state, onFieldTapped)
+                    }
+
+                    Spacer(Modifier.height(spacingCommon))
+                }
+            }
+        }
+    }
+
+    CharacterEditDialog(
+        state = state,
+        shortDescription = shortDescription,
+        onRaceConfirmed = onRaceConfirmed,
+        onClassesConfirmed = onClassesConfirmed,
+        onBackgroundConfirmed = onBackgroundConfirmed,
+        onShortDescriptionConfirmed = onShortDescriptionConfirmed,
+        onStrengthConfirmed = onStrengthConfirmed,
+        onDexterityConfirmed = onDexterityConfirmed,
+        onConstitutionConfirmed = onConstitutionConfirmed,
+        onIntelligenceConfirmed = onIntelligenceConfirmed,
+        onWisdomConfirmed = onWisdomConfirmed,
+        onCharismaConfirmed = onCharismaConfirmed,
+        onArmorClassConfirmed = onArmorClassConfirmed,
+        onHitPointsConfirmed = onHitPointsConfirmed,
+        onWalkSpeedConfirmed = onWalkSpeedConfirmed,
+        onLanguagesConfirmed = onLanguagesConfirmed,
+        onAlignmentConfirmed = onAlignmentConfirmed,
+        onSkillsConfirmed = onSkillsConfirmed,
+        onDismiss = onDialogDismissed,
+    )
+
+    state.sheetRoll?.let { D20CheckBottomSheet(it, checkActions) }
+}
+
+@Preview
+@Composable
+private fun PreviewCharacterDetailScreenLight() {
+    AppThemePreview(darkTheme = false) { CharacterDetailScreenPreview() }
+}
+
+@Preview
+@Composable
+private fun PreviewCharacterDetailScreenDark() {
+    AppThemePreview(darkTheme = true) { CharacterDetailScreenPreview() }
+}
+
+@Composable
+private fun CharacterDetailScreenPreview() {
+    CharacterDetailScreen(
+        state = CharacterEditState.Loaded(SampleCharacterRepository.humanFighter()),
+        onFieldTapped = {},
+        onNameConfirmed = {},
+        onShortDescriptionTapped = {},
+        onShortDescriptionConfirmed = {},
+        onRaceConfirmed = {},
+        onClassesConfirmed = { _, _ -> },
+        onBackgroundConfirmed = {},
+        onStrengthConfirmed = {},
+        onDexterityConfirmed = {},
+        onConstitutionConfirmed = {},
+        onIntelligenceConfirmed = {},
+        onWisdomConfirmed = {},
+        onCharismaConfirmed = {},
+        onArmorClassConfirmed = {},
+        onHitPointsConfirmed = { _, _ -> },
+        onWalkSpeedConfirmed = {},
+        onLanguagesConfirmed = {},
+        onAlignmentConfirmed = {},
+        onSkillsConfirmed = {},
+        onDialogDismissed = {},
+        onExportClicked = {},
+        onNavigateUpClicked = {},
+        onCheckTapped = {},
+        checkActions = D20CheckActions({}, {}, {}, {}),
+    )
+}

@@ -1,0 +1,280 @@
+package com.cyrillrx.rpg.usercollection.presentation.component
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.outlined.CollectionsBookmark
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.core.presentation.component.ActionCard
+import com.cyrillrx.rpg.core.presentation.component.EmptyStateLayout
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
+import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
+import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
+import com.cyrillrx.rpg.core.presentation.component.accessibilityId
+import com.cyrillrx.rpg.core.presentation.component.dialog.CreateCollectionDialog
+import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.presentation.UserCollectionsState
+import com.cyrillrx.rpg.usercollection.presentation.navigation.UserCollectionRouter
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.UserCollectionsViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import org.jetbrains.compose.resources.getString
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.app.shared.ui.generated.resources.Res
+import rpg_companion.app.shared.ui.generated.resources.btn_new_collection
+import rpg_companion.app.shared.ui.generated.resources.btn_new_collection_subtitle
+import rpg_companion.app.shared.ui.generated.resources.message_no_collection_yet
+import rpg_companion.app.shared.ui.generated.resources.snackbar_collection_deleted
+import rpg_companion.app.shared.ui.generated.resources.snackbar_error_creating_collection
+import rpg_companion.app.shared.ui.generated.resources.snackbar_error_deleting_collection
+import rpg_companion.app.shared.ui.generated.resources.title_spell_collections
+
+@Composable
+fun UserCollectionsScreen(viewModel: UserCollectionsViewModel, router: UserCollectionRouter, title: String) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        viewModel.silentRefresh()
+    }
+
+    DisposableEffect(Unit) {
+        onDispose { viewModel.commitAllPendingDeletions() }
+    }
+
+    UserCollectionsScreen(
+        state = state,
+        title = title,
+        events = viewModel.events,
+        onNavigateUpClicked = router::navigateUp,
+        onAddBtnClicked = viewModel::createCollection,
+        onSortOrderSelected = viewModel::setSortOrder,
+        onDeleteCollectionOptimistically = viewModel::deleteCollectionOptimistically,
+        onUndoDeletion = viewModel::undoDeletion,
+        onCommitDeletion = viewModel::commitDeletion,
+        onCollectionClicked = router::openUserCollection,
+    )
+}
+
+@Composable
+fun UserCollectionsScreen(
+    state: UserCollectionsState,
+    title: String,
+    events: SharedFlow<UserCollectionsViewModel.Event>,
+    onNavigateUpClicked: () -> Unit,
+    onAddBtnClicked: (String) -> Unit,
+    onSortOrderSelected: (StoredSortOrder) -> Unit,
+    onDeleteCollectionOptimistically: (Stored<UserCollection>) -> OptimisticDeletions.Pending<Stored<UserCollection>>?,
+    onUndoDeletion: (OptimisticDeletions.Pending<Stored<UserCollection>>) -> Unit,
+    onCommitDeletion: (OptimisticDeletions.Pending<Stored<UserCollection>>) -> Unit,
+    onCollectionClicked: (UserCollection) -> Unit,
+) {
+    var showCreateDialog by remember { mutableStateOf(false) }
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(events) {
+        events.collect { event ->
+            when (event) {
+                is UserCollectionsViewModel.Event.DeletionError -> {
+                    val errorMessage = getString(Res.string.snackbar_error_deleting_collection, event.collection.name)
+                    snackbarHostState.showSnackbar(
+                        message = errorMessage,
+                        duration = SnackbarDuration.Short,
+                    )
+                }
+
+                is UserCollectionsViewModel.Event.CreationError -> {
+                    val errorMessage = getString(Res.string.snackbar_error_creating_collection, event.name)
+                    snackbarHostState.showSnackbar(
+                        message = errorMessage,
+                        duration = SnackbarDuration.Short,
+                    )
+                }
+            }
+        }
+    }
+
+    val onDeleteCollection = rememberOptimisticDeleteHandler(
+        snackbarHostState = snackbarHostState,
+        onDeleteOptimistically = onDeleteCollectionOptimistically,
+        onUndo = onUndoDeletion,
+        onCommit = onCommitDeletion,
+        getMessage = { stored -> getString(Res.string.snackbar_collection_deleted, stored.value.name) },
+    )
+
+    Scaffold(
+        topBar = {
+            SimpleTopBar(
+                title = title,
+                onNavigateUpClicked = onNavigateUpClicked,
+            )
+        },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+        ) {
+            ActionCard(
+                icon = Icons.Filled.Add,
+                title = stringResource(Res.string.btn_new_collection),
+                subtitle = stringResource(Res.string.btn_new_collection_subtitle),
+                onClick = { showCreateDialog = true },
+                filled = true,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(spacingMedium)
+                    .accessibilityId("btn_create_collection"),
+            )
+
+            Column(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                when (val body = state.body) {
+                    is UserCollectionsState.Body.Loading -> Loader()
+                    is UserCollectionsState.Body.Empty -> EmptyStateLayout(
+                        icon = Icons.Outlined.CollectionsBookmark,
+                        message = stringResource(Res.string.message_no_collection_yet),
+                    )
+                    is UserCollectionsState.Body.Error -> ErrorLayout(body.errorMessage)
+                    is UserCollectionsState.Body.WithData -> UserCollections(
+                        collections = body.collections,
+                        sortOrder = state.sortOrder,
+                        onSortOrderSelected = onSortOrderSelected,
+                        onCollectionClicked = onCollectionClicked,
+                        onDeleteCollection = onDeleteCollection,
+                    )
+                }
+            }
+        }
+    }
+
+    if (showCreateDialog) {
+        CreateCollectionDialog(
+            onConfirm = { name ->
+                onAddBtnClicked(name)
+                showCreateDialog = false
+            },
+            onDismiss = { showCreateDialog = false },
+        )
+    }
+}
+
+@Composable
+private fun UserCollections(
+    collections: List<Stored<UserCollection>>,
+    sortOrder: StoredSortOrder,
+    onSortOrderSelected: (StoredSortOrder) -> Unit,
+    onCollectionClicked: (UserCollection) -> Unit,
+    onDeleteCollection: (Stored<UserCollection>) -> Unit,
+) {
+    val listState = rememberLazyListState()
+
+    ScrollToTopOnChange(key = sortOrder, listState = listState)
+
+    LazyColumn(
+        state = listState,
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+    ) {
+        item {
+            StoredSortHeader(sortOrder = sortOrder, onSortOrderSelected = onSortOrderSelected)
+        }
+
+        items(collections, key = { it.value.id }) { stored ->
+            SwipeToDelete(
+                onSwiped = { onDeleteCollection(stored) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .animateItem(),
+            ) {
+                UserCollectionItem(
+                    collection = stored.value,
+                    updatedAt = stored.updatedAt,
+                    onClick = { onCollectionClicked(stored.value) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewUserCollectionsScreenLight() {
+    UserCollectionsScreenPreview(darkTheme = false, body = sampleBody())
+}
+
+@Preview
+@Composable
+private fun PreviewUserCollectionsScreenDark() {
+    UserCollectionsScreenPreview(darkTheme = true, body = sampleBody())
+}
+
+@Preview
+@Composable
+private fun PreviewUserCollectionsScreenEmptyLight() {
+    UserCollectionsScreenPreview(darkTheme = false, body = UserCollectionsState.Body.Empty)
+}
+
+@Preview
+@Composable
+private fun PreviewUserCollectionsScreenEmptyDark() {
+    UserCollectionsScreenPreview(darkTheme = true, body = UserCollectionsState.Body.Empty)
+}
+
+private fun sampleBody() = UserCollectionsState.Body.WithData(collections = SampleUserCollectionRepository.getAll())
+
+@Composable
+private fun UserCollectionsScreenPreview(darkTheme: Boolean, body: UserCollectionsState.Body) {
+    AppThemePreview(darkTheme = darkTheme) {
+        UserCollectionsScreen(
+            state = UserCollectionsState(body = body),
+            title = stringResource(Res.string.title_spell_collections),
+            events = MutableSharedFlow(),
+            onNavigateUpClicked = {},
+            onAddBtnClicked = {},
+            onSortOrderSelected = {},
+            onDeleteCollectionOptimistically = { null },
+            onUndoDeletion = {},
+            onCommitDeletion = {},
+            onCollectionClicked = {},
+        )
+    }
+}

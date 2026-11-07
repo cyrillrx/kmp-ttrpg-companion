@@ -1,0 +1,121 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+plugins {
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.sqldelight)
+    alias(libs.plugins.kover)
+}
+
+kotlin {
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xexplicit-backing-fields")
+    }
+
+    android {
+        namespace = "com.cyrillrx.rpg.core"
+        compileSdk = Version.COMPILE_SDK
+        minSdk = Version.MIN_SDK
+        compilerOptions {
+            jvmTarget.set(JvmTarget.fromTarget(Version.java.majorVersion))
+        }
+    }
+
+    jvm()
+
+    // TODO(#376): stop building this framework, Xcode only embeds Shared
+    listOf(
+        iosArm64(),
+        iosSimulatorArm64(),
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "Core"
+            isStatic = true
+        }
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            api(libs.kotlinx.coroutines.core)
+            api(libs.kotlinx.serialization.core)
+            api(libs.kotlinx.serialization.json)
+            api(libs.kotlinx.datetime)
+
+            implementation(libs.sqldelight.runtime)
+        }
+
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+            implementation(libs.kotlinx.coroutines.test)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.sqldelight.android)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.sqldelight.native)
+        }
+
+        jvmMain.dependencies {
+            implementation(libs.sqldelight.jvm)
+        }
+
+        jvmTest.dependencies {
+            implementation(libs.sqldelight.jvm)
+        }
+    }
+}
+
+sqldelight {
+    databases {
+        create("AppDatabase") {
+            packageName.set("com.cyrillrx.rpg.cache")
+            schemaOutputDirectory.set(file("src/commonMain/sqldelight/databases"))
+            verifyMigrations.set(true)
+        }
+    }
+}
+
+kover {
+    currentProject {
+        createVariant("jvmOnly") {
+            add("jvm")
+        }
+    }
+}
+
+sonar {
+    properties {
+        // Absolute, so Sonar finds it whatever base directory it resolves against.
+        property(
+            "sonar.coverage.jacoco.xmlReportPaths",
+            rootProject.layout.buildDirectory.file("reports/kover/reportJvmOnly.xml").get().asFile.absolutePath,
+        )
+        // See the coverage policy in AGENTS.md.
+        property(
+            "sonar.coverage.exclusions",
+            listOf(
+                "**/androidMain/**",
+                "**/iosMain/**",
+            ).joinToString(","),
+        )
+    }
+}
+
+ktlint {
+    version.set(libs.versions.ktlint.engine)
+    debug.set(true)
+    verbose.set(true)
+    android.set(false)
+    outputToConsole.set(true)
+    ignoreFailures.set(false)
+}
+
+dependencies {
+    ktlintRuleset(projects.ktlintRules)
+}

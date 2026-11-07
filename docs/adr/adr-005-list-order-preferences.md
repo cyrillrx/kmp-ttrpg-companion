@@ -11,7 +11,7 @@ Each list keeps its own order, stored as a column on the single-row `UserPrefere
 - Three columns: `character_sort_order` and `collection_sort_order` (both `StoredSortOrder`, defaulting to `last_modified`), and `collection_item_order` (`CollectionItemOrder`, defaulting to `added`).
 - Values are stored as the **lower-cased enum name**, read back with a case-insensitive lookup that falls back to the default — the convention `theme`, `palette` and `distance_unit` already follow.
 - Schema v4 → v5 through `4.sqm`, three `ALTER TABLE … ADD COLUMN` with those defaults, and a regenerated snapshot `databases/5.db`.
-- `CollectionItemOrder` moves from `composeApp/…/usercollection/presentation/` to `shared/core/…/usercollection/domain/`, so that `UserPreferences` can name it.
+- `CollectionItemOrder` moves from `app/shared/ui/…/usercollection/presentation/` to `app/shared/domain/…/usercollection/domain/`, so that `UserPreferences` can name it.
 
 ## Context
 
@@ -29,7 +29,7 @@ A `ListPreference(key, value)` table would absorb new screens without a migratio
 
 ## Why the enum moves to the shared module
 
-`UserPreferences` lives in `shared/core`, which cannot depend on `composeApp`. `CollectionItemOrder` describes how a collection's entries are ordered — a property of the entity, not of the screen that displays it — so `usercollection/domain`, next to `UserCollection`, is where it belongs. `applySort`'s counterpart `applyOrder` follows it, using only `Entity` and `sortedByName`, both already in `shared/core`.
+`UserPreferences` lives in `app/shared/domain`, which cannot depend on `app/shared/ui`. `CollectionItemOrder` describes how a collection's entries are ordered (a property of the entity, not of the screen that displays it), so `usercollection/domain`, next to `UserCollection`, is where it belongs. `applySort`'s counterpart `applyOrder` follows it, using only `Entity` and `sortedByName`, both already in `app/shared/domain`.
 
 ## Consequences
 

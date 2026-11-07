@@ -1,0 +1,199 @@
+package com.cyrillrx.rpg.campaign.list
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.outlined.Map
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.campaign.domain.Campaign
+import com.cyrillrx.rpg.campaign.domain.RuleSet
+import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
+import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
+import com.cyrillrx.rpg.core.presentation.component.ActionCard
+import com.cyrillrx.rpg.core.presentation.component.AppCard
+import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.EmptyStateLayout
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
+import com.cyrillrx.rpg.core.presentation.component.accessibilityId
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.app.shared.ui.generated.resources.Res
+import rpg_companion.app.shared.ui.generated.resources.btn_new_campaign
+import rpg_companion.app.shared.ui.generated.resources.btn_new_campaign_subtitle
+import rpg_companion.app.shared.ui.generated.resources.hint_search_campaign
+import rpg_companion.app.shared.ui.generated.resources.message_no_campaign_yet
+
+@Composable
+fun CampaignListScreen(viewModel: CampaignListViewModel, router: CampaignRouter) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        viewModel.silentRefresh()
+    }
+
+    CampaignListScreen(
+        state = state,
+        onNavigateUpClicked = router::navigateUp,
+        onSearchQueryChanged = viewModel::filterByQuery,
+        onCampaignClicked = router::openCampaignDetail,
+        onCreateCampaignClicked = router::openCreateCampaign,
+    )
+}
+
+@Composable
+fun CampaignListScreen(
+    state: CampaignListState,
+    onNavigateUpClicked: () -> Unit,
+    onSearchQueryChanged: (String) -> Unit,
+    onCampaignClicked: (Campaign) -> Unit,
+    onCreateCampaignClicked: () -> Unit,
+) {
+    Scaffold(
+        topBar = {
+            SearchBarWithBack(
+                hint = stringResource(Res.string.hint_search_campaign),
+                query = state.searchQuery,
+                onQueryChanged = onSearchQueryChanged,
+                onNavigateUpClicked = onNavigateUpClicked,
+            )
+        },
+    ) { paddingValues ->
+        Column(Modifier.padding(paddingValues).fillMaxSize()) {
+            ActionCard(
+                icon = Icons.Filled.Add,
+                title = stringResource(Res.string.btn_new_campaign),
+                subtitle = stringResource(Res.string.btn_new_campaign_subtitle),
+                onClick = onCreateCampaignClicked,
+                filled = true,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(spacingMedium)
+                    .accessibilityId("btn_create_campaign"),
+            )
+
+            Column(modifier = Modifier.weight(1f).fillMaxWidth()) {
+                when (val body = state.body) {
+                    is CampaignListState.Body.Loading -> Loader()
+                    is CampaignListState.Body.Empty -> EmptyStateLayout(
+                        icon = Icons.Outlined.Map,
+                        message = stringResource(Res.string.message_no_campaign_yet),
+                    )
+                    is CampaignListState.Body.NoSearchResult -> EmptySearch(state.searchQuery)
+                    is CampaignListState.Body.Error -> ErrorLayout(body.errorMessage)
+                    is CampaignListState.Body.WithData -> CampaignItemList(
+                        campaigns = body.searchResults,
+                        onCampaignClicked = onCampaignClicked,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun CampaignItemList(
+    campaigns: List<Campaign>,
+    onCampaignClicked: (Campaign) -> Unit,
+) {
+    val searchResultsListState = rememberLazyListState()
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        state = searchResultsListState,
+        contentPadding = PaddingValues(spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(spacingSmall),
+    ) {
+        items(campaigns, key = { it.id }) { campaign ->
+            CampaignItem(
+                campaign = campaign,
+                onClick = { onCampaignClicked(campaign) },
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+    }
+}
+
+@Composable
+private fun CampaignItem(
+    campaign: Campaign,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    AppCard(onClick = onClick, modifier = modifier) {
+        Text(
+            text = campaign.name,
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.padding(spacingCommon),
+        )
+    }
+}
+
+private val campaigns = mutableListOf<Campaign>().apply {
+    add(Campaign("1", "Campaign 1", RuleSet.DND5E))
+    add(Campaign("2", "Campaign 2", RuleSet.PATHFINDER_2E))
+    add(Campaign("3", "Campaign 3", RuleSet.VAMPIRE_THE_MASQUERADE_5E))
+}
+
+private val stateWithSampleData = CampaignListState(
+    searchQuery = "",
+    body = CampaignListState.Body.WithData(campaigns),
+)
+
+private val emptyState = CampaignListState(
+    searchQuery = "",
+    body = CampaignListState.Body.Empty,
+)
+
+@Preview
+@Composable
+private fun PreviewCampaignListScreenLight() {
+    AppThemePreview(darkTheme = false) {
+        CampaignListScreen(stateWithSampleData, {}, {}, {}, {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCampaignListScreenDark() {
+    AppThemePreview(darkTheme = true) {
+        CampaignListScreen(stateWithSampleData, {}, {}, {}, {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCampaignListScreenEmptyLight() {
+    AppThemePreview(darkTheme = false) {
+        CampaignListScreen(emptyState, {}, {}, {}, {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCampaignListScreenEmptyDark() {
+    AppThemePreview(darkTheme = true) {
+        CampaignListScreen(emptyState, {}, {}, {}, {})
+    }
+}

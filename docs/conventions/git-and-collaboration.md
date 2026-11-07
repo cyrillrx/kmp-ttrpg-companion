@@ -11,14 +11,13 @@ all live in the canonical document. Only the project-specific bindings below dif
 
 ### Commit scopes
 
-Use short, consistent scopes matching this repository's structure, e.g.
-`project`, `compose-app`, `server-rust`, `server-go`, `bruno-api`, `agents`, `prd`, `spell`, `campaign`.
+Use short, consistent scopes matching this repository's structure, e.g. `project`, `app`, `server-rust`, `server-go`, `bruno-api`, `agents`, `prd`, `spell`, `campaign`.
 
 AI/agent configuration changes use the `docs(agents)` scope (see [`AGENTS.md`](../../AGENTS.md)).
 
 ### CI pipeline
 
-CI is split per component under [`.github/workflows/`](../../.github/workflows/): [`ci-kmp.yml`](../../.github/workflows/ci-kmp.yml) (KMP client, in `cmp-ttrpg-companion/`: ktlint with the custom rule tests via `./gradlew ktlintCheck :ktlint-rules:test`, and JVM tests via `./gradlew jvmTest`), [`ci-server-rust.yml`](../../.github/workflows/ci-server-rust.yml), [`ci-server-go.yml`](../../.github/workflows/ci-server-go.yml), [`ci-bruno.yml`](../../.github/workflows/ci-bruno.yml), and [`ci-compendium.yml`](../../.github/workflows/ci-compendium.yml). The relevant checks must pass for a PR to be mergeable.
+CI is split per component under [`.github/workflows/`](../../.github/workflows/): [`ci-kmp.yml`](../../.github/workflows/ci-kmp.yml) (KMP client, in `app/` with the Gradle build at the root: ktlint with the custom rule tests via `./gradlew ktlintCheck :ktlint-rules:test`, and JVM tests via `./gradlew jvmTest`), [`ci-server-rust.yml`](../../.github/workflows/ci-server-rust.yml), [`ci-server-go.yml`](../../.github/workflows/ci-server-go.yml), [`ci-bruno.yml`](../../.github/workflows/ci-bruno.yml), and [`ci-compendium.yml`](../../.github/workflows/ci-compendium.yml). The relevant checks must pass for a PR to be mergeable.
 
 ### ADRs
 
