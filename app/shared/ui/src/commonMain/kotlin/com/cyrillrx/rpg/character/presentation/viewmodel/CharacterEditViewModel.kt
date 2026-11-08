@@ -214,7 +214,7 @@ class CharacterEditViewModel(
         val pool = RollPool(listOf(rollD20()), loaded.character.modifierFor(check))
         val rollCount = (loaded.sheetRoll?.rollCount ?: 0) + 1
         updateEditState { copy(sheetRoll = SheetRoll(check, pool, rollCount)) }
-        // TODO(#370): show this context in the roll history.
+        // TODO(#370): show the character in the roll history.
         recorder.record(pool, RollContext(characterId, check))
     }
 
