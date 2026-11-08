@@ -1,7 +1,10 @@
 package com.cyrillrx.rpg.dice.presentation
 
+import com.cyrillrx.rpg.character.domain.D20Check
+import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import kotlinx.datetime.LocalDate
@@ -9,6 +12,7 @@ import kotlinx.datetime.LocalTime
 import kotlinx.datetime.TimeZone
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import kotlin.time.Instant
 
 class GroupByDayTest {
@@ -31,6 +35,24 @@ class GroupByDayTest {
         )
         assertEquals(listOf(listOf(3L, 2L), listOf(1L)), days.map { day -> day.rolls.map(DayRoll::id) })
         assertEquals(LocalTime(hour = 0, minute = 10), days.first().rolls.last().time)
+    }
+
+    @Test
+    fun `a roll keeps the check it was made for`() {
+        val check = D20Check.SkillCheck(Skill.PERCEPTION)
+        val roll = recorded(id = 1, rolledAt = "2026-11-02T08:30:00Z")
+            .copy(context = RollContext(characterId = "aria", check = check))
+
+        val days = listOf(roll).groupByDay(paris)
+
+        assertEquals(check, days.single().rolls.single().check)
+    }
+
+    @Test
+    fun `a roll made in the roller has no check`() {
+        val days = listOf(recorded(id = 1, rolledAt = "2026-11-02T08:30:00Z")).groupByDay(paris)
+
+        assertNull(days.single().rolls.single().check)
     }
 
     private fun recorded(id: Long, rolledAt: String) =

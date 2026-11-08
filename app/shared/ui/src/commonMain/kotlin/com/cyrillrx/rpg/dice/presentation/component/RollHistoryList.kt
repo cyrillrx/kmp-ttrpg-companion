@@ -99,6 +99,7 @@ private fun HistoryEntry(roll: DayRoll) {
     ) {
         RollLine(
             roll.pool,
+            roll.check,
             notationStyle = MaterialTheme.typography.bodyMedium,
             totalStyle = MaterialTheme.typography.titleLarge,
             totalColor = MaterialTheme.colorScheme.primary,

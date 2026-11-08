@@ -49,6 +49,7 @@
     <string name="value_level_short">lvl %1$d</string>
     <string name="value_race_classes">%1$s %2$s</string>
     <string name="label_saving_throw">Saving throw</string>
+    <string name="value_saving_throw">%1$s save</string>
     <string name="value_check_modifier">%1$s (%2$s)</string>
     <string name="btn_edit_skills">Edit skills</string>
     <string name="label_saving_throw_proficiency">Saving throw proficiency</string>

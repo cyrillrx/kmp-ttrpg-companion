@@ -30,7 +30,6 @@ import com.cyrillrx.rpg.dice.presentation.component.RollResult
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.app.shared.ui.generated.resources.Res
-import rpg_companion.app.shared.ui.generated.resources.label_initiative
 import rpg_companion.app.shared.ui.generated.resources.label_saving_throw
 import rpg_companion.app.shared.ui.generated.resources.value_check_modifier
 
@@ -91,13 +90,6 @@ private fun CheckHeader(sheetRoll: SheetRoll, modifier: Modifier = Modifier) {
             KeepRuleLabel(rule, style = MaterialTheme.typography.titleSmall)
         }
     }
-}
-
-@Composable
-private fun D20Check.toFormattedString(): String = when (this) {
-    is D20Check.SavingThrow -> ability.toFormattedString()
-    is D20Check.SkillCheck -> skill.toFormattedString()
-    D20Check.Initiative -> stringResource(Res.string.label_initiative)
 }
 
 @Preview
