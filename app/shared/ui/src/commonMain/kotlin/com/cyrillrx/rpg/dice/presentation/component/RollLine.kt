@@ -43,6 +43,7 @@ internal fun RollLine(
                 text = pool.toPlainNotation().orEmpty(),
                 style = notationStyle,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.weight(1f, fill = false),
             )
             pool.keepRule()?.let { rule -> KeepRuleShortLabel(rule, style = notationStyle) }
         }
