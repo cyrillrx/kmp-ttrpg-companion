@@ -10,8 +10,12 @@ plugins {
 fun signingProperty(name: String): String? = providers.gradleProperty(name).orNull
 
 val releaseStoreFile = signingProperty("ttrpgReleaseStoreFile")
-val missingSigningProperties = listOf("ttrpgReleaseStorePassword", "ttrpgReleaseKeyAlias", "ttrpgReleaseKeyPassword")
-    .filter { releaseStoreFile != null && signingProperty(it) == null }
+val missingSigningProperties = if (releaseStoreFile == null) {
+    emptyList()
+} else {
+    listOf("ttrpgReleaseStorePassword", "ttrpgReleaseKeyAlias", "ttrpgReleaseKeyPassword")
+        .filter { signingProperty(it) == null }
+}
 
 android {
     namespace = "com.cyrillrx.rpg.android"
