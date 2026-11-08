@@ -9,7 +9,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class RollNotationTest {
+class ToPlainNotationTest {
 
     private val disadvantage = DoubleRoll(
         kept = SimpleRoll(Die.D20, value = 4),
