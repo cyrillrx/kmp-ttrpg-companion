@@ -28,7 +28,6 @@ internal fun KeepRuleLabel(rule: KeepRule, style: TextStyle, modifier: Modifier 
     Text(text = stringResource(label), style = style, color = rule.color(), modifier = modifier)
 }
 
-/** The short form of [KeepRuleLabel], for a line that already reads as a roll. */
 @Composable
 internal fun KeepRuleShortLabel(rule: KeepRule, style: TextStyle, modifier: Modifier = Modifier) {
     val label = when (rule) {
