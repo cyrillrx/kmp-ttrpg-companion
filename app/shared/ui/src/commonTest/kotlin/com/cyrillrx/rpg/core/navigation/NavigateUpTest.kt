@@ -7,7 +7,7 @@ import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class NavExtTest {
+class NavigateUpTest {
 
     @Test
     fun `navigating up pops the top entry`() {
