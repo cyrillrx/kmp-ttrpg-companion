@@ -1,6 +1,6 @@
 # PRD-006 — Virtual Dice
 
-> **Status**: Draft | **Version**: 0.6 | **Last updated**: 2026-11-05
+> **Status**: Draft | **Version**: 0.7 | **Last updated**: 2026-11-08
 
 ## Overview
 
@@ -69,6 +69,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - [x] An expression holds at most 100 dice in total; a notation asking for more is refused.
 - [x] An expression's modifier stays within ±1000, enough for 100 dice with a +10 bonus each; a notation beyond it is refused.
 - [x] A double roll reads and writes as `2d20kh1` (keep the higher) or `2d20kl1` (keep the lower), so a pool's notation reads back as the expression that rolls it. It counts as two dice against the limit.
+- [x] Display exception: to keep advantage and disadvantage on a d20 readable, a d20 rolled with advantage or disadvantage is shown as its kept die with its keep rule in words (`1d20 + 5` with disadvantage, not `2d20kl1 + 5`). The notation itself is unchanged, and the keep rule is never lost from the display.
 - [x] A notation that cannot be read is refused with its reason (blank, a sign with no term after it, zero dice, subtracted dice, an unsupported die, a keep on anything but one of two dice, no dice at all, too many dice, a modifier out of range, or a part that is neither dice nor a number) and is never silently corrected. A refusal for going past a limit names that limit.
 
 ### Entry Point
@@ -101,4 +102,5 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - Should there be a modifier field (e.g. +3 to add a bonus to the total)? **Settled**: yes, a −/+ modifier shared by direct rolls and the composition.
 - Should the composition survive an app restart? **Settled**: no. Reopening the app on the dice left from a previous session felt confusing for a dice roller; the history log is what keeps past rolls.
 - Should the dice roller also ship as a standalone app? A second launcher activity in the same Android package gives it its own icon but shares the app's data and installation; a separate app needs its own application module on each target. Tracked as an idea to qualify under the mini-apps entry of the [roadmap](../roadmap.md) Exploration section.
+- Should the previous rolls and the history keep the keep rule in words, or go back to the `2d20kh1`/`2d20kl1` notation? They use words for now; to be settled with use.
 - Should a d100 read as a tens die and a units die (00–90 plus 0–9), as rolled at the table, rather than the single number described under Supported Dice? Its rendering is to explore.

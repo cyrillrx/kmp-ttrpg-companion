@@ -97,19 +97,12 @@ private fun HistoryEntry(roll: DayRoll) {
             .fillMaxWidth()
             .padding(horizontal = spacingCommon, vertical = spacingMedium),
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(
-                text = roll.pool.toNotation().orEmpty(),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.weight(1f),
-            )
-            Text(
-                text = roll.pool.total().toString(),
-                style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.primary,
-            )
-        }
+        RollLine(
+            roll.pool,
+            notationStyle = MaterialTheme.typography.bodyMedium,
+            totalStyle = MaterialTheme.typography.titleLarge,
+            totalColor = MaterialTheme.colorScheme.primary,
+        )
 
         Row(verticalAlignment = Alignment.Bottom) {
             HistoryRolls(roll.pool, modifier = Modifier.weight(1f))

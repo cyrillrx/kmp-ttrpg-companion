@@ -40,6 +40,7 @@ import com.cyrillrx.rpg.dice.domain.DoubleRoll
 import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
+import com.cyrillrx.rpg.dice.presentation.toPlainNotation
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.app.shared.ui.generated.resources.Res
@@ -55,11 +56,7 @@ internal fun RollResult(roll: RollPool, rollCount: Int, modifier: Modifier = Mod
         modifier = modifier.fillMaxWidth(),
     ) {
         if (showNotation) {
-            Text(
-                text = roll.toNotation().orEmpty(),
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
+            RollNotation(roll)
         }
 
         RollTotal(rollCount, roll.total())
@@ -68,6 +65,18 @@ internal fun RollResult(roll: RollPool, rollCount: Int, modifier: Modifier = Mod
 }
 
 // TODO(#353): give the private composables below a modifier parameter
+@Composable
+private fun RollNotation(roll: RollPool) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(
+            text = roll.toPlainNotation().orEmpty(),
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        roll.keepRule()?.let { rule -> KeepRuleLabel(rule, style = MaterialTheme.typography.titleSmall) }
+    }
+}
+
 @Composable
 private fun RollTotal(rollCount: Int, total: Int) {
     AnimatedContent(
