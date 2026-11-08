@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 
-fun signingProperty(name: String): String? = providers.gradleProperty(name).orNull
+fun signingProperty(name: String): String? = providers.gradleProperty(name).orNull?.takeIf(String::isNotBlank)
 
 val releaseStoreFile = signingProperty("ttrpgReleaseStoreFile")
 val missingSigningProperties = if (releaseStoreFile == null) {
