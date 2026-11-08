@@ -7,6 +7,12 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 
+fun signingProperty(name: String): String? = providers.gradleProperty(name).orNull
+
+val releaseStoreFile = signingProperty("ttrpgReleaseStoreFile")
+val missingSigningProperties = listOf("ttrpgReleaseStorePassword", "ttrpgReleaseKeyAlias", "ttrpgReleaseKeyPassword")
+    .filter { releaseStoreFile != null && signingProperty(it) == null }
+
 android {
     namespace = "com.cyrillrx.rpg.android"
     compileSdk = Version.COMPILE_SDK
@@ -19,14 +25,13 @@ android {
         versionName = Version.APP_VERSION
     }
 
-    val releaseStoreFile = providers.gradleProperty("ttrpgReleaseStoreFile").orNull
     signingConfigs {
-        if (releaseStoreFile != null) {
+        if (releaseStoreFile != null && missingSigningProperties.isEmpty()) {
             create("release") {
                 storeFile = file(releaseStoreFile)
-                storePassword = providers.gradleProperty("ttrpgReleaseStorePassword").get()
-                keyAlias = providers.gradleProperty("ttrpgReleaseKeyAlias").get()
-                keyPassword = providers.gradleProperty("ttrpgReleaseKeyPassword").get()
+                storePassword = signingProperty("ttrpgReleaseStorePassword")
+                keyAlias = signingProperty("ttrpgReleaseKeyAlias")
+                keyPassword = signingProperty("ttrpgReleaseKeyPassword")
             }
         }
     }
@@ -104,6 +109,13 @@ tasks.named { it.startsWith("merge") && it.endsWith("Assets") }
 // TODO(#394): register the copied resources as a generated assets source instead of wiring consumers by name
 tasks.named { it.startsWith("lint") || it.contains("Lint") }
     .configureEach { dependsOn(copyCmpResourcesToAssets) }
+
+tasks.named { it == "packageRelease" || it == "signReleaseBundle" }.configureEach {
+    val missing = missingSigningProperties
+    doFirst {
+        check(missing.isEmpty()) { "Release signing needs the Gradle properties ${missing.joinToString()}" }
+    }
+}
 
 ktlint {
     version.set(libs.versions.ktlint.engine)
