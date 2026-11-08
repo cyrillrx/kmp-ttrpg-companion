@@ -15,7 +15,7 @@ android {
         applicationId = "com.cyrillrx.rpg"
         minSdk = Version.MIN_SDK
         targetSdk = Version.COMPILE_SDK
-        versionCode = providers.gradleProperty("ttrpgVersionCode").orNull?.toInt() ?: 1
+        versionCode = Version.VERSION_CODE
         versionName = Version.APP_VERSION
     }
 
