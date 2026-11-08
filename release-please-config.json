@@ -4,6 +4,7 @@
   "include-component-in-tag": false,
   "draft": true,
   "force-tag-creation": true,
+  "pull-request-title-pattern": "chore(release): release ${version}",
   "packages": {
     ".": {
       "release-type": "simple",
