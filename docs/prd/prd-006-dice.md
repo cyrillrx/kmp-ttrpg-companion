@@ -69,7 +69,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - [x] An expression holds at most 100 dice in total; a notation asking for more is refused.
 - [x] An expression's modifier stays within ±1000, enough for 100 dice with a +10 bonus each; a notation beyond it is refused.
 - [x] A double roll reads and writes as `2d20kh1` (keep the higher) or `2d20kl1` (keep the lower), so a pool's notation reads back as the expression that rolls it. It counts as two dice against the limit.
-- [x] Display exception: to keep advantage and disadvantage on a d20 readable, a lone double roll is shown as its kept die with its keep rule in words (`1d20 + 5` with disadvantage, not `2d20kl1 + 5`). The notation itself is unchanged, and the keep rule is never lost from the display.
+- [x] Display exception: to keep advantage and disadvantage on a d20 readable, a d20 rolled with advantage or disadvantage is shown as its kept die with its keep rule in words (`1d20 + 5` with disadvantage, not `2d20kl1 + 5`). The notation itself is unchanged, and the keep rule is never lost from the display.
 - [x] A notation that cannot be read is refused with its reason (blank, a sign with no term after it, zero dice, subtracted dice, an unsupported die, a keep on anything but one of two dice, no dice at all, too many dice, a modifier out of range, or a part that is neither dice nor a number) and is never silently corrected. A refusal for going past a limit names that limit.
 
 ### Entry Point
