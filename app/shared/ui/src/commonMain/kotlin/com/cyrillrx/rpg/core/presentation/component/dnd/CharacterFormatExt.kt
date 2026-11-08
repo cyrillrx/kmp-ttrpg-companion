@@ -204,8 +204,8 @@ fun Ability.toFormattedString(): String = stringResource(toStringRes())
 
 // e.g. "Dexterity save (+3)"
 @Composable
-fun D20Check.toCheckLabel(modifier: Int): String =
-    stringResource(Res.string.value_check_modifier, toCheckName(), modifier.toSignedString())
+fun D20Check.toCheckLabel(checkModifier: Int): String =
+    stringResource(Res.string.value_check_modifier, toCheckName(), checkModifier.toSignedString())
 
 @Composable
 private fun D20Check.toCheckName(): String = when (this) {
