@@ -1,6 +1,6 @@
 # PRD-006 — Virtual Dice
 
-> **Status**: Draft | **Version**: 0.6 | **Last updated**: 2026-11-05
+> **Status**: Draft | **Version**: 0.7 | **Last updated**: 2026-11-08
 
 ## Overview
 
@@ -58,7 +58,6 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 
 - [x] Each roll, composed or direct, is recorded in the history log.
 - [x] The log entry shows: dice rolled, individual results (discarded ones included), modifier, total, and timestamp.
-- [x] A lone double roll shows its kept die and the keep rule in words (`1d20 + 5`, Disadvantage); among other dice it keeps its `kh1`/`kl1` notation, so the keep rule is never lost.
 - [x] History is persisted locally across app restarts.
 - [x] The user can manually clear the entire history, the last roll included; clearing is available as soon as one roll is recorded.
 - [x] History is a single global log, kept until cleared and capped at 500 entries: past the cap, the oldest entries are dropped.
@@ -70,6 +69,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - [x] An expression holds at most 100 dice in total; a notation asking for more is refused.
 - [x] An expression's modifier stays within ±1000, enough for 100 dice with a +10 bonus each; a notation beyond it is refused.
 - [x] A double roll reads and writes as `2d20kh1` (keep the higher) or `2d20kl1` (keep the lower), so a pool's notation reads back as the expression that rolls it. It counts as two dice against the limit.
+- [x] Wherever a roll is shown, a lone double roll reads as its kept die with its keep rule in words, so the keep rule is never lost.
 - [x] A notation that cannot be read is refused with its reason (blank, a sign with no term after it, zero dice, subtracted dice, an unsupported die, a keep on anything but one of two dice, no dice at all, too many dice, a modifier out of range, or a part that is neither dice nor a number) and is never silently corrected. A refusal for going past a limit names that limit.
 
 ### Entry Point
