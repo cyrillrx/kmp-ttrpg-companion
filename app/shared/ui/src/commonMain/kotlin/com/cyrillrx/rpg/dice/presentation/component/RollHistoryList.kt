@@ -18,8 +18,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.historyRollTileMinSize
@@ -38,7 +36,6 @@ import com.cyrillrx.rpg.dice.presentation.RelativeDay
 import com.cyrillrx.rpg.dice.presentation.RollDay
 import com.cyrillrx.rpg.dice.presentation.relativeTo
 import com.cyrillrx.rpg.dice.presentation.toClockTime
-import com.cyrillrx.rpg.dice.presentation.toPlainNotation
 import com.cyrillrx.rpg.dice.presentation.toTwoDigits
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
@@ -116,37 +113,6 @@ private fun HistoryEntry(roll: DayRoll) {
                 modifier = Modifier.padding(start = spacingMedium),
             )
         }
-    }
-}
-
-/** Reads as the notation, then the keep rule of a double roll, then the total on the right. */
-@Composable
-internal fun RollLine(
-    pool: RollPool,
-    notationStyle: TextStyle,
-    totalStyle: TextStyle,
-    totalColor: Color,
-    modifier: Modifier = Modifier,
-) {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.fillMaxWidth(),
-    ) {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.weight(1f),
-        ) {
-            Text(
-                text = pool.toPlainNotation().orEmpty(),
-                style = notationStyle,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            pool.keepRule()?.let { rule -> KeepRuleShortLabel(rule, style = notationStyle) }
-        }
-
-        Text(text = pool.total().toString(), style = totalStyle, color = totalColor)
     }
 }
 
