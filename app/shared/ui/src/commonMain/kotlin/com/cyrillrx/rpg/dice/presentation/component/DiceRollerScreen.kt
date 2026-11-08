@@ -301,6 +301,7 @@ private fun PreviousRolls(rolls: List<RecordedRoll>, modifier: Modifier = Modifi
         rolls.forEach { recorded ->
             RollLine(
                 recorded.pool,
+                recorded.context?.check,
                 notationStyle = MaterialTheme.typography.bodySmall,
                 totalStyle = MaterialTheme.typography.bodySmall,
                 totalColor = MaterialTheme.colorScheme.onSurfaceVariant,

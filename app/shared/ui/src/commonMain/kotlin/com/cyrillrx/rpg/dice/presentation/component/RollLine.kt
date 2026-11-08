@@ -13,8 +13,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import com.cyrillrx.rpg.character.domain.D20Check
+import com.cyrillrx.rpg.core.presentation.component.dnd.toCheckLabel
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
 import com.cyrillrx.rpg.dice.domain.KeepRule
@@ -27,6 +31,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 internal fun RollLine(
     pool: RollPool,
+    check: D20Check?,
     notationStyle: TextStyle,
     totalStyle: TextStyle,
     totalColor: Color,
@@ -43,7 +48,7 @@ internal fun RollLine(
             modifier = Modifier.weight(1f),
         ) {
             Text(
-                text = pool.toPlainNotation().orEmpty(),
+                text = check?.toCheckLabel(pool.modifier) ?: pool.toPlainNotation().orEmpty(),
                 style = notationStyle,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -69,9 +74,15 @@ private fun RollLinePreview() {
     )
 
     Column {
-        listOf(simple, disadvantage).forEach { pool ->
+        listOf(
+            simple to null,
+            disadvantage to null,
+            disadvantage to D20Check.SkillCheck(Skill.PERCEPTION),
+            disadvantage to D20Check.SavingThrow(Ability.DEXTERITY),
+        ).forEach { (pool, check) ->
             RollLine(
                 pool,
+                check,
                 notationStyle = MaterialTheme.typography.bodyMedium,
                 totalStyle = MaterialTheme.typography.titleLarge,
                 totalColor = MaterialTheme.colorScheme.primary,

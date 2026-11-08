@@ -8,8 +8,10 @@ import androidx.compose.ui.text.intl.Locale
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
+import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.format.toClassBreakdown
 import com.cyrillrx.rpg.core.presentation.format.toClassNames
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -56,6 +58,7 @@ import rpg_companion.app.shared.ui.generated.resources.class_sorcerer
 import rpg_companion.app.shared.ui.generated.resources.class_unknown
 import rpg_companion.app.shared.ui.generated.resources.class_warlock
 import rpg_companion.app.shared.ui.generated.resources.class_wizard
+import rpg_companion.app.shared.ui.generated.resources.label_initiative
 import rpg_companion.app.shared.ui.generated.resources.language_abyssal
 import rpg_companion.app.shared.ui.generated.resources.language_celestial
 import rpg_companion.app.shared.ui.generated.resources.language_common
@@ -86,7 +89,9 @@ import rpg_companion.app.shared.ui.generated.resources.race_half_orc
 import rpg_companion.app.shared.ui.generated.resources.race_halfling
 import rpg_companion.app.shared.ui.generated.resources.race_human
 import rpg_companion.app.shared.ui.generated.resources.race_tiefling
+import rpg_companion.app.shared.ui.generated.resources.value_check_modifier
 import rpg_companion.app.shared.ui.generated.resources.value_race_classes
+import rpg_companion.app.shared.ui.generated.resources.value_saving_throw
 
 fun Background.toStringRes(): StringResource = when (this) {
     Background.ACOLYTE -> Res.string.background_acolyte
@@ -196,6 +201,18 @@ fun Ability.toStringRes(): StringResource = when (this) {
 
 @Composable
 fun Ability.toFormattedString(): String = stringResource(toStringRes())
+
+// e.g. "Dexterity save (+3)"
+@Composable
+fun D20Check.toCheckLabel(checkModifier: Int): String =
+    stringResource(Res.string.value_check_modifier, toCheckName(), checkModifier.toSignedString())
+
+@Composable
+private fun D20Check.toCheckName(): String = when (this) {
+    is D20Check.SavingThrow -> stringResource(Res.string.value_saving_throw, ability.toFormattedString())
+    is D20Check.SkillCheck -> skill.toFormattedString()
+    D20Check.Initiative -> stringResource(Res.string.label_initiative)
+}
 
 fun Character.Class.toStringRes(): StringResource = when (this) {
     Character.Class.ARTIFICER -> Res.string.class_artificer
