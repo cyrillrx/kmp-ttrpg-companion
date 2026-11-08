@@ -19,10 +19,9 @@ class NavigateUpTest {
     }
 
     @Test
-    fun `navigating up twice from a single pushed entry keeps the root`() {
-        val backStack = NavBackStack<NavKey>(MainRoute.Home, SpellRoute.Compendium)
+    fun `navigating up at the root keeps it`() {
+        val backStack = NavBackStack<NavKey>(MainRoute.Home)
 
-        backStack.navigateUp()
         backStack.navigateUp()
 
         assertEquals(listOf<NavKey>(MainRoute.Home), backStack.toList())
