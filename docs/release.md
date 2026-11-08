@@ -15,7 +15,9 @@ Nothing else is manual. The version code follows the version (`1.2.3` gives `102
 
 ## Repository configuration
 
-Play publishing stays off until the repository variable `PLAY_PUBLISHING_ENABLED` is `true`. Set it only once the secrets below exist and a first bundle was uploaded by hand: the Play API rejects the very first upload of an app.
+release-please opens its pull request with the workflow token, so the repository settings must allow GitHub Actions to create pull requests.
+
+Play publishing stays off until the repository variable `PLAY_PUBLISHING_ENABLED` is `true`. Set it only once the secrets below exist and a first release was rolled out by hand to the internal testing track: while the app is a draft, the Play API accepts only draft releases.
 
 | Secret                             | Content                                                                    |
 |------------------------------------|----------------------------------------------------------------------------|
@@ -27,7 +29,7 @@ Play publishing stays off until the repository variable `PLAY_PUBLISHING_ENABLED
 ## Installing, for testers
 
 - **Android**: open the opt-in link of the internal testing track with the Google account the maintainer registered, then install from the Play Store. Updates arrive like any other app.
-- **macOS**: download the DMG from the latest GitHub Release. The app is not notarized: on first launch, right-click it and choose Open, or run `xattr -d com.apple.quarantine` on it.
+- **macOS**: download the DMG from the latest GitHub Release. The app is not notarized: after the first blocked launch, choose "Open Anyway" in System Settings > Privacy & Security, or run `xattr -dr com.apple.quarantine /Applications/com.cyrillrx.rpg.app`.
 - **Windows**: download the MSI. SmartScreen warns about an unknown publisher: choose "More info", then "Run anyway".
 - **Linux**: download the DEB and install it with `sudo apt install ./<file>.deb`.
 
