@@ -116,6 +116,7 @@ tasks.named { it.startsWith("lint") || it.contains("Lint") }
 
 tasks.named { it == "packageRelease" || it == "signReleaseBundle" }.configureEach {
     val missing = missingSigningProperties
+    inputs.property("missingSigningProperties", missing)
     doFirst {
         check(missing.isEmpty()) { "Release signing needs the Gradle properties ${missing.joinToString()}" }
     }
