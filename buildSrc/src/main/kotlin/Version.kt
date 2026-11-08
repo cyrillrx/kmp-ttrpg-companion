@@ -15,8 +15,8 @@ private const val PART_CAPACITY = 100
 private val SEMANTIC_VERSION = Regex("""(\d+)\.(\d+)\.(\d+)""")
 
 private fun versionCodeOf(version: String): Int {
-    val parts = requireNotNull(SEMANTIC_VERSION.matchEntire(version)) { "$version: expected MAJOR.MINOR.PATCH" }
-    val (major, minor, patch) = parts.destructured.toList().map(String::toInt)
+    val match = requireNotNull(SEMANTIC_VERSION.matchEntire(version)) { "$version: expected MAJOR.MINOR.PATCH" }
+    val (major, minor, patch) = match.destructured.toList().map(String::toInt)
     require(minor < PART_CAPACITY && patch < PART_CAPACITY) {
         "$version: minor and patch must stay below $PART_CAPACITY to keep the version code increasing"
     }
