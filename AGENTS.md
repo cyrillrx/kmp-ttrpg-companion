@@ -125,7 +125,7 @@ composable<SpellRoute.List> {
 
 ### Router pattern
 
-Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(backStack: NavBackStack<NavKey>)`. The interface is injected into ViewModels; the impl lives in the navigation layer. Navigation calls use `backStack.add(route)` to push and `backStack.removeLastOrNull()` to pop. A `NavBackStack<NavKey>.navigateUp()` extension in `core/navigation/NavExt.kt` wraps `removeLastOrNull()` and keeps the root entry. `onNavigateUpClicked` callbacks are wired directly from the route entry (not from the ViewModel). When calling `viewModel()` for shared ViewModel types (`UserCollectionsViewModel`, `CollectionDetailViewModel<T>`), always pass an explicit `key` to avoid ViewModel sharing across entries.
+Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(backStack: NavBackStack<NavKey>)`. The interface is injected into ViewModels; the impl lives in the navigation layer. Navigation calls use `backStack.add(route)` to push and the `navigateUp()` extension from `core/navigation/NavExt.kt` to pop: it keeps the root entry. `onNavigateUpClicked` callbacks are wired directly from the route entry (not from the ViewModel). When calling `viewModel()` for shared ViewModel types (`UserCollectionsViewModel`, `CollectionDetailViewModel<T>`), always pass an explicit `key` to avoid ViewModel sharing across entries.
 
 ### Stateless composables
 
