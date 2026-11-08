@@ -14,8 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import com.cyrillrx.rpg.character.domain.D20Check
-import com.cyrillrx.rpg.core.domain.toSignedString
-import com.cyrillrx.rpg.core.presentation.component.dnd.toCheckName
+import com.cyrillrx.rpg.core.presentation.component.dnd.toCheckLabel
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -26,12 +25,8 @@ import com.cyrillrx.rpg.dice.domain.KeepRule
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.presentation.toPlainNotation
-import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import rpg_companion.app.shared.ui.generated.resources.Res
-import rpg_companion.app.shared.ui.generated.resources.value_check_modifier
 
-/** Names the check a sheet roll was made for, and any other roll by its notation. */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun RollLine(
@@ -53,7 +48,7 @@ internal fun RollLine(
             modifier = Modifier.weight(1f),
         ) {
             Text(
-                text = check?.let { rollLabel(it, pool) } ?: pool.toPlainNotation().orEmpty(),
+                text = check?.toCheckLabel(pool.modifier) ?: pool.toPlainNotation().orEmpty(),
                 style = notationStyle,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -63,10 +58,6 @@ internal fun RollLine(
         Text(text = pool.total().toString(), style = totalStyle, color = totalColor)
     }
 }
-
-@Composable
-private fun rollLabel(check: D20Check, pool: RollPool): String =
-    stringResource(Res.string.value_check_modifier, check.toCheckName(), pool.modifier.toSignedString())
 
 @Composable
 private fun RollLinePreview() {

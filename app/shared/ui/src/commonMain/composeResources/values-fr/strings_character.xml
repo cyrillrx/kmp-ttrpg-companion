@@ -48,7 +48,6 @@
     <string name="label_level_short">niv.</string>
     <string name="value_level_short">niv. %1$d</string>
     <string name="value_race_classes">%2$s %1$s</string>
-    <string name="label_saving_throw">Jet de sauvegarde</string>
     <string name="value_saving_throw">Sauvegarde : %1$s</string>
     <string name="value_check_modifier">%1$s (%2$s)</string>
     <string name="btn_edit_skills">Modifier les compétences</string>

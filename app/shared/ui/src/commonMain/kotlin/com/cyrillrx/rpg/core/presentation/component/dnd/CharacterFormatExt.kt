@@ -11,6 +11,7 @@ import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.format.toClassBreakdown
 import com.cyrillrx.rpg.core.presentation.format.toClassNames
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -88,6 +89,7 @@ import rpg_companion.app.shared.ui.generated.resources.race_half_orc
 import rpg_companion.app.shared.ui.generated.resources.race_halfling
 import rpg_companion.app.shared.ui.generated.resources.race_human
 import rpg_companion.app.shared.ui.generated.resources.race_tiefling
+import rpg_companion.app.shared.ui.generated.resources.value_check_modifier
 import rpg_companion.app.shared.ui.generated.resources.value_race_classes
 import rpg_companion.app.shared.ui.generated.resources.value_saving_throw
 
@@ -200,18 +202,16 @@ fun Ability.toStringRes(): StringResource = when (this) {
 @Composable
 fun Ability.toFormattedString(): String = stringResource(toStringRes())
 
+// e.g. "Dexterity save (+3)"
 @Composable
-fun D20Check.toFormattedString(): String = when (this) {
-    is D20Check.SavingThrow -> ability.toFormattedString()
+fun D20Check.toCheckLabel(modifier: Int): String =
+    stringResource(Res.string.value_check_modifier, toCheckName(), modifier.toSignedString())
+
+@Composable
+private fun D20Check.toCheckName(): String = when (this) {
+    is D20Check.SavingThrow -> stringResource(Res.string.value_saving_throw, ability.toFormattedString())
     is D20Check.SkillCheck -> skill.toFormattedString()
     D20Check.Initiative -> stringResource(Res.string.label_initiative)
-}
-
-/** Names the check without a heading to say it is a saving throw, such as "Dexterity save". */
-@Composable
-fun D20Check.toCheckName(): String = when (this) {
-    is D20Check.SavingThrow -> stringResource(Res.string.value_saving_throw, toFormattedString())
-    else -> toFormattedString()
 }
 
 fun Character.Class.toStringRes(): StringResource = when (this) {
