@@ -18,12 +18,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.historyRollTileMinSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
@@ -193,6 +195,7 @@ internal val previewHistory = DiceHistoryState.Body.WithData(
                         modifier = 2,
                     ),
                     time = LocalTime(hour = 21, minute = 4),
+                    check = null,
                 ),
                 DayRoll(
                     id = 2,
@@ -207,6 +210,7 @@ internal val previewHistory = DiceHistoryState.Body.WithData(
                         modifier = 2,
                     ),
                     time = LocalTime(hour = 21, minute = 3),
+                    check = D20Check.SavingThrow(Ability.CONSTITUTION),
                 ),
             ),
         ),
@@ -217,6 +221,7 @@ internal val previewHistory = DiceHistoryState.Body.WithData(
                     id = 1,
                     pool = RollPool(listOf(SimpleRoll(Die.D100, value = 42))),
                     time = LocalTime(hour = 22, minute = 15),
+                    check = null,
                 ),
             ),
         ),

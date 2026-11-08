@@ -12,7 +12,7 @@ import kotlinx.datetime.toLocalDateTime
 
 data class RollDay(val date: LocalDate, val rolls: List<DayRoll>)
 
-data class DayRoll(val id: Long, val pool: RollPool, val time: LocalTime, val check: D20Check? = null)
+data class DayRoll(val id: Long, val pool: RollPool, val time: LocalTime, val check: D20Check?)
 
 enum class RelativeDay { TODAY, YESTERDAY, EARLIER }
 
