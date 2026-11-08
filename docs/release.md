@@ -1,0 +1,34 @@
+# Release
+
+The app reaches family and friends through two channels: Google Play internal testing for Android, and the GitHub Release for the desktop packages. iOS is not distributed: TestFlight and ad hoc builds both need a paid Apple Developer account.
+
+## Publishing a version
+
+1. Merge `feat` and `fix` pull requests into `main` as usual. Their squashed subject becomes a changelog line, so write it for a user.
+2. release-please keeps a release pull request open. It bumps the version from those commits (`feat` raises the minor, `fix` the patch, a `!` the major) and updates `CHANGELOG.md`, `version.txt` and `Version.APP_VERSION`.
+3. Merge the release pull request. The `Release` workflow then:
+    - tags `vX.Y.Z` and publishes the GitHub Release with the changelog section;
+    - packages the DMG (Apple silicon), MSI and DEB, and attaches them to the release;
+    - when Play publishing is enabled, builds the signed bundle and rolls it out to the internal testing track, with the changelog section as the "What's new" text.
+
+Nothing else is manual. The version code follows the version (`1.2.3` gives `10203`), so every release raises it.
+
+## Repository configuration
+
+Play publishing stays off until the repository variable `PLAY_PUBLISHING_ENABLED` is `true`. Set it only once the secrets below exist and a first bundle was uploaded by hand: the Play API rejects the very first upload of an app.
+
+| Secret                             | Content                                                                    |
+|------------------------------------|----------------------------------------------------------------------------|
+| `ANDROID_UPLOAD_KEYSTORE_BASE64`   | The upload keystore, as `base64 -i upload.jks`                             |
+| `ANDROID_UPLOAD_KEYSTORE_PASSWORD` | Its password, which is also the key password in a PKCS12 keystore          |
+| `ANDROID_UPLOAD_KEY_ALIAS`         | The key alias                                                              |
+| `PLAY_SERVICE_ACCOUNT_JSON`        | The JSON key of a Google Cloud service account granted access to the app   |
+
+## Installing, for testers
+
+- **Android**: open the opt-in link of the internal testing track with the Google account the maintainer registered, then install from the Play Store. Updates arrive like any other app.
+- **macOS**: download the DMG from the latest GitHub Release. The app is not notarized: on first launch, right-click it and choose Open, or run `xattr -d com.apple.quarantine` on it.
+- **Windows**: download the MSI. SmartScreen warns about an unknown publisher: choose "More info", then "Run anyway".
+- **Linux**: download the DEB and install it with `sudo apt install ./<file>.deb`.
+
+Desktop updates are manual: watch the repository's releases on GitHub to be notified.
