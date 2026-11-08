@@ -97,9 +97,9 @@ Allow `security` permanently the first time the Keychain asks. An IDE launched f
 
 On the CI, expose the four values as `ORG_GRADLE_PROJECT_*` secrets.
 
-Once `ttrpgReleaseStoreFile` is set, the three other properties are required: without them, every build fails to configure, debug included. Without `ttrpgReleaseStoreFile`, the release builds unsigned.
+Once `ttrpgReleaseStoreFile` is set, the three other properties are required to package the release: without them, the release fails and names the missing ones, while debug builds still work. Without `ttrpgReleaseStoreFile`, the release builds unsigned.
 
-Each Play upload needs a higher version code, passed with `-PttrpgVersionCode=<n>`. It defaults to 1.
+The version code derives from `Version.APP_VERSION`: `1.2.3` gives `10203`. Each Play upload therefore needs a version bump.
 
 ### Server (Rust)
 
