@@ -6,10 +6,10 @@ import com.pinterest.ktlint.rule.engine.core.api.Rule
 import com.pinterest.ktlint.rule.engine.core.api.RuleAutocorrectApproveHandler
 import com.pinterest.ktlint.rule.engine.core.api.RuleId
 import com.pinterest.ktlint.rule.engine.core.api.ifAutocorrectAllowed
-import com.pinterest.ktlint.rule.engine.core.api.isCodeLeaf
-import com.pinterest.ktlint.rule.engine.core.api.isWhiteSpaceWithNewline
-import com.pinterest.ktlint.rule.engine.core.api.isWhiteSpaceWithoutNewline
-import com.pinterest.ktlint.rule.engine.core.api.lastChildLeafOrSelf
+import com.pinterest.ktlint.rule.engine.core.api.isCode
+import com.pinterest.ktlint.rule.engine.core.api.isWhiteSpaceWithNewline20
+import com.pinterest.ktlint.rule.engine.core.api.isWhiteSpaceWithoutNewline20
+import com.pinterest.ktlint.rule.engine.core.api.lastChildLeafOrSelf20
 import com.pinterest.ktlint.rule.engine.core.api.prevCodeLeaf
 import org.jetbrains.kotlin.com.intellij.lang.ASTNode
 import org.jetbrains.kotlin.com.intellij.psi.PsiComment
@@ -74,9 +74,9 @@ class BlankLineAfterBlockRule :
     private fun separatorAfter(statement: ASTNode): ASTNode? {
         val lineEnd =
             generateSequence(statement.treeNext) { it.treeNext }
-                .first { !it.isWhiteSpaceWithoutNewline() && it.psi !is PsiComment }
+                .first { !it.isWhiteSpaceWithoutNewline20 && it.psi !is PsiComment }
 
-        return lineEnd.takeIf { it.isWhiteSpaceWithNewline() }
+        return lineEnd.takeIf { it.isWhiteSpaceWithNewline20 }
     }
 
     private fun ASTNode.bareStatement(): ASTNode {
@@ -90,7 +90,7 @@ class BlankLineAfterBlockRule :
             endsWithMultilineBlock()
 
     private fun ASTNode.endsWithMultilineBlock(): Boolean {
-        val lastLeaf = lastChildLeafOrSelf().let { if (it.isCodeLeaf()) it else it.prevCodeLeaf() }
+        val lastLeaf = lastChildLeafOrSelf20.let { if (it.isCode) it else it.prevCodeLeaf }
         return lastLeaf?.elementType == ElementType.RBRACE && lastLeaf.treeParent.textContains('\n')
     }
 

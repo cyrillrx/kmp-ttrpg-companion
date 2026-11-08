@@ -2,7 +2,7 @@
 kotlin = "2.4.21"
 ktlint = "14.2.0"
 # The engine the ktlint plugin runs, which the custom rules compile against.
-ktlint-engine = "1.5.0"
+ktlint-engine = "1.8.0"
 junit-jupiter = "5.11.4"
 slf4j = "2.0.20"
 agp = "9.3.0"
