@@ -1,7 +1,7 @@
 import org.gradle.api.JavaVersion
 
 object Version {
-    const val APP_VERSION = "1.0.0"
+    const val APP_VERSION = "1.0.0" // x-release-please-version
 
     val VERSION_CODE = versionCodeOf(APP_VERSION)
 
