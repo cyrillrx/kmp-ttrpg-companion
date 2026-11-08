@@ -10,5 +10,6 @@ sed -E \
     -e 's/^### //' \
     -e 's/^\* /- /' \
     | sed '/^$/d' \
-    | cut -c "1-$PLAY_NOTES_MAX_CHARS" \
-    | awk -v max="$PLAY_NOTES_MAX_CHARS" '{ total += length($0) + 1; if (total > max) exit; print }'
+    | awk -v max="$PLAY_NOTES_MAX_CHARS" '
+        total + length($0) + 1 > max { print substr($0, 1, max - total - 1); exit }
+        { total += length($0) + 1; print }'
