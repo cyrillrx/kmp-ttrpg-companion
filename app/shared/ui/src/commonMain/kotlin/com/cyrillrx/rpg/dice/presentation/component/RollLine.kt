@@ -2,6 +2,8 @@ package com.cyrillrx.rpg.dice.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
@@ -21,6 +23,7 @@ import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.presentation.toPlainNotation
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun RollLine(
     pool: RollPool,
@@ -34,16 +37,15 @@ internal fun RollLine(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier.fillMaxWidth(),
     ) {
-        Row(
+        FlowRow(
             horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            verticalAlignment = Alignment.CenterVertically,
+            itemVerticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.weight(1f),
         ) {
             Text(
                 text = pool.toPlainNotation().orEmpty(),
                 style = notationStyle,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.weight(1f, fill = false),
             )
             pool.keepRule()?.let { rule -> KeepRuleShortLabel(rule, style = notationStyle) }
         }
