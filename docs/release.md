@@ -7,11 +7,12 @@ The app reaches family and friends through two channels: Google Play internal te
 1. Merge `feat` and `fix` pull requests into `main` as usual. Their squashed subject becomes a changelog line, so write it for a user.
 2. release-please keeps a release pull request open. It bumps the version from those commits (`feat` raises the minor, `fix` the patch, a `!` the major) and updates `CHANGELOG.md`, `version.txt` and `Version.APP_VERSION`.
 3. Merge the release pull request. The `Release` workflow then:
-    - tags `vX.Y.Z` and publishes the GitHub Release with the changelog section;
+    - tags `vX.Y.Z` and drafts the GitHub Release with the changelog section;
     - packages the DMG (Apple silicon), MSI and DEB, and attaches them to the release;
-    - when Play publishing is enabled, builds the signed bundle and rolls it out to the internal testing track, with the changelog section as the "What's new" text.
+    - when Play publishing is enabled, builds the signed bundle and rolls it out to the internal testing track, with the changelog section as the "What's new" text;
+    - publishes the release once every build has succeeded. A failed build leaves it a draft, so rerunning the failed jobs completes the same version.
 
-Nothing else is manual. The version code follows the version (`1.2.3` gives `10203`), so every release raises it.
+Once the repository is configured, nothing else is manual. The version code follows the version (`1.2.3` gives `10203`), so every release raises it.
 
 ## Repository configuration
 

@@ -21,6 +21,7 @@ jobs:
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
+      play_notes: ${{ steps.notes.outputs.play_notes }}
 
     steps:
       - name: Update the release pull request, or tag the merged one
@@ -29,6 +30,25 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+
+      - name: Checkout
+        if: steps.release.outputs.release_created == 'true'
+        uses: actions/checkout@v4
+
+      # The release is still a draft, which a read-only token cannot see.
+      - name: Write the Play release notes
+        id: notes
+        if: steps.release.outputs.release_created == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag_name }}
+        run: |
+          {
+            echo 'play_notes<<EOF'
+            gh release view "$TAG" --json body --jq .body | .github/scripts/play-release-notes.sh
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
 
   # A tag pushed with GITHUB_TOKEN triggers no other workflow, so the builds run here.
   android:
@@ -68,13 +88,11 @@ jobs:
         run: ./gradlew :app:androidApp:bundleRelease --no-daemon
 
       - name: Write the Play release notes
-        shell: bash
         env:
-          GH_TOKEN: ${{ github.token }}
+          PLAY_NOTES: ${{ needs.release-please.outputs.play_notes }}
         run: |
           mkdir -p whatsnew
-          gh release view "$TAG" --json body --jq .body \
-            | .github/scripts/play-release-notes.sh > whatsnew/whatsnew-en-US
+          printf '%s\n' "$PLAY_NOTES" > whatsnew/whatsnew-en-US
 
       - name: Upload to the internal testing track
         uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1
@@ -125,3 +143,18 @@ jobs:
         run: |
           shopt -s nullglob
           gh release upload "$TAG" app/desktopApp/build/compose/binaries/main-release/{dmg,msi,deb}/* --clobber
+
+  publish:
+    name: Release - Publish
+    needs: [release-please, android, desktop]
+    if: always() && needs.desktop.result == 'success' && (needs.android.result == 'success' || needs.android.result == 'skipped')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Publish the draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false
