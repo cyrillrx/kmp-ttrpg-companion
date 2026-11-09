@@ -25,7 +25,6 @@
     <string name="btn_increase_modifier">Increase the modifier</string>
 
     <string name="title_roll_history">History</string>
-    <string name="btn_roll_history">All history</string>
     <string name="label_previous_rolls">Previous rolls</string>
     <string name="btn_clear_roll_history">Clear the history</string>
     <string name="message_no_previous_roll">No previous roll</string>

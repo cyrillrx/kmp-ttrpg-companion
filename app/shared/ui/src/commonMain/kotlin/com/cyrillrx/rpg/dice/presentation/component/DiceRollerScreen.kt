@@ -4,13 +4,14 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -18,7 +19,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Casino
 import androidx.compose.material.icons.filled.Remove
@@ -81,7 +81,7 @@ import rpg_companion.app.shared.ui.generated.resources.btn_decrease_modifier
 import rpg_companion.app.shared.ui.generated.resources.btn_increase_modifier
 import rpg_companion.app.shared.ui.generated.resources.btn_roll
 import rpg_companion.app.shared.ui.generated.resources.btn_roll_composition
-import rpg_companion.app.shared.ui.generated.resources.btn_roll_history
+import rpg_companion.app.shared.ui.generated.resources.btn_see_all
 import rpg_companion.app.shared.ui.generated.resources.die_count
 import rpg_companion.app.shared.ui.generated.resources.die_label
 import rpg_companion.app.shared.ui.generated.resources.label_modifier
@@ -266,39 +266,19 @@ private fun RollResultCard(state: DiceRollerState, onHistoryClicked: (() -> Unit
     }
 }
 
+/** The header keeps the way to the history even before any previous roll, so it stays when the list is empty. */
 @Composable
-private fun ColumnScope.HistoryShortcuts(state: DiceRollerState, onHistoryClicked: () -> Unit) {
-    val previousRolls = state.previousRolls()
-    if (previousRolls.isNotEmpty()) {
-        PreviousRolls(previousRolls, modifier = Modifier.padding(horizontal = spacingCommon))
-    }
-
-    TextButton(
-        onClick = onHistoryClicked,
+private fun HistoryShortcuts(state: DiceRollerState, onHistoryClicked: () -> Unit) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(spacingSmall),
         modifier = Modifier
-            .align(Alignment.End)
-            .padding(end = spacingMedium, bottom = spacingSmall),
+            .fillMaxWidth()
+            .padding(horizontal = spacingCommon)
+            .padding(bottom = spacingMedium),
     ) {
-        Text(text = stringResource(Res.string.btn_roll_history))
-        Icon(
-            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-            contentDescription = null,
-            modifier = Modifier.size(iconSizeMedium),
-        )
-    }
-}
-
-@Composable
-private fun PreviousRolls(rolls: List<RecordedRoll>, modifier: Modifier = Modifier) {
-    Column(verticalArrangement = Arrangement.spacedBy(spacingSmall), modifier = modifier.fillMaxWidth()) {
         HorizontalDivider()
-        Text(
-            text = stringResource(Res.string.label_previous_rolls),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(top = spacingSmall),
-        )
-        rolls.forEach { recorded ->
+        PreviousRollsHeader(onHistoryClicked)
+        state.previousRolls().forEach { recorded ->
             RollLine(
                 recorded.pool,
                 recorded.context?.check,
@@ -306,6 +286,29 @@ private fun PreviousRolls(rolls: List<RecordedRoll>, modifier: Modifier = Modifi
                 totalStyle = MaterialTheme.typography.bodySmall,
                 totalColor = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+        }
+    }
+}
+
+/** The action is pulled into the margin so that its label lines up with the totals below. */
+@Composable
+private fun PreviousRollsHeader(onHistoryClicked: () -> Unit) {
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Text(
+            text = stringResource(Res.string.label_previous_rolls),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        TextButton(
+            onClick = onHistoryClicked,
+            contentPadding = PaddingValues(horizontal = spacingMedium),
+            modifier = Modifier.offset(x = spacingMedium),
+        ) {
+            Text(text = stringResource(Res.string.btn_see_all))
         }
     }
 }

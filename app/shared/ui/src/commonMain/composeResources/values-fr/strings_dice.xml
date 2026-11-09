@@ -25,7 +25,6 @@
     <string name="btn_increase_modifier">Augmenter le modificateur</string>
 
     <string name="title_roll_history">Historique</string>
-    <string name="btn_roll_history">Tout l'historique</string>
     <string name="label_previous_rolls">Jets précédents</string>
     <string name="btn_clear_roll_history">Effacer l'historique</string>
     <string name="message_no_previous_roll">Aucun jet précédent</string>
