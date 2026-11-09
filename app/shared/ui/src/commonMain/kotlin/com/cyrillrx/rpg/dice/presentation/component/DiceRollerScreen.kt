@@ -43,7 +43,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -292,7 +291,6 @@ private fun HistoryShortcuts(state: DiceRollerState, onHistoryClicked: () -> Uni
 @Composable
 private fun PreviousRollsHeader(onHistoryClicked: () -> Unit) {
     Row(
-        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.fillMaxWidth(),
     ) {
@@ -304,7 +302,7 @@ private fun PreviousRollsHeader(onHistoryClicked: () -> Unit) {
         )
         TextButton(
             onClick = onHistoryClicked,
-            contentPadding = PaddingValues(start = spacingMedium, end = 0.dp),
+            contentPadding = PaddingValues(start = spacingMedium),
         ) {
             Text(text = stringResource(Res.string.btn_see_all))
         }
