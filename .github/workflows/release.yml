@@ -71,7 +71,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p whatsnew
-          awk '/^## /{ n++ } n == 1' CHANGELOG.md \
+          awk '/^## /{ section++ } section == 1' CHANGELOG.md \
             | .github/scripts/play-release-notes.sh > whatsnew/whatsnew-en-US
 
       - name: Upload to the internal testing track
