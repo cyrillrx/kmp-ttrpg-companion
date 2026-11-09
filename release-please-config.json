@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "8a653960c18301d418d2cafa8ff3277a2e2728a6",
+  "include-component-in-tag": false,
+  "draft": true,
+  "force-tag-creation": true,
+  "pull-request-title-pattern": "chore(release): release ${version}",
+  "packages": {
+    ".": {
+      "release-type": "simple",
+      "changelog-sections": [
+        { "type": "feat", "section": "Added" },
+        { "type": "fix", "section": "Fixed" }
+      ],
+      "extra-files": [
+        { "type": "generic", "path": "buildSrc/src/main/kotlin/Version.kt" }
+      ]
+    }
+  }
+}

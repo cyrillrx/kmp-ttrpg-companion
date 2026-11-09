@@ -30,6 +30,7 @@ A digital toolkit for tabletop role-playing game sessions. Designed for Game Mas
 | [`docs/roadmap.md`](docs/roadmap.md)     | Planned phases and feature progress              |
 | [`docs/conventions/`](docs/conventions/) | Coding, Git, and technology-specific conventions |
 | [`docs/prd/`](docs/prd/)                 | Product Requirement Documents                    |
+| [`docs/release.md`](docs/release.md)     | Publishing a version and installing it           |
 
 ### Conventions
 
@@ -95,11 +96,11 @@ export ORG_GRADLE_PROJECT_ttrpgReleaseKeyPassword="$ORG_GRADLE_PROJECT_ttrpgRele
 
 Allow `security` permanently the first time the Keychain asks. An IDE launched from the Dock does not read `~/.zshrc`: start it from a shell (`open -a "Android Studio"`), or build the release from the terminal.
 
-On the CI, expose the four values as `ORG_GRADLE_PROJECT_*` secrets.
+On the CI, the `Release` workflow maps its own secrets to these properties: see [`docs/release.md`](docs/release.md).
 
 Once `ttrpgReleaseStoreFile` is set, the three other properties are required to package the release: without them, the release fails and names the missing ones, while debug builds still work. Without `ttrpgReleaseStoreFile`, the release builds unsigned.
 
-The version code derives from `Version.APP_VERSION`: `1.2.3` gives `10203`. Each Play upload therefore needs a version bump.
+The version code derives from `Version.APP_VERSION`: `1.2.3` gives `10203`. release-please bumps the version on each release.
 
 ### Server (Rust)
 
