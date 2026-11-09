@@ -502,7 +502,13 @@ private fun PreviewDiceRollerScreenDark() {
 
 @Preview
 @Composable
-private fun PreviewDiceRollerScreenEmpty() {
+private fun PreviewDiceRollerScreenEmptyLight() {
+    AppThemePreview(darkTheme = false) { DiceRollerScreenPreview(DiceRollerState()) }
+}
+
+@Preview
+@Composable
+private fun PreviewDiceRollerScreenEmptyDark() {
     AppThemePreview(darkTheme = true) { DiceRollerScreenPreview(DiceRollerState()) }
 }
 
