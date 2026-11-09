@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -44,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -266,7 +266,6 @@ private fun RollResultCard(state: DiceRollerState, onHistoryClicked: (() -> Unit
     }
 }
 
-/** The header keeps the way to the history even before any previous roll, so it stays when the list is empty. */
 @Composable
 private fun HistoryShortcuts(state: DiceRollerState, onHistoryClicked: () -> Unit) {
     Column(
@@ -290,7 +289,6 @@ private fun HistoryShortcuts(state: DiceRollerState, onHistoryClicked: () -> Uni
     }
 }
 
-/** The action is pulled into the margin so that its label lines up with the totals below. */
 @Composable
 private fun PreviousRollsHeader(onHistoryClicked: () -> Unit) {
     Row(
@@ -302,11 +300,11 @@ private fun PreviousRollsHeader(onHistoryClicked: () -> Unit) {
             text = stringResource(Res.string.label_previous_rolls),
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.weight(1f),
         )
         TextButton(
             onClick = onHistoryClicked,
-            contentPadding = PaddingValues(horizontal = spacingMedium),
-            modifier = Modifier.offset(x = spacingMedium),
+            contentPadding = PaddingValues(start = spacingMedium, end = 0.dp),
         ) {
             Text(text = stringResource(Res.string.btn_see_all))
         }
