@@ -30,10 +30,38 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
+  notes:
+    name: Release - Notes for testers
+    needs: release-please
+    if: needs.release-please.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      play_en: ${{ steps.notes.outputs.play_en }}
+      play_fr: ${{ steps.notes.outputs.play_fr }}
+      summary: ${{ steps.notes.outputs.summary }}
+
+    steps:
+      - name: Checkout the release tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.release-please.outputs.tag_name }}
+          persist-credentials: false
+
+      - name: Rewrite the changelog section for testers
+        id: notes
+        shell: bash
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          awk '/^## /{ section++ } section == 1' CHANGELOG.md \
+            | .github/scripts/friendly-release-notes.sh >> "$GITHUB_OUTPUT"
+
   # A tag pushed with GITHUB_TOKEN triggers no other workflow, so the builds run here.
   android:
     name: Release - Android to Play internal testing
-    needs: [release-please, desktop]
+    needs: [release-please, notes, desktop]
     if: needs.release-please.outputs.release_created == 'true' && vars.PLAY_PUBLISHING_ENABLED == 'true'
     runs-on: ubuntu-latest
     permissions:
@@ -69,10 +97,13 @@ jobs:
 
       - name: Write the Play release notes
         shell: bash
+        env:
+          PLAY_EN: ${{ needs.notes.outputs.play_en }}
+          PLAY_FR: ${{ needs.notes.outputs.play_fr }}
         run: |
           mkdir -p whatsnew
-          awk '/^## /{ section++ } section == 1' CHANGELOG.md \
-            | .github/scripts/play-release-notes.sh > whatsnew/whatsnew-en-US
+          printf '%s\n' "$PLAY_EN" > whatsnew/whatsnew-en-US
+          if [[ -n "$PLAY_FR" ]]; then printf '%s\n' "$PLAY_FR" > whatsnew/whatsnew-fr-FR; fi
 
       - name: Upload to the internal testing track
         uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1
@@ -127,15 +158,24 @@ jobs:
 
   publish:
     name: Release - Publish
-    needs: [release-please, android, desktop]
-    if: always() && needs.desktop.result == 'success' && (needs.android.result == 'success' || needs.android.result == 'skipped')
+    needs: [release-please, notes, android, desktop]
+    if: always() && needs.notes.result == 'success' && needs.desktop.result == 'success' && (needs.android.result == 'success' || needs.android.result == 'skipped')
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - name: Publish the draft release
+      - name: Publish the draft release, with the tester summary on top
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ needs.release-please.outputs.tag_name }}
-        run: gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false
+          SUMMARY: ${{ needs.notes.outputs.summary }}
+        run: |
+          if [[ -z "$SUMMARY" ]]; then
+            gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false
+            exit 0
+          fi
+
+          body="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json body --jq .body)"
+          printf '%s\n\n%s\n' "$SUMMARY" "$body" \
+            | gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --notes-file - --draft=false
