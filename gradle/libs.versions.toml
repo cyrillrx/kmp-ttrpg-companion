@@ -6,7 +6,7 @@ ktlint-engine = "1.8.0"
 junit-jupiter = "5.11.4"
 slf4j = "2.0.20"
 agp = "9.3.0"
-compose-plugin = "1.12.1"
+compose-plugin = "1.12.2"
 compose-material3 = "1.9.0"
 # Pinned upstream: no release after 1.7.3.
 compose-material-icons-extended = "1.7.3"
