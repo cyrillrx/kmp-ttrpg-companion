@@ -33,7 +33,7 @@ jobs:
   # A tag pushed with GITHUB_TOKEN triggers no other workflow, so the builds run here.
   android:
     name: Release - Android to Play internal testing
-    needs: release-please
+    needs: [release-please, desktop]
     if: needs.release-please.outputs.release_created == 'true' && vars.PLAY_PUBLISHING_ENABLED == 'true'
     runs-on: ubuntu-latest
     permissions:
