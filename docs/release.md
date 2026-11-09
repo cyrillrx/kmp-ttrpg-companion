@@ -10,7 +10,7 @@ The app reaches family and friends through two channels: Google Play internal te
     - tags `vX.Y.Z` and drafts the GitHub Release with the changelog section;
     - packages the DMG (Apple silicon), MSI and DEB, and attaches them to the release;
     - when Play publishing is enabled, builds the signed bundle and rolls it out to the internal testing track, with the changelog section as the "What's new" text;
-    - publishes the release once every build has succeeded. A failed build leaves it a draft: rerunning the failed jobs completes the same version after a transient failure, while a build error needs a fix and a new version.
+    - publishes the release once every build has succeeded. A failed build leaves it a draft: rerunning the failed jobs completes the same version after a transient failure, while a build error needs a `fix` commit, which opens the next release pull request.
 
 Once the repository is configured, nothing else is manual. The version code follows the version (`1.2.3` gives `10203`), so every release raises it.
 
