@@ -28,7 +28,7 @@ markdownRenderer = "0.40.2"
 coil3 = "3.1.0"
 
 # 1.5.0-alpha is the line that supports AGP 9.
-androidx-benchmark = "1.5.0-alpha07"
+androidx-benchmark = "1.6.0-alpha01"
 androidx-uiautomator = "2.3.0"
 androidx-test-ext-junit = "1.2.1"
 androidx-profileinstaller = "1.4.1"
