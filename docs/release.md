@@ -8,9 +8,10 @@ The app reaches family and friends through two channels: Google Play internal te
 2. release-please keeps a release pull request open. It bumps the version from those commits (`feat` raises the minor, `fix` the patch, a `!` the major) and updates `CHANGELOG.md`, `version.txt` and `Version.APP_VERSION`.
 3. Merge the release pull request. The `Release` workflow then:
     - tags `vX.Y.Z` and drafts the GitHub Release with the changelog section;
+    - asks Gemini to rewrite that section for testers, in English and French. Without the key, or if the call fails, Play gets the technical section and the release keeps it alone;
     - packages the DMG (Apple silicon), MSI and DEB, and attaches them to the release;
-    - when Play publishing is enabled, builds the signed bundle and rolls it out to the internal testing track, with the changelog section as the "What's new" text;
-    - publishes the release once every build has succeeded. A failed build leaves it a draft: rerunning the failed jobs completes the same version after a transient failure, while a build error needs a `fix` commit, which opens the next release pull request.
+    - when Play publishing is enabled, builds the signed bundle and rolls it out to the internal testing track, with the tester notes as the "What's new" text;
+    - publishes the release once every build has succeeded, with the tester notes above the changelog section. A failed build leaves it a draft: rerunning the failed jobs completes the same version after a transient failure, while a build error needs a `fix` commit, which opens the next release pull request.
 
 Once the repository is configured, nothing else is manual. The version code follows the version (`1.2.3` gives `10203`), so every release raises it.
 
@@ -26,6 +27,7 @@ Play publishing stays off until the repository variable `PLAY_PUBLISHING_ENABLED
 | `ANDROID_UPLOAD_KEYSTORE_PASSWORD` | Its password, which is also the key password in a PKCS12 keystore          |
 | `ANDROID_UPLOAD_KEY_ALIAS`         | The key alias                                                              |
 | `PLAY_SERVICE_ACCOUNT_JSON`        | The JSON key of a Google Cloud service account granted access to the app   |
+| `GEMINI_API_KEY`                   | Optional: a free-tier Google AI Studio key, for the tester notes           |
 
 ## Installing, for testers
 
