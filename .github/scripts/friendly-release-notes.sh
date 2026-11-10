@@ -24,7 +24,7 @@ rewrite_for_testers() {
             }
         }
     }' \
-        | curl --fail --silent --show-error --max-time 60 --retry 3 \
+        | curl --fail --silent --show-error --max-time 60 --retry 3 --retry-max-time 120 \
             --header "Content-Type: application/json" \
             --header "x-goog-api-key: $GEMINI_API_KEY" \
             --data @- "$GEMINI_ENDPOINT" \
@@ -42,7 +42,7 @@ if [[ -n "${GEMINI_API_KEY:-}" ]] && notes="$(rewrite_for_testers "$changelog")"
     fr="$(jq -r .fr <<<"$notes")"
     write_output play_en "$("$SCRIPT_DIR/play-release-notes.sh" <<<"$en")"
     write_output play_fr "$("$SCRIPT_DIR/play-release-notes.sh" <<<"$fr")"
-    write_output summary "$(printf "### What's new\n\n%s\n\n### Nouveautés\n\n%s" "$en" "$fr")"
+    write_output summary "$(printf "## What's new\n\n%s\n\n## Nouveautés\n\n%s" "$en" "$fr")"
 else
     echo "::warning::No tester notes from Gemini: Play gets the technical changelog, and the GitHub Release is unchanged." >&2
     write_output play_en "$("$SCRIPT_DIR/play-release-notes.sh" <<<"$changelog")"
