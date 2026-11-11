@@ -68,6 +68,7 @@ D20_FACES = [
 D20_OUTLINE = "top upper_right lower_right bottom lower_left upper_left"
 
 
+# TODO(#416): check the generated drawables against this script in CI
 def main():
     colors = read_launcher_colors()
     with tempfile.TemporaryDirectory() as work_dir:
