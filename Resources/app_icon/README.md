@@ -11,5 +11,5 @@ The colors come from `app/androidApp/src/main/res/values/ic_launcher_colors.xml`
 Regenerate after a change to the drawing or to the release colors (macOS only, the bitmaps are rendered with AppKit):
 
 ```bash
-python3 design/icon/generate_icon.py
+python3 Resources/app_icon/generate_icon.py
 ```

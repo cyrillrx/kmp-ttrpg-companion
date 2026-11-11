@@ -4,15 +4,15 @@ import tempfile
 import xml.etree.ElementTree as ElementTree
 from pathlib import Path
 
-DESIGN_DIR = Path(__file__).resolve().parent
-REPO_ROOT = DESIGN_DIR.parents[1]
+SOURCE_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SOURCE_DIR.parents[1]
 ANDROID_RES = REPO_ROOT / "app/androidApp/src/main/res"
 LAUNCHER_COLORS = ANDROID_RES / "values/ic_launcher_colors.xml"
 FOREGROUND_DRAWABLE = ANDROID_RES / "drawable/ic_launcher_foreground.xml"
 MONOCHROME_DRAWABLE = ANDROID_RES / "drawable/ic_launcher_monochrome.xml"
 IOS_ICON = REPO_ROOT / "app/iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png"
 PLAY_STORE_ICON = REPO_ROOT / "app/shared/ui/src/androidMain/ic_launcher-playstore.png"
-PNG_RENDERER = DESIGN_DIR / "render_png.swift"
+PNG_RENDERER = SOURCE_DIR / "render_png.swift"
 
 CANVAS = 512
 ADAPTIVE_ICON_DP = 108
