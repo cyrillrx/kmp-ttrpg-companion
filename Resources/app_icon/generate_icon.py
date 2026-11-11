@@ -69,13 +69,13 @@ D20_FRONT_FACE = "inner_top inner_right inner_left"
 
 def main():
     colors = read_launcher_colors()
-    FOREGROUND_DRAWABLE.write_text(vector_drawable(color_layer()))
-    MONOCHROME_DRAWABLE.write_text(vector_drawable(monochrome_layer()))
     with tempfile.TemporaryDirectory() as work_dir:
         svg = Path(work_dir) / "icon.svg"
         svg.write_text(full_bleed_svg(colors))
         render_png(svg, IOS_ICON, 1024, opaque=True)
         render_png(svg, PLAY_STORE_ICON, 512, opaque=False)
+    FOREGROUND_DRAWABLE.write_text(vector_drawable(color_layer()))
+    MONOCHROME_DRAWABLE.write_text(vector_drawable(monochrome_layer()))
 
 
 def read_launcher_colors():
