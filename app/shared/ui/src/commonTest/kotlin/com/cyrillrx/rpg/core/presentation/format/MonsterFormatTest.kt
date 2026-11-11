@@ -31,7 +31,6 @@ import com.cyrillrx.rpg.core.presentation.theme.MonsterPlant
 import com.cyrillrx.rpg.core.presentation.theme.MonsterSwarm
 import com.cyrillrx.rpg.core.presentation.theme.MonsterUndead
 import com.cyrillrx.rpg.core.presentation.theme.MonsterUnknown
-import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -66,12 +65,6 @@ class MonsterFormatTest {
     @Test
     fun `formatCRValue returns decimal string for non-standard float`() {
         assertEquals(expected = "1.5", actual = formatCRValue(1.5f))
-    }
-
-    @Test
-    fun `toFormattedCR returns CR prefix with formatted value`() {
-        val goblin = SampleMonsterRepository.goblin()
-        assertEquals(expected = "CR 1/4", actual = goblin.toFormattedCR())
     }
 
     @Test

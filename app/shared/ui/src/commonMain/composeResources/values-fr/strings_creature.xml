@@ -9,6 +9,7 @@
 
     <string name="value_armor_class">CA %1$d</string>
     <string name="value_hit_points">PV %1$d</string>
+    <string name="value_challenge_rating">ID %1$s</string>
 
     <!-- Speed types -->
     <string name="speed_label_fly">vol</string>

@@ -9,6 +9,7 @@
 
     <string name="value_armor_class">AC %1$d</string>
     <string name="value_hit_points">HP %1$d</string>
+    <string name="value_challenge_rating">CR %1$s</string>
 
     <!-- Speed types -->
     <string name="speed_label_fly">Fly</string>

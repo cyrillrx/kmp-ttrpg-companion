@@ -22,10 +22,10 @@ import com.cyrillrx.rpg.core.presentation.component.IconLabel
 import com.cyrillrx.rpg.core.presentation.component.TintedSubtitle
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.format.SUBTITLE_SEPARATOR
+import com.cyrillrx.rpg.core.presentation.format.formatCRValue
 import com.cyrillrx.rpg.core.presentation.format.getColor
 import com.cyrillrx.rpg.core.presentation.format.getIcon
 import com.cyrillrx.rpg.core.presentation.format.joinNonNull
-import com.cyrillrx.rpg.core.presentation.format.toFormattedCR
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -36,6 +36,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.app.shared.ui.generated.resources.Res
 import rpg_companion.app.shared.ui.generated.resources.value_armor_class
+import rpg_companion.app.shared.ui.generated.resources.value_challenge_rating
 import rpg_companion.app.shared.ui.generated.resources.value_hit_points
 
 @Composable
@@ -90,7 +91,7 @@ fun MonsterListItem(
             Spacer(modifier = Modifier.width(spacingMedium))
 
             Text(
-                text = monster.toFormattedCR(),
+                text = stringResource(Res.string.value_challenge_rating, formatCRValue(monster.challengeRating)),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary,

@@ -73,8 +73,6 @@ fun Monster.Type.getColor(): Color = when (this) {
     Monster.Type.UNKNOWN -> MonsterUnknown
 }
 
-fun Monster.toFormattedCR(): String = "CR ${formatCRValue(challengeRating)}"
-
 fun formatCRValue(cr: Float): String = when (cr) {
     0f -> "0"
     0.125f -> "1/8"
