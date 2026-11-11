@@ -15,6 +15,8 @@ The app reaches family and friends through two channels: Google Play internal te
 
 Once the repository is configured, nothing else is manual. The version code follows the version (`1.2.3` gives `10203`), so every release raises it.
 
+If a push to `main` leaves the Release workflow stuck, run it by hand with `gh workflow run release.yml`: release-please always works against `main`, whichever branch the run starts from.
+
 ## Repository configuration
 
 release-please opens its pull request with the workflow token, so the repository settings must allow GitHub Actions to create pull requests.
