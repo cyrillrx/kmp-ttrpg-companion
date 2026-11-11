@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+import math
 import subprocess
 import tempfile
 import xml.etree.ElementTree as ElementTree
@@ -40,16 +40,17 @@ SPARKLES = [
     "M370,276 Q373.1,296.9 389.2,300 Q373.1,303.1 370,324 Q366.9,303.1 350.8,300 Q366.9,296.9 370,276 Z",
 ]
 D20_CENTER_X, D20_CENTER_Y, D20_RADIUS = 279, 236, 66
+HALF_SQRT_3 = math.sqrt(3) / 2
 D20_VERTICES = {
     "top": (0, -1),
-    "upper_right": (0.866, -0.5),
-    "lower_right": (0.866, 0.5),
+    "upper_right": (HALF_SQRT_3, -0.5),
+    "lower_right": (HALF_SQRT_3, 0.5),
     "bottom": (0, 1),
-    "lower_left": (-0.866, 0.5),
-    "upper_left": (-0.866, -0.5),
+    "lower_left": (-HALF_SQRT_3, 0.5),
+    "upper_left": (-HALF_SQRT_3, -0.5),
     "inner_top": (0, -0.5),
-    "inner_right": (0.433, 0.25),
-    "inner_left": (-0.433, 0.25),
+    "inner_right": (HALF_SQRT_3 / 2, 0.25),
+    "inner_left": (-HALF_SQRT_3 / 2, 0.25),
 }
 D20_FACES = [
     ("top upper_left inner_top", 1),
@@ -71,11 +72,11 @@ def main():
     colors = read_launcher_colors()
     with tempfile.TemporaryDirectory() as work_dir:
         svg = Path(work_dir) / "icon.svg"
-        svg.write_text(full_bleed_svg(colors))
+        svg.write_text(build_full_bleed_svg(colors))
         render_png(svg, IOS_ICON, 1024, opaque=True)
         render_png(svg, PLAY_STORE_ICON, 512, opaque=False)
-    FOREGROUND_DRAWABLE.write_text(vector_drawable(color_layer()))
-    MONOCHROME_DRAWABLE.write_text(vector_drawable(monochrome_layer()))
+    FOREGROUND_DRAWABLE.write_text(build_vector_drawable(build_color_layer()))
+    MONOCHROME_DRAWABLE.write_text(build_vector_drawable(build_monochrome_layer()))
 
 
 def read_launcher_colors():
@@ -83,27 +84,27 @@ def read_launcher_colors():
     return {f"@color/{color.get('name')}": color.text for color in root.iter("color")}
 
 
-def color_layer():
+def build_color_layer():
     return (
         [(COVER, COVER_COLOR), (SPINE, SPINE_COLOR)]
         + [(ornament, GOLD) for ornament in CORNER_ORNAMENTS]
-        + [(polygon(D20_OUTLINE), GOLD)]
-        + [(polygon(face), D20_SHADES[shade]) for face, shade in D20_FACES]
-        + [(line, GOLD) for line in title_lines()]
+        + [(build_polygon(D20_OUTLINE), GOLD)]
+        + [(build_polygon(face), D20_SHADES[shade]) for face, shade in D20_FACES]
+        + [(line, GOLD) for line in build_title_lines()]
         + [(sparkle, GOLD) for sparkle in SPARKLES]
     )
 
 
-def monochrome_layer():
-    cut_outs = " ".join([COVER, SPINE_GROOVE, polygon(D20_OUTLINE)] + title_lines())
-    return [(cut_outs, MONOCHROME_COLOR, "evenOdd"), (polygon(D20_FRONT_FACE), MONOCHROME_COLOR)]
+def build_monochrome_layer():
+    cut_outs = " ".join([COVER, SPINE_GROOVE, build_polygon(D20_OUTLINE)] + build_title_lines())
+    return [(cut_outs, MONOCHROME_COLOR, "evenOdd"), (build_polygon(D20_FRONT_FACE), MONOCHROME_COLOR)]
 
 
-def title_lines():
-    return [rounded_bar(237, 320, 84, 10), rounded_bar(237, 340, 84, 10)]
+def build_title_lines():
+    return [build_rounded_bar(237, 320, 84, 10), build_rounded_bar(237, 340, 84, 10)]
 
 
-def rounded_bar(x, y, width, height):
+def build_rounded_bar(x, y, width, height):
     radius = height / 2
     return (
         f"M{x + radius:g},{y} H{x + width - radius:g} A{radius:g},{radius:g} 0 0 1 {x + width - radius:g},{y + height} "
@@ -111,17 +112,17 @@ def rounded_bar(x, y, width, height):
     )
 
 
-def polygon(vertex_names):
-    points = [d20_point(name) for name in vertex_names.split()]
+def build_polygon(vertex_names):
+    points = [format_d20_point(name) for name in vertex_names.split()]
     return "M" + " L".join(points) + " Z"
 
 
-def d20_point(name):
+def format_d20_point(name):
     unit_x, unit_y = D20_VERTICES[name]
     return f"{D20_CENTER_X + unit_x * D20_RADIUS:.1f},{D20_CENTER_Y + unit_y * D20_RADIUS:.1f}"
 
 
-def vector_drawable(paths):
+def build_vector_drawable(paths):
     dp_per_unit = ADAPTIVE_ICON_DP / CANVAS
     scale = ARTWORK_SCALE * dp_per_unit
     translate_x = (CANVAS / 2 - ARTWORK_SCALE * ARTWORK_CENTER_X) * dp_per_unit
@@ -138,12 +139,12 @@ def vector_drawable(paths):
         f'        android:translateX="{translate_x:.4f}"',
         f'        android:translateY="{translate_y:.4f}">',
     ]
-    lines += [vector_path(*path) for path in paths]
+    lines += [build_vector_path(*path) for path in paths]
     lines += ["    </group>", "</vector>", ""]
     return "\n".join(lines)
 
 
-def vector_path(path_data, fill, fill_type=None):
+def build_vector_path(path_data, fill, fill_type=None):
     attributes = [f'android:fillColor="{fill}"']
     if fill_type:
         attributes.append(f'android:fillType="{fill_type}"')
@@ -151,10 +152,10 @@ def vector_path(path_data, fill, fill_type=None):
     return "        <path\n            " + "\n            ".join(attributes) + " />"
 
 
-def full_bleed_svg(colors):
+def build_full_bleed_svg(colors):
     visible = CANVAS * ADAPTIVE_ICON_VISIBLE_DP / ADAPTIVE_ICON_DP
     margin = (CANVAS - visible) / 2
-    paths = "".join(f'<path d="{path}" fill="{resolve_color(fill, colors)}"/>' for path, fill in color_layer())
+    paths = "".join(f'<path d="{path}" fill="{resolve_color(fill, colors)}"/>' for path, fill in build_color_layer())
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{margin:.4f} {margin:.4f} {visible:.4f} {visible:.4f}">'
         f'<rect width="{CANVAS}" height="{CANVAS}" fill="{colors["@color/ic_launcher_background"]}"/>'
