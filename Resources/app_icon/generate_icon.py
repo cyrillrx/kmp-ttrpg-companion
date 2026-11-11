@@ -154,13 +154,20 @@ def vector_path(path_data, fill, fill_type=None):
 def full_bleed_svg(colors):
     visible = CANVAS * ADAPTIVE_ICON_VISIBLE_DP / ADAPTIVE_ICON_DP
     margin = (CANVAS - visible) / 2
-    paths = "".join(f'<path d="{path}" fill="{colors.get(fill, fill)}"/>' for path, fill in color_layer())
+    paths = "".join(f'<path d="{path}" fill="{resolve_color(fill, colors)}"/>' for path, fill in color_layer())
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{margin:.4f} {margin:.4f} {visible:.4f} {visible:.4f}">'
         f'<rect width="{CANVAS}" height="{CANVAS}" fill="{colors["@color/ic_launcher_background"]}"/>'
         f'<g transform="translate({CANVAS / 2:g},{CANVAS / 2:g}) scale({ARTWORK_SCALE}) '
         f'translate({-ARTWORK_CENTER_X},{-ARTWORK_CENTER_Y})">{paths}</g></svg>'
     )
+
+
+def resolve_color(fill, colors):
+    if fill.startswith("@color/"):
+        return colors[fill]
+
+    return fill
 
 
 def render_png(svg, output, size, opaque):
