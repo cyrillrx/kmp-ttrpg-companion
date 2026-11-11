@@ -9,10 +9,10 @@
         android:translateX="1.8984"
         android:translateY="2.9004">
         <path
-            android:fillColor="#7E57C2"
+            android:fillColor="@color/ic_launcher_cover"
             android:pathData="M172,130 H348 A22,22 0 0 1 370,152 V358 A22,22 0 0 1 348,380 H172 A22,22 0 0 1 150,358 V152 A22,22 0 0 1 172,130 Z" />
         <path
-            android:fillColor="#512DA8"
+            android:fillColor="@color/ic_launcher_spine"
             android:pathData="M172,130 H188 V380 H172 A22,22 0 0 1 150,358 V152 A22,22 0 0 1 172,130 Z" />
         <path
             android:fillColor="#F5BD48"
