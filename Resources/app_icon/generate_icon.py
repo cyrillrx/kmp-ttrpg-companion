@@ -52,6 +52,7 @@ D20_VERTICES = {
     "inner_right": (HALF_SQRT_3 / 2, 0.25),
     "inner_left": (-HALF_SQRT_3 / 2, 0.25),
 }
+D20_FRONT_FACE = "inner_top inner_right inner_left"
 D20_FACES = [
     ("top upper_left inner_top", 1),
     ("top upper_right inner_top", 1),
@@ -62,10 +63,9 @@ D20_FACES = [
     ("lower_left inner_left bottom", 4),
     ("lower_right inner_right bottom", 4),
     ("inner_left inner_right bottom", 3),
-    ("inner_top inner_right inner_left", 0),
+    (D20_FRONT_FACE, 0),
 ]
 D20_OUTLINE = "top upper_right lower_right bottom lower_left upper_left"
-D20_FRONT_FACE = "inner_top inner_right inner_left"
 
 
 def main():
