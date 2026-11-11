@@ -1,0 +1,87 @@
+appId: ${APP_ID}
+---
+# The search fields expose no text, hence the tap at a point.
+
+- launchApp:
+    stopApp: true
+- extendedWaitUntil:
+    visible: "Spellbook|Grimoire"
+    timeout: 15000
+- waitForAnimationToEnd
+- tapOn: "Settings|Paramètres"
+- tapOn: ${DISTANCE_UNIT}
+- back
+- tapOn: "Spellbook|Grimoire"
+- waitForAnimationToEnd
+- takeScreenshot: 1-spells
+- tapOn: "Filter|Filtrer"
+- tapOn: "1"
+- tapOn: "Evocation|Évocation"
+- waitForAnimationToEnd
+- takeScreenshot: 1b-spell-filters
+- tapOn: "Reset All|Tout effacer"
+- back
+- tapOn:
+    point: "50%,11%"
+- inputText: ${SPELL_QUERY}
+- hideKeyboard
+# Index 0 is the search field, which holds the same text.
+- tapOn:
+    text: ${SPELL_QUERY}
+    index: 1
+- waitForAnimationToEnd
+- takeScreenshot: 1c-fireball
+
+- launchApp:
+    stopApp: true
+- tapOn: "Bestiary|Bestiaire"
+- tapOn:
+    point: "50%,11%"
+- inputText: ${MONSTER_QUERY}
+- hideKeyboard
+- waitForAnimationToEnd
+- takeScreenshot: 2-bestiary
+- tapOn: "Adult Red Dragon|Dragon rouge, adulte"
+- waitForAnimationToEnd
+- takeScreenshot: 2b-creature
+
+# Gareth comes from the presets at level 1 with 12 HP: raise him to level 10, 49/100 HP.
+- launchApp:
+    stopApp: true
+- tapOn: "Quick Create|Création rapide"
+- tapOn: "Gareth Ironhold"
+- tapOn: "LVL|NIV\\."
+- repeat:
+    times: 9
+    commands:
+      - tapOn: "\\+"
+- tapOn: "Confirm|Confirmer"
+- waitForAnimationToEnd
+- takeScreenshot: 3-character
+- tapOn: "Combat"
+- tapOn: "Damage|Dégâts"
+- tapOn: "Max HP|PV max"
+- tapOn: "1"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "Confirm|Confirmer"
+- tapOn: "Healing|Soins"
+- tapOn: "3"
+- tapOn: "7"
+- tapOn: "Confirm|Confirmer"
+- waitForAnimationToEnd
+- takeScreenshot: 3b-combat
+
+- launchApp:
+    stopApp: true
+- scrollUntilVisible:
+    element: "Dice|Dés"
+- tapOn: "Dice|Dés"
+- repeat:
+    times: 2
+    commands:
+      - tapOn:
+          text: "Advantage|Avantage"
+          below: "Modifier|Modificateur"
+- waitForAnimationToEnd
+- takeScreenshot: 4-dice
