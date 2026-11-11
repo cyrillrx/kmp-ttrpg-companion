@@ -70,7 +70,7 @@
     <string name="title_filter_spells">Filtrer les sorts</string>
     <string name="label_filter_level">Niveau</string>
     <string name="label_filter_class">Classe</string>
-    <string name="label_filter_school">Ecole</string>
+    <string name="label_filter_school">École</string>
     <string name="label_filter_components">Composantes</string>
     <string name="filter_component_required">Requise</string>
     <string name="filter_component_excluded">Exclue</string>
