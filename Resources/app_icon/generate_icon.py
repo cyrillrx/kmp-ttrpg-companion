@@ -87,6 +87,7 @@ def color_layer():
     return (
         [(COVER, COVER_COLOR), (SPINE, SPINE_COLOR)]
         + [(ornament, GOLD) for ornament in CORNER_ORNAMENTS]
+        + [(polygon(D20_OUTLINE), GOLD)]
         + [(polygon(face), D20_SHADES[shade]) for face, shade in D20_FACES]
         + [(line, GOLD) for line in title_lines()]
         + [(sparkle, GOLD) for sparkle in SPARKLES]

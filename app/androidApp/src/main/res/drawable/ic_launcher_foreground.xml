@@ -28,6 +28,9 @@
             android:pathData="M332,380 H348 A22,22 0 0 0 370,358 V342 A38,38 0 0 0 332,380 Z" />
         <path
             android:fillColor="#F5BD48"
+            android:pathData="M279.0,170.0 L336.2,203.0 L336.2,269.0 L279.0,302.0 L221.8,269.0 L221.8,203.0 Z" />
+        <path
+            android:fillColor="#F5BD48"
             android:pathData="M279.0,170.0 L221.8,203.0 L279.0,203.0 Z" />
         <path
             android:fillColor="#F5BD48"
