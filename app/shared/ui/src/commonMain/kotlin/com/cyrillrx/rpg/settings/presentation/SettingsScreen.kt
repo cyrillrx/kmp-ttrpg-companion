@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.settings.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,10 +12,13 @@ import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -34,6 +38,7 @@ import rpg_companion.app.shared.ui.generated.resources.Res
 import rpg_companion.app.shared.ui.generated.resources.settings_palette_arcane
 import rpg_companion.app.shared.ui.generated.resources.settings_palette_dragon
 import rpg_companion.app.shared.ui.generated.resources.settings_palette_grove
+import rpg_companion.app.shared.ui.generated.resources.settings_privacy_policy
 import rpg_companion.app.shared.ui.generated.resources.settings_section_distance_unit
 import rpg_companion.app.shared.ui.generated.resources.settings_section_palette
 import rpg_companion.app.shared.ui.generated.resources.settings_section_theme
@@ -43,6 +48,9 @@ import rpg_companion.app.shared.ui.generated.resources.settings_theme_system
 import rpg_companion.app.shared.ui.generated.resources.settings_unit_feet
 import rpg_companion.app.shared.ui.generated.resources.settings_unit_meters
 import rpg_companion.app.shared.ui.generated.resources.title_settings
+
+private const val PRIVACY_POLICY_URL =
+    "https://github.com/cyrillrx/kmp-ttrpg-companion/blob/main/docs/privacy-policy.md"
 
 private val themeOptions = listOf(
     Theme.LIGHT to Res.string.settings_theme_light,
@@ -118,7 +126,20 @@ fun SettingsScreen(
                 selected = preferences.distanceUnit,
                 onOptionSelected = onDistanceUnitSelected,
             )
+            Spacer(modifier = Modifier.weight(1f))
+            PrivacyPolicyButton(modifier = Modifier.align(Alignment.CenterHorizontally))
         }
+    }
+}
+
+@Composable
+private fun PrivacyPolicyButton(modifier: Modifier = Modifier) {
+    val uriHandler = LocalUriHandler.current
+    TextButton(
+        onClick = { uriHandler.openUri(PRIVACY_POLICY_URL) },
+        modifier = modifier,
+    ) {
+        Text(stringResource(Res.string.settings_privacy_policy))
     }
 }
 

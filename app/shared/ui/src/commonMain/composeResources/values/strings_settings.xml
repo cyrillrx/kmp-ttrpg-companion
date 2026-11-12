@@ -22,4 +22,7 @@
     <string name="settings_unit_meters">Meters</string>
     <string name="settings_unit_feet_abbr">ft.</string>
     <string name="settings_unit_meters_abbr">m</string>
+
+    <!--  Legal  -->
+    <string name="settings_privacy_policy">Privacy policy</string>
 </resources>
