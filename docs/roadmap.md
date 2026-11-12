@@ -3,7 +3,7 @@
 This document tracks the macro vision and planned phases for the TTRPG Companion app.
 For detailed feature specifications, see the [PRDs](prd/).
 
-**Current focus** — UI & Polish, then the remaining Phase 5 items.
+**Current focus**: UI & Polish, then the remaining Phase 5 items.
 
 ## ✅ Phase 1 - Cleanup + `HomeScreen` revamp
 
@@ -35,7 +35,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Fetch public reference data from the server and sync collections. - [PRD-001](prd/prd-001-reference-data.md)
 
 - [x] Setup backend service with a simple API
-- [ ] Data quality & coherence — DB-ready models, i18n, source tracking
+- [ ] Data quality & coherence: DB-ready models, i18n, source tracking
   - [x] Architecture decisions & SRD translation map ([ADR-001](adr/adr-001-data-model.md), [Translation Map](data/srd-fr-en.md))
   - [x] Spells: structured components, concentration/ritual flags, complete class list
   - [x] Magical items: typed fields normalized
