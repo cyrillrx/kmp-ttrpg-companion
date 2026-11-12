@@ -115,7 +115,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [x] Dice roller - [PRD-006](prd/prd-006-dice.md)
 - [ ] Back up and restore the full app state (characters, collections, preferences) - [PRD-007](prd/prd-007-character-import-export.md)
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
-- [ ] AI-based generators - feasibility study required [PRD-005](prd/prd-005-generators.md)
+- [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md)
 
 ## Exploration
 
