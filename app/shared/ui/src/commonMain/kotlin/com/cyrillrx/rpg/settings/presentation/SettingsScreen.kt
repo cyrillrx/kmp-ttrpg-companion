@@ -5,16 +5,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -34,6 +39,8 @@ import rpg_companion.app.shared.ui.generated.resources.Res
 import rpg_companion.app.shared.ui.generated.resources.settings_palette_arcane
 import rpg_companion.app.shared.ui.generated.resources.settings_palette_dragon
 import rpg_companion.app.shared.ui.generated.resources.settings_palette_grove
+import rpg_companion.app.shared.ui.generated.resources.settings_privacy_policy
+import rpg_companion.app.shared.ui.generated.resources.settings_privacy_policy_url
 import rpg_companion.app.shared.ui.generated.resources.settings_section_distance_unit
 import rpg_companion.app.shared.ui.generated.resources.settings_section_palette
 import rpg_companion.app.shared.ui.generated.resources.settings_section_theme
@@ -68,11 +75,14 @@ fun SettingsScreen(
 ) {
     val viewModel = viewModel<SettingsViewModel>(factory = SettingsViewModelFactory(prefsRepository))
     val preferences by viewModel.preferences.collectAsState()
+    val uriHandler = LocalUriHandler.current
+    val privacyPolicyUrl = stringResource(Res.string.settings_privacy_policy_url)
     SettingsScreen(
         preferences = preferences,
         onThemeSelected = viewModel::setTheme,
         onPaletteSelected = viewModel::setPalette,
         onDistanceUnitSelected = viewModel::setDistanceUnit,
+        onPrivacyPolicyClicked = { runCatching { uriHandler.openUri(privacyPolicyUrl) } },
         router = router,
     )
 }
@@ -83,6 +93,7 @@ fun SettingsScreen(
     onThemeSelected: (Theme) -> Unit,
     onPaletteSelected: (Palette) -> Unit,
     onDistanceUnitSelected: (DistanceUnit) -> Unit,
+    onPrivacyPolicyClicked: () -> Unit,
     router: SettingsRouter,
 ) {
     Scaffold(
@@ -98,6 +109,7 @@ fun SettingsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
+                .verticalScroll(rememberScrollState())
                 .padding(spacingCommon),
         ) {
             SettingsSectionRow(
@@ -118,7 +130,21 @@ fun SettingsScreen(
                 selected = preferences.distanceUnit,
                 onOptionSelected = onDistanceUnitSelected,
             )
+            PrivacyPolicyButton(
+                onClick = onPrivacyPolicyClicked,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
         }
+    }
+}
+
+@Composable
+private fun PrivacyPolicyButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
+    TextButton(
+        onClick = onClick,
+        modifier = modifier,
+    ) {
+        Text(stringResource(Res.string.settings_privacy_policy))
     }
 }
 
@@ -155,6 +181,7 @@ private fun PreviewSettingsScreenLight() {
             onThemeSelected = {},
             onPaletteSelected = {},
             onDistanceUnitSelected = {},
+            onPrivacyPolicyClicked = {},
             router = NoOpRouter(),
         )
     }
@@ -169,6 +196,7 @@ private fun PreviewSettingsScreenDark() {
             onThemeSelected = {},
             onPaletteSelected = {},
             onDistanceUnitSelected = {},
+            onPrivacyPolicyClicked = {},
             router = NoOpRouter(),
         )
     }

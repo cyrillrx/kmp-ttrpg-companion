@@ -22,4 +22,8 @@
     <string name="settings_unit_meters">Meters</string>
     <string name="settings_unit_feet_abbr">ft.</string>
     <string name="settings_unit_meters_abbr">m</string>
+
+    <!--  Legal  -->
+    <string name="settings_privacy_policy">Privacy policy</string>
+    <string name="settings_privacy_policy_url">https://github.com/cyrillrx/kmp-ttrpg-companion/blob/main/docs/privacy-policy.md</string>
 </resources>
