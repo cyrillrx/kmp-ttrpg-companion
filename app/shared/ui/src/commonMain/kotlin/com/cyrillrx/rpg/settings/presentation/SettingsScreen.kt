@@ -40,6 +40,7 @@ import rpg_companion.app.shared.ui.generated.resources.settings_palette_arcane
 import rpg_companion.app.shared.ui.generated.resources.settings_palette_dragon
 import rpg_companion.app.shared.ui.generated.resources.settings_palette_grove
 import rpg_companion.app.shared.ui.generated.resources.settings_privacy_policy
+import rpg_companion.app.shared.ui.generated.resources.settings_privacy_policy_url
 import rpg_companion.app.shared.ui.generated.resources.settings_section_distance_unit
 import rpg_companion.app.shared.ui.generated.resources.settings_section_palette
 import rpg_companion.app.shared.ui.generated.resources.settings_section_theme
@@ -49,9 +50,6 @@ import rpg_companion.app.shared.ui.generated.resources.settings_theme_system
 import rpg_companion.app.shared.ui.generated.resources.settings_unit_feet
 import rpg_companion.app.shared.ui.generated.resources.settings_unit_meters
 import rpg_companion.app.shared.ui.generated.resources.title_settings
-
-private const val PRIVACY_POLICY_URL =
-    "https://github.com/cyrillrx/kmp-ttrpg-companion/blob/main/docs/privacy-policy.md"
 
 private val themeOptions = listOf(
     Theme.LIGHT to Res.string.settings_theme_light,
@@ -78,12 +76,13 @@ fun SettingsScreen(
     val viewModel = viewModel<SettingsViewModel>(factory = SettingsViewModelFactory(prefsRepository))
     val preferences by viewModel.preferences.collectAsState()
     val uriHandler = LocalUriHandler.current
+    val privacyPolicyUrl = stringResource(Res.string.settings_privacy_policy_url)
     SettingsScreen(
         preferences = preferences,
         onThemeSelected = viewModel::setTheme,
         onPaletteSelected = viewModel::setPalette,
         onDistanceUnitSelected = viewModel::setDistanceUnit,
-        onPrivacyPolicyClicked = { runCatching { uriHandler.openUri(PRIVACY_POLICY_URL) } },
+        onPrivacyPolicyClicked = { runCatching { uriHandler.openUri(privacyPolicyUrl) } },
         router = router,
     )
 }

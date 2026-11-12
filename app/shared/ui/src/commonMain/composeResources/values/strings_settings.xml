@@ -25,4 +25,5 @@
 
     <!--  Legal  -->
     <string name="settings_privacy_policy">Privacy policy</string>
+    <string name="settings_privacy_policy_url">https://github.com/cyrillrx/kmp-ttrpg-companion/blob/main/docs/privacy-policy.md</string>
 </resources>
