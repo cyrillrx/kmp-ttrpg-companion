@@ -77,11 +77,13 @@ fun SettingsScreen(
 ) {
     val viewModel = viewModel<SettingsViewModel>(factory = SettingsViewModelFactory(prefsRepository))
     val preferences by viewModel.preferences.collectAsState()
+    val uriHandler = LocalUriHandler.current
     SettingsScreen(
         preferences = preferences,
         onThemeSelected = viewModel::setTheme,
         onPaletteSelected = viewModel::setPalette,
         onDistanceUnitSelected = viewModel::setDistanceUnit,
+        onPrivacyPolicyClicked = { runCatching { uriHandler.openUri(PRIVACY_POLICY_URL) } },
         router = router,
     )
 }
@@ -92,6 +94,7 @@ fun SettingsScreen(
     onThemeSelected: (Theme) -> Unit,
     onPaletteSelected: (Palette) -> Unit,
     onDistanceUnitSelected: (DistanceUnit) -> Unit,
+    onPrivacyPolicyClicked: () -> Unit,
     router: SettingsRouter,
 ) {
     Scaffold(
@@ -128,16 +131,18 @@ fun SettingsScreen(
                 selected = preferences.distanceUnit,
                 onOptionSelected = onDistanceUnitSelected,
             )
-            PrivacyPolicyButton(modifier = Modifier.align(Alignment.CenterHorizontally))
+            PrivacyPolicyButton(
+                onClick = onPrivacyPolicyClicked,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
         }
     }
 }
 
 @Composable
-private fun PrivacyPolicyButton(modifier: Modifier = Modifier) {
-    val uriHandler = LocalUriHandler.current
+private fun PrivacyPolicyButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
     TextButton(
-        onClick = { uriHandler.openUri(PRIVACY_POLICY_URL) },
+        onClick = onClick,
         modifier = modifier,
     ) {
         Text(stringResource(Res.string.settings_privacy_policy))
@@ -177,6 +182,7 @@ private fun PreviewSettingsScreenLight() {
             onThemeSelected = {},
             onPaletteSelected = {},
             onDistanceUnitSelected = {},
+            onPrivacyPolicyClicked = {},
             router = NoOpRouter(),
         )
     }
@@ -191,6 +197,7 @@ private fun PreviewSettingsScreenDark() {
             onThemeSelected = {},
             onPaletteSelected = {},
             onDistanceUnitSelected = {},
+            onPrivacyPolicyClicked = {},
             router = NoOpRouter(),
         )
     }
