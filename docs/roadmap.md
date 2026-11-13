@@ -67,7 +67,6 @@ For detailed feature specifications, see the [PRDs](prd/).
     - [ ] Wild shapes (creatures)
 - [x] Persist `Character` with SQLDelight
 - [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
-- [ ] Import and export a collection - PRD to write, extending the [PRD-007](prd/prd-007-character-import-export.md) envelope
 - [x] Let the user order the character sheet list by name or by last modified (#256), remembered between launches ([ADR-005](adr/adr-005-list-order-preferences.md))
 - [ ] Expand the PC and NPC preset gallery
 - [ ] Sync character sheets with backend
@@ -118,7 +117,8 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Independent features with no hard dependencies on other phases.
 
 - [x] Dice roller - [PRD-006](prd/prd-006-dice.md)
-- [ ] Back up and restore the full app state (characters, collections, dice history, preferences) - PRD to write, after the collection import/export one
+- [ ] Import and export a collection - PRD to write, extending the [PRD-007](prd/prd-007-character-import-export.md) envelope
+- [ ] Back up and restore the full app state (characters, collections, dice history, preferences) - PRD to write
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md)
 
