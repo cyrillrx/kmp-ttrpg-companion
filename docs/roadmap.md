@@ -3,8 +3,6 @@
 This document tracks the macro vision and planned phases for the TTRPG Companion app.
 For detailed feature specifications, see the [PRDs](prd/).
 
-**Current focus**: UI & Polish, then the remaining Phase 5 items.
-
 ## ✅ Phase 1 - Cleanup + `HomeScreen` revamp
 
 > Resolve open design decisions before moving forward.
