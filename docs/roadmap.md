@@ -61,8 +61,10 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [x] Skills
   - [ ] Combat actions
   - [ ] Inventory
+  - [ ] Spell list / Spellbook
 - [x] Persist `Character` with SQLDelight
 - [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
+- [ ] Import and export a collection - PRD to write, extending the [PRD-007](prd/prd-007-character-import-export.md) envelope
 - [x] Let the user order the character sheet list by name or by last modified (#256), remembered between launches ([ADR-005](adr/adr-005-list-order-preferences.md))
 - [ ] Expand the PC and NPC preset gallery
 - [ ] Sync character sheets with backend
