@@ -94,7 +94,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 ## Online & Sharing
 
-> Features that need the server. They can land at any point, independently of the phases above.
+> Features that need the server. Each one lands once its local counterpart exists - [PRD-000](prd/prd-000-vision.md)
 
 - [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
 - [ ] Sync collections with backend

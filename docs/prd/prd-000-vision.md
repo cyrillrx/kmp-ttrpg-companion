@@ -65,7 +65,7 @@ The application is designed to be rolled out in two phases of increasing connect
 - The reference content stays on the device: the backend does not serve it.
 
 ### Phase 2: Online, Connected with Sync
-- Not tied to a point of the functional roadmap: it can land alongside any local phase.
+- Not tied to a point of the functional roadmap: an online feature lands once its local counterpart exists.
 - User authentication (registration and login).
 - Data synchronization across devices.
 - Campaign sharing and access management (editor, reader, no access).
