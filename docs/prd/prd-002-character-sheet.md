@@ -76,16 +76,14 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 - [ ] Feats
 
 **Inventory**
-- [ ] List of items as free-form text entries (name only)
-- _Linking items from the Item module to a character sheet: collections attached to the character, in a PRD to write_
+- _Items come from the compendium, through the collections attached to the character (PRD to write)_
 - [ ] Currency (CP, SP, EP, GP, PP)
 - [ ] Carrying capacity (auto-calculated from Strength)
 
 **Spells (if applicable)**
 - [ ] Spellcasting ability, spell save DC, spell attack bonus
 - [ ] Spell slots (per level, current/max)
-- [ ] Prepared/known spells as free-form text entries (name only)
-- _Linking spells from the Spellbook module to a character sheet: collections attached to the character, in a PRD to write_
+- _Prepared and known spells come from the compendium, through the collections attached to the character (PRD to write)_
 
 **Notes**
 - [ ] Free-text field for backstory, session notes, roleplaying notes
