@@ -3,16 +3,16 @@
 This document tracks the macro vision and planned phases for the TTRPG Companion app.
 For detailed feature specifications, see the [PRDs](prd/).
 
-**Current focus** — UI & Polish, then the remaining Phase 5 items.
+**Current focus**: UI & Polish, then the remaining Phase 5 items.
 
-## Phase 1 - Cleanup + `HomeScreen` revamp
+## ✅ Phase 1 - Cleanup + `HomeScreen` revamp
 
 > Resolve open design decisions before moving forward.
 
 - [x] Decide on Spellbook layout (vertical list vs. horizontal cards) and remove the alternative
 - [x] Remove the duplicate Spellbook button from `HomeScreen`
 
-## Phase 2 - Browsing & Filtering - Reference Data
+## ✅ Phase 2 - Browsing & Filtering - Reference Data
 
 > Bring current implementations to a production-ready state. - [PRD-001](prd/prd-001-reference-data.md)
 
@@ -20,7 +20,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [x] Complete Magical item filters (type, rarity) - [PRD-001b](prd/prd-001b-item-list.md)
 - [x] Complete Bestiary filters (type, CR) - [PRD-001c](prd/prd-001c-bestiary.md)
 
-## Phase 3 - Collections
+## ✅ Phase 3 - Collections
 
 > Allow users to build and manage their own collections offline. - [PRD-001](prd/prd-001-reference-data.md)
 
@@ -35,7 +35,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Fetch public reference data from the server and sync collections. - [PRD-001](prd/prd-001-reference-data.md)
 
 - [x] Setup backend service with a simple API
-- [ ] Data quality & coherence — DB-ready models, i18n, source tracking
+- [ ] Data quality & coherence: DB-ready models, i18n, source tracking
   - [x] Architecture decisions & SRD translation map ([ADR-001](adr/adr-001-data-model.md), [Translation Map](data/srd-fr-en.md))
   - [x] Spells: structured components, concentration/ritual flags, complete class list
   - [x] Magical items: typed fields normalized
@@ -62,6 +62,7 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [ ] Combat actions
   - [ ] Inventory
 - [x] Persist `Character` with SQLDelight
+- [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
 - [x] Let the user order the character sheet list by name or by last modified (#256), remembered between launches ([ADR-005](adr/adr-005-list-order-preferences.md))
 - [ ] Expand the PC and NPC preset gallery
 - [ ] Sync character sheets with backend
@@ -105,13 +106,14 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Harmonize the detail pages and their Markdown rendering (oversized titles)
 - [ ] Compendium detail: revisit how the type and sub-type are presented (#198, #200)
 - [ ] Browse from one item to the next by swiping through a list
+- [ ] Compendium detail: switch the entity's language on the fly (e.g. Fireball ↔ Boule de feu), app locale unchanged - [ADR-001](adr/adr-001-data-model.md)
 
 ## Standalone Features
 
 > Independent features with no hard dependencies on other phases.
 
-- [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
 - [x] Dice roller - [PRD-006](prd/prd-006-dice.md)
+- [ ] Back up and restore the full app state (characters, collections, preferences)
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required [PRD-005](prd/prd-005-generators.md)
 
