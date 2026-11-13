@@ -60,8 +60,10 @@ For detailed feature specifications, see the [PRDs](prd/).
     - [x] Current hit points
   - [x] Skills
   - [ ] Combat actions
-  - [ ] Inventory
-  - [ ] Spell list / Spellbook
+  - [ ] Collections attached to the character
+    - [ ] Inventory (items)
+    - [ ] Spellbook (spells)
+    - [ ] Wild shapes (creatures)
 - [x] Persist `Character` with SQLDelight
 - [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
 - [ ] Import and export a collection - PRD to write, extending the [PRD-007](prd/prd-007-character-import-export.md) envelope
