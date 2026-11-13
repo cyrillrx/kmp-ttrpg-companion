@@ -1,6 +1,6 @@
 # PRD-001a — Spellbook
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-13
 
 Refer to [PRD-001 — Reference Data](prd-001-reference-data.md) for the shared pattern, goals, and non-functional requirements.
 
@@ -33,12 +33,13 @@ Refer to [PRD-001 — Reference Data](prd-001-reference-data.md) for the shared 
 
 - [x] Create, edit, and delete personal named collections stored locally.
 
-### Phase 3 — Online Public Data
+### Phase 3: Custom entries, export and import
 
-- [ ] Sync the spell catalog from the public backend (read-only).
-
-### Phase 4 — Advanced
-
-- [ ] Sync personal collections across devices.
 - [ ] Create, edit, and delete custom spells.
 - [ ] Export a spell as a shareable format; import a spell shared by another user.
+
+### Online
+
+> The catalog itself stays on the device (see [PRD-000](prd-000-vision.md)).
+
+- [ ] Sync personal collections across devices.
