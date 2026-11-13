@@ -115,7 +115,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Independent features with no hard dependencies on other phases.
 
 - [x] Dice roller - [PRD-006](prd/prd-006-dice.md)
-- [ ] Back up and restore the full app state (characters, collections, dice history, preferences) - PRD to write, extending the [PRD-007](prd/prd-007-character-import-export.md) envelope
+- [ ] Back up and restore the full app state (characters, collections, dice history, preferences) - PRD to write, after the collection import/export one
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md)
 
