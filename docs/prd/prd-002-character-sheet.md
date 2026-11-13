@@ -1,6 +1,6 @@
 # PRD-002 — Character Sheet
 
-> **Status**: Draft | **Version**: 0.4 | **Last updated**: 2026-11-05
+> **Status**: Draft | **Version**: 0.5 | **Last updated**: 2026-11-13
 
 ## Overview
 
@@ -77,7 +77,7 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 
 **Inventory**
 - [ ] List of items as free-form text entries (name only)
-- _Linking items from the Item module to a character sheet is a later-phase feature_
+- _Linking items from the Item module to a character sheet: collections attached to the character, in a PRD to write_
 - [ ] Currency (CP, SP, EP, GP, PP)
 - [ ] Carrying capacity (auto-calculated from Strength)
 
@@ -85,7 +85,7 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 - [ ] Spellcasting ability, spell save DC, spell attack bonus
 - [ ] Spell slots (per level, current/max)
 - [ ] Prepared/known spells as free-form text entries (name only)
-- _Linking spells from the Spellbook module to a character sheet is a later-phase feature_
+- _Linking spells from the Spellbook module to a character sheet: collections attached to the character, in a PRD to write_
 
 **Notes**
 - [ ] Free-text field for backstory, session notes, roleplaying notes
