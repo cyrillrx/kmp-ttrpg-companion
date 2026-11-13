@@ -1,6 +1,6 @@
 # PRD-004 — Notes
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-13
 
 ## Overview
 
@@ -32,7 +32,7 @@ The Notes module also serves as the foundation for the Generators module ([PRD-0
 | User  | Attach a note to a campaign   | I can organise session notes within their campaign context    |
 | User  | Detach a note from a campaign | The note returns to my personal library without being deleted |
 
-**Future — Cross-entity references**
+**Phase 4: Cross-entity references**
 
 | As a… | I want to…                                                                  | So that…                                               |
 |-------|-----------------------------------------------------------------------------|--------------------------------------------------------|
@@ -57,9 +57,9 @@ The Notes module also serves as the foundation for the Generators module ([PRD-0
 - [ ] Attach an existing note to a campaign (see PRD-003).
 - [ ] Notes remain in the user's personal library even when detached from a campaign.
 
-### Future — Cross-entity references
+### Phase 4: Cross-entity references
 
-> The exact interaction model (simple navigable link vs. inline display) is to be decided during design. This feature requires all referenced entity types to be available and synced first.
+> The exact interaction model (simple navigable link vs. inline display) is to be decided during design. This feature requires all referenced entity types to be available locally first; references to synced or shared entities follow the online features.
 
 - [ ] Within a note body, reference any other entity: another note, a monster, a character sheet, a spell, an item, etc.
 - [ ] Referenced entities are navigable from within the note.
