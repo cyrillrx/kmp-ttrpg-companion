@@ -1,10 +1,10 @@
 # PRD-007 — Character Import & Export
 
-> **Status**: Draft | **Version**: 0.4 | **Last updated**: 2026-10-14
+> **Status**: Draft | **Version**: 0.5 | **Last updated**: 2026-11-13
 
 ## Overview
 
-Import & Export lets a user take a character sheet out of the app as a single JSON file and bring one back in. It is the only form of sharing that works without a backend: campaign sharing, accounts and access control are specified in [PRD-003 — Campaigns](prd-003-campaigns.md) and depend on Phase 4.
+Import & Export lets a user take a character sheet out of the app as a single JSON file and bring one back in. It is the only form of sharing that works without a backend: campaign sharing, accounts and access control are specified in [PRD-003: Campaigns](prd-003-campaigns.md) and depend on the online features.
 
 The scope is character sheets. A sheet is self-contained — every value it displays travels with it — which is what makes a file exchange meaningful. Collections are not: a `UserCollection` holds `itemIds` pointing into the compendium, so exporting one raises the question of how a receiving device resolves references it does not have. That is a separate decision and a separate PRD.
 
