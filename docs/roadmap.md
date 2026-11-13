@@ -63,28 +63,21 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [x] Let the user order the character sheet list by name or by last modified (#256), remembered between launches ([ADR-005](adr/adr-005-list-order-preferences.md))
 - [ ] Expand the PC and NPC preset gallery
 
-## Phase 6 - Notes
+## Phase 6 - Campaigns
 
-> Create and manage system-agnostic notes. - [PRD-004](prd/prd-004-notes.md)
+> Gather the characters of a campaign, PCs and NPCs, in one place. - [PRD-003](prd/prd-003-campaigns.md)
+
+- [ ] Create, list and edit campaigns
+- [ ] Attach characters (PCs and NPCs) to a campaign
+
+## Phase 7 - Notes
+
+> Create and manage system-agnostic notes, then connect them to campaigns and other entities. - [PRD-004](prd/prd-004-notes.md)
 
 - [ ] Create, list and edit notes
 - [ ] Create lists of notes
-
-## Phase 7 - Campaigns
-
-> Connect entities together through campaigns. - [PRD-003](prd/prd-003-campaigns.md)
-
-*Requires: Notes - Local implementation*
-
-- [ ] Create, list and edit campaigns
-- [ ] Attach player to campaigns
 - [ ] Attach notes to campaigns
-
-## Phase 8 - Advanced Notes
-
-> Allow notes to reference other entities (characters, creatures, items, other notes).
-
-- [ ] Link notes to other entities (simple reference or inline)
+- [ ] Link notes to other entities (characters, creatures, items, other notes), by simple reference or inline
 
 ## UI & Polish
 
