@@ -2,7 +2,8 @@
 
 **Status**: Accepted  
 **Date**: 2026-04-26  
-**Context**: Phase 4 intermediate step — data quality & coherence, before backend consumption by clients.
+**Context**: Phase 4 intermediate step: data quality & coherence, before backend consumption by clients.  
+**Update (2026-11-13)**: the compendium stays on the device ([PRD-000](../prd/prd-000-vision.md)). The data model below still applies; its backend and API mentions only apply if the backend serves the compendium again.
 
 ## 1. Entity + Translations Pattern
 
