@@ -1,6 +1,6 @@
 # PRD-003 — Campaigns
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-13
 
 ## Overview
 
@@ -47,13 +47,15 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 
 ### Phase 2 — Session Notes
 
-Notes are defined as standalone entities in [PRD-004 — Notes](prd-004-notes.md). In this phase, a note can be attached to a campaign, turning it into a session note.
+Notes are defined as standalone entities in [PRD-004: Notes](prd-004-notes.md). In this phase, a note can be attached to a campaign, turning it into a session note. It ships with the Notes module, after the campaign MVP.
 
 - [ ] Attach/detach an existing note to a campaign.
 - [ ] List all notes attached to the campaign, sorted by last modified date.
 - [ ] Notes remain in the user's personal library even when detached from a campaign.
 
 ### Phase 3 — Online with Sync
+
+This phase depends on the backend, not on the phases above: it can land at any point after the MVP.
 
 **Sharing & Access Control**
 
