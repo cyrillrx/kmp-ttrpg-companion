@@ -60,9 +60,10 @@ For detailed feature specifications, see the [PRDs](prd/).
     - [x] Current hit points
   - [x] Skills
   - [ ] Combat actions
-  - [ ] Collections attached to the character
+  - [ ] Currency and carrying capacity
+  - [ ] Collections attached to the character - PRD to write, PRD-002 defers it
     - [ ] Inventory (items)
-    - [ ] Spellbook (spells)
+    - [ ] Spells
     - [ ] Wild shapes (creatures)
 - [x] Persist `Character` with SQLDelight
 - [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
