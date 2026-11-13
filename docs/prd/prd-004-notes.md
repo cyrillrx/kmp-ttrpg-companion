@@ -25,7 +25,7 @@ The Notes module also serves as the foundation for the Generators module ([PRD-0
 | User  | Delete a note                       | I can remove notes I no longer need              |
 | User  | Organise my notes into named lists  | I can group related notes together               |
 
-**Later phase — Campaign integration (see PRD-003)**
+**Phase 3: Campaign integration (see PRD-003)**
 
 | As a… | I want to…                    | So that…                                                      |
 |-------|-------------------------------|---------------------------------------------------------------|
@@ -63,7 +63,7 @@ The Notes module also serves as the foundation for the Generators module ([PRD-0
 
 - [ ] Within a note body, reference any other entity: another note, a monster, a character sheet, a spell, an item, etc.
 - [ ] Referenced entities are navigable from within the note.
-- [ ] **Visibility consistency**: a reference to a secret or restricted entity must respect that entity's access rules — users who cannot access the entity should not be able to navigate to it or infer its content from the reference.
+- [ ] **Visibility consistency**, once secret entities exist (PRD-003, online): a reference to a secret or restricted entity must respect that entity's access rules; users who cannot access the entity should not be able to navigate to it or infer its content from the reference.
 
 ## Non-Functional Requirements
 
