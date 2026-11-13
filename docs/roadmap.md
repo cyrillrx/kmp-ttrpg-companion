@@ -54,7 +54,7 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [x] Skills
   - [ ] Combat actions
   - [ ] Currency and carrying capacity
-  - [ ] Collections attached to the character - PRD to write, PRD-002 defers it
+  - [ ] Collections attached to the character - PRD to write
     - [ ] Inventory (items)
     - [ ] Spells
     - [ ] Wild shapes (creatures)
@@ -77,7 +77,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Create, list and edit notes
 - [ ] Create lists of notes
 - [ ] Attach notes to campaigns
-- [ ] Link notes to other entities (characters, creatures, items, other notes), by simple reference or inline
+- [ ] Link notes to other entities (characters, creatures, spells, items, other notes), by simple reference or inline
 
 ## UI & Polish
 
@@ -104,13 +104,14 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Campaign roles (GM, Co-GM, Player) - [PRD-003](prd/prd-003-campaigns.md)
 - [ ] Share campaigns with other users - [PRD-003](prd/prd-003-campaigns.md)
 - [ ] Note visibility / Secret folders (GM vs. players) - [PRD-003](prd/prd-003-campaigns.md)
-- [ ] Share custom content within a group of players - PRD to write
+- [ ] Share custom compendium entries within a group of players - PRD to write
 
 ## Standalone Features
 
 > Independent features with no hard dependencies on other phases.
 
 - [x] Dice roller - [PRD-006](prd/prd-006-dice.md)
+- [ ] Create custom compendium entries (spells, items, creatures) - [PRD-001](prd/prd-001-reference-data.md)
 - [ ] Import and export a collection - PRD to write, extending the [PRD-007](prd/prd-007-character-import-export.md) envelope
 - [ ] Back up and restore the full app state (characters, collections, dice history, preferences) - PRD to write
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
