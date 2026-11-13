@@ -1,6 +1,6 @@
 # PRD-001 — Reference Data (Overview)
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-13
 
 ## Overview
 
@@ -35,8 +35,8 @@ And the same phase breakdown:
 
 - **Phase 1**: Seed database, search, filters, detail view.
 - **Phase 2**: Create and manage personal named lists locally.
-- **Phase 3**: Sync catalog from public backend (read-only).
-- **Phase 4**: Sync personal lists across devices. Custom entries, export/import.
+- **Phase 3**: Export and import personal lists. Custom entries.
+- **Online**: Sync personal lists across devices. The catalog itself stays on the device.
 
 ## Non-Functional Requirements
 
