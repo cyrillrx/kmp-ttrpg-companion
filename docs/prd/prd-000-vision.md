@@ -1,6 +1,6 @@
 # PRD-000 — Vision & Foundation
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-10-20
+> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-11-13
 
 ## Overview
 
@@ -56,19 +56,16 @@ Roles are **not fixed account types** — they are **per-campaign roles** determ
 
 ## Connectivity Phases
 
-The application is designed to be rolled out in three phases of increasing connectivity:
+The application is designed to be rolled out in two phases of increasing connectivity:
 
 ### Phase 1 — Offline / Local
 - All data is stored locally on the device.
 - A pre-loaded seed database provides reference content (spells, items, monsters).
 - Users can create and manage their own content locally.
+- The reference content stays on the device: the backend does not serve it.
 
-### Phase 2 — Online, Public Data
-- Connection to a backend server to fetch public, immutable reference data.
-- Examples: official spell lists, item catalogs, monster stat blocks.
-- No user account required. Read-only sync of public content.
-
-### Phase 3 — Online, Connected with Sync
+### Phase 2: Online, Connected with Sync
+- Not tied to a point of the functional roadmap: it can land alongside any local phase.
 - User authentication (registration and login).
 - Data synchronization across devices.
 - Campaign sharing and access management (editor, reader, no access).
