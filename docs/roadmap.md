@@ -28,20 +28,15 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [x] Local item collections - [PRD-001b](prd/prd-001b-item-list.md)
 - [x] Local bestiary collections - [PRD-001c](prd/prd-001c-bestiary.md)
 
-## Phase 4 - Backend setup and sync engine
+## Phase 4 - Compendium data quality
 
-> Fetch public reference data from the server and sync collections. - [PRD-001](prd/prd-001-reference-data.md)
+> Make the bundled compendium coherent and DB-ready: structured models, i18n, source tracking. - [ADR-001](adr/adr-001-data-model.md)
 
-- [x] Setup backend service with a simple API
-- [ ] Data quality & coherence: DB-ready models, i18n, source tracking
-  - [x] Architecture decisions & SRD translation map ([ADR-001](adr/adr-001-data-model.md), [Translation Map](data/srd-fr-en.md))
-  - [x] Spells: structured components, concentration/ritual flags, complete class list
-  - [x] Magical items: typed fields normalized
-  - [x] Creatures: full stat block (speed, senses, skills, saving throws, damage affinities); character model coherence
-  - [ ] Descriptions: handle the source links (aidedd) carried in imported text
-- [ ] Fetch public reference data from backend (spells, items, creatures)
-- [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
-- [ ] Sync collections with backend
+- [x] Architecture decisions & SRD translation map ([ADR-001](adr/adr-001-data-model.md), [Translation Map](data/srd-fr-en.md))
+- [x] Spells: structured components, concentration/ritual flags, complete class list
+- [x] Magical items: typed fields normalized
+- [x] Creatures: full stat block (speed, senses, skills, saving throws, damage affinities); character model coherence
+- [ ] Descriptions: handle the source links (aidedd) carried in imported text
 
 ## Phase 5 - Character Sheets
 
@@ -67,7 +62,6 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
 - [x] Let the user order the character sheet list by name or by last modified (#256), remembered between launches ([ADR-005](adr/adr-005-list-order-preferences.md))
 - [ ] Expand the PC and NPC preset gallery
-- [ ] Sync character sheets with backend
 
 ## Phase 6 - Notes
 
@@ -75,7 +69,6 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 - [ ] Create, list and edit notes
 - [ ] Create lists of notes
-- [ ] Sync notes with backend
 
 ## Phase 7 - Campaigns
 
@@ -86,10 +79,6 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Create, list and edit campaigns
 - [ ] Attach player to campaigns
 - [ ] Attach notes to campaigns
-- [ ] Sync campaigns with backend
-- [ ] Campaign roles (GM, Co-GM, Player)
-- [ ] Share campaigns with other users
-- [ ] Note visibility / Secret folders (GM vs. players)
 
 ## Phase 8 - Advanced Notes
 
@@ -109,6 +98,20 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Compendium detail: revisit how the type and sub-type are presented (#198, #200)
 - [ ] Browse from one item to the next by swiping through a list
 - [ ] Compendium detail: switch the entity's language on the fly (e.g. Fireball ↔ Boule de feu), app locale unchanged - [ADR-001](adr/adr-001-data-model.md)
+
+## Online & Sharing
+
+> Features that need the server. They can land at any point, independently of the phases above.
+
+- [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
+- [ ] Sync collections with backend
+- [ ] Sync character sheets with backend
+- [ ] Sync campaigns with backend
+- [ ] Sync notes with backend
+- [ ] Campaign roles (GM, Co-GM, Player) - [PRD-003](prd/prd-003-campaigns.md)
+- [ ] Share campaigns with other users - [PRD-003](prd/prd-003-campaigns.md)
+- [ ] Note visibility / Secret folders (GM vs. players) - [PRD-003](prd/prd-003-campaigns.md)
+- [ ] Share custom content within a group of players - PRD to write
 
 ## Standalone Features
 
