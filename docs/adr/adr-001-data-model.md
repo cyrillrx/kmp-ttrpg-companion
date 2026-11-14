@@ -3,7 +3,7 @@
 **Status**: Accepted  
 **Date**: 2026-04-26  
 **Context**: Phase 4 intermediate step: data quality & coherence, before backend consumption by clients.  
-**Update (2026-11-14)**: the compendium stays on the device ([PRD-000](../prd/prd-000-vision.md)). The data model below still applies. The backend API that serves the compendium is kept, unused by the app: its format is the starting point of the entry export format, and its Ktor port shares the Kotlin models ([ADR-008](adr-008-ktor-server.md)). The backend API mentions below apply once a client consumes the compendium from the backend; the detail-view rules apply locally.
+**Update (2026-11-14)**: the compendium stays on the device ([PRD-000](../prd/prd-000-vision.md)). The data model below still applies. The backend API that serves the compendium is kept, unused by the app: the bundled `Api*` format is the likely starting point of the entry export format (see the open questions of [ADR-008](adr-008-ktor-server.md)). The backend API mentions below apply once a client consumes the compendium from the backend; the detail-view rules apply locally.
 
 ## 1. Entity + Translations Pattern
 

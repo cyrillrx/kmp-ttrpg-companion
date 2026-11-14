@@ -16,7 +16,7 @@ Server code runs on Ktor. The Go and Rust servers are replaced by a single Ktor 
 
 The repository holds two backend servers, `server-go/` (chi) and `server-rust/` (Axum). They were written as an experiment, to compare the two stacks, and the app consumes neither. Both were deployed on Railway until the free trial expired; nothing runs today. A NAS is planned to host the author's apps but is not set up yet: the Go or Rust server may be redeployed there to check the API before the port.
 
-The roadmap review keeps the whole compendium on the device and refocuses the backend on user accounts, sync and sharing. The compendium API is kept, unused by the app: its format is the starting point of the entry export format ([ADR-001](adr-001-data-model.md)).
+The roadmap review keeps the whole compendium on the device and refocuses the backend on user accounts, sync and sharing. The compendium API is kept, unused by the app; the entry export format likely starts from the bundled `Api*` format instead (see the open questions below and [ADR-001](adr-001-data-model.md)).
 
 ## Rationale
 
