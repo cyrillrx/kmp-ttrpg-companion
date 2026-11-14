@@ -94,7 +94,7 @@ _Inventory, spells and wild shapes wait for the collection export ([PRD-001](prd
 **Notes**
 - [ ] Free-text field for backstory, session notes, roleplaying notes
 
-### Phase 3 — Online with Sync
+### Online: sync and sharing
 
 - [ ] Sync character sheets across devices.
 - [ ] Share a character sheet with other campaign members (see PRD-003).

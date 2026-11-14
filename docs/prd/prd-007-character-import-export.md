@@ -120,7 +120,7 @@ A received file and a bundled preset go through the same mapper and the same pol
 
 ## Out of Scope
 
-- Exporting collections: settled in the Overview (entries travel in full, in a dedicated PRD).
+- Exporting collections: scoped in [PRD-001](prd-001-reference-data.md) Phase 3 (entries travel in full, in a dedicated PRD).
 - Full local backup and restore in a single file; may be addressed in a future PRD.
 - A printable or presentable sheet (PDF, image); may be addressed in a future PRD.
 - Online sharing, accounts and access control, covered by [PRD-003 — Campaigns](prd-003-campaigns.md).

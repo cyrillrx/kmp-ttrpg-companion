@@ -54,7 +54,7 @@ Notes are defined as standalone entities in [PRD-004: Notes](prd-004-notes.md). 
 - [ ] List all notes attached to the campaign, sorted by last modified date.
 - [ ] Notes remain in the user's personal library even when detached from a campaign.
 
-### Phase 3 — Online with Sync
+### Online: sync and sharing
 
 This phase depends on the backend: like every online feature, it lands once its local counterpart exists (see [PRD-000](prd-000-vision.md)).
 
