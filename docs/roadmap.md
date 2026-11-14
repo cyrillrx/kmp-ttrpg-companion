@@ -96,8 +96,9 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 > Features that need the server. Each one lands once its local counterpart exists - [PRD-000](prd/prd-000-vision.md)
 
+- [ ] User accounts (registration and login) - [PRD-000](prd/prd-000-vision.md)
 - [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
-- [ ] Sync collections with backend
+- [ ] Sync collections and custom entries with backend
 - [ ] Sync character sheets with backend
 - [ ] Sync campaigns with backend
 - [ ] Sync notes with backend
@@ -112,7 +113,8 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 - [x] Dice roller - [PRD-006](prd/prd-006-dice.md)
 - [ ] Create custom compendium entries (spells, items, creatures) - [PRD-001](prd/prd-001-reference-data.md)
-- [ ] Import and export a collection - PRD to write, extending the [PRD-007](prd/prd-007-character-import-export.md) envelope
+- [ ] Export and import compendium entries (spells, items, creatures) with their full data - PRD to write, starting from the format the compendium API already serves
+- [ ] Import and export a collection, carrying its entries in full - same PRD, after the entry export; extends the [PRD-007](prd/prd-007-character-import-export.md) envelope
 - [ ] Back up and restore the full app state (characters, collections, dice history, preferences) - PRD to write
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md)
