@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/cyrillrx/kmp-ttrpg-companion/compare/v1.0.0...v1.1.0) (2026-11-14)
+
+
+### Added
+
+* **settings:** link the privacy policy from the settings screen ([#425](https://github.com/cyrillrx/kmp-ttrpg-companion/issues/425)) ([0dc49a1](https://github.com/cyrillrx/kmp-ttrpg-companion/commit/0dc49a19d0e67fd4e73a747d7b896932b08ae6f8))
+
 ## [1.0.0](https://github.com/cyrillrx/kmp-ttrpg-companion/releases/tag/v1.0.0) (2026-11-11)
 
 
