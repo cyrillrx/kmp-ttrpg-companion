@@ -55,7 +55,7 @@ Notes are defined as standalone entities in [PRD-004: Notes](prd-004-notes.md). 
 
 ### Phase 3 — Online with Sync
 
-This phase depends on the backend, not on the phases above: like every online feature, it lands once its local counterpart exists (see [PRD-000](prd-000-vision.md)).
+This phase depends on the backend: like every online feature, it lands once its local counterpart exists (see [PRD-000](prd-000-vision.md)).
 
 **Sharing & Access Control**
 
