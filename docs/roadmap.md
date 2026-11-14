@@ -111,7 +111,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 ## Standalone Features
 
-> Independent features with no hard dependencies on other phases.
+> Features outside the numbered phases; each item states its own dependencies.
 
 - [x] Dice roller - [PRD-006](prd/prd-006-dice.md)
 - [ ] Create custom compendium entries (spells, items, creatures) - [PRD-001](prd/prd-001-reference-data.md)
