@@ -82,7 +82,7 @@ All enum values in JSON source files and API responses use **lowercase English w
 - Enum names in code (Kotlin, Rust, Go) remain `UPPER_CASE` as per each language's convention; the serialization layer handles case mapping transparently.
 
 ### Serialization Convention Per Language
-_The Rust and Go lines describe the servers that [ADR-008](adr-008-ktor-server.md) replaces; they are kept as written._
+_The Rust and Go lines describe the servers that [ADR-008](adr-008-ktor-server.md) freezes; they are kept as written._
 - **Kotlin**: `@SerialName("conjuration")` on each enum entry, or a custom serializer
 - **Rust**: `#[serde(rename_all = "snake_case")]` on the enum
 - **Go**: lowercase string in JSON struct tags
