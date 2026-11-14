@@ -35,8 +35,8 @@ And the same phase breakdown:
 
 - **Phase 1**: Seed database, search, filters, detail view.
 - **Phase 2**: Create and manage personal named lists locally.
-- **Phase 3**: Export and import personal lists. Custom entries.
-- **Online**: Sync personal lists across devices. The catalog itself stays on the device.
+- **Phase 3**: Custom entries. Export and import single entries, then personal lists; a list export carries its entries in full, not references, so it builds on the entry export. Both are scoped in a dedicated PRD to write.
+- **Online**: Sync personal lists and custom entries across devices. The catalog itself stays on the device.
 
 ## Non-Functional Requirements
 

@@ -42,3 +42,4 @@ Refer to [PRD-001 — Reference Data](prd-001-reference-data.md) for the shared 
 > The catalog itself stays on the device (see [PRD-000](prd-000-vision.md)).
 
 - [ ] Sync personal item lists across devices.
+- [ ] Sync custom items across devices.
