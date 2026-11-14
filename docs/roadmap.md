@@ -58,6 +58,7 @@ For detailed feature specifications, see the [PRDs](prd/).
     - [ ] Inventory (items)
     - [ ] Spells
     - [ ] Wild shapes (creatures)
+  - [ ] Mundane equipment (weapons, armor, adventuring gear) - open question in [PRD-002](prd/prd-002-character-sheet.md)
 - [x] Persist `Character` with SQLDelight
 - [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
 - [x] Let the user order the character sheet list by name or by last modified (#256), remembered between launches ([ADR-005](adr/adr-005-list-order-preferences.md))
@@ -95,8 +96,9 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 ## Online & Sharing
 
-> Features that need the server. Each one lands once its local counterpart exists - [PRD-000](prd/prd-000-vision.md)
+> Features that need the online backend. Each one lands once the backend is chosen and, where it has one, once its local counterpart exists - [PRD-000](prd/prd-000-vision.md)
 
+- [ ] Choose the online backend: a self-hosted Ktor server with its own database, or a managed one - ADR to write, see [ADR-008](adr/adr-008-ktor-server.md)
 - [ ] User accounts (registration and login) - [PRD-000](prd/prd-000-vision.md)
 - [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
 - [ ] Sync collections and custom entries with backend
@@ -117,7 +119,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Create custom compendium entries (spells, items, creatures) - [PRD-001](prd/prd-001-reference-data.md)
 - [ ] Export and import compendium entries (spells, items, creatures) with their full data - PRD to write, starting from the format the compendium API already serves
 - [ ] Import and export a collection, carrying its entries in full - same PRD, after the entry export; extends the [PRD-007](prd/prd-007-character-import-export.md) envelope
-- [ ] Back up and restore the full app state (all user data and preferences) - PRD to write
+- [ ] Back up and restore the full app state (all user data and preferences) - PRD to write, after the collection export
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md)
 
