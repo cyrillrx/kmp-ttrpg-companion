@@ -105,8 +105,9 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Sync notes with backend
 - [ ] Campaign roles (GM, Co-GM, Player) - [PRD-003](prd/prd-003-campaigns.md)
 - [ ] Share campaigns with other users - [PRD-003](prd/prd-003-campaigns.md)
+- [ ] Share character sheets with campaign members - [PRD-002](prd/prd-002-character-sheet.md)
 - [ ] Note visibility / Secret folders (GM vs. players) - [PRD-003](prd/prd-003-campaigns.md)
-- [ ] Share custom compendium entries within a group of players - PRD to write
+- [ ] Share custom compendium entries within a group of players - PRD to write; reopens the served compendium question ([PRD-000](prd/prd-000-vision.md))
 
 ## Standalone Features
 
@@ -116,7 +117,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Create custom compendium entries (spells, items, creatures) - [PRD-001](prd/prd-001-reference-data.md)
 - [ ] Export and import compendium entries (spells, items, creatures) with their full data - PRD to write, starting from the format the compendium API already serves
 - [ ] Import and export a collection, carrying its entries in full - same PRD, after the entry export; extends the [PRD-007](prd/prd-007-character-import-export.md) envelope
-- [ ] Back up and restore the full app state (characters, collections, dice history, preferences) - PRD to write
+- [ ] Back up and restore the full app state (all user data and preferences) - PRD to write
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md)
 
