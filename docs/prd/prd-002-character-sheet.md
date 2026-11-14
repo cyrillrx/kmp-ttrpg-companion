@@ -75,7 +75,7 @@ At this stage, character sheets live in the user's personal library and are inde
 - [ ] Feats
 
 **Inventory**
-- _Free text gives way to collections where the compendium covers the content (magical items, spells). Mundane equipment, currency and carrying capacity stay outside it._
+- _Free text gives way to collections where the compendium covers the content (magical items, spells): a linked entry opens its full sheet during play, one attachment mechanism serves inventory, spells, wild shapes and campaign creatures, and the GM can hand an item to a player ([PRD-003](prd-003-campaigns.md)). Mundane equipment is an open question (below); currency and carrying capacity stay outside the compendium._
 - [ ] Items from the compendium, through the collections attached to the character (PRD to write), possibly wrapped with sheet-specific data such as quantity and weight
 - [ ] Mundane equipment (weapons, armor, adventuring gear): the compendium holds magical items only, so how it is recorded is an open question (see below)
 - [ ] Currency (CP, SP, EP, GP, PP)
@@ -88,6 +88,8 @@ At this stage, character sheets live in the user's personal library and are inde
 
 **Wild shapes (if applicable)**
 - [ ] Wild shape forms from the bestiary, through the collections attached to the character (PRD to write)
+
+_Inventory, spells and wild shapes wait for the collection export ([PRD-001](prd-001-reference-data.md), [PRD-007](prd-007-character-import-export.md))._
 
 **Notes**
 - [ ] Free-text field for backstory, session notes, roleplaying notes
@@ -113,4 +115,4 @@ At this stage, character sheets live in the user's personal library and are inde
 
 All open questions from v0.1 have been addressed in [ADR-003 — Character Model](../adr/adr-003-character-model.md).
 
-- How is mundane equipment recorded: as compendium items (a simpler, extensible list than the magical items), as free text, or as free text mixing references to magical items, like a note with external references? To settle in the PRD on collections attached to the character. Until then, a sheet has no mundane equipment.
+- How is mundane equipment recorded: as compendium items (a simpler, extensible list than the magical items), as free text, or as free text mixing references to magical items, like a note with external references? A free-text part is likely either way, for standard equipment (a bow, thieves' tools) and odd items (a troll head, dragon teeth). To settle in the PRD on collections attached to the character. Until then, a sheet has no mundane equipment.
