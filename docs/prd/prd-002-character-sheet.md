@@ -25,7 +25,7 @@ At this stage, character sheets live in the user's personal library and are inde
 | User  | Delete a character sheet I own           | I can remove characters I no longer use                  |
 | User  | Roll a skill, a save or the initiative   | I get the total without adding the bonus myself          |
 
-**Campaign integration (see PRD-003)**
+**Campaign integration (see PRD-003): attaching is local, viewing shared sheets is online**
 
 | As a… | I want to…                                         | So that…                             |
 |-------|----------------------------------------------------|--------------------------------------|
@@ -75,14 +75,15 @@ At this stage, character sheets live in the user's personal library and are inde
 - [ ] Feats
 
 **Inventory**
-- _Items come from the compendium, through the collections attached to the character (PRD to write), possibly wrapped with sheet-specific data such as quantity and weight. Gear the compendium lacks (rope, rations) waits for custom entries ([PRD-001](prd-001-reference-data.md))_
+- [ ] Items from the compendium, through the collections attached to the character (PRD to write), possibly wrapped with sheet-specific data such as quantity and weight
+- [ ] Mundane equipment (weapons, armor, adventuring gear): the compendium holds magical items only, so how it is recorded is an open question (see below)
 - [ ] Currency (CP, SP, EP, GP, PP)
 - [ ] Carrying capacity (auto-calculated from Strength)
 
 **Spells (if applicable)**
 - [ ] Spellcasting ability, spell save DC, spell attack bonus
 - [ ] Spell slots (per level, current/max)
-- _Prepared and known spells come from the compendium, through the collections attached to the character (PRD to write); homebrew spells wait for custom entries ([PRD-001](prd-001-reference-data.md))_
+- [ ] Prepared and known spells from the compendium, through the collections attached to the character (PRD to write); homebrew spells wait for custom entries ([PRD-001](prd-001-reference-data.md))
 
 **Notes**
 - [ ] Free-text field for backstory, session notes, roleplaying notes
@@ -107,3 +108,5 @@ At this stage, character sheets live in the user's personal library and are inde
 ## Open Questions
 
 All open questions from v0.1 have been addressed in [ADR-003 — Character Model](../adr/adr-003-character-model.md).
+
+- How is mundane equipment recorded: as compendium items (a simpler, extensible list than the magical items), as free text, or as free text mixing references to magical items, like a note with external references? To settle in the PRD on collections attached to the character. Until then, a sheet has no mundane equipment.
