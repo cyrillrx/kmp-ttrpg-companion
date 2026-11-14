@@ -1,6 +1,6 @@
 # PRD-000 — Vision & Foundation
 
-> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-11-13
+> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-11-14
 
 ## Overview
 
