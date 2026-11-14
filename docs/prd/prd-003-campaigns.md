@@ -43,6 +43,7 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 **Attached Resources**
 - [ ] Attach/detach character sheets (PCs and NPCs) from the campaign roster.
 - [ ] View the list of attached characters directly from the campaign detail screen.
+- [ ] Attach creatures from the compendium, the same way collections attach to a character (PRD to write).
 
 
 ### Phase 2 — Session Notes

@@ -69,7 +69,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 - [ ] Create, list and edit campaigns
 - [ ] Attach characters (PCs and NPCs) to a campaign
-- [ ] Attach creatures from the compendium to a campaign, the same way collections attach to a character
+- [ ] Attach creatures from the compendium to a campaign, the same way collections attach to a character - after the collections attached to the character
 
 ## Phase 7 - Notes
 
