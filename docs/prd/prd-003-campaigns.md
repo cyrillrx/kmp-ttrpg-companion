@@ -1,6 +1,6 @@
 # PRD-003 — Campaigns
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-14
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-15
 
 ## Overview
 
@@ -43,8 +43,10 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 **Attached Resources**
 - [ ] Attach/detach character sheets (PCs and NPCs) from the campaign roster.
 - [ ] View the list of attached characters directly from the campaign detail screen.
-- [ ] Attach creatures from the compendium, the same way collections attach to a character (PRD to write).
 
+### After the MVP: attached creatures
+
+- [ ] Attach creatures from the compendium, the same way collections attach to a character (PRD to write). It waits for the collections attached to the character, so it stays out of the MVP.
 
 ### Phase 2 — Session Notes
 

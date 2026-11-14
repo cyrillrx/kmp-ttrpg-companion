@@ -70,7 +70,6 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 - [ ] Create, list and edit campaigns
 - [ ] Attach characters (PCs and NPCs) to a campaign
-- [ ] Attach creatures from the compendium to a campaign, the same way collections attach to a character - after the collections attached to the character
 
 ## Phase 7 - Notes
 
@@ -120,6 +119,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Create custom compendium entries (spells, items, creatures) - [PRD-001](prd/prd-001-reference-data.md)
 - [ ] Export and import compendium entries (spells, items, creatures) with their full data - PRD to write, likely starting from the bundled `Api*` format ([ADR-008](adr/adr-008-ktor-server.md))
 - [ ] Import and export a collection, carrying its entries in full - same PRD, after the entry export; extends the [PRD-007](prd/prd-007-character-import-export.md) envelope
+- [ ] Attach creatures from the compendium to a campaign, the same way collections attach to a character - [PRD-003](prd/prd-003-campaigns.md), after the collections attached to the character
 - [ ] Back up and restore the full app state (all user data and preferences) - PRD to write, after the collection export
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md)
