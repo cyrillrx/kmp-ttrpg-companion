@@ -65,7 +65,7 @@ The application is designed to be rolled out in two phases of increasing connect
 - The reference content stays on the device: the whole compendium fits there, so serving it would only add network calls. A compendium served by the backend, probably mixed with the local one, becomes worth it if the content needs regular updates, if users add and share their own content (privately or as UGC), or if a legal constraint limits what the app may bundle beyond the SRD.
 
 ### Phase 2: Online, Connected with Sync
-- Not tied to a point of the functional roadmap: an online feature lands once the online backend is chosen (ADR to write, see [ADR-008](../adr/adr-008-ktor-server.md)) and once its local counterpart exists.
+- Not tied to a point of the functional roadmap: an online feature lands once the online backend is chosen (ADR to write, see [ADR-008](../adr/adr-008-ktor-server.md)) and, where it has one, once its local counterpart exists.
 - User authentication (registration and login).
 - Data synchronization across devices.
 - Campaign sharing and access management (editor, reader, no access).

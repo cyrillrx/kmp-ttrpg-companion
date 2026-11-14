@@ -108,6 +108,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Campaign roles (GM, Co-GM, Player) - [PRD-003](prd/prd-003-campaigns.md)
 - [ ] Share campaigns with other users - [PRD-003](prd/prd-003-campaigns.md)
 - [ ] Share character sheets with campaign members - [PRD-002](prd/prd-002-character-sheet.md)
+- [ ] GM assigns items to a player's inventory - [PRD-003](prd/prd-003-campaigns.md)
 - [ ] Note visibility / Secret folders (GM vs. players) - [PRD-003](prd/prd-003-campaigns.md)
 - [ ] Share custom compendium entries within a group of players - PRD to write; reopens the served compendium question ([PRD-000](prd/prd-000-vision.md))
 
