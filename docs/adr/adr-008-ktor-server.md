@@ -16,7 +16,7 @@ The Go and Rust servers are frozen: they get no new feature. Any self-hosted ser
 
 The repository holds two backend servers, `server-go/` (chi) and `server-rust/` (Axum). They were written as an experiment, to compare the two stacks, and the app consumes neither. Both were deployed on Railway until the free trial expired; nothing runs today. A NAS is planned to host the author's apps but is not set up yet: the Go or Rust server may be redeployed there to check the API in the meantime.
 
-The roadmap review keeps the whole compendium on the device and refocuses the backend on user accounts, sync and sharing. The compendium API is kept, unused by the app; the entry export format likely starts from the bundled `Api*` format instead, settled by the entry export PRD ([ADR-001](adr-001-data-model.md)).
+The roadmap review keeps the whole compendium on the device and refocuses the backend on user accounts, sync and sharing. The compendium API is kept until the backend choice, unused by the app; the entry export format likely starts from the bundled `Api*` format instead, settled by the entry export PRD ([ADR-001](adr-001-data-model.md)).
 
 ## Rationale
 
@@ -58,6 +58,8 @@ It is the only API both servers expose and the only one with a format other docu
 **Keep the Rust server**. Rejected: same drift, and a second toolchain to maintain.
 
 **Keep both servers**. Rejected: the experiment is over; two backends double the cost of every server change.
+
+**Delete both servers now**. Rejected: until the backend choice they are the only runnable reference of the compendium API, and one of them may be redeployed on the NAS to check it.
 
 **Port to Ktor now**. Rejected: no client consumes the API, and the port is lost if a managed backend wins.
 
