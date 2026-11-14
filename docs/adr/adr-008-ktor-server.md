@@ -4,38 +4,52 @@
 
 ## Decision
 
-The backend is a single Ktor server, in a new `server/` Gradle module of the root build. It depends on `app/shared/domain`, so the server and the app share the same Kotlin models.
+Server code runs on Ktor. The Go and Rust servers are replaced by a single Ktor server, in a `server/` Gradle module of the root build.
 
-- The Ktor server first takes over the compendium API (`/compendium/spells`, `/compendium/monsters`, `/compendium/magical-items`) with the same format, checked by the existing Bruno collection.
-- Once that API is ported, `server-go/` and `server-rust/` are deleted, along with their Dockerfiles and their convention pointers.
-- The migration is not a prerequisite of any roadmap item: it happens when it fits, and no online feature is built on the Go or Rust servers in the meantime.
+- The exchange format, today the `internal` `Api*` types of `app/shared/domain` (`ApiSpell`, `ApiMonster`, `ApiMagicalItem`), moves to a dedicated module outside `app/`, which both the app and `server/` depend on. Its folder (`core/` or `shared/`) and its name (`:model`, `:contract` or `:api`) are settled in the migration pull request.
+- The Ktor server first takes over the compendium API (`/compendium/spells`, `/compendium/monsters`, `/compendium/magical-items`) with the same format. The port adds format assertions to the Bruno collection, which today only checks the status and a non-empty array, and moves `ci-bruno.yml` from `server-rust` to the Ktor server.
+- Once that API is ported, `server-go/` and `server-rust/` are deleted (see Consequences).
+- How accounts, sync and sharing are backed is not decided here: a self-hosted Ktor server with its own database, or a managed backend such as Firebase. That choice gets its own ADR when the first online feature starts.
+- The migration is not a prerequisite of the local roadmap.
 
 ## Context
 
-The repository holds two backend servers, `server-go/` (chi) and `server-rust/` (Axum). They were written as an experiment, to compare the two stacks; neither runs in production and the app consumes neither.
+The repository holds two backend servers, `server-go/` (chi) and `server-rust/` (Axum). They were written as an experiment, to compare the two stacks, and the app consumes neither. Both were deployed on Railway until the free trial expired; nothing runs today. A NAS is planned to host the author's apps but is not set up yet: the Go or Rust server may be redeployed there to check the API before the port.
 
-The roadmap review keeps the whole compendium on the device and refocuses the backend on user accounts, sync and sharing. The compendium API they both serve is kept, unused by the app: its format is the starting point of the entry export format ([ADR-001](adr-001-data-model.md)).
+The roadmap review keeps the whole compendium on the device and refocuses the backend on user accounts, sync and sharing. The compendium API is kept, unused by the app: its format is the starting point of the entry export format ([ADR-001](adr-001-data-model.md)).
 
 ## Rationale
 
 ### Why Ktor
 
-The client is Kotlin Multiplatform. A Kotlin server reuses the domain models of `app/shared/domain` instead of redeclaring them in Go or Rust, so a model change is made once and checked by the compiler on both sides. It also leaves a single language, build and toolchain to maintain.
+The client is Kotlin Multiplatform. A Kotlin server reuses the app's exchange types instead of redeclaring them in Go or Rust, so a format change is made once and checked by the compiler on both sides. It also leaves a single language, build and toolchain to maintain.
+
+### Why a dedicated module for the exchange format
+
+The `Api*` types are `internal` to `app/shared/domain`, and depending on that module would pull SQLDelight, its drivers and the repositories into the server. A module holding only the exchange format gives the server what it needs and nothing else, and the entry export reuses the same types.
 
 ### Why port the compendium API first
 
-It is the only API both servers expose and the only one with a format other documents rely on. Porting it with the Bruno collection as the acceptance check proves the Ktor setup and the model sharing on a known surface, before any online feature depends on it.
+It is the only API both servers expose and the only one with a format other documents rely on. Porting it proves the Ktor setup and the shared module on a known surface, before any online feature depends on them.
 
 ## Consequences
 
-- A `server/` module joins the Gradle build; CI builds and tests it with the rest.
-- `server-go/`, `server-rust/`, `Dockerfile.go`, `Dockerfile.rust`, `docs/conventions/go-conventions.md` and `docs/conventions/rust-conventions.md` are deleted after the port, and `AGENTS.md` and the README lose their sections.
-- `app/shared/domain` becomes a dependency of the server: a change there can now break the server build.
+- A `server/` module and the shared exchange-format module join the Gradle build; CI builds and tests them with the rest.
+- After the port, these are deleted or updated:
+  - `server-go/` and `server-rust/`, including their `railway.toml`;
+  - `Dockerfile.go` and `Dockerfile.rust`;
+  - `.github/workflows/ci-server-go.yml` and `ci-server-rust.yml`;
+  - `docs/conventions/go-conventions.md` and `rust-conventions.md`, and their entries in `AGENTS.md` and the README;
+  - the `server-rust` and `server-go` commit scopes and CI jobs in `docs/conventions/git-and-collaboration.md`;
+  - the Rust and Go lines of ADR-001 ("Serialization Convention Per Language") and the Rust server mentions of ADR-002.
+- Reversibility: until the deletion, nothing is lost; after it, the Go and Rust servers remain in the git history.
 
 ## Alternatives considered
 
-**Keep the Go server**. Rejected: its models are redeclared by hand and drift from the app's.
+**Keep the Go server**. Rejected: its types are redeclared by hand and drift from the app's.
 
 **Keep the Rust server**. Rejected: same drift, and a second toolchain to maintain.
 
-**Keep both servers**. Rejected: the experiment is over; two backends double the cost of every online feature.
+**Keep both servers**. Rejected: the experiment is over; two backends double the cost of every server change.
+
+**No server until the first online feature**. Rejected: porting the known compendium API early validates Ktor and the shared module before an online feature depends on them. The port is not scheduled, so this costs nothing until it happens.
