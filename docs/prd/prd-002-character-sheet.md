@@ -9,7 +9,7 @@ The Character Sheet module allows users to create, view, edit, and delete charac
 PCs and NPCs use the **same `Character` model**. An NPC is a `Character` with `Class.UNKNOWN` and an arbitrary level — no separate subtype. Campaign roles (GM controls NPC, player controls PC) are handled at the campaign layer, not in the character model (see [ADR-003](../adr/adr-003-character-model.md)).
 
 At this stage, character sheets live in the user's personal library and are independent of any campaign.
-Campaign integration (attaching sheets to a campaign, sharing with other players, access control) is a later phase covered in [PRD-003 — Campaigns](prd-003-campaigns.md).
+Attaching sheets to a campaign is part of the local campaign MVP in [PRD-003: Campaigns](prd-003-campaigns.md); sharing with other players and access control come with the online features.
 
 ## Goals
 
@@ -76,14 +76,14 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 - [ ] Feats
 
 **Inventory**
-- _Items come from the compendium, through the collections attached to the character (PRD to write)_
+- _Items come from the compendium, through the collections attached to the character (PRD to write), possibly wrapped with sheet-specific data such as quantity and weight. Gear the compendium lacks (rope, rations) waits for custom entries ([PRD-001](prd-001-reference-data.md))_
 - [ ] Currency (CP, SP, EP, GP, PP)
 - [ ] Carrying capacity (auto-calculated from Strength)
 
 **Spells (if applicable)**
 - [ ] Spellcasting ability, spell save DC, spell attack bonus
 - [ ] Spell slots (per level, current/max)
-- _Prepared and known spells come from the compendium, through the collections attached to the character (PRD to write)_
+- _Prepared and known spells come from the compendium, through the collections attached to the character (PRD to write); homebrew spells wait for custom entries ([PRD-001](prd-001-reference-data.md))_
 
 **Notes**
 - [ ] Free-text field for backstory, session notes, roleplaying notes
@@ -91,7 +91,7 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 ### Phase 3 — Online with Sync
 
 - [ ] Sync character sheets across devices.
-- [ ] Attach a character sheet to a campaign and share it with other campaign members (see PRD-003).
+- [ ] Share a character sheet with other campaign members (see PRD-003).
 
 ## Non-Functional Requirements
 
