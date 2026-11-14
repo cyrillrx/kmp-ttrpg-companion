@@ -52,4 +52,4 @@ And the same phase breakdown:
 ## Open Questions
 
 - Which official data source will be used for the seed database (SRD JSON, Open5e API, manual curation)?
-- Should personal named lists be shareable between users (e.g., sharing a grimoire with a party)?
+- Should personal named lists be shareable between users online (e.g., sharing a grimoire with a party)? Offline sharing by file is settled in Phase 3 above.

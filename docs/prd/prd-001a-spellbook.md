@@ -37,6 +37,7 @@ Refer to [PRD-001 — Reference Data](prd-001-reference-data.md) for the shared 
 
 - [ ] Create, edit, and delete custom spells.
 - [ ] Export a spell as a shareable format; import a spell shared by another user.
+- [ ] Export and import a personal collection, carrying its entries in full (dedicated PRD to write, see [PRD-001](prd-001-reference-data.md)).
 
 ### Online
 
