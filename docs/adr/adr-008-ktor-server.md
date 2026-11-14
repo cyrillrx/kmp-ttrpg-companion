@@ -16,7 +16,7 @@ The Go and Rust servers are frozen: they get no new feature. Any self-hosted ser
 
 The repository holds two backend servers, `server-go/` (chi) and `server-rust/` (Axum). They were written as an experiment, to compare the two stacks, and the app consumes neither. Both were deployed on Railway until the free trial expired; nothing runs today. A NAS is planned to host the author's apps but is not set up yet: the Go or Rust server may be redeployed there to check the API in the meantime.
 
-The roadmap review keeps the whole compendium on the device and refocuses the backend on user accounts, sync and sharing. The compendium API is kept, unused by the app; the entry export format likely starts from the bundled `Api*` format instead (see the open questions below and [ADR-001](adr-001-data-model.md)).
+The roadmap review keeps the whole compendium on the device and refocuses the backend on user accounts, sync and sharing. The compendium API is kept, unused by the app; the entry export format likely starts from the bundled `Api*` format instead, settled by the entry export PRD ([ADR-001](adr-001-data-model.md)).
 
 ## Rationale
 
@@ -26,11 +26,11 @@ The client is Kotlin Multiplatform. A Kotlin server reuses the app's exchange ty
 
 ### Why a dedicated module for the exchange format
 
-The `Api*` types are `internal` to `app/shared/domain`, and depending on that module would pull SQLDelight, its drivers and the repositories into the server. A module holding only the exchange format gives the server what it needs and nothing else, and the entry export reuses the same types.
+The `Api*` types are `internal` to `app/shared/domain`, and depending on that module would pull SQLDelight, its drivers and the repositories into the server. A module holding only the exchange format gives the server what it needs and nothing else, and the entry export likely reuses the same types (settled by the entry export PRD).
 
 ### Why the port waits for the backend choice
 
-The app consumes no server today, so a port brings no user value on its own, and it would be lost if a managed backend wins. Keeping the frozen servers costs almost nothing: their CI only runs when their files change. The part with immediate value, the shared exchange-format module, does not depend on the server: the entry export justifies it.
+The app consumes no server today, so a port brings no user value on its own, and it would be lost if a managed backend wins. Keeping the frozen servers has a cost: `ci-server-rust.yml` and `ci-bruno.yml` also run on `data/compendium/**`, so a data-only change can require a fix on the frozen Rust server. If that gets in the way, the freeze drops `data/compendium/**` from their path filters. The part with immediate value, the shared exchange-format module, does not depend on the server.
 
 ### Why port the compendium API first, if self-hosted
 
@@ -38,15 +38,15 @@ It is the only API both servers expose and the only one with a format other docu
 
 ## Consequences
 
-- The shared exchange-format module, and with self-hosting a `server/` module, join the Gradle build; CI builds and tests them with the rest.
+- Extracting the shared exchange-format module, whenever it happens, adds it to the Gradle build, to the `ci-kmp.yml` path filters, and to the Kover and Sonar setup of the coverage policy in `AGENTS.md`. With self-hosting, the `server/` module joins it the same way.
 - When the Go and Rust servers are deleted (after the port, or right after a managed-backend choice), these are deleted or updated:
   - `server-go/` and `server-rust/`, including their `railway.toml`; a Ktor server keeps the `/health` route that `ci-bruno.yml` waits on and `bruno/Server/Health.bru` tests;
   - `bruno/Campaign/*.bru`, which targets a `/campaign` endpoint no server implements;
   - `Dockerfile.go` and `Dockerfile.rust`;
   - `.github/workflows/ci-server-go.yml` and `ci-server-rust.yml`;
   - `docs/conventions/go-conventions.md` and `rust-conventions.md`, and their entries in `AGENTS.md` and the README;
-  - the `server-rust` and `server-go` commit scopes and CI jobs in `docs/conventions/git-and-collaboration.md`;
-  - the `ci-kmp.yml` path filters, which must cover `server/**` and the shared module.
+  - the `server-rust` and `server-go` commit scopes and CI jobs in `docs/conventions/git-and-collaboration.md`.
+- With a managed backend, the Bruno compendium suite and `ci-bruno.yml` go with the servers, and the API rules of ADR-001 remain as history.
 - ADR-001 and ADR-002 are not rewritten: their Rust and Go mentions stay as written, and ADR-001 points to this ADR.
 - Until the backend choice, the frozen servers stay in the repository with their CI and Dockerfiles.
 - Reversibility: until the deletion, nothing is lost; after it, the Go and Rust servers remain in the git history.
