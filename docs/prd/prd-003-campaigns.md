@@ -56,7 +56,7 @@ Notes are defined as standalone entities in [PRD-004: Notes](prd-004-notes.md). 
 
 ### Online: sync and sharing
 
-This phase depends on the backend: like every online feature, it lands once its local counterpart exists (see [PRD-000](prd-000-vision.md)).
+This phase is online: like every online feature, it lands once its local counterpart exists (see [PRD-000](prd-000-vision.md)).
 
 **Sharing & Access Control**
 
@@ -81,7 +81,7 @@ Campaign roles and their permissions:
 - By default, newly created notes and resources are **Secret**.
 
 **Item Assignment (Future)**
-- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory, through the collections attached to the character ([PRD-002](prd-002-character-sheet.md), PRD to write).
+- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory, through the collections attached to the character ([PRD-002](prd-002-character-sheet.md), PRD to write). A custom item depends on sharing custom entries with other players; until then, only compendium items can be assigned.
 - The Player receives a notification and the item appears in their character sheet's inventory.
 - The GM can optionally add a note when assigning the item (e.g. "Found in the chest in room 4").
 
