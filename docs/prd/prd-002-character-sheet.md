@@ -75,6 +75,7 @@ At this stage, character sheets live in the user's personal library and are inde
 - [ ] Feats
 
 **Inventory**
+- _Free text gives way to collections where the compendium covers the content (magical items, spells). Mundane equipment, currency and carrying capacity stay outside it._
 - [ ] Items from the compendium, through the collections attached to the character (PRD to write), possibly wrapped with sheet-specific data such as quantity and weight
 - [ ] Mundane equipment (weapons, armor, adventuring gear): the compendium holds magical items only, so how it is recorded is an open question (see below)
 - [ ] Currency (CP, SP, EP, GP, PP)
@@ -84,6 +85,9 @@ At this stage, character sheets live in the user's personal library and are inde
 - [ ] Spellcasting ability, spell save DC, spell attack bonus
 - [ ] Spell slots (per level, current/max)
 - [ ] Prepared and known spells from the compendium, through the collections attached to the character (PRD to write); homebrew spells wait for custom entries ([PRD-001](prd-001-reference-data.md))
+
+**Wild shapes (if applicable)**
+- [ ] Wild shape forms from the bestiary, through the collections attached to the character (PRD to write)
 
 **Notes**
 - [ ] Free-text field for backstory, session notes, roleplaying notes
