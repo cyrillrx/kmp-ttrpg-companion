@@ -35,7 +35,7 @@ And the same phase breakdown:
 
 - **Phase 1**: Seed database, search, filters, detail view.
 - **Phase 2**: Create and manage personal named lists locally.
-- **Phase 3**: Custom entries. Export and import single entries, then personal lists; a list export carries its entries in full, not references, so it builds on the entry export. Both are scoped in a dedicated PRD to write.
+- **Phase 3**: Custom entries. Export and import single entries, then personal lists; a list export carries its entries in full, not references, so the file stays valid whatever compendium version the receiver has and carries custom entries; it builds on the entry export. Mixing references for official entries with full data for custom ones was rejected: it ties the file to the receiver's compendium version. The cost: the receiver gets copies of official entries it already has, possibly of another version, and how they relate is for the dedicated PRD to write that scopes both exports.
 - **Online**: Sync personal lists and custom entries across devices. The catalog itself stays on the device.
 
 ## Non-Functional Requirements
