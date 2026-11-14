@@ -54,7 +54,7 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [x] Skills
   - [ ] Combat actions
   - [ ] Currency and carrying capacity
-  - [ ] Collections attached to the character - PRD to write
+  - [ ] Collections attached to the character - PRD to write, after the collection export (Standalone Features)
     - [ ] Inventory (items)
     - [ ] Spells
     - [ ] Wild shapes (creatures)

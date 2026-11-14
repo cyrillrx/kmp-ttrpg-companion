@@ -6,7 +6,7 @@
 
 Import & Export lets a user take a character sheet out of the app as a single JSON file and bring one back in. It is the first form of sharing that works without a backend: campaign sharing, accounts and access control are specified in [PRD-003: Campaigns](prd-003-campaigns.md) and depend on the online features.
 
-The scope is character sheets. A sheet is self-contained (every value it displays travels with it), which is what makes a file exchange meaningful. Collections are not: a `UserCollection` holds `itemIds` pointing into the compendium. Their export will carry the entries in full rather than references, so a receiving device resolves nothing; it builds on the export of single compendium entries, in a dedicated PRD. A sheet with attached collections can only be exported once that collection export exists.
+The scope is character sheets. A sheet is self-contained (every value it displays travels with it), which is what makes a file exchange meaningful. Collections are not: a `UserCollection` holds `itemIds` pointing into the compendium. Their export will carry the entries in full rather than references, so a receiving device resolves nothing; it builds on the export of single compendium entries, in a dedicated PRD. A sheet with attached collections can only be exported once that collection export exists, so the collection export ships before collections attach to a character.
 
 ## Goals
 
@@ -120,7 +120,7 @@ A received file and a bundled preset go through the same mapper and the same pol
 
 ## Out of Scope
 
-- Exporting collections — needs a decision on how a receiving device resolves compendium references it does not have; may be addressed in a future PRD.
+- Exporting collections: settled in the Overview (entries travel in full, in a dedicated PRD).
 - Full local backup and restore in a single file; may be addressed in a future PRD.
 - A printable or presentable sheet (PDF, image); may be addressed in a future PRD.
 - Online sharing, accounts and access control, covered by [PRD-003 — Campaigns](prd-003-campaigns.md).
