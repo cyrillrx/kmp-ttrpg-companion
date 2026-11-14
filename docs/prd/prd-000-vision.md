@@ -62,7 +62,7 @@ The application is designed to be rolled out in two phases of increasing connect
 - All data is stored locally on the device.
 - A pre-loaded seed database provides reference content (spells, items, monsters).
 - Users can create and manage their own content locally.
-- The reference content stays on the device: the backend does not serve it. The whole compendium fits on the device; reconsider before a public release if the content source changes (see the PRD-001 open question on the data source). The existing `/compendium` server routes are not used by the app and are not carried over.
+- The reference content stays on the device: the whole compendium fits there, so serving it would only add network calls. A compendium served by the backend, probably mixed with the local one, becomes worth it if the content needs regular updates, if users add and share their own content (privately or as UGC), or if a legal constraint limits what the app may bundle beyond the SRD.
 
 ### Phase 2: Online, Connected with Sync
 - Not tied to a point of the functional roadmap: an online feature lands once its local counterpart exists.
