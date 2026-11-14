@@ -3,7 +3,7 @@
 **Status**: Accepted  
 **Date**: 2026-04-26  
 **Context**: Phase 4 intermediate step: data quality & coherence, before backend consumption by clients.  
-**Update (2026-11-14)**: the compendium stays on the device ([PRD-000](../prd/prd-000-vision.md)). The data model below still applies. The backend API that serves the compendium is kept, unused by the app: its format is the starting point of the entry export format, and its Ktor port shares the Kotlin models ([ADR-008](adr-008-ktor-server.md)). The client-side API mentions below apply once a client consumes the compendium from the backend.
+**Update (2026-11-14)**: the compendium stays on the device ([PRD-000](../prd/prd-000-vision.md)). The data model below still applies. The backend API that serves the compendium is kept, unused by the app: its format is the starting point of the entry export format, and its Ktor port shares the Kotlin models ([ADR-008](adr-008-ktor-server.md)). The backend API mentions below apply once a client consumes the compendium from the backend; the detail-view rules apply locally.
 
 ## 1. Entity + Translations Pattern
 
@@ -82,7 +82,7 @@ All enum values in JSON source files and API responses use **lowercase English w
 - Enum names in code (Kotlin, Rust, Go) remain `UPPER_CASE` as per each language's convention; the serialization layer handles case mapping transparently.
 
 ### Serialization Convention Per Language
-_The Rust and Go lines go away with the Ktor port ([ADR-008](adr-008-ktor-server.md))._
+_The Rust and Go lines describe the servers that [ADR-008](adr-008-ktor-server.md) replaces; they are kept as written._
 - **Kotlin**: `@SerialName("conjuration")` on each enum entry, or a custom serializer
 - **Rust**: `#[serde(rename_all = "snake_case")]` on the enum
 - **Go**: lowercase string in JSON struct tags
