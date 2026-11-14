@@ -1,6 +1,6 @@
 # PRD-003 — Campaigns
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-13
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-14
 
 ## Overview
 
@@ -80,7 +80,7 @@ Campaign roles and their permissions:
 - By default, newly created notes and resources are **Secret**.
 
 **Item Assignment (Future)**
-- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory.
+- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory, through the collections attached to the character ([PRD-002](prd-002-character-sheet.md), PRD to write).
 - The Player receives a notification and the item appears in their character sheet's inventory.
 - The GM can optionally add a note when assigning the item (e.g. "Found in the chest in room 4").
 

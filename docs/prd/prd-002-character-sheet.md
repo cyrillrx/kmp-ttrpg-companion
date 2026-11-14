@@ -8,8 +8,7 @@ The Character Sheet module allows users to create, view, edit, and delete charac
 
 PCs and NPCs use the **same `Character` model**. An NPC is a `Character` with `Class.UNKNOWN` and an arbitrary level — no separate subtype. Campaign roles (GM controls NPC, player controls PC) are handled at the campaign layer, not in the character model (see [ADR-003](../adr/adr-003-character-model.md)).
 
-At this stage, character sheets live in the user's personal library and are independent of any campaign.
-Attaching sheets to a campaign is part of the local campaign MVP in [PRD-003: Campaigns](prd-003-campaigns.md); sharing with other players and access control come with the online features.
+At this stage, character sheets live in the user's personal library and are independent of any campaign. Attaching sheets to a campaign is part of the local campaign MVP in [PRD-003: Campaigns](prd-003-campaigns.md); sharing with other players and access control come with the online features.
 
 ## Goals
 
@@ -26,7 +25,7 @@ Attaching sheets to a campaign is part of the local campaign MVP in [PRD-003: Ca
 | User  | Delete a character sheet I own           | I can remove characters I no longer use                  |
 | User  | Roll a skill, a save or the initiative   | I get the total without adding the bonus myself          |
 
-**Phase 3 — Campaign integration (see PRD-003)**
+**Campaign integration (see PRD-003)**
 
 | As a… | I want to…                                         | So that…                             |
 |-------|----------------------------------------------------|--------------------------------------|
