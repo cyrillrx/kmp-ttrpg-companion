@@ -1,21 +1,28 @@
 package com.cyrillrx.rpg.character.presentation.component.section
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material3.LocalMinimumInteractiveComponentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.takeOrElse
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.skillModifier
@@ -28,9 +35,7 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toStringRes
 import com.cyrillrx.rpg.core.presentation.component.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.format.getFontWeight
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
-import com.cyrillrx.rpg.core.presentation.theme.borderWidth
-import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.core.presentation.theme.skillModifierMinWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Proficiency
@@ -39,7 +44,7 @@ import com.cyrillrx.rpg.creature.domain.Skills
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.app.shared.ui.generated.resources.Res
-import rpg_companion.app.shared.ui.generated.resources.label_skills
+import rpg_companion.app.shared.ui.generated.resources.btn_roll
 
 @Composable
 internal fun SkillsSection(
@@ -47,52 +52,35 @@ internal fun SkillsSection(
     onSkillTapped: (Skill) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Card(
-        border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        modifier = modifier.fillMaxWidth(),
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = spacingCommon, vertical = spacingMedium),
-            verticalArrangement = Arrangement.spacedBy(spacingSmall),
-        ) {
-            Text(
-                text = stringResource(Res.string.label_skills),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            val sortedSkills = Skill.entries.sortedByLocalizedName { it.toStringRes() }
-            val skillColumns = sortedSkills.chunked((sortedSkills.size + 1) / 2)
-            val leftColumn = skillColumns.getOrElse(0) { emptyList() }
-            val rightColumn = skillColumns.getOrElse(1) { emptyList() }
-            leftColumn.forEachIndexed { index, left ->
-                Row(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = modifier.fillMaxWidth()) {
+        val sortedSkills = Skill.entries.sortedByLocalizedName { it.toStringRes() }
+        val skillColumns = sortedSkills.chunked((sortedSkills.size + 1) / 2)
+        val leftColumn = skillColumns.getOrElse(0) { emptyList() }
+        val rightColumn = skillColumns.getOrElse(1) { emptyList() }
+        leftColumn.forEachIndexed { index, left ->
+            Row(modifier = Modifier.fillMaxWidth()) {
+                SkillEntry(
+                    skill = left,
+                    character = character,
+                    onRollClicked = { onSkillTapped(left) },
+                    modifier = Modifier.weight(1f),
+                )
+                val right = rightColumn.getOrNull(index)
+                if (right == null) {
+                    Spacer(modifier = Modifier.weight(1f))
+                } else {
                     SkillEntry(
-                        skill = left,
+                        skill = right,
                         character = character,
-                        onRollClicked = { onSkillTapped(left) },
+                        onRollClicked = { onSkillTapped(right) },
                         modifier = Modifier.weight(1f),
                     )
-                    val right = rightColumn.getOrNull(index)
-                    if (right == null) {
-                        Spacer(modifier = Modifier.weight(1f))
-                    } else {
-                        SkillEntry(
-                            skill = right,
-                            character = character,
-                            onRollClicked = { onSkillTapped(right) },
-                            modifier = Modifier.weight(1f),
-                        )
-                    }
                 }
             }
         }
     }
 }
 
-// TODO(#369): widen the touch target and show that a row rolls the skill.
 @Composable
 private fun SkillEntry(
     skill: Skill,
@@ -101,28 +89,50 @@ private fun SkillEntry(
     modifier: Modifier = Modifier,
 ) {
     val proficiency = character.skillProficiency(skill)
-    val skillModifier = character.skillModifier(skill)
     val color = proficiency.getColor()
+    val fontWeight = proficiency.getFontWeight()
+    val abbreviationColor = color.takeOrElse { MaterialTheme.colorScheme.onSurfaceVariant }
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingSmall),
         modifier = modifier
             .clip(MaterialTheme.shapes.small)
-            .clickable(onClick = onRollClicked)
-            .padding(vertical = spacingSmall),
+            .clickable(
+                role = Role.Button,
+                onClickLabel = stringResource(Res.string.btn_roll),
+                onClick = onRollClicked,
+            )
+            .heightIn(min = LocalMinimumInteractiveComponentSize.current)
+            .padding(horizontal = spacingMedium),
     ) {
         Text(
-            text = skillModifier.toSignedString(),
-            style = MaterialTheme.typography.bodySmall,
-            fontWeight = proficiency.getFontWeight(),
+            text = character.skillModifier(skill).toSignedString(),
+            style = MaterialTheme.typography.bodyMedium,
+            fontWeight = fontWeight,
             color = color,
+            modifier = Modifier.widthIn(min = skillModifierMinWidth),
         )
         Text(
-            text = "${skill.toFormattedString()} (${skill.relatedAbilityAbbreviation()})",
-            style = MaterialTheme.typography.bodySmall,
-            fontWeight = proficiency.getFontWeight(),
+            text = skillLabel(skill, abbreviationColor),
+            style = MaterialTheme.typography.bodyMedium,
+            fontWeight = fontWeight,
             color = color,
         )
+    }
+}
+
+@Composable
+private fun skillLabel(skill: Skill, abbreviationColor: Color): AnnotatedString {
+    val abbreviationStyle = SpanStyle(
+        fontSize = MaterialTheme.typography.labelSmall.fontSize,
+        color = abbreviationColor,
+    )
+    val name = skill.toFormattedString()
+    val abbreviation = skill.relatedAbilityAbbreviation()
+    return buildAnnotatedString {
+        append(name)
+        append(' ')
+        withStyle(abbreviationStyle) { append("($abbreviation)") }
     }
 }
 
