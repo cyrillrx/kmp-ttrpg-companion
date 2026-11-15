@@ -19,7 +19,8 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 |--------|---------------------------------------------------------------------|-----------------------------------------------------------------------|
 | GM     | Create a campaign with a name and description                       | I have a central place to organize my session content                 |
 | GM     | Edit and delete my campaigns                                        | I can keep my campaign list clean                                     |
-| GM     | Attach characters, NPCs, and monsters to a campaign                 | I can access all relevant entities quickly during play                |
+| GM     | Attach characters and NPCs to a campaign                            | I can access all relevant entities quickly during play                |
+| GM     | Attach monsters to a campaign _(after the MVP)_                     | I can access all relevant entities quickly during play                |
 | GM     | Share a link to invite other users as players to a campaign         | My players can access their characters and campaign info              |
 | GM     | Share a link to invite other users as co-GMs to a campaign          | I can share campaign management responsibilities                      |
 | GM     | Promote a player to co-GM                                           | I can elevate a trusted player to help manage the campaign            |
@@ -29,7 +30,7 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 | GM     | Mark a note or resource as Secret _(Future)_                        | Players cannot see it until I choose to reveal it                     |
 | GM     | Organize notes and resources into folders _(Future)_                | I can separate secret GM content from player-facing content           |
 | GM     | Reveal a secret note or resource to players _(Future)_              | I can progressively share information as the story unfolds            |
-| Player | See only the notes and resources the GM has made visible _(Future)_ | I only discover what my character would know               |
+| Player | See only the notes and resources the GM has made visible _(Future)_ | I only discover what my character would know                          |
 
 ## Functional Requirements
 
@@ -46,7 +47,7 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 
 ### After the MVP: attached creatures
 
-- [ ] Attach creatures from the compendium, the same way collections attach to a character (PRD to write). It waits for the collections attached to the character, so it stays out of the MVP.
+- [ ] Attach creatures from the compendium, the same way collections attach to a character (the same PRD to write as the collections attached to the character). It waits for the collections attached to the character, so it stays out of the MVP.
 
 ### Phase 2 — Session Notes
 
@@ -83,7 +84,7 @@ Campaign roles and their permissions:
 - By default, newly created notes and resources are **Secret**.
 
 **Item Assignment (Future)**
-- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory, through the collections attached to the character ([PRD-002](prd-002-character-sheet.md), PRD to write). A custom item depends on sharing custom entries with other players; until then, only compendium items can be assigned.
+- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory, through the collections attached to the character ([PRD-002](prd-002-character-sheet.md), PRD to write). A custom item depends on sharing custom entries with other players; until then, only compendium items can be assigned. Mundane equipment follows the open question of PRD-002, and currency is out of scope for assignment.
 - The Player receives a notification and the item appears in their character sheet's inventory.
 - The GM can optionally add a note when assigning the item (e.g. "Found in the chest in room 4").
 
