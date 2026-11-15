@@ -15,22 +15,22 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 
 ## User Stories
 
-| As a…  | I want to…                                                          | So that…                                                              |
-|--------|---------------------------------------------------------------------|-----------------------------------------------------------------------|
-| GM     | Create a campaign with a name and description                       | I have a central place to organize my session content                 |
-| GM     | Edit and delete my campaigns                                        | I can keep my campaign list clean                                     |
-| GM     | Attach characters and NPCs to a campaign                            | I can access all relevant entities quickly during play                |
-| GM     | Attach monsters to a campaign _(after the MVP)_                     | I can access all relevant entities quickly during play                |
-| GM     | Share a link to invite other users as players to a campaign         | My players can access their characters and campaign info              |
-| GM     | Share a link to invite other users as co-GMs to a campaign          | I can share campaign management responsibilities                      |
-| GM     | Promote a player to co-GM                                           | I can elevate a trusted player to help manage the campaign            |
-| Player | View a campaign I've been invited to                                | I can see campaign info and my character sheet                        |
-| GM     | Give an item to a player by adding it to their inventory _(Future)_ | I can reward loot without requiring manual entry on the player's side |
-| GM     | Attach notes to a campaign _(Phase 2)_                              | I can track what happened in previous sessions                        |
-| GM     | Mark a note or resource as Secret _(Future)_                        | Players cannot see it until I choose to reveal it                     |
-| GM     | Organize notes and resources into folders _(Future)_                | I can separate secret GM content from player-facing content           |
-| GM     | Reveal a secret note or resource to players _(Future)_              | I can progressively share information as the story unfolds            |
-| Player | See only the notes and resources the GM has made visible _(Future)_ | I only discover what my character would know                          |
+| As a…  | I want to…                                                             | So that…                                                              |
+|--------|------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| GM     | Create a campaign with a name and description                          | I have a central place to organize my session content                 |
+| GM     | Edit and delete my campaigns                                           | I can keep my campaign list clean                                     |
+| GM     | Attach characters and NPCs to a campaign                               | I can access all relevant entities quickly during play                |
+| GM     | Attach monsters to a campaign _(after the MVP)_                        | I can access all relevant entities quickly during play                |
+| GM     | Share a link to invite other users as players to a campaign _(Online)_ | My players can access their characters and campaign info              |
+| GM     | Share a link to invite other users as co-GMs to a campaign _(Online)_  | I can share campaign management responsibilities                      |
+| GM     | Promote a player to co-GM _(Online)_                                   | I can elevate a trusted player to help manage the campaign            |
+| Player | View a campaign I've been invited to _(Online)_                        | I can see campaign info and my character sheet                        |
+| GM     | Give an item to a player by adding it to their inventory _(Future)_    | I can reward loot without requiring manual entry on the player's side |
+| GM     | Attach notes to a campaign _(Phase 2)_                                 | I can track what happened in previous sessions                        |
+| GM     | Mark a note or resource as Secret _(Future)_                           | Players cannot see it until I choose to reveal it                     |
+| GM     | Organize notes and resources into folders _(Future)_                   | I can separate secret GM content from player-facing content           |
+| GM     | Reveal a secret note or resource to players _(Future)_                 | I can progressively share information as the story unfolds            |
+| Player | See only the notes and resources the GM has made visible _(Future)_    | I only discover what my character would know                          |
 
 ## Functional Requirements
 
@@ -84,7 +84,7 @@ Campaign roles and their permissions:
 - By default, newly created notes and resources are **Secret**.
 
 **Item Assignment (Future)**
-- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory, through the collections attached to the character ([PRD-002](prd-002-character-sheet.md), PRD to write). A custom item depends on sharing custom entries with other players; until then, only compendium items can be assigned. Mundane equipment follows the open question of PRD-002, and currency is out of scope for assignment.
+- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory, through the collections attached to the character ([PRD-002](prd-002-character-sheet.md), PRD to write). A custom item depends on sharing custom entries with other players; until then, only compendium items can be assigned. Mundane equipment follows the open question of PRD-002, and currency is out of scope for assignment. How an assigned entry travels to another player's device is for the collections PRD to write, under the same constraint as the list export of [PRD-001](prd-001-reference-data.md).
 - The Player receives a notification and the item appears in their character sheet's inventory.
 - The GM can optionally add a note when assigning the item (e.g. "Found in the chest in room 4").
 
