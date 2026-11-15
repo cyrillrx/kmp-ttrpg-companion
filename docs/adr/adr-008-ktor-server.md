@@ -64,6 +64,7 @@ It is the only API the server exposes. Porting it proves the Ktor setup and the 
   - the `server-rust` commit scope and CI job in `docs/conventions/git-and-collaboration.md`.
 - With a managed backend, the whole Bruno collection (`bruno/Compendium`, `bruno/Server/Health.bru`, `bruno/bruno.json`, `bruno/environments/`), `ci-bruno.yml`, `docs/conventions/bruno-conventions.md` with its `AGENTS.md` entry, the README `bruno/` row, API Tests row and Bruno section, the `bruno-api` commit scope and the `ci-bruno.yml` mention in `docs/conventions/git-and-collaboration.md` go with the Rust server, and the API rules of ADR-001 remain as history.
 - ADR-001 and ADR-002 are not rewritten: their Rust and Go mentions stay as written, and ADR-001 points to this ADR.
+- With self-hosting, the port comes before accounts and sync, so the first online feature waits for it.
 - Until the backend choice, the frozen Rust server stays in the repository with its CI and Dockerfile.
 - The shared types keep the server and the app of one build in step; they do not make a deployed server compatible with app versions already installed, which the API has to handle across releases.
 - Reversibility: deleted servers remain in the git history.
