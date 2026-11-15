@@ -1,6 +1,6 @@
 # PRD-000 — Vision & Foundation
 
-> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-11-14
+> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-11-15
 
 ## Overview
 
@@ -68,7 +68,7 @@ The application is designed to be rolled out in two phases of increasing connect
 - Not tied to a point of the functional roadmap: an online feature lands, where it has one, once its local counterpart exists.
 - User authentication (registration and login).
 - Data synchronization across devices.
-- Campaign sharing and access management (editor, reader, no access).
+- Campaign sharing and access management (GM, co-GM, player).
 - Role management within a shared campaign.
 
 ## Supported Game Systems
