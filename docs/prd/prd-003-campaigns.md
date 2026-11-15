@@ -19,8 +19,7 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 |--------|------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | GM     | Create a campaign with a name and description                          | I have a central place to organize my session content                 |
 | GM     | Edit and delete my campaigns                                           | I can keep my campaign list clean                                     |
-| GM     | Attach characters and NPCs to a campaign                               | I can access all relevant entities quickly during play                |
-| GM     | Attach monsters to a campaign _(after the MVP)_                        | I can access all relevant entities quickly during play                |
+| GM     | Attach characters, NPCs, and monsters to a campaign                    | I can access all relevant entities quickly during play                |
 | GM     | Share a link to invite other users as players to a campaign _(Online)_ | My players can access their characters and campaign info              |
 | GM     | Share a link to invite other users as co-GMs to a campaign _(Online)_  | I can share campaign management responsibilities                      |
 | GM     | Promote a player to co-GM _(Online)_                                   | I can elevate a trusted player to help manage the campaign            |
@@ -44,10 +43,7 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 **Attached Resources**
 - [ ] Attach/detach character sheets (PCs and NPCs) from the campaign roster.
 - [ ] View the list of attached characters directly from the campaign detail screen.
-
-### After the MVP: attached creatures
-
-- [ ] Attach creatures from the compendium, the same way collections attach to a character (the same PRD to write as the collections attached to the character). It waits for the collections attached to the character, so it stays out of the MVP.
+- [ ] Attach creatures from the compendium, the same way collections attach to a character (the same PRD to write as the collections attached to the character). Like the whole MVP, it waits for those collections.
 
 ### Phase 2 — Session Notes
 
