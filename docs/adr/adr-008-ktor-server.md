@@ -42,7 +42,7 @@ The app consumes no server today, so a port brings no user value on its own, and
 
 ### Why port the compendium API first, if self-hosted
 
-It is the only API the server exposes and the only one with a format other documents rely on. Porting it proves the Ktor setup and the shared module on a known surface, before any online feature depends on them.
+It is the only API the server exposes. Porting it proves the Ktor setup and the shared module on a known surface, before any online feature depends on them.
 
 ## Consequences
 
@@ -50,7 +50,7 @@ It is the only API the server exposes and the only one with a format other docum
   - `server-go/`, including its `railway.toml`;
   - `Dockerfile.go`;
   - `.github/workflows/ci-server-go.yml`;
-  - `docs/conventions/go-conventions.md`, its entries in `AGENTS.md` and the README, and the README repository row and run section of the Go server;
+  - `docs/conventions/go-conventions.md`, its entries in `AGENTS.md` and the README, and the README repository row, run section and Tech Stack mention of the Go server;
   - the `server-go/server-go` entry of `.gitignore`;
   - the `server-go` commit scope and CI job in `docs/conventions/git-and-collaboration.md`.
 - Extracting the shared exchange-format module, whenever it happens, adds it to the Gradle build, to the `ci-kmp.yml` path filters, and to the Kover and Sonar setup of the coverage policy in `AGENTS.md`. With self-hosting, the `server/` module joins it the same way.
@@ -59,12 +59,13 @@ It is the only API the server exposes and the only one with a format other docum
   - `bruno/Campaign/*.bru`, which targets a `/campaign` endpoint no server implements;
   - `Dockerfile.rust`;
   - `.github/workflows/ci-server-rust.yml`;
-  - `docs/conventions/rust-conventions.md`, its entries in `AGENTS.md` and the README, and the README repository row and run section of the Rust server;
+  - `docs/conventions/rust-conventions.md`, its entries in `AGENTS.md` and the README, the README repository row, run section and Tech Stack row of the Rust server, and the README `data/` row that names the servers as its consumers;
   - the `server-rust/target/` entries of `.gitignore` and `.dockerignore`;
   - the `server-rust` commit scope and CI job in `docs/conventions/git-and-collaboration.md`.
-- With a managed backend, the Bruno collection (`bruno/Compendium`, `bruno/Server/Health.bru`), `ci-bruno.yml`, `docs/conventions/bruno-conventions.md` with its `AGENTS.md` entry, the README `bruno/` row and Bruno section, the `bruno-api` commit scope and the `ci-bruno.yml` mention in `docs/conventions/git-and-collaboration.md` go with the Rust server, and the API rules of ADR-001 remain as history.
+- With a managed backend, the whole Bruno collection (`bruno/Compendium`, `bruno/Server/Health.bru`, `bruno/bruno.json`, `bruno/environments/`), `ci-bruno.yml`, `docs/conventions/bruno-conventions.md` with its `AGENTS.md` entry, the README `bruno/` row, API Tests row and Bruno section, the `bruno-api` commit scope and the `ci-bruno.yml` mention in `docs/conventions/git-and-collaboration.md` go with the Rust server, and the API rules of ADR-001 remain as history.
 - ADR-001 and ADR-002 are not rewritten: their Rust and Go mentions stay as written, and ADR-001 points to this ADR.
 - Until the backend choice, the frozen Rust server stays in the repository with its CI and Dockerfile.
+- The shared types keep the server and the app of one build in step; they do not make a deployed server compatible with app versions already installed, which the API has to handle across releases.
 - Reversibility: deleted servers remain in the git history.
 
 ## Alternatives considered
@@ -77,7 +78,7 @@ It is the only API the server exposes and the only one with a format other docum
 
 **Delete both servers now**. Rejected: until the backend choice, Rust is the only runnable reference of the compendium API, and it may be redeployed on the NAS to check it.
 
-**Delete the Rust server at the backend choice, even if self-hosted**. Rejected: the compendium will likely become mixed, local and served (PRD-000), and the compendium API is then the first useful piece of the server.
+**Delete the Rust server at the backend choice, even if self-hosted**. Rejected: if a served compendium becomes worth it (PRD-000), the compendium API is its first piece.
 
 **Spring Boot**. Rejected: heavy and centred on the JVM and Jackson, away from the kotlinx stack the app uses.
 
@@ -87,5 +88,5 @@ It is the only API the server exposes and the only one with a format other docum
 
 ## Open questions
 
-- Which format does the Ktor compendium API serve? The Rust and Go servers disagree (Go drops `savingThrows`, Rust folds them into the abilities), and the `Api*` types follow the bundled JSON. The bundled format changed most recently and is the likely starting point. To settle in the port pull request, if there is one.
-- Can the exchange-format module be extracted before the port, for instance by the entry export, and does it also take `ApiCharacter` and `ApiCharacterExport`? To settle in the pull request that extracts the module.
+- Which format does the Ktor compendium API serve? The Rust server folds `savingThrows` into the abilities (the Go server, deleted now, dropped them), and the `Api*` types follow the bundled JSON. The bundled format changed most recently and is the likely starting point. To settle in the port pull request, if there is one.
+- Does the exchange-format module also take `ApiCharacter` and `ApiCharacterExport`? To settle in the pull request that extracts the module.
