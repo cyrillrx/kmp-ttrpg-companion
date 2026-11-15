@@ -3,9 +3,12 @@ package com.cyrillrx.rpg.character.presentation.component.section
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
@@ -57,12 +60,12 @@ internal fun SkillsSection(
         val leftColumn = skillColumns.getOrElse(0) { emptyList() }
         val rightColumn = skillColumns.getOrElse(1) { emptyList() }
         leftColumn.forEachIndexed { index, left ->
-            Row(modifier = Modifier.fillMaxWidth()) {
+            Row(modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {
                 SkillEntry(
                     skill = left,
                     character = character,
                     onRollClicked = { onSkillTapped(left) },
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier.weight(1f).fillMaxHeight(),
                 )
                 val right = rightColumn.getOrNull(index)
                 if (right == null) {
@@ -72,7 +75,7 @@ internal fun SkillsSection(
                         skill = right,
                         character = character,
                         onRollClicked = { onSkillTapped(right) },
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.weight(1f).fillMaxHeight(),
                     )
                 }
             }
