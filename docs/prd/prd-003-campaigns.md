@@ -25,7 +25,7 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 | GM     | Share a link to invite other users as co-GMs to a campaign          | I can share campaign management responsibilities                      |
 | GM     | Promote a player to co-GM                                           | I can elevate a trusted player to help manage the campaign            |
 | Player | View a campaign I've been invited to                                | I can see campaign info and my character sheet                        |
-| GM     | Give an item to a player by adding it to their inventory            | I can reward loot without requiring manual entry on the player's side |
+| GM     | Give an item to a player by adding it to their inventory _(Future)_ | I can reward loot without requiring manual entry on the player's side |
 | GM     | Attach notes to a campaign _(Phase 2)_                              | I can track what happened in previous sessions                        |
 | GM     | Mark a note or resource as Secret _(Future)_                        | Players cannot see it until I choose to reveal it                     |
 | GM     | Organize notes and resources into folders _(Future)_                | I can separate secret GM content from player-facing content           |
