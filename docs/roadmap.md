@@ -58,7 +58,7 @@ For detailed feature specifications, see the [PRDs](prd/).
     - [ ] Inventory (items)
     - [ ] Spells
     - [ ] Wild shapes (creatures)
-  - [ ] Mundane equipment (weapons, armor, adventuring gear) - open question in [PRD-002](prd/prd-002-character-sheet.md)
+  - [ ] Mundane equipment (weapons, armor, adventuring gear) - open question in [PRD-002](prd/prd-002-character-sheet.md), settled in the PRD on collections attached to the character
 - [x] Persist `Character` with SQLDelight
 - [x] Import and export a character sheet - [PRD-007](prd/prd-007-character-import-export.md)
 - [x] Let the user order the character sheet list by name or by last modified (#256), remembered between launches ([ADR-005](adr/adr-005-list-order-preferences.md))
@@ -67,6 +67,8 @@ For detailed feature specifications, see the [PRDs](prd/).
 ## Phase 6 - Campaigns
 
 > Gather the characters of a campaign, PCs and NPCs, in one place. - [PRD-003](prd/prd-003-campaigns.md)
+
+*Requires: Character Sheets, collections attached to the character included, so this phase also waits for the collection export*
 
 - [ ] Create, list and edit campaigns
 - [ ] Attach characters (PCs and NPCs) to a campaign
@@ -119,7 +121,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Create custom compendium entries (spells, items, creatures) - [PRD-001](prd/prd-001-reference-data.md)
 - [ ] Export and import compendium entries (spells, items, creatures) with their full data - PRD to write, likely starting from the bundled `Api*` format ([ADR-008](adr/adr-008-ktor-server.md))
 - [ ] Import and export a collection, carrying its entries in full - same PRD, after the entry export; extends the [PRD-007](prd/prd-007-character-import-export.md) envelope
-- [ ] Attach creatures from the compendium to a campaign, the same way collections attach to a character - PRD to write, see [PRD-003](prd/prd-003-campaigns.md); after the campaign MVP (Phase 6) and the collections attached to the character
+- [ ] Attach creatures from the compendium to a campaign, the same way collections attach to a character - same PRD to write as the collections attached to the character, see [PRD-003](prd/prd-003-campaigns.md); after the campaign MVP (Phase 6) and the collections attached to the character
 - [ ] Back up and restore the full app state (all user data and preferences) - PRD to write, after the collection export
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md)
