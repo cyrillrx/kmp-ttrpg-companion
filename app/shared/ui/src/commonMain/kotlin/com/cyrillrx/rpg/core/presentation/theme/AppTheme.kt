@@ -1,10 +1,10 @@
 package com.cyrillrx.rpg.core.presentation.theme
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -46,11 +46,9 @@ fun AppThemePreview(
         theme = if (darkTheme) Theme.DARK else Theme.LIGHT,
         palette = palette,
         content = {
-            Box(
-                modifier = Modifier
-                    .background(MaterialTheme.colorScheme.background)
-                    .padding(spacingMedium),
-            ) { content() }
+            Surface(color = MaterialTheme.colorScheme.background) {
+                Box(modifier = Modifier.padding(spacingMedium)) { content() }
+            }
         },
     )
 }
