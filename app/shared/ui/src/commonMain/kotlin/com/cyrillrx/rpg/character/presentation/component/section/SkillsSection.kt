@@ -18,12 +18,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
@@ -93,7 +92,6 @@ private fun SkillEntry(
     val proficiency = character.skillProficiency(skill)
     val color = proficiency.getColor()
     val fontWeight = proficiency.getFontWeight()
-    val abbreviationColor = color.takeOrElse { MaterialTheme.colorScheme.onSurfaceVariant }
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingSmall),
@@ -115,7 +113,7 @@ private fun SkillEntry(
             modifier = Modifier.widthIn(min = skillModifierMinWidth),
         )
         Text(
-            text = skillLabel(skill, abbreviationColor),
+            text = skillLabel(skill),
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = fontWeight,
             color = color,
@@ -124,13 +122,14 @@ private fun SkillEntry(
 }
 
 @Composable
-private fun skillLabel(skill: Skill, abbreviationColor: Color): AnnotatedString {
-    val abbreviationStyle = SpanStyle(
-        fontSize = MaterialTheme.typography.labelSmall.fontSize,
-        color = abbreviationColor,
-    )
+private fun skillLabel(skill: Skill): AnnotatedString {
     val name = skill.toFormattedString()
     val abbreviation = skill.relatedAbilityAbbreviation()
+    val abbreviationStyle = SpanStyle(
+        fontSize = MaterialTheme.typography.labelSmall.fontSize,
+        fontWeight = FontWeight.Normal,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
     return buildAnnotatedString {
         append(name)
         append(' ')
