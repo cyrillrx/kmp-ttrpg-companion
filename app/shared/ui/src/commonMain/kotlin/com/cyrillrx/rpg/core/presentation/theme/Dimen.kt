@@ -30,7 +30,7 @@ val historyRollTileMinSize = 28.dp
 val dieLabelWidth = 48.dp
 val removeDieButtonSize = 28.dp
 val modifierValueMinWidth = 48.dp
-val skillModifierMinWidth = 28.dp
+val skillModifierMinWidth = 20.dp
 val controlPanelMaxHeightFraction = 0.6f
 
 // Height shared by section headers (with or without a trailing action) so they align across panes
