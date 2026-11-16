@@ -1,6 +1,6 @@
 # PRD-003 — Campaigns
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-16
 
 ## Overview
 
@@ -61,15 +61,15 @@ This phase is online: like every online feature, it lands once its local counter
 
 Campaign roles and their permissions:
 
-| Role           | How assigned                                                 | Access                                                                        |
-|----------------|--------------------------------------------------------------|-------------------------------------------------------------------------------|
-| **GM** (owner) | Creates the campaign                                         | Full access: edit campaign, notes, roster, secret folders, manage all members |
-| **Co-GM**      | Invited directly as co-GM, or promoted from Player by the GM | Same access as GM, except cannot delete the campaign or remove the owner      |
-| **Player**     | Invited by the GM or a co-GM                                 | Read-only access to visible content; can create and edit own PC sheet(s)      |
+| Role           | How assigned                                                            | Access                                                                        |
+|----------------|-------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| **GM** (owner) | Creates the campaign                                                    | Full access: edit campaign, notes, roster, secret folders, manage all members |
+| **Co-GM**      | Invited directly as co-GM, or promoted from Player by the GM or a co-GM | Same access as GM, except cannot delete the campaign or remove the owner      |
+| **Player**     | Invited by the GM or a co-GM                                            | Read-only access to visible content; can create and edit own PC sheet(s)      |
 
 - Any user can create a campaign; the creator is automatically the **GM** (owner).
 - The GM and co-GMs can invite users as Players or co-GMs via username or email.
-- The GM can promote any Player to co-GM, or demote a co-GM back to Player.
+- The GM and co-GMs can promote any Player to co-GM, or demote a co-GM back to Player.
 - The GM can revoke any member's access at any time.
 - Sync all campaign data (notes, roles) across devices in real time.
 
