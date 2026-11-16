@@ -25,17 +25,17 @@ Roles are **not fixed account types** — they are **per-campaign roles** determ
 | Role        | Abbreviation | How it is assigned                                                                             |
 |-------------|--------------|------------------------------------------------------------------------------------------------|
 | Game Master | GM           | Automatically assigned to the user who **creates** the campaign.                               |
-| Co-GM       | Co-GM        | Assigned when a user is **invited as a co-GM** or **promoted** by a GM.                        |
+| Co-GM       | Co-GM        | Assigned when a user is **invited as a co-GM** or **promoted** by the GM or a co-GM.           |
 | Player      | P            | Assigned when a user **joins a campaign by invitation**.                                       |
 | User        | U            | Any user, regardless of their role in any campaign. Applies to features available to everyone. |
 
 ### Campaign Role Assignment
 
-| Situation                                       | Role in that campaign                                                     |
-|-------------------------------------------------|---------------------------------------------------------------------------|
-| User creates a campaign                         | GM / owner (full access)                                                  |
-| User is invited as co-GM, or promoted by the GM | Co-GM (same as GM, except cannot delete the campaign or remove the owner) |
-| User is invited as a player                     | Player (read-only, except own PC sheets)                                  |
+| Situation                                                  | Role in that campaign                                                     |
+|------------------------------------------------------------|---------------------------------------------------------------------------|
+| User creates a campaign                                    | GM / owner (full access)                                                  |
+| User is invited as co-GM, or promoted by the GM or a co-GM | Co-GM (same as GM, except cannot delete the campaign or remove the owner) |
+| User is invited as a player                                | Player (read-only, except own PC sheets)                                  |
 
 ### Access Matrix
 
