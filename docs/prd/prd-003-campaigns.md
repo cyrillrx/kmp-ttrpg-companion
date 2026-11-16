@@ -35,6 +35,8 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 
 ### Phase 1 — MVP (Offline)
 
+Character sheets come first, including their attached collections; the campaign MVP starts once they are complete.
+
 **Campaign CRUD**
 - [ ] Create a campaign with: name, description, game system (e.g. D&D 5e).
 - [ ] Edit and delete a campaign.
@@ -70,7 +72,7 @@ Campaign roles and their permissions:
 - Any user can create a campaign; the creator is automatically the **GM** (owner).
 - The GM and co-GMs can invite users as Players or co-GMs via username or email.
 - The GM and co-GMs can promote any Player to co-GM, or demote a co-GM back to Player.
-- The GM can revoke any member's access at any time.
+- The GM and co-GMs can revoke any member's access at any time, except the owner's.
 - Sync all campaign data (notes, roles) across devices in real time.
 
 **Secret Folders (Future)**
