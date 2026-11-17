@@ -1,6 +1,6 @@
 # PRD-003 — Campaigns
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-16
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-17
 
 ## Overview
 
@@ -61,6 +61,8 @@ This phase is online: like every online feature, it lands once its local counter
 
 **Sharing & Access Control**
 
+Every GM right below also applies to co-GMs unless stated otherwise.
+
 Campaign roles and their permissions:
 
 | Role           | How assigned                                                            | Access                                                                        |
@@ -70,7 +72,7 @@ Campaign roles and their permissions:
 | **Player**     | Invited by the GM or a co-GM                                            | Read-only access to visible content; can create and edit own PC sheet(s)      |
 
 - Any user can create a campaign; the creator is automatically the **GM** (owner).
-- The GM and co-GMs can invite users as Players or co-GMs via username or email.
+- The GM and co-GMs can invite users as Players or co-GMs by sharing a link.
 - The GM and co-GMs can promote any Player to co-GM, or demote a co-GM back to Player.
 - The GM and co-GMs can revoke any member's access at any time, except the owner's.
 - Sync all campaign data (notes, roles) across devices in real time.
@@ -82,7 +84,7 @@ Campaign roles and their permissions:
 - By default, newly created notes and resources are **Secret**.
 
 **Item Assignment (Future)**
-- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory, through the collections attached to the character ([PRD-002](prd-002-character-sheet.md), PRD to write). A custom item depends on sharing custom entries with other players; until then, only compendium items can be assigned. Mundane equipment follows the open question of PRD-002, and currency is out of scope for assignment. How an assigned entry travels to another player's device is for the collections PRD to write, under the same constraint as the list export of [PRD-001](prd-001-reference-data.md).
+- The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory, through the collections attached to the character ([PRD-002](prd-002-character-sheet.md), PRD to write). A custom item depends on sharing custom entries with other players; until then, only compendium items can be assigned. Mundane equipment follows the open question of PRD-002, and currency is out of scope for assignment.
 - The Player receives a notification and the item appears in their character sheet's inventory.
 - The GM can optionally add a note when assigning the item (e.g. "Found in the chest in room 4").
 
