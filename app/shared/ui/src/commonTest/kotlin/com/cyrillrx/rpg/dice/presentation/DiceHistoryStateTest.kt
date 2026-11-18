@@ -69,7 +69,7 @@ class DiceHistoryStateTest {
         id,
         RollPool(listOf(SimpleRoll(Die.D6, value = 1))),
         LocalTime(hour = 9, minute = 0),
-        check = null,
+        context = null,
     )
 
     private fun DiceHistoryState.days() = (body as DiceHistoryState.Body.WithData).days

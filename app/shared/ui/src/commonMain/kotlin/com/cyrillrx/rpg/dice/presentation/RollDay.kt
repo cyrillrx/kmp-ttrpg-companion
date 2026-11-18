@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.dice.presentation
 
-import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.dice.domain.RecordedRoll
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollPool
 import kotlinx.datetime.DateTimeUnit
 import kotlinx.datetime.LocalDate
@@ -12,14 +12,14 @@ import kotlinx.datetime.toLocalDateTime
 
 data class RollDay(val date: LocalDate, val rolls: List<DayRoll>)
 
-data class DayRoll(val id: Long, val pool: RollPool, val time: LocalTime, val check: D20Check?)
+data class DayRoll(val id: Long, val pool: RollPool, val time: LocalTime, val context: RollContext?)
 
 enum class RelativeDay { TODAY, YESTERDAY, EARLIER }
 
 /** Keeps the order of the rolls, so a newest-first history yields its days newest first. */
 fun List<RecordedRoll>.groupByDay(timeZone: TimeZone): List<RollDay> = map { recorded ->
     val rolledAt = recorded.rolledAt.toLocalDateTime(timeZone)
-    rolledAt.date to DayRoll(recorded.id, recorded.pool, rolledAt.time, recorded.context?.check)
+    rolledAt.date to DayRoll(recorded.id, recorded.pool, rolledAt.time, recorded.context)
 }.groupBy(keySelector = Pair<LocalDate, DayRoll>::first, valueTransform = Pair<LocalDate, DayRoll>::second)
     .map { (date, rolls) -> RollDay(date, rolls) }
 

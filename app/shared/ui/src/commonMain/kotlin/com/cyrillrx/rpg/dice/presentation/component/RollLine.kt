@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.core.presentation.component.dnd.toCheckLabel
+import com.cyrillrx.rpg.core.presentation.format.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -22,6 +23,7 @@ import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
 import com.cyrillrx.rpg.dice.domain.KeepRule
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.presentation.toPlainNotation
@@ -31,7 +33,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 internal fun RollLine(
     pool: RollPool,
-    check: D20Check?,
+    context: RollContext?,
     notationStyle: TextStyle,
     totalStyle: TextStyle,
     totalColor: Color,
@@ -48,7 +50,7 @@ internal fun RollLine(
             modifier = Modifier.weight(1f),
         ) {
             Text(
-                text = check?.toCheckLabel(pool.modifier) ?: pool.toPlainNotation().orEmpty(),
+                text = context?.toLabel(pool.modifier) ?: pool.toPlainNotation().orEmpty(),
                 style = notationStyle,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -58,6 +60,12 @@ internal fun RollLine(
         Text(text = pool.total().toString(), style = totalStyle, color = totalColor)
     }
 }
+
+// e.g. "Perception (+5) · Thordak"
+@Composable
+private fun RollContext.toLabel(checkModifier: Int): String = listOf(check.toCheckLabel(checkModifier), characterName)
+    .filter(String::isNotBlank)
+    .joinToString(SUBTITLE_SEPARATOR)
 
 @Composable
 private fun RollLinePreview() {
@@ -77,12 +85,14 @@ private fun RollLinePreview() {
         listOf(
             simple to null,
             disadvantage to null,
-            disadvantage to D20Check.SkillCheck(Skill.PERCEPTION),
-            disadvantage to D20Check.SavingThrow(Ability.DEXTERITY),
-        ).forEach { (pool, check) ->
+            disadvantage to RollContext("thordak", "Thordak", D20Check.SkillCheck(Skill.PERCEPTION)),
+            disadvantage to
+                RollContext("aria", "Aria Silvermoon of the Northern Reach", D20Check.SavingThrow(Ability.DEXTERITY)),
+            disadvantage to RollContext("legacy", "", D20Check.Initiative),
+        ).forEach { (pool, context) ->
             RollLine(
                 pool,
-                check,
+                context,
                 notationStyle = MaterialTheme.typography.bodyMedium,
                 totalStyle = MaterialTheme.typography.titleLarge,
                 totalColor = MaterialTheme.colorScheme.primary,

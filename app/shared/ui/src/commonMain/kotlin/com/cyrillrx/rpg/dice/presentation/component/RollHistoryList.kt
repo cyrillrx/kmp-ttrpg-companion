@@ -30,6 +30,7 @@ import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
 import com.cyrillrx.rpg.dice.domain.KeepRule
+import com.cyrillrx.rpg.dice.domain.RollContext
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
 import com.cyrillrx.rpg.dice.presentation.DayRoll
@@ -101,7 +102,7 @@ private fun HistoryEntry(roll: DayRoll) {
     ) {
         RollLine(
             roll.pool,
-            roll.check,
+            roll.context,
             notationStyle = MaterialTheme.typography.bodyMedium,
             totalStyle = MaterialTheme.typography.titleLarge,
             totalColor = MaterialTheme.colorScheme.primary,
@@ -195,7 +196,7 @@ internal val previewHistory = DiceHistoryState.Body.WithData(
                         modifier = 2,
                     ),
                     time = LocalTime(hour = 21, minute = 4),
-                    check = null,
+                    context = null,
                 ),
                 DayRoll(
                     id = 2,
@@ -210,7 +211,7 @@ internal val previewHistory = DiceHistoryState.Body.WithData(
                         modifier = 2,
                     ),
                     time = LocalTime(hour = 21, minute = 3),
-                    check = D20Check.SavingThrow(Ability.CONSTITUTION),
+                    context = RollContext("thordak", "Thordak", D20Check.SavingThrow(Ability.CONSTITUTION)),
                 ),
             ),
         ),
@@ -221,7 +222,7 @@ internal val previewHistory = DiceHistoryState.Body.WithData(
                     id = 1,
                     pool = RollPool(listOf(SimpleRoll(Die.D100, value = 42))),
                     time = LocalTime(hour = 22, minute = 15),
-                    check = null,
+                    context = null,
                 ),
             ),
         ),
