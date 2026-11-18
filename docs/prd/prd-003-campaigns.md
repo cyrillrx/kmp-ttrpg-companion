@@ -1,6 +1,6 @@
 # PRD-003 — Campaigns
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-17
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-18
 
 ## Overview
 
@@ -61,7 +61,7 @@ This phase is online: like every online feature, it lands once its local counter
 
 **Sharing & Access Control**
 
-Every GM right below also applies to co-GMs unless stated otherwise.
+Every GM right below also applies to co-GMs unless stated otherwise. Two costs follow from these rules: a forwarded link admits whoever holds it, with that link's role, until access is revoked; and a co-GM can demote or revoke another co-GM, including one the owner promoted.
 
 Campaign roles and their permissions:
 
@@ -72,7 +72,7 @@ Campaign roles and their permissions:
 | **Player**     | Invited by the GM or a co-GM                                            | Read-only access to visible content; can create and edit own PC sheet(s)      |
 
 - Any user can create a campaign; the creator is automatically the **GM** (owner).
-- The GM and co-GMs can invite users as Players or co-GMs by sharing a link.
+- The GM and co-GMs can invite users as Players or co-GMs by sharing a link or its QR code.
 - The GM and co-GMs can promote any Player to co-GM, or demote a co-GM back to Player.
 - The GM and co-GMs can revoke any member's access at any time, except the owner's.
 - Sync all campaign data (notes, roles) across devices in real time.
@@ -89,8 +89,7 @@ Campaign roles and their permissions:
 - The GM can optionally add a note when assigning the item (e.g. "Found in the chest in room 4").
 
 **Notifications (future consideration)**
-- Notify invited players when they are added to a campaign.
-- Notify the GM when a player accepts or declines an invitation.
+- Notify the GM when someone joins the campaign through a link.
 
 ## Non-Functional Requirements
 
@@ -103,6 +102,7 @@ Campaign roles and their permissions:
 - Real-time collaborative editing of notes (e.g. Google Docs-style concurrent editing).
 - In-app map or encounter board tools.
 - Campaign templates or pre-built adventure modules.
+- Inviting by username or email: a link or a QR code is much simpler and avoids depending on contacts, on sending emails and on searching the user base.
 
 ## Open Questions
 
