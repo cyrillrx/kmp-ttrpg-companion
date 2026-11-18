@@ -26,7 +26,7 @@ class RamRollHistoryRepositoryTest {
     @Test
     fun `a roll keeps the context it was recorded for`() = runTest {
         val repository = RamRollHistoryRepository()
-        val context = RollContext(characterId = "hero", check = D20Check.Initiative)
+        val context = RollContext(characterId = "hero", characterName = "Thordak", check = D20Check.Initiative)
 
         repository.record(d4Pool(value = 1), context)
 

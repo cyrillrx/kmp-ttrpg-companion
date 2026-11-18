@@ -179,6 +179,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             roll = pool.toRecord(),
             characterId = context?.characterId,
             checkKey = context?.check?.toCheckKey(),
+            characterName = context?.characterName,
         )
         val id = dbQuery.lastInsertedDiceRollId().executeAsOne()
         dbQuery.pruneDiceRolls(kept = MAX_RECORDED_ROLLS.toLong())
@@ -198,7 +199,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             id = id,
             pool = roll.toRollPool(),
             rolledAt = Instant.fromEpochMilliseconds(rolledAt),
-            context = storedRollContext(characterId, checkKey),
+            context = storedRollContext(characterId, characterName, checkKey),
         )
     } catch (e: IllegalArgumentException) {
         println("WARNING: stored dice roll $id dropped: $e")
