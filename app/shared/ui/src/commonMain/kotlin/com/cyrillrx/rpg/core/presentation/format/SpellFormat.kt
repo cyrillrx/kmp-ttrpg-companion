@@ -11,27 +11,20 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.outlined.Dangerous
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.cyrillrx.rpg.core.presentation.theme.SchoolAbjuration
-import com.cyrillrx.rpg.core.presentation.theme.SchoolConjuration
-import com.cyrillrx.rpg.core.presentation.theme.SchoolDivination
-import com.cyrillrx.rpg.core.presentation.theme.SchoolEnchantment
-import com.cyrillrx.rpg.core.presentation.theme.SchoolEvocation
-import com.cyrillrx.rpg.core.presentation.theme.SchoolIllusion
-import com.cyrillrx.rpg.core.presentation.theme.SchoolNecromancy
-import com.cyrillrx.rpg.core.presentation.theme.SchoolTransmutation
+import com.cyrillrx.rpg.core.presentation.theme.SpellSchoolColors
 import com.cyrillrx.rpg.spell.domain.Spell
 
 fun Spell.getColor(): Color = school.getColor()
 
 fun Spell.School.getColor(): Color = when (this) {
-    Spell.School.ABJURATION -> SchoolAbjuration
-    Spell.School.CONJURATION -> SchoolConjuration
-    Spell.School.DIVINATION -> SchoolDivination
-    Spell.School.ENCHANTMENT -> SchoolEnchantment
-    Spell.School.EVOCATION -> SchoolEvocation
-    Spell.School.ILLUSION -> SchoolIllusion
-    Spell.School.NECROMANCY -> SchoolNecromancy
-    Spell.School.TRANSMUTATION -> SchoolTransmutation
+    Spell.School.ABJURATION -> SpellSchoolColors.abjuration
+    Spell.School.CONJURATION -> SpellSchoolColors.conjuration
+    Spell.School.DIVINATION -> SpellSchoolColors.divination
+    Spell.School.ENCHANTMENT -> SpellSchoolColors.enchantment
+    Spell.School.EVOCATION -> SpellSchoolColors.evocation
+    Spell.School.ILLUSION -> SpellSchoolColors.illusion
+    Spell.School.NECROMANCY -> SpellSchoolColors.necromancy
+    Spell.School.TRANSMUTATION -> SpellSchoolColors.transmutation
 }
 
 fun Spell.getFormattedComponents(): String = components.toFormattedString()

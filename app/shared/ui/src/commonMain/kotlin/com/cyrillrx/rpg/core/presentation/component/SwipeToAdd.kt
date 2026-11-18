@@ -21,7 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import com.cyrillrx.rpg.core.presentation.theme.Green500
+import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 
 @Composable
@@ -69,7 +69,7 @@ private fun SwipeAddBackground() {
         modifier = Modifier
             .fillMaxSize()
             .clip(MaterialTheme.shapes.medium)
-            .background(Green500)
+            .background(AddBackground)
             .padding(start = spacingMedium),
         contentAlignment = Alignment.CenterStart,
     ) {
@@ -80,3 +80,5 @@ private fun SwipeAddBackground() {
         )
     }
 }
+
+private val AddBackground = Color(0xFF4CAF50)
