@@ -61,7 +61,7 @@ This phase is online: like every online feature, it lands once its local counter
 
 **Sharing & Access Control**
 
-Every GM right below also applies to co-GMs unless stated otherwise. Two costs follow from these rules: a forwarded link admits whoever holds it, with that link's role, until access is revoked; and a co-GM can demote or revoke another co-GM, including one the owner promoted.
+Every GM right below also applies to co-GMs unless stated otherwise. Two costs follow from these rules: a forwarded link admits whoever holds it, with that link's role, until the link expires or is revoked; and a co-GM can demote or revoke another co-GM, including one the owner promoted.
 
 Campaign roles and their permissions:
 
@@ -72,7 +72,7 @@ Campaign roles and their permissions:
 | **Player**     | Invited by the GM or a co-GM                                            | Read-only access to visible content; can create and edit own PC sheet(s)      |
 
 - Any user can create a campaign; the creator is automatically the **GM** (owner).
-- The GM and co-GMs can invite users as Players or co-GMs by sharing a link or its QR code.
+- The GM and co-GMs can invite users as Players or co-GMs by sharing a link or its QR code. One link serves the whole group for its role: it stays valid until it expires, and can be revoked before that.
 - The GM and co-GMs can promote any Player to co-GM, or demote a co-GM back to Player.
 - The GM and co-GMs can revoke any member's access at any time, except the owner's.
 - Sync all campaign data (notes, roles) across devices in real time.
