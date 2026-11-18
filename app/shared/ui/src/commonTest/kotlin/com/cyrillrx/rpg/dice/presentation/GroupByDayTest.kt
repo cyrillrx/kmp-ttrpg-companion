@@ -38,21 +38,21 @@ class GroupByDayTest {
     }
 
     @Test
-    fun `a roll keeps the check it was made for`() {
-        val check = D20Check.SkillCheck(Skill.PERCEPTION)
-        val roll = recorded(id = 1, rolledAt = "2026-11-02T08:30:00Z")
-            .copy(context = RollContext(characterId = "aria", check = check))
+    fun `a roll keeps the character and the check it was made for`() {
+        val context =
+            RollContext(characterId = "aria", characterName = "Aria", check = D20Check.SkillCheck(Skill.PERCEPTION))
+        val roll = recorded(id = 1, rolledAt = "2026-11-02T08:30:00Z").copy(context = context)
 
         val days = listOf(roll).groupByDay(paris)
 
-        assertEquals(check, days.single().rolls.single().check)
+        assertEquals(context, days.single().rolls.single().context)
     }
 
     @Test
-    fun `a roll made in the roller has no check`() {
+    fun `a roll made in the roller has no context`() {
         val days = listOf(recorded(id = 1, rolledAt = "2026-11-02T08:30:00Z")).groupByDay(paris)
 
-        assertNull(days.single().rolls.single().check)
+        assertNull(days.single().rolls.single().context)
     }
 
     private fun recorded(id: Long, rolledAt: String) =

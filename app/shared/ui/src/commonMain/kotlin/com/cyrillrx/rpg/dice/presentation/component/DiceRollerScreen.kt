@@ -279,7 +279,7 @@ private fun HistoryShortcuts(state: DiceRollerState, onHistoryClicked: () -> Uni
         state.previousRolls().forEach { recorded ->
             RollLine(
                 recorded.pool,
-                recorded.context?.check,
+                recorded.context,
                 notationStyle = MaterialTheme.typography.bodySmall,
                 totalStyle = MaterialTheme.typography.bodySmall,
                 totalColor = MaterialTheme.colorScheme.onSurfaceVariant,
