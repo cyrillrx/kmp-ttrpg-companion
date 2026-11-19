@@ -11,6 +11,16 @@ private val SUBTITLE_COLOR = Color(0xFF445566)
 class SubtitleFormatTest {
 
     @Test
+    fun `joinSubtitleParts separates the parts`() {
+        assertEquals(expected = "Perception (+5) · Thordak", actual = joinSubtitleParts("Perception (+5)", "Thordak"))
+    }
+
+    @Test
+    fun `joinSubtitleParts drops blank parts`() {
+        assertEquals(expected = "Initiative (+2)", actual = joinSubtitleParts("Initiative (+2)", ""))
+    }
+
+    @Test
     fun `joinNonNull returns null when no segments`() {
         assertNull(joinNonNull())
     }
