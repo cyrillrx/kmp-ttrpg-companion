@@ -54,7 +54,7 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [x] Skills
   - [ ] Combat actions
   - [ ] Currency and carrying capacity
-  - [ ] Collections attached to the character - PRD to write, after the collection export (Standalone Features); ships with their export in the sheet ([PRD-007](prd/prd-007-character-import-export.md))
+  - [ ] Collections attached to the character - PRD to write, which also covers the creatures attached to a campaign (Phase 6), after the collection export (Standalone Features); ships with their export in the sheet ([PRD-007](prd/prd-007-character-import-export.md))
     - [ ] Inventory (items)
     - [ ] Spells
     - [ ] Wild shapes (creatures)
