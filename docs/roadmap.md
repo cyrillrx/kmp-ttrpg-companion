@@ -102,7 +102,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 > Features that need the online backend. Once it is chosen (first item), each feature lands, where it has one, once its local counterpart exists - [PRD-000](prd/prd-000-vision.md)
 
-- [ ] Choose the online backend: a self-hosted Ktor server with its own database, or a managed one - ADR to write, see [ADR-008](adr/adr-008-ktor-server.md)
+- [ ] Choose the online backend: a self-hosted Ktor server with its own database, or a managed one, weighing what it can share with family-planner (accounts, groups, invitations) - ADR to write, see [ADR-008](adr/adr-008-ktor-server.md)
 - [ ] User accounts (registration and login) - [PRD-000](prd/prd-000-vision.md)
 - [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
 - [ ] Sync collections and custom entries with backend
