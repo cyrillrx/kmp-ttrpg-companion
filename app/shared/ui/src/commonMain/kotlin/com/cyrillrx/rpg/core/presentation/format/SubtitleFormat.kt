@@ -8,6 +8,8 @@ import androidx.compose.ui.text.withStyle
 
 const val SUBTITLE_SEPARATOR = " · "
 
+fun joinSubtitleParts(vararg parts: String): String = parts.filter(String::isNotBlank).joinToString(SUBTITLE_SEPARATOR)
+
 fun joinNonNull(vararg segments: String?): String? {
     val validSegments = segments.filterNotNull()
     if (validSegments.isEmpty()) return null
