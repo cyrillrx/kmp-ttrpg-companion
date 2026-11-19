@@ -66,7 +66,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 ## Phase 6 - Campaigns
 
-> Gather the characters of a campaign, PCs and NPCs, in one place. - [PRD-003](prd/prd-003-campaigns.md)
+> Gather the characters (PCs and NPCs) and creatures of a campaign in one place. - [PRD-003](prd/prd-003-campaigns.md)
 
 *Requires: Character Sheets, collections attached to the character included, so this phase also waits for the collection export*
 
@@ -77,6 +77,8 @@ For detailed feature specifications, see the [PRDs](prd/).
 ## Phase 7 - Notes
 
 > Create and manage system-agnostic notes, then connect them to campaigns and other entities. - [PRD-004](prd/prd-004-notes.md)
+
+*Requires: Campaigns*
 
 - [ ] Create, list and edit notes
 - [ ] Create lists of notes
