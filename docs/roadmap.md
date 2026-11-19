@@ -100,7 +100,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 ## Online & Sharing
 
-> Features that need the online backend. Once it is chosen (first item), each feature lands, where it has one, once its local counterpart exists - [PRD-000](prd/prd-000-vision.md)
+> Features that need the online backend. Once it is chosen (first item), each feature lands, where it has one, once its local counterpart exists. - [PRD-000](prd/prd-000-vision.md)
 
 - [ ] Choose the online backend: a self-hosted Ktor server with its own database, or a managed one, weighing what it can share with family-planner (accounts, groups, invitations) - ADR to write, see [ADR-008](adr/adr-008-ktor-server.md)
 - [ ] User accounts (registration and login) - [PRD-000](prd/prd-000-vision.md)
@@ -113,7 +113,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Share campaigns with other users - [PRD-003](prd/prd-003-campaigns.md)
 - [ ] Share character sheets with campaign members - [PRD-002](prd/prd-002-character-sheet.md)
 - [ ] GM assigns items to a player's inventory - [PRD-003](prd/prd-003-campaigns.md)
-- [ ] Note visibility / Secret folders (GM vs. players) - [PRD-003](prd/prd-003-campaigns.md)
+- [ ] Visibility of notes and resources / Secret folders (GM vs. players) - [PRD-003](prd/prd-003-campaigns.md)
 - [ ] Share custom compendium entries within a group of players - PRD to write; reopens the served compendium question ([PRD-000](prd/prd-000-vision.md))
 
 ## Standalone Features
