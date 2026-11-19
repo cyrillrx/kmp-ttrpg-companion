@@ -61,7 +61,7 @@ This phase is online: like every online feature, it lands once its local counter
 
 **Sharing & Access Control**
 
-Every GM right below also applies to co-GMs unless stated otherwise. Two costs follow from these rules: a forwarded invitation admits whoever uses it first, with its role, instead of the person it was meant for; that person notices when it no longer works, but nobody is told when someone joins yet, so the GM spots an intruder only by checking the member list; and a co-GM can demote or revoke another co-GM, including one the owner promoted.
+Every GM right below also applies to co-GMs unless stated otherwise. Two costs follow from these rules: a forwarded invitation admits whoever uses it first, with its role, instead of the person it was meant for; that person notices when it no longer works, but nobody is told when someone joins yet, so the GM spots an intruder only by checking the member list; and a co-GM can demote or revoke another co-GM, including one the owner promoted. Together, a forwarded co-GM invitation hands a stranger the GM's rights, short of deleting the campaign or removing the owner; this risk is accepted for a table of people who know each other (see Out of Scope).
 
 Campaign roles and their permissions:
 
