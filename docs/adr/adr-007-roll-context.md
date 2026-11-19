@@ -11,7 +11,7 @@ A recorded roll may carry a context: the character it was rolled for and the che
 - Nullable columns on `DiceRoll`: `characterId`, `characterName` (see the amendment below) and `checkKey`, with an index on `characterId` to filter the history by character.
 - In the domain, `RollContext(characterId, characterName, check: D20Check)`: the context is set as a whole or not at all. A roll from the roller has no context.
 - `checkKey` is a stable, untranslated key: `save:wisdom`, `skill:perception`, `initiative`.
-- The history stays a single global log, and the `MAX_RECORDED_ROLLS` cap stays global.
+- Until campaigns exist, the history stays a single log under the `MAX_RECORDED_ROLLS` cap; its scope by campaign is defined in [PRD-003](../prd/prd-003-campaigns.md).
 - Schema v6 → v7 through `6.sqm`, two `ALTER TABLE` and a `CREATE INDEX`, and a regenerated snapshot `databases/7.db`.
 
 ## Context
@@ -40,7 +40,7 @@ The label is translated and follows the locale at display time. Storing the enum
 
 ## Why no foreign key
 
-The history is global: a roll whose character was deleted is still a roll, and keeps its place in the log. Its `characterId` no longer matches anyone, so a filter by character simply does not find it.
+The history records what happened: a roll whose character was deleted is still a roll, and keeps its place in the log. Its `characterId` no longer matches anyone, so a filter by character simply does not find it.
 
 ## Consequences
 
