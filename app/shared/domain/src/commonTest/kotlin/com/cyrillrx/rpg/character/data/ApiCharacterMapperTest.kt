@@ -66,6 +66,19 @@ class ApiCharacterMapperTest {
     }
 
     @Test
+    fun `a blank name fails the import`() {
+        assertEquals(
+            Result.Failure(CharacterImportError.MissingName(SHEET_ID)),
+            sheet("name" to JsonPrimitive("  ")).toCharacter(),
+        )
+    }
+
+    @Test
+    fun `a name is imported trimmed`() {
+        assertEquals("Thordak", importSheet("name" to JsonPrimitive(" Thordak ")).value.name)
+    }
+
+    @Test
     fun `every unknown language is named in the failure`() {
         val languages = """["klingon", "common", "atlantean"]"""
 

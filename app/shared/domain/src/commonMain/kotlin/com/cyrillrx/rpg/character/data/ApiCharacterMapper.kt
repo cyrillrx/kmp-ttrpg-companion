@@ -38,7 +38,7 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
         if (it != this) warnings += CharacterImportWarning.ValueCoerced(id, field, declared = "$this", kept = "$it")
     }
 
-    val name = name
+    val name = name?.trim()?.takeIf(String::isNotBlank)
         ?: return Result.Failure(CharacterImportError.MissingName(id))
     val apiTranslations = translations
         ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
