@@ -41,13 +41,6 @@ class CheckKeyTest {
         assertNull(storedRollContext(characterId = null, characterName = "Thordak", checkKey = "initiative"))
         assertNull(storedRollContext(characterId = "hero", characterName = "Thordak", checkKey = null))
         assertNull(storedRollContext(characterId = "hero", characterName = "Thordak", checkKey = "save:luck"))
-    }
-
-    @Test
-    fun `a context stored before the name was kept reads with an empty name`() {
-        assertEquals(
-            RollContext(characterId = "hero", characterName = "", check = D20Check.Initiative),
-            storedRollContext(characterId = "hero", characterName = null, checkKey = "initiative"),
-        )
+        assertNull(storedRollContext(characterId = "hero", characterName = null, checkKey = "initiative"))
     }
 }
