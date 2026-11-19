@@ -1,6 +1,6 @@
 # PRD-003 — Campaigns
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-18
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-19
 
 ## Overview
 
@@ -61,7 +61,7 @@ This phase is online: like every online feature, it lands once its local counter
 
 **Sharing & Access Control**
 
-Every GM right below also applies to co-GMs unless stated otherwise. Two costs follow from these rules: a forwarded link admits whoever holds it, with that link's role, until the link expires or is revoked; and a co-GM can demote or revoke another co-GM, including one the owner promoted.
+Every GM right below also applies to co-GMs unless stated otherwise. Three costs follow from these rules: a forwarded invitation admits whoever holds it, with its role (one person for a single-use invitation, anyone for a group link), until it expires or is revoked; nobody is told when someone joins yet, so the GM spots an intruder only by checking the member list, and revoking an invitation does not remove the members who already joined through it; and a co-GM can demote or revoke another co-GM, including one the owner promoted.
 
 Campaign roles and their permissions:
 
@@ -72,7 +72,11 @@ Campaign roles and their permissions:
 | **Player**     | Invited by the GM or a co-GM                                            | Read-only access to visible content; can create and edit own PC sheet(s)      |
 
 - Any user can create a campaign; the creator is automatically the **GM** (owner).
-- The GM and co-GMs can invite users as Players or co-GMs by sharing a link or its QR code. One link serves the whole group for its role: it stays valid until it expires, and can be revoked before that.
+- The GM and co-GMs can invite users as Players or co-GMs by sharing an invitation, as a link or its QR code. An invitation carries the role it grants and comes in two kinds:
+  - **single-use**, for one person: valid for 7 days;
+  - **group link**, for everyone joining with that role: reusable, valid for 24 hours. The short validity makes up for the missing join notification, and is reconsidered once that notification exists.
+- Whoever can invite can revoke an invitation before it expires.
+- These invitation rules are shared with family-planner, the author's other app ([PRD-001](https://github.com/cyrillrx/family-planner/blob/main/docs/prd/prd-001-group-and-synchronization.md)), so that inviting works the same way in both.
 - The GM and co-GMs can promote any Player to co-GM, or demote a co-GM back to Player.
 - The GM and co-GMs can revoke any member's access at any time, except the owner's.
 - Sync all campaign data (notes, roles) across devices in real time.
@@ -89,7 +93,7 @@ Campaign roles and their permissions:
 - The GM can optionally add a note when assigning the item (e.g. "Found in the chest in room 4").
 
 **Notifications (future consideration)**
-- Notify the GM when someone joins the campaign through a link.
+- Notify those who can invite (the GM and co-GMs) when someone joins the campaign through an invitation. Once it exists, the 24-hour validity of the group link is reconsidered.
 
 ## Non-Functional Requirements
 
