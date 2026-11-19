@@ -214,7 +214,7 @@ internal val previewHistory = DiceHistoryState.Body.WithData(
                     context = RollContext(
                         characterId = "thordak",
                         characterName = "Thordak",
-                        D20Check.SavingThrow(Ability.CONSTITUTION),
+                        check = D20Check.SavingThrow(Ability.CONSTITUTION),
                     ),
                 ),
             ),

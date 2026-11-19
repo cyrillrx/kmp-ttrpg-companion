@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import com.cyrillrx.rpg.character.domain.D20Check
 import com.cyrillrx.rpg.core.presentation.component.dnd.toCheckLabel
-import com.cyrillrx.rpg.core.presentation.format.joinSubtitleParts
+import com.cyrillrx.rpg.core.presentation.format.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -64,7 +64,7 @@ internal fun RollLine(
 // e.g. "Perception (+5) · Thordak"
 @Composable
 private fun RollContext.toLabel(checkModifier: Int): String =
-    joinSubtitleParts(check.toCheckLabel(checkModifier), characterName)
+    check.toCheckLabel(checkModifier) + SUBTITLE_SEPARATOR + characterName
 
 @Composable
 private fun RollLinePreview() {
@@ -85,14 +85,17 @@ private fun RollLinePreview() {
             simple to null,
             disadvantage to null,
             disadvantage to
-                RollContext(characterId = "thordak", characterName = "Thordak", D20Check.SkillCheck(Skill.PERCEPTION)),
+                RollContext(
+                    characterId = "thordak",
+                    characterName = "Thordak",
+                    check = D20Check.SkillCheck(Skill.PERCEPTION),
+                ),
             disadvantage to
                 RollContext(
                     characterId = "aria",
                     characterName = "Aria Silvermoon of the Northern Reach",
-                    D20Check.SavingThrow(Ability.DEXTERITY),
+                    check = D20Check.SavingThrow(Ability.DEXTERITY),
                 ),
-            disadvantage to RollContext(characterId = "legacy", characterName = "", D20Check.Initiative),
         ).forEach { (pool, context) ->
             RollLine(
                 pool,
