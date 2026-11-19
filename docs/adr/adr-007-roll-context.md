@@ -8,7 +8,7 @@
 
 A recorded roll may carry a context: the character it was rolled for and the check it was rolled as.
 
-- Two nullable columns on `DiceRoll`: `characterId` and `checkKey`, with an index on `characterId` to filter the history by character.
+- Nullable columns on `DiceRoll`: `characterId`, `characterName` (see the amendment below) and `checkKey`, with an index on `characterId` to filter the history by character.
 - In the domain, `RollContext(characterId, characterName, check: D20Check)`: the context is set as a whole or not at all. A roll from the roller has no context.
 - `checkKey` is a stable, untranslated key: `save:wisdom`, `skill:perception`, `initiative`.
 - The history stays a single global log, and the `MAX_RECORDED_ROLLS` cap stays global.
@@ -20,7 +20,7 @@ The roller records a bare roll. A roll made from the sheet also needs to tell wh
 
 ## Why one typed column per source
 
-The only source today is a character. A campaign is the next one and comes with PRD-003, as a column of its own: a nullable `campaignId` recorded at the moment of the roll, not derived from the character, so the roll does not depend on how characters attach to campaigns. A roll with no campaign belongs to the standalone roller, and each campaign sees only its own rolls. A typed column can be indexed and filtered directly, and its meaning is in the schema; a generic `sourceType` / `sourceId` pair would mix ids of different tables in one column and leave its meaning to the code.
+The only source today is a character. A campaign is the next one and is planned with PRD-003 as a column of its own: a nullable `campaignId` recorded at the moment of the roll, not derived from the character, so the roll does not depend on how characters attach to campaigns. A roll with no campaign would belong to the standalone roller, and each campaign would see only its own rolls. The cost: nothing can backfill the column, so the rolls recorded before it stay in the standalone roller even when their character later joins a campaign. Whether the `MAX_RECORDED_ROLLS` cap then applies per campaign is left to PRD-003. A typed column can be indexed and filtered directly, and its meaning is in the schema; a generic `sourceType` / `sourceId` pair would mix ids of different tables in one column and leave its meaning to the code.
 
 ## Why the character name is kept with the roll
 
@@ -29,7 +29,6 @@ _Amendment, 2026-11-19, schema v7 → v8 through `7.sqm`._ The history shows who
 - A deleted character keeps its name in the log, and the dice feature needs no lookup into the characters.
 - A renamed character keeps its former name on its past rolls: the log records what happened, as for the missing foreign key.
 - Unlike the check, the name is user input, not translated, so storing it freezes no language.
-- A roll recorded before v8 reads with an empty name and shows the check alone.
 
 ## Why a key rather than a label
 
