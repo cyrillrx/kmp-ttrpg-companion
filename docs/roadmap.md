@@ -126,7 +126,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Import and export a collection, carrying its entries in full - same PRD, after the entry export; extends the [PRD-007](prd/prd-007-character-import-export.md) envelope
 - [ ] Back up and restore the full app state (all user data and preferences) - PRD to write, after the collection export
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md), after the notes CRUD (Phase 7)
-- [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md), after the generator gallery and campaigns (Phase 6); online
+- [ ] AI-based generators - feasibility study required - [PRD-005](prd/prd-005-generators.md), after campaigns (Phase 6) and the notes CRUD (Phase 7); online
 
 ## Exploration
 
