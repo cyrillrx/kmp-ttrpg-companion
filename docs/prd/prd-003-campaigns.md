@@ -107,6 +107,8 @@ Campaign roles and their permissions:
 - In-app map or encounter board tools.
 - Campaign templates or pre-built adventure modules.
 - Inviting by username or email: a link or a QR code is much simpler and avoids depending on contacts, on sending emails and on searching the user base.
+- GM approval of each join: an extra step for a table of people who know each other; expiry and revocation bound the risk instead.
+- Reserving the management of co-GMs to the owner: co-GMs share the GM's rights within a group that trusts each other.
 
 ## Open Questions
 
