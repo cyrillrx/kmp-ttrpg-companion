@@ -74,7 +74,7 @@ Campaign roles and their permissions:
 - Any user can create a campaign; the creator is automatically the **GM** (owner).
 - The GM and co-GMs can invite users as Players or co-GMs by sharing an invitation, as a link or its QR code. An invitation is single-use: it admits one person, with the role it carries, and stays valid for 7 days.
 - Whoever can invite can revoke an invitation before it is used.
-- The invitation rules are shared with family-planner, the author's other app ([PRD-001](https://github.com/cyrillrx/family-planner/blob/main/docs/prd/prd-001-group-and-synchronization.md)): single-use, valid for 7 days, revocable by whoever can invite. Each app keeps its own roles. A change to these rules is decided for both apps, or the PRD of the app that departs from them says so.
+- These invitation rules are shared with family-planner, the author's other app ([PRD-001](https://github.com/cyrillrx/family-planner/blob/main/docs/prd/prd-001-group-and-synchronization.md)). Each app keeps its own roles. A change to these rules is decided for both apps, or the PRD of the app that departs from them says so.
 - The GM and co-GMs can promote any Player to co-GM, or demote a co-GM back to Player.
 - The GM and co-GMs can revoke any member's access at any time, except the owner's.
 - Sync all campaign data (notes, roles) across devices in real time.
