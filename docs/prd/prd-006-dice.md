@@ -99,7 +99,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 ## Open Questions
 
 - How long should the roll history be retained? Options: session only, 7 days, indefinitely until manually cleared. **Settled**: until cleared, capped at 500 entries.
-- Should the history be scoped per campaign session or be a single global log? **Settled** for now: a single global log, since campaigns do not exist yet; to revisit with [PRD-003: Campaigns](prd-003-campaigns.md). The intended split: the standalone roller keeps the rolls made outside any campaign, and each campaign keeps its own, the campaign being recorded with the roll ([ADR-007](../adr/adr-007-roll-context.md)).
+- Should the history be scoped per campaign session or be a single global log? **Settled** for now: a single global log, since campaigns do not exist yet; the campaign scope is defined in [PRD-003: Campaigns](prd-003-campaigns.md).
 - Should there be a modifier field (e.g. +3 to add a bonus to the total)? **Settled**: yes, a −/+ modifier shared by direct rolls and the composition.
 - Should the composition survive an app restart? **Settled**: no. Reopening the app on the dice left from a previous session felt confusing for a dice roller; the history log is what keeps past rolls.
 - Should the dice roller also ship as a standalone app? A second launcher activity in the same Android package gives it its own icon but shares the app's data and installation; a separate app needs its own application module on each target. Tracked as an idea to qualify under the mini-apps entry of the [roadmap](../roadmap.md) Exploration section.

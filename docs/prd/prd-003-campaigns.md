@@ -1,6 +1,6 @@
 # PRD-003 — Campaigns
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-19
 
 ## Overview
 
@@ -43,6 +43,10 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 **Attached Resources**
 - [ ] Attach/detach character sheets (PCs and NPCs) from the campaign roster.
 - [ ] View the list of attached characters directly from the campaign detail screen.
+
+**Dice Rolls**
+- [ ] A roll made within a campaign belongs to that campaign, even if its character later leaves it; the campaign shows only its own rolls.
+- [ ] The standalone dice roller ([PRD-006](prd-006-dice.md)) keeps the rolls made outside any campaign.
 
 
 ### Phase 2 — Session Notes
@@ -103,3 +107,4 @@ Campaign roles and their permissions:
 - Should notes support rich text formatting (markdown, bold, lists) or plain text only?
 - Should the campaign detail show a combined activity feed (notes + roster changes)?
 - What happens to a shared campaign when the owning GM deletes their account?
+- Does the roll history cap (500 rolls, [PRD-006](prd-006-dice.md)) apply per campaign or across all rolls?
