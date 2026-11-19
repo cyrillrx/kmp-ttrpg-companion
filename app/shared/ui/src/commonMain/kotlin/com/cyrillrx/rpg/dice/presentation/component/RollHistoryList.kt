@@ -211,7 +211,11 @@ internal val previewHistory = DiceHistoryState.Body.WithData(
                         modifier = 2,
                     ),
                     time = LocalTime(hour = 21, minute = 3),
-                    context = RollContext("thordak", "Thordak", D20Check.SavingThrow(Ability.CONSTITUTION)),
+                    context = RollContext(
+                        characterId = "thordak",
+                        characterName = "Thordak",
+                        D20Check.SavingThrow(Ability.CONSTITUTION),
+                    ),
                 ),
             ),
         ),
