@@ -78,7 +78,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 > Create and manage system-agnostic notes, then connect them to campaigns and other entities. - [PRD-004](prd/prd-004-notes.md)
 
-*Requires: Campaigns*
+*Requires: Campaigns, to attach notes to them*
 
 - [ ] Create, list and edit notes
 - [ ] Create lists of notes
