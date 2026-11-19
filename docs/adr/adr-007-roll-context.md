@@ -20,11 +20,11 @@ The roller records a bare roll. A roll made from the sheet also needs to tell wh
 
 ## Why one typed column per source
 
-The only source today is a character. A campaign is the next one and is planned with PRD-003 as a column of its own: a nullable `campaignId` recorded at the moment of the roll, not derived from the character, so the roll does not depend on how characters attach to campaigns. A roll with no campaign would belong to the standalone roller, and each campaign would see only its own rolls. The cost: nothing can backfill the column, so the rolls recorded before it stay in the standalone roller even when their character later joins a campaign. Whether the `MAX_RECORDED_ROLLS` cap then applies per campaign is left to PRD-003. A typed column can be indexed and filtered directly, and its meaning is in the schema; a generic `sourceType` / `sourceId` pair would mix ids of different tables in one column and leave its meaning to the code.
+The only source today is a character. A campaign is the next one, as a column of its own; how rolls are scoped by campaign is defined in [PRD-003](../prd/prd-003-campaigns.md). A typed column can be indexed and filtered directly, and its meaning is in the schema; a generic `sourceType` / `sourceId` pair would mix ids of different tables in one column and leave its meaning to the code.
 
 ## Why the character name is kept with the roll
 
-_Amendment, 2026-11-19, schema v7 → v8 through `7.sqm`._ The history shows who rolled ("Perception (+5) · Thordak"). A nullable `characterName` column keeps the name the character had at the moment of the roll, next to `characterId`, which stays for filtering.
+_Amendment, 2026-11-19, schema v7 → v8 through `7.sqm`._ The history shows who rolled. A nullable `characterName` column keeps the name the character had at the moment of the roll, next to `characterId`, which stays for filtering.
 
 - A deleted character keeps its name in the log, and the dice feature needs no lookup into the characters.
 - A renamed character keeps its former name on its past rolls: the log records what happened, as for the missing foreign key.
