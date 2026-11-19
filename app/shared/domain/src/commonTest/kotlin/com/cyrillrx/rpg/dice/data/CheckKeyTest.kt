@@ -33,13 +33,14 @@ class CheckKeyTest {
     }
 
     @Test
-    fun `a stored context needs both its character and a known check`() {
+    fun `a stored context needs a named character and a known check`() {
         assertEquals(
-            RollContext(characterId = "hero", check = D20Check.Initiative),
-            storedRollContext(characterId = "hero", checkKey = "initiative"),
+            RollContext(characterId = "hero", characterName = "Thordak", check = D20Check.Initiative),
+            storedRollContext(characterId = "hero", characterName = "Thordak", checkKey = "initiative"),
         )
-        assertNull(storedRollContext(characterId = null, checkKey = "initiative"))
-        assertNull(storedRollContext(characterId = "hero", checkKey = null))
-        assertNull(storedRollContext(characterId = "hero", checkKey = "save:luck"))
+        assertNull(storedRollContext(characterId = null, characterName = "Thordak", checkKey = "initiative"))
+        assertNull(storedRollContext(characterId = "hero", characterName = "Thordak", checkKey = null))
+        assertNull(storedRollContext(characterId = "hero", characterName = "Thordak", checkKey = "save:luck"))
+        assertNull(storedRollContext(characterId = "hero", characterName = null, checkKey = "initiative"))
     }
 }

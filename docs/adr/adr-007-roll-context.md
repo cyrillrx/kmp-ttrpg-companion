@@ -1,6 +1,6 @@
 # ADR-007: Tag a recorded roll with the check it was rolled for
 
-**Status**: Accepted  
+**Status**: Accepted, amended 2026-11-19 (character name)  
 **Date**: 2026-11-03  
 **Context**: the character sheet ([PRD-002](../prd/prd-002-character-sheet.md)) will roll its skills, saving throws and initiative, and those rolls go to the history kept by [ADR-006](adr-006-dice-roll-history.md).
 
@@ -8,10 +8,10 @@
 
 A recorded roll may carry a context: the character it was rolled for and the check it was rolled as.
 
-- Two nullable columns on `DiceRoll`: `characterId` and `checkKey`, with an index on `characterId` to filter the history by character.
-- In the domain, `RollContext(characterId, check: D20Check)`: both are set or neither is. A roll from the roller has no context.
+- Nullable columns on `DiceRoll`: `characterId`, `characterName` (see the amendment below) and `checkKey`, with an index on `characterId` to filter the history by character.
+- In the domain, `RollContext(characterId, characterName, check: D20Check)`: the context is set as a whole or not at all. A roll from the roller has no context.
 - `checkKey` is a stable, untranslated key: `save:wisdom`, `skill:perception`, `initiative`.
-- The history stays a single global log, and the `MAX_RECORDED_ROLLS` cap stays global.
+- Until campaigns exist, the history stays a single log under the `MAX_RECORDED_ROLLS` cap; its scope by campaign is defined in [PRD-003](../prd/prd-003-campaigns.md).
 - Schema v6 → v7 through `6.sqm`, two `ALTER TABLE` and a `CREATE INDEX`, and a regenerated snapshot `databases/7.db`.
 
 ## Context
@@ -20,7 +20,15 @@ The roller records a bare roll. A roll made from the sheet also needs to tell wh
 
 ## Why one typed column per source
 
-The only source today is a character. A campaign is the next one and comes with PRD-003, as a column of its own. A typed column can be indexed and filtered directly, and its meaning is in the schema; a generic `sourceType` / `sourceId` pair would mix ids of different tables in one column and leave its meaning to the code.
+The only source today is a character. A campaign is the next one, as a column of its own; how rolls are scoped by campaign is defined in [PRD-003](../prd/prd-003-campaigns.md). A typed column can be indexed and filtered directly, and its meaning is in the schema; a generic `sourceType` / `sourceId` pair would mix ids of different tables in one column and leave its meaning to the code.
+
+## Why the character name is kept with the roll
+
+_Amendment, 2026-11-19, schema v7 → v8 through `7.sqm`._ The history shows who rolled. A nullable `characterName` column keeps the name the character had at the moment of the roll, next to `characterId`, which stays for filtering.
+
+- A deleted character keeps its name in the log, and the dice feature needs no lookup into the characters.
+- A renamed character keeps its former name on its past rolls: the log records what happened, as for the missing foreign key.
+- Unlike the check, the name is user input, not translated, so storing it freezes no language.
 
 ## Why a key rather than a label
 
@@ -32,7 +40,7 @@ The label is translated and follows the locale at display time. Storing the enum
 
 ## Why no foreign key
 
-The history is global: a roll whose character was deleted is still a roll, and keeps its place in the log. Its `characterId` no longer matches anyone, so a filter by character simply does not find it.
+The history records what happened: a roll whose character was deleted is still a roll, and keeps its place in the log. Its `characterId` no longer matches anyone, so a filter by character simply does not find it.
 
 ## Consequences
 

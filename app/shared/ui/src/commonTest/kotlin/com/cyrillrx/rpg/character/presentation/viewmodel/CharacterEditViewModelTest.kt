@@ -137,7 +137,7 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
 
         val recorded = history.rolls.value.single()
-        assertEquals(RollContext(fighter.id, D20Check.Initiative), recorded.context)
+        assertEquals(RollContext(fighter.id, fighter.name, D20Check.Initiative), recorded.context)
         assertEquals(RollPool(listOf(SimpleRoll(Die.D20, value = 12)), modifier = 1), recorded.pool)
     }
 
@@ -192,7 +192,7 @@ class CharacterEditViewModelTest {
         viewModel.rollCheckWithDisadvantage()
         advanceUntilIdle()
 
-        val expectedContext = RollContext(fighter.id, strengthSave)
+        val expectedContext = RollContext(fighter.id, fighter.name, strengthSave)
         assertEquals(List(4) { expectedContext }, history.rolls.value.map { it.context })
     }
 
@@ -211,7 +211,10 @@ class CharacterEditViewModelTest {
         store.clear()
         advanceUntilIdle()
 
-        assertEquals(listOf(RollContext(fighter.id, strengthSave)), history.rolls.value.map { it.context })
+        assertEquals(
+            listOf(RollContext(fighter.id, fighter.name, strengthSave)),
+            history.rolls.value.map { it.context },
+        )
     }
 
     @Test

@@ -84,6 +84,22 @@ class AppDatabaseMigrationTest {
     }
 
     @Test
+    fun `migrating from v7 keeps the recorded rolls with no character name`() {
+        val driver = v7Database()
+        driver.execute(
+            identifier = null,
+            sql = "INSERT INTO DiceRoll (rolledAt, roll, characterId, checkKey) " +
+                "VALUES (0, '1d20(12)', 'hero', 'initiative');",
+            parameters = 0,
+        )
+        AppDatabase.Schema.migrate(driver, oldVersion = 7L, newVersion = AppDatabase.Schema.version)
+
+        val history = AppDatabase(driver).appDatabaseQueries.selectAllDiceRolls().executeAsList()
+
+        assertEquals(listOf("hero" to null), history.map { it.characterId to it.characterName })
+    }
+
+    @Test
     fun `migrating from v2 carries the user list lastModified over to updatedAt`() {
         val driver = v2Database()
         driver.execute(
@@ -262,6 +278,10 @@ class AppDatabaseMigrationTest {
 
     private fun v6Database(url: String = JdbcSqliteDriver.IN_MEMORY): SqlDriver = v5Database(url).also {
         AppDatabase.Schema.migrate(it, oldVersion = 5L, newVersion = 6L)
+    }
+
+    private fun v7Database(url: String = JdbcSqliteDriver.IN_MEMORY): SqlDriver = v6Database(url).also {
+        AppDatabase.Schema.migrate(it, oldVersion = 6L, newVersion = 7L)
     }
 
     @Suppress("UNUSED_PARAMETER", "LongParameterList")

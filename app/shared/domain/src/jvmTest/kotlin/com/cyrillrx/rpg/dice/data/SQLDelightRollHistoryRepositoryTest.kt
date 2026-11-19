@@ -53,7 +53,8 @@ class SQLDelightRollHistoryRepositoryTest {
 
     @Test
     fun `a roll recorded for a check reads back with its context`() = runTest {
-        val context = RollContext(characterId = "hero", check = D20Check.SkillCheck(Skill.PERCEPTION))
+        val context =
+            RollContext(characterId = "hero", characterName = "Thordak", check = D20Check.SkillCheck(Skill.PERCEPTION))
 
         repository.record(d4Pool(value = 2), context)
         val reopened = newRepository()
