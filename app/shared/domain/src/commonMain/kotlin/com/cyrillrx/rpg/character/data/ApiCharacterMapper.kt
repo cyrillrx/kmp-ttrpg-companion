@@ -136,8 +136,8 @@ private fun ApiCharacter.Translation.toTranslation(
 
     return Result.Success(
         Character.Translation(
-            shortDescription = shortDescription,
-            description = description,
+            shortDescription = shortDescription.trim(),
+            description = description.trim(),
         ),
     )
 }

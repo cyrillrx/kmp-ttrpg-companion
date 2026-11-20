@@ -41,6 +41,15 @@ class ApiCharacterMapperTest {
     }
 
     @Test
+    fun `translations are imported trimmed`() {
+        val translations = """{"en": {"shortDescription": " Fighter ", "description": " A veteran. "}}"""
+
+        val imported = importSheet("translations" to defaultSerializer.parseToJsonElement(translations))
+
+        assertEquals(Character.Translation("Fighter", "A veteran."), imported.value.translations["en"])
+    }
+
+    @Test
     fun `an invalid translation is dropped and reported`() {
         val translations = """{"en": {"shortDescription": "Fighter", "description": ""}, "fr": {"description": ""}}"""
 
