@@ -12,6 +12,7 @@ import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterSpeeds
 import com.cyrillrx.rpg.character.domain.coerceToValidCurrentHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidHitPointAmount
+import com.cyrillrx.rpg.character.domain.toValidCharacterNameOrNull
 import com.cyrillrx.rpg.creature.data.api.ApiAbilities
 import com.cyrillrx.rpg.creature.data.api.ApiSavingThrows
 import com.cyrillrx.rpg.creature.data.api.ApiSkills
@@ -38,7 +39,7 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
         if (it != this) warnings += CharacterImportWarning.ValueCoerced(id, field, declared = "$this", kept = "$it")
     }
 
-    val name = name?.trim()?.takeIf(String::isNotBlank)
+    val name = name?.toValidCharacterNameOrNull()
         ?: return Result.Failure(CharacterImportError.MissingName(id))
     val apiTranslations = translations
         ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
