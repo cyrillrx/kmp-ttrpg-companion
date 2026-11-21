@@ -1,8 +1,6 @@
 package com.cyrillrx.rpg.character.data
 
 import app.cash.sqldelight.db.SqlDriver
-import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
-import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.core.data.cache.CountingDriverFactory
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
@@ -60,7 +58,7 @@ class SQLDelightCharacterRepositoryTest {
             sql = "INSERT INTO Character(id, data, updatedAt) VALUES('unreadable', ?, 0)",
             parameters = 1,
         ) {
-            bindString(0, "{not json")
+            bindString(index = 0, string = "{not json")
         }
 
         assertEquals(listOf(fighter), repository.getAll(null).values())
@@ -149,10 +147,6 @@ class SQLDelightCharacterRepositoryTest {
     private class RawAccessDriverFactory : DatabaseDriverFactory {
         lateinit var driver: SqlDriver
 
-        override fun createDriver(): SqlDriver =
-            JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).also {
-                AppDatabase.Schema.create(it)
-                driver = it
-            }
+        override fun createDriver(): SqlDriver = TestDatabaseDriverFactory().createDriver().also { driver = it }
     }
 }

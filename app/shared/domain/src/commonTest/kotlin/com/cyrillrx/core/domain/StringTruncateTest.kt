@@ -7,16 +7,16 @@ class StringTruncateTest {
 
     @Test
     fun `keeps a string within the maximum unchanged`() {
-        assertEquals("abc", "abc".truncate(3))
+        assertEquals("abc", "abc".truncate(maxLength = 3))
     }
 
     @Test
     fun `cuts a string longer than the maximum`() {
-        assertEquals("ab", "abcd".truncate(2))
+        assertEquals("ab", "abcd".truncate(maxLength = 2))
     }
 
     @Test
     fun `drops an emoji the maximum would split`() {
-        assertEquals("a", "a🐉".truncate(2))
+        assertEquals("a", "a🐉".truncate(maxLength = 2))
     }
 }

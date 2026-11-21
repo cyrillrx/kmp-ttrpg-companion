@@ -314,7 +314,7 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repo)
         advanceUntilIdle()
 
-        viewModel.saveName(" ${fighter.name} ")
+        viewModel.saveName(" ${fighter.name.value} ")
         advanceUntilIdle()
 
         assertEquals(0, repo.saveCount)
