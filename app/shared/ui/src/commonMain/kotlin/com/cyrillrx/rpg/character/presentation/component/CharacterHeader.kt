@@ -183,6 +183,7 @@ private fun InlineEditableName(
         }
     }
 
+    // TODO(#443): move the commit decision into CharacterEditViewModel.saveName.
     fun commit() {
         if (!isEditing) return
 
