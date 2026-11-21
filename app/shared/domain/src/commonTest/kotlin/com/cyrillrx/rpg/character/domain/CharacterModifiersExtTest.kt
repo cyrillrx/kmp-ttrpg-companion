@@ -15,7 +15,7 @@ class CharacterModifiersExtTest {
 
     private val character = Character(
         id = "test",
-        name = "Test",
+        name = CharacterName("Test"),
         size = Creature.Size.MEDIUM,
         alignment = Creature.Alignment.NEUTRAL,
         abilities = Abilities(

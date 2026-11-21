@@ -6,13 +6,13 @@ import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.character.data.api.ApiCharacter
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterName
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterSpeeds
 import com.cyrillrx.rpg.character.domain.coerceToValidCurrentHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidHitPointAmount
-import com.cyrillrx.rpg.character.domain.toValidCharacterNameOrNull
 import com.cyrillrx.rpg.creature.data.api.ApiAbilities
 import com.cyrillrx.rpg.creature.data.api.ApiSavingThrows
 import com.cyrillrx.rpg.creature.data.api.ApiSkills
@@ -39,8 +39,14 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
         if (it != this) warnings += CharacterImportWarning.ValueCoerced(id, field, declared = "$this", kept = "$it")
     }
 
-    val name = name?.toValidCharacterNameOrNull()
+    val declaredName = name?.trim()
+    val name = declaredName?.let(CharacterName::parse)
         ?: return Result.Failure(CharacterImportError.MissingName(id))
+
+    if (name.value != declaredName) {
+        warnings += CharacterImportWarning.ValueCoerced(id, "name", declared = declaredName, kept = name.value)
+    }
+
     val apiTranslations = translations
         ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
 
@@ -157,7 +163,7 @@ private fun String.toLanguage(): Language? = Language.entries.find { it.name.equ
 
 internal fun Character.toApiCharacter(): ApiCharacter = ApiCharacter(
     id = id,
-    name = name,
+    name = name.value,
     background = background?.name?.lowercase(),
     race = race.name.lowercase(),
     classes = classesPrimaryFirst().mapKeys { (clazz, _) -> clazz.name.lowercase() },

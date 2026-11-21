@@ -61,7 +61,7 @@ fun CharacterListItem(
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 Text(
-                    text = character.name,
+                    text = character.name.value,
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSurface,
                     maxLines = 1,

@@ -5,6 +5,7 @@ import com.cyrillrx.core.data.defaultSerializer
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.character.data.api.ApiCharacter
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.MAX_CHARACTER_NAME_LENGTH
 import com.cyrillrx.rpg.creature.domain.MAX_ARMOR_CLASS
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
@@ -34,6 +35,25 @@ class ApiCharacterMapperTest {
                     "armor class",
                     declared = "99",
                     kept = "$MAX_ARMOR_CLASS",
+                ),
+            ),
+            imported.warnings,
+        )
+    }
+
+    @Test
+    fun `a name longer than the maximum is truncated and reported`() {
+        val declared = "a".repeat(MAX_CHARACTER_NAME_LENGTH + 1)
+
+        val imported = importSheet("name" to JsonPrimitive(declared))
+
+        assertEquals(
+            listOf(
+                CharacterImportWarning.ValueCoerced(
+                    SHEET_ID,
+                    "name",
+                    declared = declared,
+                    kept = "a".repeat(MAX_CHARACTER_NAME_LENGTH),
                 ),
             ),
             imported.warnings,
@@ -117,7 +137,7 @@ class ApiCharacterMapperTest {
 
     @Test
     fun `a name is imported trimmed`() {
-        assertEquals("Thordak", importSheet("name" to JsonPrimitive(" Thordak ")).value.name)
+        assertEquals("Thordak", importSheet("name" to JsonPrimitive(" Thordak ")).value.name.value)
     }
 
     @Test

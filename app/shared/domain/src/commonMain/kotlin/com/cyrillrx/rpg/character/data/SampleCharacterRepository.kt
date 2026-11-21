@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.data
 
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
+import com.cyrillrx.rpg.character.domain.CharacterName
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
@@ -47,7 +48,7 @@ class SampleCharacterRepository : CharacterRepository {
         fun humanFighter() =
             Character(
                 id = "sample-fighter",
-                name = "Borin Pierrenoire",
+                name = CharacterName("Borin Pierrenoire"),
                 size = Creature.Size.MEDIUM,
                 alignment = Creature.Alignment.LAWFUL_GOOD,
                 abilities =
@@ -71,7 +72,7 @@ class SampleCharacterRepository : CharacterRepository {
         fun multiclassBarbarian() =
             humanFighter().copy(
                 id = "sample-multiclass",
-                name = "Rhogar Sangfroid",
+                name = CharacterName("Rhogar Sangfroid"),
                 race = Race.DRAGONBORN,
                 classes =
                     mapOf(
@@ -85,7 +86,7 @@ class SampleCharacterRepository : CharacterRepository {
         fun elfRogue() =
             Character(
                 id = "sample-rogue",
-                name = "Lyra Vossen",
+                name = CharacterName("Lyra Vossen"),
                 race = Race.ELF,
                 size = Creature.Size.MEDIUM,
                 alignment = Creature.Alignment.CHAOTIC_NEUTRAL,

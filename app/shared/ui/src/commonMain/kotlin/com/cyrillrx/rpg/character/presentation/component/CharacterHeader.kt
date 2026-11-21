@@ -45,8 +45,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
+import com.cyrillrx.rpg.character.domain.MAX_CHARACTER_NAME_LENGTH
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.character.domain.toValidCharacterNameOrNull
 import com.cyrillrx.rpg.character.domain.totalLevel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toClassesLabel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -183,19 +183,17 @@ private fun InlineEditableName(
         }
     }
 
-    // TODO(#443): move the commit decision into CharacterEditViewModel.saveName.
     fun commit() {
         if (!isEditing) return
 
         isEditing = false
-        val name = draft.text.toValidCharacterNameOrNull()
-        if (name != null && name != text) onConfirmed(name)
+        if (draft.text != text) onConfirmed(draft.text)
     }
 
     if (isEditing) {
         BasicTextField(
             value = draft,
-            onValueChange = { draft = it },
+            onValueChange = { if (it.text.length <= MAX_CHARACTER_NAME_LENGTH) draft = it },
             textStyle = style.copy(color = MaterialTheme.colorScheme.onSurface),
             cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
             singleLine = true,
@@ -271,7 +269,7 @@ private fun PreviewCharacterHeaderMulticlassDark() {
 @Composable
 private fun CharacterHeaderPreview(character: Character = SampleCharacterRepository.humanFighter()) {
     CharacterHeader(
-        name = character.name,
+        name = character.name.value,
         shortDescription = character.translations.values.firstOrNull()?.shortDescription.orEmpty(),
         race = character.race,
         classes = character.classes,

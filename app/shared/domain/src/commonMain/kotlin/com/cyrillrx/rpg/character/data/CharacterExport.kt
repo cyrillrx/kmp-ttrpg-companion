@@ -31,7 +31,7 @@ private const val MAX_NAME_LENGTH = (MAX_FILE_NAME_BYTES - MAX_SUFFIX_BYTES) / M
 private val wordBreak = Regex("""[\s/\\:*?"<>|._\-\u0000-\u001F\u007F]+""")
 
 fun Character.toExportFile(appVersion: String, exportedAt: Instant, timeZone: TimeZone): ExportFile = ExportFile(
-    name = characterExportFileName(name, totalLevel, exportedAt.toLocalDateTime(timeZone).date),
+    name = characterExportFileName(name.value, totalLevel, exportedAt.toLocalDateTime(timeZone).date),
     mimeType = JSON_MIME_TYPE,
     content = exportSerializer.encodeToString(
         ApiCharacterExport(

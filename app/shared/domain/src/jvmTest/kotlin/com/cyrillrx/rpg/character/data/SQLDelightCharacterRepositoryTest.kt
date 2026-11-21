@@ -92,7 +92,7 @@ class SQLDelightCharacterRepositoryTest {
 
         val result = repository.getAll(CharacterFilter(query = "Lyra"))
         assertEquals(1, result.size)
-        assertEquals("Lyra Vossen", result.first().value.name)
+        assertEquals("Lyra Vossen", result.first().value.name.value)
     }
 
     @Test

@@ -8,6 +8,7 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.toExportFile
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterName
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.D20Check
@@ -19,7 +20,6 @@ import com.cyrillrx.rpg.character.domain.coerceToValidAbilityScore
 import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
 import com.cyrillrx.rpg.character.domain.modifierFor
-import com.cyrillrx.rpg.character.domain.toValidCharacterNameOrNull
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
@@ -91,7 +91,11 @@ class CharacterEditViewModel(
     }
 
     fun saveName(name: String) {
-        val validName = name.toValidCharacterNameOrNull() ?: return cancelEditing()
+        val validName = CharacterName.parse(name)
+        if (validName == null || validName == (state.value as? Loaded)?.character?.name) {
+            cancelEditing()
+            return
+        }
 
         updateAndSave { copy(character = character.copy(name = validName), editingField = null) }
     }
@@ -211,7 +215,7 @@ class CharacterEditViewModel(
         val pool = RollPool(listOf(rollD20()), loaded.character.modifierFor(check))
         val rollCount = (loaded.sheetRoll?.rollCount ?: 0) + 1
         updateEditState { copy(sheetRoll = SheetRoll(check, pool, rollCount)) }
-        recorder.record(pool, RollContext(characterId, loaded.character.name, check))
+        recorder.record(pool, RollContext(characterId, loaded.character.name.value, check))
     }
 
     private fun saveAbility(ability: AbilityScore, update: Abilities.(AbilityScore) -> Abilities) {
