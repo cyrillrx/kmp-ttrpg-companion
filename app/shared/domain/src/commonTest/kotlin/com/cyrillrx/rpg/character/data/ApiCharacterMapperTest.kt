@@ -51,7 +51,7 @@ class ApiCharacterMapperTest {
             listOf(
                 CharacterImportWarning.ValueCoerced(
                     SHEET_ID,
-                    "name",
+                    field = "name",
                     declared = declared,
                     kept = "a".repeat(MAX_CHARACTER_NAME_LENGTH),
                 ),

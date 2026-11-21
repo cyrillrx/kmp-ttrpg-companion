@@ -44,7 +44,7 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
         ?: return Result.Failure(CharacterImportError.MissingName(id))
 
     if (name.value != declaredName) {
-        warnings += CharacterImportWarning.ValueCoerced(id, "name", declared = declaredName, kept = name.value)
+        warnings += CharacterImportWarning.ValueCoerced(id, field = "name", declared = declaredName, kept = name.value)
     }
 
     val apiTranslations = translations
