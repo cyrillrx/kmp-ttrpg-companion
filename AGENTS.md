@@ -137,10 +137,10 @@ Every screen's stateless overload (see [`compose-conventions.md`](docs/conventio
 
 Always use constants from `core/presentation/theme/` instead of hardcoded values:
 
-- **Spacing** — `spacingSmall` (4.dp), `spacingMedium` (8.dp), `spacingCommon` (16.dp), `spacingLarge` (32.dp) from `Dimen.kt`
-- **Colors** — use `MaterialTheme.colorScheme.*` for semantic colors; a color the scheme does not cover goes into a semantic holder in `theme/` (`HealthColors`, `CategoryColors.kt`) when several files read it, or stays a `private val` next to its only reader
-- **Shapes** — use `MaterialTheme.shapes.*`; default corner radius is 16.dp (defined in `Shape.kt`)
-- **Typography** — use `MaterialTheme.typography.*` (defined in `Type.kt`)
+- **Spacing**: `spacingSmall` (4.dp), `spacingMedium` (8.dp), `spacingCommon` (16.dp), `spacingLarge` (32.dp) from `Dimen.kt`
+- **Colors**: `MaterialTheme.colorScheme.*` for semantic colors; a color the scheme does not cover is a field of a semantic holder in `theme/` (`HealthColors`, `CategoryColors.kt`), or a `private val` next to its only reader, the one hardcoded value allowed outside `theme/`
+- **Shapes**: `MaterialTheme.shapes.*`; default corner radius is 16.dp (defined in `Shape.kt`)
+- **Typography**: `MaterialTheme.typography.*` (defined in `Type.kt`)
 
 ### Shared components
 
@@ -155,6 +155,6 @@ Before creating a new composable, check `core/presentation/component/` for exist
 ### Rules
 
 - Never hardcode dp values for spacing; use `Dimen.kt` constants
-- Never expose a raw color publicly: name it in a semantic holder in `theme/`, or keep it `private` next to its only reader
+- Never expose a raw color publicly: make it a field of a semantic holder in `theme/`, or keep it `private` next to its only reader
 - Always use `MaterialTheme.colorScheme` for semantic color references (primary, surface, etc.)
 - Reuse shared components before creating feature-specific alternatives
