@@ -138,7 +138,7 @@ Every screen's stateless overload (see [`compose-conventions.md`](docs/conventio
 Always use constants from `core/presentation/theme/` instead of hardcoded values:
 
 - **Spacing** — `spacingSmall` (4.dp), `spacingMedium` (8.dp), `spacingCommon` (16.dp), `spacingLarge` (32.dp) from `Dimen.kt`
-- **Colors** — use `MaterialTheme.colorScheme.*` for semantic colors; add new raw colors to `Color.kt` only if needed
+- **Colors** — use `MaterialTheme.colorScheme.*` for semantic colors; a color the scheme does not cover goes into a semantic holder in `theme/` (`HealthColors`, `CategoryColors.kt`) when several files read it, or stays a `private val` next to its only reader
 - **Shapes** — use `MaterialTheme.shapes.*`; default corner radius is 16.dp (defined in `Shape.kt`)
 - **Typography** — use `MaterialTheme.typography.*` (defined in `Type.kt`)
 
@@ -155,6 +155,6 @@ Before creating a new composable, check `core/presentation/component/` for exist
 ### Rules
 
 - Never hardcode dp values for spacing; use `Dimen.kt` constants
-- Never define new colors inline; add them to `Color.kt` if the palette doesn't cover the need
+- Never expose a raw color publicly: name it in a semantic holder in `theme/`, or keep it `private` next to its only reader
 - Always use `MaterialTheme.colorScheme` for semantic color references (primary, surface, etc.)
 - Reuse shared components before creating feature-specific alternatives
