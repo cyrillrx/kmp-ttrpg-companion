@@ -64,6 +64,15 @@ class ApiCharacterMapperTest {
     }
 
     @Test
+    fun `a sheet with only empty translations imports without any`() {
+        val translations = """{"en": {"shortDescription": " ", "description": ""}}"""
+
+        val imported = importSheet("translations" to defaultSerializer.parseToJsonElement(translations))
+
+        assertEquals(emptyMap(), imported.value.translations)
+    }
+
+    @Test
     fun `an empty translation does not stand in for an invalid one`() {
         val translations = """{"en": {"shortDescription": " ", "description": ""}, "fr": {"description": ""}}"""
 
