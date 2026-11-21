@@ -91,9 +91,9 @@ class CharacterEditViewModel(
     }
 
     fun saveName(name: String) {
-        val validName = CharacterName.parse(name) ?: return cancelEditing()
+        val validName = CharacterName.parse(name) ?: return
 
-        updateAndSave { copy(character = character.copy(name = validName), editingField = null) }
+        updateAndSave { copy(character = character.copy(name = validName)) }
     }
 
     fun saveRace(race: Race) {

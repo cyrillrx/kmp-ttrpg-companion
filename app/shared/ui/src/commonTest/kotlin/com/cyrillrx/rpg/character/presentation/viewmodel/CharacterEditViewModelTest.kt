@@ -300,6 +300,18 @@ class CharacterEditViewModelTest {
     }
 
     @Test
+    fun `saveName keeps an open dialog open`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.editField(EditingField.Race)
+
+        viewModel.saveName("   ")
+
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(EditingField.Race, loaded.editingField)
+    }
+
+    @Test
     fun `saveName trims whitespace`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
