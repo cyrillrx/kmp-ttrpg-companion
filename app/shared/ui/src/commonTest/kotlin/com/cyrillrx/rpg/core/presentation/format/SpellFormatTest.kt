@@ -9,14 +9,7 @@ import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.SwapHoriz
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.outlined.Dangerous
-import com.cyrillrx.rpg.core.presentation.theme.SchoolAbjuration
-import com.cyrillrx.rpg.core.presentation.theme.SchoolConjuration
-import com.cyrillrx.rpg.core.presentation.theme.SchoolDivination
-import com.cyrillrx.rpg.core.presentation.theme.SchoolEnchantment
-import com.cyrillrx.rpg.core.presentation.theme.SchoolEvocation
-import com.cyrillrx.rpg.core.presentation.theme.SchoolIllusion
-import com.cyrillrx.rpg.core.presentation.theme.SchoolNecromancy
-import com.cyrillrx.rpg.core.presentation.theme.SchoolTransmutation
+import com.cyrillrx.rpg.core.presentation.theme.SpellSchoolColors
 import com.cyrillrx.rpg.spell.domain.Spell
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -53,20 +46,20 @@ class SpellFormatTest {
 
     @Test
     fun `School getColor maps every school to its accent color`() {
-        assertEquals(expected = SchoolAbjuration, actual = Spell.School.ABJURATION.getColor())
-        assertEquals(expected = SchoolConjuration, actual = Spell.School.CONJURATION.getColor())
-        assertEquals(expected = SchoolDivination, actual = Spell.School.DIVINATION.getColor())
-        assertEquals(expected = SchoolEnchantment, actual = Spell.School.ENCHANTMENT.getColor())
-        assertEquals(expected = SchoolEvocation, actual = Spell.School.EVOCATION.getColor())
-        assertEquals(expected = SchoolIllusion, actual = Spell.School.ILLUSION.getColor())
-        assertEquals(expected = SchoolNecromancy, actual = Spell.School.NECROMANCY.getColor())
-        assertEquals(expected = SchoolTransmutation, actual = Spell.School.TRANSMUTATION.getColor())
+        assertEquals(expected = SpellSchoolColors.abjuration, actual = Spell.School.ABJURATION.getColor())
+        assertEquals(expected = SpellSchoolColors.conjuration, actual = Spell.School.CONJURATION.getColor())
+        assertEquals(expected = SpellSchoolColors.divination, actual = Spell.School.DIVINATION.getColor())
+        assertEquals(expected = SpellSchoolColors.enchantment, actual = Spell.School.ENCHANTMENT.getColor())
+        assertEquals(expected = SpellSchoolColors.evocation, actual = Spell.School.EVOCATION.getColor())
+        assertEquals(expected = SpellSchoolColors.illusion, actual = Spell.School.ILLUSION.getColor())
+        assertEquals(expected = SpellSchoolColors.necromancy, actual = Spell.School.NECROMANCY.getColor())
+        assertEquals(expected = SpellSchoolColors.transmutation, actual = Spell.School.TRANSMUTATION.getColor())
     }
 
     @Test
     fun `Spell getColor delegates to its school`() {
         val spell = spellWith(school = Spell.School.NECROMANCY)
-        assertEquals(expected = SchoolNecromancy, actual = spell.getColor())
+        assertEquals(expected = SpellSchoolColors.necromancy, actual = spell.getColor())
     }
 
     @Test

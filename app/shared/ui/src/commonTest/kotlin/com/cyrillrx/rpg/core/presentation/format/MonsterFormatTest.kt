@@ -15,22 +15,7 @@ import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.SmartToy
 import androidx.compose.material.icons.filled.Water
 import androidx.compose.material.icons.filled.Whatshot
-import com.cyrillrx.rpg.core.presentation.theme.MonsterAberration
-import com.cyrillrx.rpg.core.presentation.theme.MonsterBeast
-import com.cyrillrx.rpg.core.presentation.theme.MonsterCelestial
-import com.cyrillrx.rpg.core.presentation.theme.MonsterConstruct
-import com.cyrillrx.rpg.core.presentation.theme.MonsterDragon
-import com.cyrillrx.rpg.core.presentation.theme.MonsterElemental
-import com.cyrillrx.rpg.core.presentation.theme.MonsterFey
-import com.cyrillrx.rpg.core.presentation.theme.MonsterFiend
-import com.cyrillrx.rpg.core.presentation.theme.MonsterGiant
-import com.cyrillrx.rpg.core.presentation.theme.MonsterHumanoid
-import com.cyrillrx.rpg.core.presentation.theme.MonsterMonstrosity
-import com.cyrillrx.rpg.core.presentation.theme.MonsterOoze
-import com.cyrillrx.rpg.core.presentation.theme.MonsterPlant
-import com.cyrillrx.rpg.core.presentation.theme.MonsterSwarm
-import com.cyrillrx.rpg.core.presentation.theme.MonsterUndead
-import com.cyrillrx.rpg.core.presentation.theme.MonsterUnknown
+import com.cyrillrx.rpg.core.presentation.theme.MonsterTypeColors
 import com.cyrillrx.rpg.creature.domain.Monster
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -69,22 +54,22 @@ class MonsterFormatTest {
 
     @Test
     fun `getColor maps every type to its accent color`() {
-        assertEquals(expected = MonsterAberration, actual = Monster.Type.ABERRATION.getColor())
-        assertEquals(expected = MonsterBeast, actual = Monster.Type.BEAST.getColor())
-        assertEquals(expected = MonsterCelestial, actual = Monster.Type.CELESTIAL.getColor())
-        assertEquals(expected = MonsterConstruct, actual = Monster.Type.CONSTRUCT.getColor())
-        assertEquals(expected = MonsterDragon, actual = Monster.Type.DRAGON.getColor())
-        assertEquals(expected = MonsterElemental, actual = Monster.Type.ELEMENTAL.getColor())
-        assertEquals(expected = MonsterFey, actual = Monster.Type.FEY.getColor())
-        assertEquals(expected = MonsterFiend, actual = Monster.Type.FIEND.getColor())
-        assertEquals(expected = MonsterGiant, actual = Monster.Type.GIANT.getColor())
-        assertEquals(expected = MonsterHumanoid, actual = Monster.Type.HUMANOID.getColor())
-        assertEquals(expected = MonsterMonstrosity, actual = Monster.Type.MONSTROSITY.getColor())
-        assertEquals(expected = MonsterOoze, actual = Monster.Type.OOZE.getColor())
-        assertEquals(expected = MonsterPlant, actual = Monster.Type.PLANT.getColor())
-        assertEquals(expected = MonsterSwarm, actual = Monster.Type.SWARM.getColor())
-        assertEquals(expected = MonsterUndead, actual = Monster.Type.UNDEAD.getColor())
-        assertEquals(expected = MonsterUnknown, actual = Monster.Type.UNKNOWN.getColor())
+        assertEquals(expected = MonsterTypeColors.aberration, actual = Monster.Type.ABERRATION.getColor())
+        assertEquals(expected = MonsterTypeColors.beast, actual = Monster.Type.BEAST.getColor())
+        assertEquals(expected = MonsterTypeColors.celestial, actual = Monster.Type.CELESTIAL.getColor())
+        assertEquals(expected = MonsterTypeColors.construct, actual = Monster.Type.CONSTRUCT.getColor())
+        assertEquals(expected = MonsterTypeColors.dragon, actual = Monster.Type.DRAGON.getColor())
+        assertEquals(expected = MonsterTypeColors.elemental, actual = Monster.Type.ELEMENTAL.getColor())
+        assertEquals(expected = MonsterTypeColors.fey, actual = Monster.Type.FEY.getColor())
+        assertEquals(expected = MonsterTypeColors.fiend, actual = Monster.Type.FIEND.getColor())
+        assertEquals(expected = MonsterTypeColors.giant, actual = Monster.Type.GIANT.getColor())
+        assertEquals(expected = MonsterTypeColors.humanoid, actual = Monster.Type.HUMANOID.getColor())
+        assertEquals(expected = MonsterTypeColors.monstrosity, actual = Monster.Type.MONSTROSITY.getColor())
+        assertEquals(expected = MonsterTypeColors.ooze, actual = Monster.Type.OOZE.getColor())
+        assertEquals(expected = MonsterTypeColors.plant, actual = Monster.Type.PLANT.getColor())
+        assertEquals(expected = MonsterTypeColors.swarm, actual = Monster.Type.SWARM.getColor())
+        assertEquals(expected = MonsterTypeColors.undead, actual = Monster.Type.UNDEAD.getColor())
+        assertEquals(expected = MonsterTypeColors.unknown, actual = Monster.Type.UNKNOWN.getColor())
     }
 
     @Test

@@ -1,19 +1,17 @@
 package com.cyrillrx.rpg.core.presentation.format
 
 import androidx.compose.ui.graphics.Color
-import com.cyrillrx.rpg.core.presentation.theme.ArmorColor
-import com.cyrillrx.rpg.core.presentation.theme.ObjectColor
-import com.cyrillrx.rpg.core.presentation.theme.WeaponColor
+import com.cyrillrx.rpg.core.presentation.theme.MagicalItemTypeColors
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 
 fun MagicalItem.getColor(): Color = when (type) {
-    MagicalItem.Type.ARMOR -> ArmorColor
-    MagicalItem.Type.POTION -> ObjectColor
-    MagicalItem.Type.RING -> ObjectColor
-    MagicalItem.Type.ROD -> WeaponColor
-    MagicalItem.Type.SCROLL -> ObjectColor
-    MagicalItem.Type.STAFF -> WeaponColor
-    MagicalItem.Type.WAND -> WeaponColor
-    MagicalItem.Type.WEAPON -> WeaponColor
-    MagicalItem.Type.WONDROUS_ITEM -> ObjectColor
+    MagicalItem.Type.ARMOR -> MagicalItemTypeColors.armor
+    MagicalItem.Type.POTION -> MagicalItemTypeColors.other
+    MagicalItem.Type.RING -> MagicalItemTypeColors.other
+    MagicalItem.Type.ROD -> MagicalItemTypeColors.weapon
+    MagicalItem.Type.SCROLL -> MagicalItemTypeColors.other
+    MagicalItem.Type.STAFF -> MagicalItemTypeColors.weapon
+    MagicalItem.Type.WAND -> MagicalItemTypeColors.weapon
+    MagicalItem.Type.WEAPON -> MagicalItemTypeColors.weapon
+    MagicalItem.Type.WONDROUS_ITEM -> MagicalItemTypeColors.other
 }

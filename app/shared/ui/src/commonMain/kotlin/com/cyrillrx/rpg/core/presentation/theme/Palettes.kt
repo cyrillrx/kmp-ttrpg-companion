@@ -15,6 +15,18 @@ fun Palette.toAppPalette(): AppPalette = when (this) {
     Palette.GROVE -> AppPalette(GroveLightScheme, GroveDarkScheme)
 }
 
+private val ErrorLight = Color(0xFFBA1A1A)
+private val OnErrorLight = Color(0xFFFFFFFF)
+private val ErrorContainerLight = Color(0xFFFFDAD6)
+private val OnErrorContainerLight = Color(0xFF410002)
+
+private val ErrorDark = Color(0xFFFFB4AB)
+private val OnErrorDark = Color(0xFF690005)
+private val ErrorContainerDark = Color(0xFF93000A)
+private val OnErrorContainerDark = Color(0xFFFFDAD6)
+
+private val DndParchment = Color(0xFFF0E8D0)
+
 private val ArcaneLightScheme = lightColorScheme(
     primary = Color(0xFF512DA8),
     onPrimary = Color(0xFFFFFFFF),

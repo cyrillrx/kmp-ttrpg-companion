@@ -17,22 +17,7 @@ import androidx.compose.material.icons.filled.Water
 import androidx.compose.material.icons.filled.Whatshot
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.cyrillrx.rpg.core.presentation.theme.MonsterAberration
-import com.cyrillrx.rpg.core.presentation.theme.MonsterBeast
-import com.cyrillrx.rpg.core.presentation.theme.MonsterCelestial
-import com.cyrillrx.rpg.core.presentation.theme.MonsterConstruct
-import com.cyrillrx.rpg.core.presentation.theme.MonsterDragon
-import com.cyrillrx.rpg.core.presentation.theme.MonsterElemental
-import com.cyrillrx.rpg.core.presentation.theme.MonsterFey
-import com.cyrillrx.rpg.core.presentation.theme.MonsterFiend
-import com.cyrillrx.rpg.core.presentation.theme.MonsterGiant
-import com.cyrillrx.rpg.core.presentation.theme.MonsterHumanoid
-import com.cyrillrx.rpg.core.presentation.theme.MonsterMonstrosity
-import com.cyrillrx.rpg.core.presentation.theme.MonsterOoze
-import com.cyrillrx.rpg.core.presentation.theme.MonsterPlant
-import com.cyrillrx.rpg.core.presentation.theme.MonsterSwarm
-import com.cyrillrx.rpg.core.presentation.theme.MonsterUndead
-import com.cyrillrx.rpg.core.presentation.theme.MonsterUnknown
+import com.cyrillrx.rpg.core.presentation.theme.MonsterTypeColors
 import com.cyrillrx.rpg.creature.domain.Monster
 
 fun Monster.Type.getIcon(): ImageVector = when (this) {
@@ -55,22 +40,22 @@ fun Monster.Type.getIcon(): ImageVector = when (this) {
 }
 
 fun Monster.Type.getColor(): Color = when (this) {
-    Monster.Type.ABERRATION -> MonsterAberration
-    Monster.Type.BEAST -> MonsterBeast
-    Monster.Type.CELESTIAL -> MonsterCelestial
-    Monster.Type.CONSTRUCT -> MonsterConstruct
-    Monster.Type.DRAGON -> MonsterDragon
-    Monster.Type.ELEMENTAL -> MonsterElemental
-    Monster.Type.FEY -> MonsterFey
-    Monster.Type.FIEND -> MonsterFiend
-    Monster.Type.GIANT -> MonsterGiant
-    Monster.Type.HUMANOID -> MonsterHumanoid
-    Monster.Type.MONSTROSITY -> MonsterMonstrosity
-    Monster.Type.OOZE -> MonsterOoze
-    Monster.Type.PLANT -> MonsterPlant
-    Monster.Type.SWARM -> MonsterSwarm
-    Monster.Type.UNDEAD -> MonsterUndead
-    Monster.Type.UNKNOWN -> MonsterUnknown
+    Monster.Type.ABERRATION -> MonsterTypeColors.aberration
+    Monster.Type.BEAST -> MonsterTypeColors.beast
+    Monster.Type.CELESTIAL -> MonsterTypeColors.celestial
+    Monster.Type.CONSTRUCT -> MonsterTypeColors.construct
+    Monster.Type.DRAGON -> MonsterTypeColors.dragon
+    Monster.Type.ELEMENTAL -> MonsterTypeColors.elemental
+    Monster.Type.FEY -> MonsterTypeColors.fey
+    Monster.Type.FIEND -> MonsterTypeColors.fiend
+    Monster.Type.GIANT -> MonsterTypeColors.giant
+    Monster.Type.HUMANOID -> MonsterTypeColors.humanoid
+    Monster.Type.MONSTROSITY -> MonsterTypeColors.monstrosity
+    Monster.Type.OOZE -> MonsterTypeColors.ooze
+    Monster.Type.PLANT -> MonsterTypeColors.plant
+    Monster.Type.SWARM -> MonsterTypeColors.swarm
+    Monster.Type.UNDEAD -> MonsterTypeColors.undead
+    Monster.Type.UNKNOWN -> MonsterTypeColors.unknown
 }
 
 fun formatCRValue(cr: Float): String = when (cr) {
