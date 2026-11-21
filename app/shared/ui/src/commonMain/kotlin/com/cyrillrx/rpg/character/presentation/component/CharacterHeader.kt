@@ -187,7 +187,7 @@ private fun InlineEditableName(
         if (!isEditing) return
 
         isEditing = false
-        if (draft.text != text) onConfirmed(draft.text)
+        onConfirmed(draft.text)
     }
 
     if (isEditing) {
