@@ -91,11 +91,7 @@ class CharacterEditViewModel(
     }
 
     fun saveName(name: String) {
-        val validName = name.toValidCharacterNameOrNull()
-        if (validName == null) {
-            cancelEditing()
-            return
-        }
+        val validName = name.toValidCharacterNameOrNull() ?: return cancelEditing()
 
         updateAndSave { copy(character = character.copy(name = validName), editingField = null) }
     }

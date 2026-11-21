@@ -46,6 +46,7 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.toValidCharacterNameOrNull
 import com.cyrillrx.rpg.character.domain.totalLevel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toClassesLabel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -186,8 +187,8 @@ private fun InlineEditableText(
         if (!isEditing) return
 
         isEditing = false
-        val trimmed = draft.text.trim()
-        if (trimmed.isNotBlank() && trimmed != text) onConfirmed(trimmed)
+        val name = draft.text.toValidCharacterNameOrNull()
+        if (name != null && name != text) onConfirmed(name)
     }
 
     if (isEditing) {
