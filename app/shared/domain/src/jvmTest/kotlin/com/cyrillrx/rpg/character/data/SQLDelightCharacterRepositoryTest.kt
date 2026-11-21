@@ -1,7 +1,12 @@
 package com.cyrillrx.rpg.character.data
 
+import app.cash.sqldelight.db.SqlDriver
+import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
+import com.cyrillrx.core.data.serialize
+import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.core.data.cache.CountingDriverFactory
+import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.data.cache.TestDatabaseDriverFactory
 import com.cyrillrx.rpg.core.domain.MutableClock
 import com.cyrillrx.rpg.core.domain.values
@@ -42,6 +47,37 @@ class SQLDelightCharacterRepositoryTest {
         assertEquals(2, result.size)
         assertTrue(result.contains(fighter))
         assertTrue(result.contains(rogue))
+    }
+
+    @Test
+    fun `a stored character with a blank name is skipped instead of failing the list`() = runTest {
+        val driverFactory = RawAccessDriverFactory()
+        val repository = SQLDelightCharacterRepository(driverFactory)
+        val fighter = SampleCharacterRepository.humanFighter()
+        repository.save(fighter)
+
+        val blankNamed = fighter.copy(id = "blank-named").serialize()
+            .replace("\"name\":\"${fighter.name}\"", "\"name\":\" \"")
+        driverFactory.driver.execute(
+            null,
+            "INSERT INTO Character(id, data, updatedAt) VALUES('blank-named', ?, 0)",
+            1,
+        ) {
+            bindString(0, blankNamed)
+        }
+
+        assertEquals(listOf(fighter), repository.getAll(null).values())
+        assertNull(repository.get("blank-named"))
+    }
+
+    private class RawAccessDriverFactory : DatabaseDriverFactory {
+        lateinit var driver: SqlDriver
+
+        override fun createDriver(): SqlDriver =
+            JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).also {
+                AppDatabase.Schema.create(it)
+                driver = it
+            }
     }
 
     @Test

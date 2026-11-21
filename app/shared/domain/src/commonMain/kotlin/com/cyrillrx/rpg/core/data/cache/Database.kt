@@ -28,10 +28,13 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private val dbQuery by lazy { databaseDriverFactory.createDatabase().appDatabaseQueries }
 
     fun getAllCharacters(): List<Stored<Character>> =
-        dbQuery.selectAllCharacters(::mapCharacterStored).executeAsList()
+        dbQuery.selectAllCharacters { _, data, updatedAt -> data to updatedAt }.executeAsList()
+            .mapNotNull { (data, updatedAt) ->
+                data.toCharacterOrNull()?.let { Stored(it, Instant.fromEpochMilliseconds(updatedAt)) }
+            }
 
     fun getCharacter(id: String): Character? =
-        dbQuery.selectCharacterById(id, ::mapCharacterSelecting).executeAsOneOrNull()
+        dbQuery.selectCharacterById(id) { _, data, _ -> data }.executeAsOneOrNull()?.toCharacterOrNull()
 
     fun saveCharacter(character: Character, updatedAt: Long) {
         dbQuery.saveCharacter(
@@ -42,21 +45,18 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     fun getCharactersByIds(ids: Collection<String>): List<Character> =
-        dbQuery.selectCharactersByIds(ids, ::mapCharacterSelecting).executeAsList()
+        dbQuery.selectCharactersByIds(ids) { _, data, _ -> data }.executeAsList().mapNotNull { it.toCharacterOrNull() }
 
     fun deleteCharacter(id: String) {
         dbQuery.deleteCharacter(id)
     }
 
-    @Suppress("UNUSED_PARAMETER")
-    private fun mapCharacterSelecting(id: String, data: String, updatedAt: Long): Character =
-        data.deserialize()
-
-    private fun mapCharacterStored(id: String, data: String, updatedAt: Long): Stored<Character> =
-        Stored(
-            value = data.deserialize(),
-            updatedAt = Instant.fromEpochMilliseconds(updatedAt),
-        )
+    private fun String.toCharacterOrNull(): Character? = try {
+        deserialize<Character>()
+    } catch (e: IllegalArgumentException) {
+        println("WARNING: stored character dropped: $e")
+        null
+    }
 
     fun getAllCampaigns(): List<Campaign> = dbQuery.selectAllCampaigns(::mapCampaignSelecting).executeAsList()
 
