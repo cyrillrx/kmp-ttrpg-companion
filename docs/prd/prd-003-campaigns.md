@@ -1,6 +1,8 @@
-# PRD-003 — Campaigns
+# PRD-003: Campaigns
 
-> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-11-21
+**Status**: Draft  
+**Version**: 0.3  
+**Last updated**: 2026-11-21
 
 ## Overview
 

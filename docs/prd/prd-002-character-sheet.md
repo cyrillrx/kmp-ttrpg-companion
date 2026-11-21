@@ -1,6 +1,8 @@
-# PRD-002 — Character Sheet
+# PRD-002: Character Sheet
 
-> **Status**: Draft | **Version**: 0.5 | **Last updated**: 2026-11-14
+**Status**: Draft  
+**Version**: 0.5  
+**Last updated**: 2026-11-14
 
 ## Overview
 
