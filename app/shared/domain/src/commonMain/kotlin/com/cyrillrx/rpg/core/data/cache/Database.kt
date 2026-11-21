@@ -33,7 +33,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         }
 
     fun getCharacter(id: String): Character? =
-        dbQuery.selectCharacterById(id) { _, data, _ -> data }.executeAsOneOrNull()?.let { toCharacterOrNull(id, it) }
+        dbQuery.selectCharacterById(id).executeAsOneOrNull()?.let { row -> toCharacterOrNull(row.id, row.data_) }
 
     fun saveCharacter(character: Character, updatedAt: Long) {
         dbQuery.saveCharacter(
