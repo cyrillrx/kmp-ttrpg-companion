@@ -64,6 +64,16 @@ class ApiCharacterMapperTest {
     }
 
     @Test
+    fun `an empty translation does not stand in for an invalid one`() {
+        val translations = """{"en": {"shortDescription": " ", "description": ""}, "fr": {"description": ""}}"""
+
+        assertEquals(
+            Result.Failure(CharacterImportError.MissingTranslations(SHEET_ID)),
+            sheet("translations" to defaultSerializer.parseToJsonElement(translations)).toCharacter(),
+        )
+    }
+
+    @Test
     fun `an invalid translation is dropped and reported`() {
         val translations = """{"en": {"shortDescription": "Fighter", "description": ""}, "fr": {"description": ""}}"""
 

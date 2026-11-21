@@ -44,7 +44,11 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
     val apiTranslations = translations
         ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
 
-    val (translations, translationErrors) = apiTranslations.partitionBy { locale, t -> t.toTranslation(id, locale) }
+    val (parsedTranslations, translationErrors) = apiTranslations.partitionBy { locale, t ->
+        t.toTranslation(id, locale)
+    }
+
+    val translations = parsedTranslations.filterValues { !it.isEmpty() }
     if (translations.isEmpty() && translationErrors.isNotEmpty()) {
         return Result.Failure(CharacterImportError.MissingTranslations(id))
     }
@@ -102,7 +106,7 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
     val character = Character(
         id = id,
         name = name,
-        translations = translations.filterValues { !it.isEmpty() },
+        translations = translations,
         background = background,
         race = race,
         classes = classLevels,
