@@ -31,10 +31,9 @@ internal fun String.toD20Check(): D20Check? = when {
 
 private fun <E : Enum<E>> List<E>.findByName(name: String): E? = find { it.name.equals(name, ignoreCase = true) }
 
-/** Null unless both columns are set and the key names a known check. */
-internal fun storedRollContext(characterId: String?, checkKey: String?): RollContext? {
+internal fun storedRollContext(characterId: String?, characterName: String?, checkKey: String?): RollContext? {
     val check = checkKey?.toD20Check()
-    if (characterId == null || check == null) return null
+    if (characterId == null || characterName == null || check == null) return null
 
-    return RollContext(characterId, check)
+    return RollContext(characterId, characterName, check)
 }

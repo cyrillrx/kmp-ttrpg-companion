@@ -100,13 +100,14 @@ CREATE TABLE IF NOT EXISTS DiceRoll (
     rolledAt INTEGER NOT NULL,
     roll TEXT NOT NULL,
     characterId TEXT,
-    checkKey TEXT
+    checkKey TEXT,
+    characterName TEXT
 );
 
 CREATE INDEX IF NOT EXISTS DiceRoll_characterId ON DiceRoll(characterId);
 
 insertDiceRoll:
-INSERT INTO DiceRoll (rolledAt, roll, characterId, checkKey) VALUES (?, ?, ?, ?);
+INSERT INTO DiceRoll (rolledAt, roll, characterId, checkKey, characterName) VALUES (?, ?, ?, ?, ?);
 
 lastInsertedDiceRollId:
 SELECT last_insert_rowid();
