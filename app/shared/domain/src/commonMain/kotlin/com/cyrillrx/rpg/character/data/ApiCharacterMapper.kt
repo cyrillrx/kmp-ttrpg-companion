@@ -44,8 +44,8 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
     val apiTranslations = translations
         ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
 
-    val (parsedTranslations, translationErrors) = apiTranslations.partitionBy { locale, t ->
-        t.toTranslation(id, locale)
+    val (parsedTranslations, translationErrors) = apiTranslations.partitionBy { locale, translation ->
+        translation.toTranslation(id, locale)
     }
 
     val translations = parsedTranslations.filterValues { !it.isEmpty() }
