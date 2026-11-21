@@ -1,8 +1,8 @@
-# ADR-003: Character Model — Single Class for PC and NPC
+# ADR-003: Character Model: Single Class for PC and NPC
 
 **Status**: Accepted  
 **Date**: 2026-05-09  
-**Context**: Phase 5 — Character sheets design, before implementation begins.
+**Context**: Phase 5: Character sheets design, before implementation begins.
 
 ## Decision
 

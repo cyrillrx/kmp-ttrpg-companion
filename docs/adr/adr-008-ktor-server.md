@@ -1,6 +1,8 @@
 # ADR-008: Delete the Go server, freeze the Rust server; a self-hosted backend runs on Ktor
 
-> **Status**: Accepted | **Date**: 2026-11-14 | **Context**: roadmap review ([PRD-000](../prd/prd-000-vision.md)): the compendium stays on the device and the backend is refocused on accounts, sync and sharing
+**Status**: Accepted  
+**Date**: 2026-11-14  
+**Context**: roadmap review ([PRD-000](../prd/prd-000-vision.md)): the compendium stays on the device and the backend is refocused on accounts, sync and sharing
 
 ## Decision
 
