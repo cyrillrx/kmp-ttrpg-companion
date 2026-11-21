@@ -50,7 +50,12 @@ class CharacterNameTest {
     }
 
     @Test
-    fun `an invalid stored name fails to decode`() {
+    fun `a stored name is repaired on decoding`() {
+        assertEquals(CharacterName("Thordak"), defaultSerializer.decodeFromString<CharacterName>("\" Thordak \""))
+    }
+
+    @Test
+    fun `a blank stored name fails to decode`() {
         assertFailsWith<IllegalArgumentException> { defaultSerializer.decodeFromString<CharacterName>("\"  \"") }
     }
 }
