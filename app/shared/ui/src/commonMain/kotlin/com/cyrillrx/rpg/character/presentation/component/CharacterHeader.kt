@@ -42,7 +42,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
-import com.cyrillrx.core.domain.truncate
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
@@ -194,7 +193,7 @@ private fun InlineEditableName(
     if (isEditing) {
         BasicTextField(
             value = draft,
-            onValueChange = { draft = it.copy(text = it.text.truncate(MAX_CHARACTER_NAME_LENGTH)) },
+            onValueChange = { if (it.text.length <= MAX_CHARACTER_NAME_LENGTH) draft = it },
             textStyle = style.copy(color = MaterialTheme.colorScheme.onSurface),
             cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
             singleLine = true,
