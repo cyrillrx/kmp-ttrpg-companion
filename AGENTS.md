@@ -135,10 +135,10 @@ Every screen's stateless overload (see [`compose-conventions.md`](docs/conventio
 
 ### Theme tokens
 
-Always use constants from `core/presentation/theme/` instead of hardcoded values:
+Always use constants from `core/presentation/theme/` instead of hardcoded values, except for the private colors below:
 
 - **Spacing**: `spacingSmall` (4.dp), `spacingMedium` (8.dp), `spacingCommon` (16.dp), `spacingLarge` (32.dp) from `Dimen.kt`
-- **Colors**: `MaterialTheme.colorScheme.*` for semantic colors; a color the scheme does not cover is a field of a semantic holder in `theme/` (`HealthColors`, `CategoryColors.kt`), or a `private val` next to its only reader, the one hardcoded value allowed outside `theme/`
+- **Colors**: `MaterialTheme.colorScheme.*` for semantic colors; a color the scheme does not cover is a field of a semantic holder in `theme/` (`HealthColors`, `SpellSchoolColors`), or a `private val` next to its only reader
 - **Shapes**: `MaterialTheme.shapes.*`; default corner radius is 16.dp (defined in `Shape.kt`)
 - **Typography**: `MaterialTheme.typography.*` (defined in `Type.kt`)
 
