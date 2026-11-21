@@ -3,7 +3,6 @@ package com.cyrillrx.rpg.character.domain
 import com.cyrillrx.core.domain.truncate
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.SerializationException
 import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.descriptors.SerialDescriptor
@@ -34,13 +33,14 @@ value class CharacterName(val value: String) {
     }
 }
 
+private const val BLANK_NAME_PLACEHOLDER = "?"
+
 internal object CharacterNameSerializer : KSerializer<CharacterName> {
     override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("CharacterName", PrimitiveKind.STRING)
 
     override fun serialize(encoder: Encoder, value: CharacterName) = encoder.encodeString(value.value)
 
     override fun deserialize(decoder: Decoder): CharacterName {
-        val raw = decoder.decodeString()
-        return CharacterName.parse(raw) ?: throw SerializationException("Blank character name: \"$raw\"")
+        return CharacterName.parse(decoder.decodeString()) ?: CharacterName(BLANK_NAME_PLACEHOLDER)
     }
 }

@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.character.data
 
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
-import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.core.data.cache.CountingDriverFactory
@@ -50,24 +49,22 @@ class SQLDelightCharacterRepositoryTest {
     }
 
     @Test
-    fun `a stored character with a blank name is skipped instead of failing the list`() = runTest {
+    fun `an unreadable stored character is skipped instead of failing the list`() = runTest {
         val driverFactory = RawAccessDriverFactory()
         val repository = SQLDelightCharacterRepository(driverFactory)
         val fighter = SampleCharacterRepository.humanFighter()
         repository.save(fighter)
 
-        val blankNamed = fighter.copy(id = "blank-named").serialize()
-            .replace("\"name\":\"${fighter.name}\"", "\"name\":\" \"")
         driverFactory.driver.execute(
             null,
-            "INSERT INTO Character(id, data, updatedAt) VALUES('blank-named', ?, 0)",
+            "INSERT INTO Character(id, data, updatedAt) VALUES('unreadable', ?, 0)",
             1,
         ) {
-            bindString(0, blankNamed)
+            bindString(0, "{not json")
         }
 
         assertEquals(listOf(fighter), repository.getAll(null).values())
-        assertNull(repository.get("blank-named"))
+        assertNull(repository.get("unreadable"))
     }
 
     private class RawAccessDriverFactory : DatabaseDriverFactory {
