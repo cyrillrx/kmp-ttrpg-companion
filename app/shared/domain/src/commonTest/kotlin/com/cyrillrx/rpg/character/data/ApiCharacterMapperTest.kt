@@ -46,7 +46,10 @@ class ApiCharacterMapperTest {
 
         val imported = importSheet("translations" to defaultSerializer.parseToJsonElement(translations))
 
-        assertEquals(Character.Translation("Fighter", "A veteran."), imported.value.translations["en"])
+        assertEquals(
+            Character.Translation(shortDescription = "Fighter", description = "A veteran."),
+            imported.value.translations["en"],
+        )
     }
 
     @Test
