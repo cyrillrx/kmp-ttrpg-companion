@@ -53,6 +53,17 @@ class ApiCharacterMapperTest {
     }
 
     @Test
+    fun `an empty translation is dropped so another locale can stand in`() {
+        val translations = """
+            {"en": {"shortDescription": " ", "description": ""}, "fr": {"shortDescription": "Mage", "description": ""}}
+        """
+
+        val imported = importSheet("translations" to defaultSerializer.parseToJsonElement(translations))
+
+        assertEquals(setOf("fr"), imported.value.translations.keys)
+    }
+
+    @Test
     fun `an invalid translation is dropped and reported`() {
         val translations = """{"en": {"shortDescription": "Fighter", "description": ""}, "fr": {"description": ""}}"""
 

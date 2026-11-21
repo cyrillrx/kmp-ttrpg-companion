@@ -102,7 +102,7 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
     val character = Character(
         id = id,
         name = name,
-        translations = translations,
+        translations = translations.filterValues { !it.isEmpty() },
         background = background,
         race = race,
         classes = classLevels,
