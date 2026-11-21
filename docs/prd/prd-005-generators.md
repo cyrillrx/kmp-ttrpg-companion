@@ -1,6 +1,8 @@
 # PRD-005: Generators
 
-> **Status**: Draft, pending technical feasibility study | **Version**: 0.2 | **Last updated**: 2026-11-20
+**Status**: Draft, pending technical feasibility study  
+**Version**: 0.2  
+**Last updated**: 2026-11-20
 
 > ⚠️ **This feature is still uncertain.** The LLM-based generation approach (Phase 3 and beyond) requires a dedicated technical feasibility study before committing to an implementation.
 > Phase 1 is the only part considered stable enough to plan concretely.

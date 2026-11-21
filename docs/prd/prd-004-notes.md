@@ -1,6 +1,8 @@
-# PRD-004 — Notes
+# PRD-004: Notes
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-13
+**Status**: Draft  
+**Version**: 0.2  
+**Last updated**: 2026-11-13
 
 ## Overview
 

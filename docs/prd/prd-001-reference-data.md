@@ -1,6 +1,8 @@
-# PRD-001 — Reference Data (Overview)
+# PRD-001: Reference Data (Overview)
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-14
+**Status**: Draft  
+**Version**: 0.2  
+**Last updated**: 2026-11-14
 
 ## Overview
 
