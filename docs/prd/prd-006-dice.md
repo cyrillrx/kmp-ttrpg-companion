@@ -1,6 +1,8 @@
-# PRD-006 — Virtual Dice
+# PRD-006: Virtual Dice
 
-> **Status**: Draft | **Version**: 0.7 | **Last updated**: 2026-11-08
+**Status**: Draft  
+**Version**: 0.7  
+**Last updated**: 2026-11-08
 
 ## Overview
 

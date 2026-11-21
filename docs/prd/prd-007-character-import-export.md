@@ -1,6 +1,8 @@
-# PRD-007 — Character Import & Export
+# PRD-007: Character Import & Export
 
-> **Status**: Draft | **Version**: 0.5 | **Last updated**: 2026-11-15
+**Status**: Draft  
+**Version**: 0.5  
+**Last updated**: 2026-11-15
 
 ## Overview
 
