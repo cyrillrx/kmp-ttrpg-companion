@@ -28,13 +28,12 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private val dbQuery by lazy { databaseDriverFactory.createDatabase().appDatabaseQueries }
 
     fun getAllCharacters(): List<Stored<Character>> =
-        dbQuery.selectAllCharacters { _, data, updatedAt -> data to updatedAt }.executeAsList()
-            .mapNotNull { (data, updatedAt) ->
-                data.toCharacterOrNull()?.let { Stored(it, Instant.fromEpochMilliseconds(updatedAt)) }
-            }
+        dbQuery.selectAllCharacters().executeAsList().mapNotNull { row ->
+            toCharacterOrNull(row.id, row.data_)?.let { Stored(it, Instant.fromEpochMilliseconds(row.updatedAt)) }
+        }
 
     fun getCharacter(id: String): Character? =
-        dbQuery.selectCharacterById(id) { _, data, _ -> data }.executeAsOneOrNull()?.toCharacterOrNull()
+        dbQuery.selectCharacterById(id) { _, data, _ -> data }.executeAsOneOrNull()?.let { toCharacterOrNull(id, it) }
 
     fun saveCharacter(character: Character, updatedAt: Long) {
         dbQuery.saveCharacter(
@@ -45,16 +44,16 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     fun getCharactersByIds(ids: Collection<String>): List<Character> =
-        dbQuery.selectCharactersByIds(ids) { _, data, _ -> data }.executeAsList().mapNotNull { it.toCharacterOrNull() }
+        dbQuery.selectCharactersByIds(ids).executeAsList().mapNotNull { row -> toCharacterOrNull(row.id, row.data_) }
 
     fun deleteCharacter(id: String) {
         dbQuery.deleteCharacter(id)
     }
 
-    private fun String.toCharacterOrNull(): Character? = try {
-        deserialize<Character>()
+    private fun toCharacterOrNull(id: String, data: String): Character? = try {
+        data.deserialize<Character>()
     } catch (e: IllegalArgumentException) {
-        println("WARNING: stored character dropped: $e")
+        println("WARNING: stored character $id dropped: $e")
         null
     }
 
