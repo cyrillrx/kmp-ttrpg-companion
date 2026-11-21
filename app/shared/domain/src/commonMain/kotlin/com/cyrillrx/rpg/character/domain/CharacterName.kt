@@ -25,6 +25,7 @@ value class CharacterName(val value: String) {
     override fun toString(): String = value
 
     companion object {
+        /** Trims [raw] and truncates it to [MAX_CHARACTER_NAME_LENGTH]; `null` when nothing is left. */
         fun parse(raw: String): CharacterName? = raw.trim()
             .truncate(MAX_CHARACTER_NAME_LENGTH)
             .trimEnd()
@@ -40,7 +41,6 @@ internal object CharacterNameSerializer : KSerializer<CharacterName> {
 
     override fun serialize(encoder: Encoder, value: CharacterName) = encoder.encodeString(value.value)
 
-    override fun deserialize(decoder: Decoder): CharacterName {
-        return CharacterName.parse(decoder.decodeString()) ?: CharacterName(BLANK_NAME_PLACEHOLDER)
-    }
+    override fun deserialize(decoder: Decoder): CharacterName =
+        CharacterName.parse(decoder.decodeString()) ?: CharacterName(BLANK_NAME_PLACEHOLDER)
 }
