@@ -19,6 +19,7 @@ import com.cyrillrx.rpg.character.domain.coerceToValidAbilityScore
 import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
 import com.cyrillrx.rpg.character.domain.modifierFor
+import com.cyrillrx.rpg.character.domain.toValidCharacterNameOrNull
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
@@ -90,13 +91,9 @@ class CharacterEditViewModel(
     }
 
     fun saveName(name: String) {
-        val trimmed = name.trim()
-        if (trimmed.isBlank()) {
-            cancelEditing()
-            return
-        }
+        val validName = name.toValidCharacterNameOrNull() ?: return cancelEditing()
 
-        updateAndSave { copy(character = character.copy(name = trimmed), editingField = null) }
+        updateAndSave { copy(character = character.copy(name = validName), editingField = null) }
     }
 
     fun saveRace(race: Race) {

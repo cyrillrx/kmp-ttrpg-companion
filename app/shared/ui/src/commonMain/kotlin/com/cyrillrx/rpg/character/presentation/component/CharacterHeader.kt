@@ -46,6 +46,7 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.toValidCharacterNameOrNull
 import com.cyrillrx.rpg.character.domain.totalLevel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toClassesLabel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -89,7 +90,7 @@ internal fun CharacterHeader(
     ) {
         ClassIconBox(clazz = primaryClass, onClick = onClassTapped)
         Column(modifier = Modifier.weight(1f)) {
-            InlineEditableText(
+            InlineEditableName(
                 text = name,
                 onConfirmed = onNameConfirmed,
                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
@@ -164,7 +165,7 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
 }
 
 @Composable
-private fun InlineEditableText(
+private fun InlineEditableName(
     text: String,
     onConfirmed: (String) -> Unit,
     style: TextStyle,
@@ -182,12 +183,13 @@ private fun InlineEditableText(
         }
     }
 
+    // TODO(#443): move the commit decision into CharacterEditViewModel.saveName.
     fun commit() {
         if (!isEditing) return
 
         isEditing = false
-        val trimmed = draft.text.trim()
-        if (trimmed.isNotBlank() && trimmed != text) onConfirmed(trimmed)
+        val name = draft.text.toValidCharacterNameOrNull()
+        if (name != null && name != text) onConfirmed(name)
     }
 
     if (isEditing) {

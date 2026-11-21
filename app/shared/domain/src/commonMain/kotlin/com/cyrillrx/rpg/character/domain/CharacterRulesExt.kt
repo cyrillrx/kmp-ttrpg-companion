@@ -39,6 +39,8 @@ fun Int.coerceToValidCharacterLevel(): Int = coerceIn(MIN_CHARACTER_LEVEL, MAX_C
 fun Int.coerceToValidAbilityScore(): Int = coerceIn(MIN_ABILITY_SCORE, MAX_ABILITY_SCORE)
 fun Int.coerceToValidHitPointAmount(): Int = coerceIn(MIN_HIT_POINTS, MAX_HIT_POINTS)
 
+fun String.toValidCharacterNameOrNull(): String? = trim().ifEmpty { null }
+
 // coerceIn throws when the upper bound is below the lower one, and the maximum comes from stored
 // data no validation guards: a corrupt sheet would crash the editor instead of reading as empty.
 fun Int.coerceToValidCurrentHitPoints(maxHitPoints: Int): Int =
