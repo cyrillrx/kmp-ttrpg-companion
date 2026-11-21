@@ -41,6 +41,48 @@ class ApiCharacterMapperTest {
     }
 
     @Test
+    fun `translations are imported trimmed`() {
+        val translations = """{"en": {"shortDescription": " Fighter ", "description": " A veteran. "}}"""
+
+        val imported = importSheet("translations" to defaultSerializer.parseToJsonElement(translations))
+
+        assertEquals(
+            Character.Translation(shortDescription = "Fighter", description = "A veteran."),
+            imported.value.translations["en"],
+        )
+    }
+
+    @Test
+    fun `an empty translation is dropped so another locale can stand in`() {
+        val translations = """
+            {"en": {"shortDescription": " ", "description": ""}, "fr": {"shortDescription": "Mage", "description": ""}}
+        """
+
+        val imported = importSheet("translations" to defaultSerializer.parseToJsonElement(translations))
+
+        assertEquals(setOf("fr"), imported.value.translations.keys)
+    }
+
+    @Test
+    fun `a sheet with only empty translations imports without any`() {
+        val translations = """{"en": {"shortDescription": " ", "description": ""}}"""
+
+        val imported = importSheet("translations" to defaultSerializer.parseToJsonElement(translations))
+
+        assertEquals(emptyMap(), imported.value.translations)
+    }
+
+    @Test
+    fun `an empty translation does not stand in for an invalid one`() {
+        val translations = """{"en": {"shortDescription": " ", "description": ""}, "fr": {"description": ""}}"""
+
+        assertEquals(
+            Result.Failure(CharacterImportError.MissingTranslations(SHEET_ID)),
+            sheet("translations" to defaultSerializer.parseToJsonElement(translations)).toCharacter(),
+        )
+    }
+
+    @Test
     fun `an invalid translation is dropped and reported`() {
         val translations = """{"en": {"shortDescription": "Fighter", "description": ""}, "fr": {"description": ""}}"""
 
@@ -63,6 +105,19 @@ class ApiCharacterMapperTest {
 
         assertNull(imported.value.background)
         assertEquals(listOf(CharacterImportWarning.UnknownBackground(SHEET_ID, "pirate-king")), imported.warnings)
+    }
+
+    @Test
+    fun `a blank name fails the import`() {
+        assertEquals(
+            Result.Failure(CharacterImportError.MissingName(SHEET_ID)),
+            sheet("name" to JsonPrimitive("  ")).toCharacter(),
+        )
+    }
+
+    @Test
+    fun `a name is imported trimmed`() {
+        assertEquals("Thordak", importSheet("name" to JsonPrimitive(" Thordak ")).value.name)
     }
 
     @Test

@@ -12,6 +12,7 @@ import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterSpeeds
 import com.cyrillrx.rpg.character.domain.coerceToValidCurrentHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidHitPointAmount
+import com.cyrillrx.rpg.character.domain.toValidCharacterNameOrNull
 import com.cyrillrx.rpg.creature.data.api.ApiAbilities
 import com.cyrillrx.rpg.creature.data.api.ApiSavingThrows
 import com.cyrillrx.rpg.creature.data.api.ApiSkills
@@ -38,12 +39,16 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
         if (it != this) warnings += CharacterImportWarning.ValueCoerced(id, field, declared = "$this", kept = "$it")
     }
 
-    val name = name
+    val name = name?.toValidCharacterNameOrNull()
         ?: return Result.Failure(CharacterImportError.MissingName(id))
     val apiTranslations = translations
         ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
 
-    val (translations, translationErrors) = apiTranslations.partitionBy { locale, t -> t.toTranslation(id, locale) }
+    val (parsedTranslations, translationErrors) = apiTranslations.partitionBy { locale, translation ->
+        translation.toTranslation(id, locale)
+    }
+
+    val translations = parsedTranslations.filterValues { !it.isEmpty() }
     if (translations.isEmpty() && translationErrors.isNotEmpty()) {
         return Result.Failure(CharacterImportError.MissingTranslations(id))
     }
@@ -135,8 +140,8 @@ private fun ApiCharacter.Translation.toTranslation(
 
     return Result.Success(
         Character.Translation(
-            shortDescription = shortDescription,
-            description = description,
+            shortDescription = shortDescription.trim(),
+            description = description.trim(),
         ),
     )
 }
