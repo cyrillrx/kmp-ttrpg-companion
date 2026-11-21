@@ -56,25 +56,15 @@ class SQLDelightCharacterRepositoryTest {
         repository.save(fighter)
 
         driverFactory.driver.execute(
-            null,
-            "INSERT INTO Character(id, data, updatedAt) VALUES('unreadable', ?, 0)",
-            1,
+            identifier = null,
+            sql = "INSERT INTO Character(id, data, updatedAt) VALUES('unreadable', ?, 0)",
+            parameters = 1,
         ) {
             bindString(0, "{not json")
         }
 
         assertEquals(listOf(fighter), repository.getAll(null).values())
         assertNull(repository.get("unreadable"))
-    }
-
-    private class RawAccessDriverFactory : DatabaseDriverFactory {
-        lateinit var driver: SqlDriver
-
-        override fun createDriver(): SqlDriver =
-            JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).also {
-                AppDatabase.Schema.create(it)
-                driver = it
-            }
     }
 
     @Test
@@ -154,5 +144,15 @@ class SQLDelightCharacterRepositoryTest {
 
         val stored = repository.getAll(null).single()
         assertEquals(Instant.fromEpochMilliseconds(5_000L), stored.updatedAt)
+    }
+
+    private class RawAccessDriverFactory : DatabaseDriverFactory {
+        lateinit var driver: SqlDriver
+
+        override fun createDriver(): SqlDriver =
+            JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).also {
+                AppDatabase.Schema.create(it)
+                driver = it
+            }
     }
 }

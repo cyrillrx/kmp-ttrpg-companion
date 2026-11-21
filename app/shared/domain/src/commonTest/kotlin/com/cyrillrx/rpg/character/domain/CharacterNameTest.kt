@@ -38,7 +38,7 @@ class CharacterNameTest {
     }
 
     @Test
-    fun `parse keeps an emoji whole when the maximum falls inside it`() {
+    fun `parse drops an emoji the maximum would split`() {
         val parsed = CharacterName.parse("a".repeat(MAX_CHARACTER_NAME_LENGTH - 1) + "🐉")
 
         assertEquals("a".repeat(MAX_CHARACTER_NAME_LENGTH - 1), parsed?.value)
