@@ -19,7 +19,7 @@ If a push to `main` leaves the Release workflow stuck, run it by hand with `gh w
 
 ## Repository configuration
 
-release-please opens its pull request with the workflow token, so the repository settings must allow GitHub Actions to create pull requests.
+release-please acts through a GitHub App rather than the workflow token: a pull request opened with the workflow token needs a manual approval before its checks run, one opened by an App does not. Create the App on the maintainer's account, with no webhook and read and write access to Contents, Pull requests and Issues, and install it on this repository only. Store its client ID in the repository variable `RELEASE_APP_CLIENT_ID` and a private key in the secret below.
 
 Play publishing stays off until the repository variable `PLAY_PUBLISHING_ENABLED` is `true`. Set it only once the secrets below exist and a first release was rolled out by hand to the internal testing track: while the app is a draft, the Play API accepts only draft releases.
 
@@ -30,6 +30,7 @@ Play publishing stays off until the repository variable `PLAY_PUBLISHING_ENABLED
 | `ANDROID_UPLOAD_KEY_ALIAS`         | The key alias                                                              |
 | `PLAY_SERVICE_ACCOUNT_JSON`        | The JSON key of a Google Cloud service account granted access to the app   |
 | `GEMINI_API_KEY`                   | Optional: a free-tier Google AI Studio key, for the tester notes           |
+| `RELEASE_APP_PRIVATE_KEY`          | The private key of the release GitHub App, the whole `.pem` file           |
 
 ## Installing, for testers
 
