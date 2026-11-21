@@ -2,7 +2,7 @@
 
 **Status**: Accepted  
 **Date**: 2026-08-05  
-**Context**: Cleanup before implementation — the user-created-lists feature carries spell-specific, compendium-colliding wording that no longer matches its generic model.
+**Context**: Cleanup before implementation: the user-created-lists feature carries spell-specific, compendium-colliding wording that no longer matches its generic model.
 
 ## Decision
 

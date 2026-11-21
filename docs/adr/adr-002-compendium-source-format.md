@@ -1,4 +1,4 @@
-# ADR-002: Compendium Source Format — YAML per Entity with Markdown Descriptions
+# ADR-002: Compendium Source Format: YAML per Entity with Markdown Descriptions
 
 **Status**: Accepted  
 **Date**: 2026-05-04  
