@@ -90,7 +90,7 @@ internal fun CharacterHeader(
     ) {
         ClassIconBox(clazz = primaryClass, onClick = onClassTapped)
         Column(modifier = Modifier.weight(1f)) {
-            InlineEditableText(
+            InlineEditableName(
                 text = name,
                 onConfirmed = onNameConfirmed,
                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
@@ -165,7 +165,7 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
 }
 
 @Composable
-private fun InlineEditableText(
+private fun InlineEditableName(
     text: String,
     onConfirmed: (String) -> Unit,
     style: TextStyle,
