@@ -1,8 +1,8 @@
 # ADR-001: Compendium Data Model Decisions
 
-**Status**: Accepted  
-**Date**: 2026-04-26  
-**Context**: Phase 4 intermediate step — data quality & coherence, before backend consumption by clients.
+> **Status**: Accepted | **Date**: 2026-04-26 | **Context**: Phase 4 intermediate step: data quality & coherence, before backend consumption by clients.
+
+**Update (2026-11-15)**: the compendium stays on the device ([PRD-000](../prd/prd-000-vision.md)). The data model below still applies. The backend API that serves the compendium is kept until the backend choice, then ported if self-hosted and deleted otherwise ([ADR-008](adr-008-ktor-server.md)); the app does not use it, and the bundled `Api*` format is the likely starting point of the entry export format, settled by the entry export PRD ([ADR-008](adr-008-ktor-server.md)). The backend API mentions below apply once a client consumes the compendium from the backend; the detail-view rules apply locally.
 
 ## 1. Entity + Translations Pattern
 
@@ -81,6 +81,7 @@ All enum values in JSON source files and API responses use **lowercase English w
 - Enum names in code (Kotlin, Rust, Go) remain `UPPER_CASE` as per each language's convention; the serialization layer handles case mapping transparently.
 
 ### Serialization Convention Per Language
+_The Rust and Go lines describe the servers that [ADR-008](adr-008-ktor-server.md) deletes (Go) and freezes (Rust); they are kept as written._
 - **Kotlin**: `@SerialName("conjuration")` on each enum entry, or a custom serializer
 - **Rust**: `#[serde(rename_all = "snake_case")]` on the enum
 - **Go**: lowercase string in JSON struct tags

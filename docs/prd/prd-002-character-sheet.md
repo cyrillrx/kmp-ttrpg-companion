@@ -1,6 +1,6 @@
 # PRD-002 — Character Sheet
 
-> **Status**: Draft | **Version**: 0.4 | **Last updated**: 2026-11-05
+> **Status**: Draft | **Version**: 0.5 | **Last updated**: 2026-11-14
 
 ## Overview
 
@@ -8,8 +8,7 @@ The Character Sheet module allows users to create, view, edit, and delete charac
 
 PCs and NPCs use the **same `Character` model**. An NPC is a `Character` with `Class.UNKNOWN` and an arbitrary level — no separate subtype. Campaign roles (GM controls NPC, player controls PC) are handled at the campaign layer, not in the character model (see [ADR-003](../adr/adr-003-character-model.md)).
 
-At this stage, character sheets live in the user's personal library and are independent of any campaign.
-Campaign integration (attaching sheets to a campaign, sharing with other players, access control) is a later phase covered in [PRD-003 — Campaigns](prd-003-campaigns.md).
+At this stage, character sheets live in the user's personal library and are independent of any campaign. Attaching sheets to a campaign is part of the local campaign MVP in [PRD-003: Campaigns](prd-003-campaigns.md); sharing with other players and access control come with the online features.
 
 ## Goals
 
@@ -26,7 +25,7 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 | User  | Delete a character sheet I own           | I can remove characters I no longer use                  |
 | User  | Roll a skill, a save or the initiative   | I get the total without adding the bonus myself          |
 
-**Phase 3 — Campaign integration (see PRD-003)**
+**Campaign integration (see PRD-003): attaching is local, viewing shared sheets is online**
 
 | As a… | I want to…                                         | So that…                             |
 |-------|----------------------------------------------------|--------------------------------------|
@@ -76,24 +75,29 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 - [ ] Feats
 
 **Inventory**
-- [ ] List of items as free-form text entries (name only)
-- _Linking items from the Item module to a character sheet is a later-phase feature_
+- _Free text gives way to collections where the compendium covers the content (magical items, spells): a linked entry opens its full sheet during play, one attachment mechanism serves inventory, spells, wild shapes and campaign creatures, and the GM can hand an item to a player ([PRD-003](prd-003-campaigns.md)). Mundane equipment is an open question (below); currency and carrying capacity stay outside the compendium._
+- [ ] Items from the compendium, through the collections attached to the character (PRD to write), possibly wrapped with sheet-specific data such as quantity and weight
+- [ ] Mundane equipment (weapons, armor, adventuring gear): the compendium holds magical items only, so how it is recorded is an open question (see below)
 - [ ] Currency (CP, SP, EP, GP, PP)
 - [ ] Carrying capacity (auto-calculated from Strength)
 
 **Spells (if applicable)**
 - [ ] Spellcasting ability, spell save DC, spell attack bonus
 - [ ] Spell slots (per level, current/max)
-- [ ] Prepared/known spells as free-form text entries (name only)
-- _Linking spells from the Spellbook module to a character sheet is a later-phase feature_
+- [ ] Prepared and known spells from the compendium, through the collections attached to the character (PRD to write); homebrew spells wait for custom entries ([PRD-001](prd-001-reference-data.md))
+
+**Wild shapes (if applicable)**
+- [ ] Wild shape forms from the bestiary, through the collections attached to the character (PRD to write)
+
+_Inventory, spells and wild shapes wait for the collection export ([PRD-001](prd-001-reference-data.md), [PRD-007](prd-007-character-import-export.md))._
 
 **Notes**
 - [ ] Free-text field for backstory, session notes, roleplaying notes
 
-### Phase 3 — Online with Sync
+### Online: sync and sharing
 
 - [ ] Sync character sheets across devices.
-- [ ] Attach a character sheet to a campaign and share it with other campaign members (see PRD-003).
+- [ ] Share a character sheet with other campaign members (see PRD-003).
 
 ## Non-Functional Requirements
 
@@ -110,3 +114,5 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 ## Open Questions
 
 All open questions from v0.1 have been addressed in [ADR-003 — Character Model](../adr/adr-003-character-model.md).
+
+- How is mundane equipment recorded: as compendium items (a simpler, extensible list than the magical items), as free text, or as free text mixing references to magical items, like a note with external references? A free-text part is likely either way, for standard equipment (a bow, thieves' tools) and odd items (a troll head, dragon teeth). To settle in the PRD on collections attached to the character. Until then, a sheet has no mundane equipment.

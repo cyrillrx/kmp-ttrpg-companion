@@ -1,6 +1,6 @@
 # PRD-001 — Reference Data (Overview)
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-14
 
 ## Overview
 
@@ -35,8 +35,8 @@ And the same phase breakdown:
 
 - **Phase 1**: Seed database, search, filters, detail view.
 - **Phase 2**: Create and manage personal named lists locally.
-- **Phase 3**: Sync catalog from public backend (read-only).
-- **Phase 4**: Sync personal lists across devices. Custom entries, export/import.
+- **Phase 3**: Custom entries. Export and import single entries, then personal lists; a list export carries its entries in full, not references, so the file stays valid whatever compendium version the receiver has and carries custom entries; it builds on the entry export. Mixing references for official entries with full data for custom ones was rejected: it ties the file to the receiver's compendium version. The cost: the receiver gets copies of official entries it already has, possibly of another version, and how they relate is for the dedicated PRD to write that scopes both exports.
+- **Online**: Sync personal lists and custom entries across devices. The catalog itself stays on the device.
 
 ## Non-Functional Requirements
 
@@ -52,4 +52,4 @@ And the same phase breakdown:
 ## Open Questions
 
 - Which official data source will be used for the seed database (SRD JSON, Open5e API, manual curation)?
-- Should personal named lists be shareable between users (e.g., sharing a grimoire with a party)?
+- Should personal named lists be shareable between users online (e.g., sharing a grimoire with a party)? Offline sharing by file is settled in Phase 3 above.

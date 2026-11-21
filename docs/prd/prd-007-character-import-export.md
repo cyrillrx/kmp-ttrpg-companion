@@ -1,12 +1,12 @@
 # PRD-007 — Character Import & Export
 
-> **Status**: Draft | **Version**: 0.4 | **Last updated**: 2026-10-14
+> **Status**: Draft | **Version**: 0.5 | **Last updated**: 2026-11-15
 
 ## Overview
 
-Import & Export lets a user take a character sheet out of the app as a single JSON file and bring one back in. It is the only form of sharing that works without a backend: campaign sharing, accounts and access control are specified in [PRD-003 — Campaigns](prd-003-campaigns.md) and depend on Phase 4.
+Import & Export lets a user take a character sheet out of the app as a single JSON file and bring one back in. It is the first form of sharing that works without a backend: campaign sharing, accounts and access control are specified in [PRD-003: Campaigns](prd-003-campaigns.md) and depend on the online features.
 
-The scope is character sheets. A sheet is self-contained — every value it displays travels with it — which is what makes a file exchange meaningful. Collections are not: a `UserCollection` holds `itemIds` pointing into the compendium, so exporting one raises the question of how a receiving device resolves references it does not have. That is a separate decision and a separate PRD.
+The scope is character sheets. A sheet without attached collections is self-contained (every value it displays travels with it), which is what makes a file exchange meaningful. Collections are not: a collection only references compendium entries. Their export is scoped in [PRD-001](prd-001-reference-data.md) (Phase 3) and a dedicated PRD. A sheet with attached collections can only be exported once that collection export exists, so the collection export ships before collections attach to a character; exporting such a sheet is a revision of this PRD that ships together with the collections attached to the character.
 
 ## Goals
 
@@ -120,7 +120,7 @@ A received file and a bundled preset go through the same mapper and the same pol
 
 ## Out of Scope
 
-- Exporting collections — needs a decision on how a receiving device resolves compendium references it does not have; may be addressed in a future PRD.
+- Exporting collections: scoped in [PRD-001](prd-001-reference-data.md) Phase 3 (entries travel in full, in a dedicated PRD).
 - Full local backup and restore in a single file; may be addressed in a future PRD.
 - A printable or presentable sheet (PDF, image); may be addressed in a future PRD.
 - Online sharing, accounts and access control, covered by [PRD-003 — Campaigns](prd-003-campaigns.md).

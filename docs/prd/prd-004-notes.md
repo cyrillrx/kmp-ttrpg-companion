@@ -1,6 +1,6 @@
 # PRD-004 — Notes
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-11-13
 
 ## Overview
 
@@ -25,14 +25,14 @@ The Notes module also serves as the foundation for the Generators module ([PRD-0
 | User  | Delete a note                       | I can remove notes I no longer need              |
 | User  | Organise my notes into named lists  | I can group related notes together               |
 
-**Later phase — Campaign integration (see PRD-003)**
+**Phase 3: Campaign integration (see PRD-003)**
 
 | As a… | I want to…                    | So that…                                                      |
 |-------|-------------------------------|---------------------------------------------------------------|
 | User  | Attach a note to a campaign   | I can organise session notes within their campaign context    |
 | User  | Detach a note from a campaign | The note returns to my personal library without being deleted |
 
-**Future — Cross-entity references**
+**Phase 4: Cross-entity references**
 
 | As a… | I want to…                                                                  | So that…                                               |
 |-------|-----------------------------------------------------------------------------|--------------------------------------------------------|
@@ -57,13 +57,13 @@ The Notes module also serves as the foundation for the Generators module ([PRD-0
 - [ ] Attach an existing note to a campaign (see PRD-003).
 - [ ] Notes remain in the user's personal library even when detached from a campaign.
 
-### Future — Cross-entity references
+### Phase 4: Cross-entity references
 
-> The exact interaction model (simple navigable link vs. inline display) is to be decided during design. This feature requires all referenced entity types to be available and synced first.
+> The exact interaction model (simple navigable link vs. inline display) is to be decided during design. This feature requires all referenced entity types to be available locally first; references to synced or shared entities follow the online features.
 
 - [ ] Within a note body, reference any other entity: another note, a monster, a character sheet, a spell, an item, etc.
 - [ ] Referenced entities are navigable from within the note.
-- [ ] **Visibility consistency**: a reference to a secret or restricted entity must respect that entity's access rules — users who cannot access the entity should not be able to navigate to it or infer its content from the reference.
+- [ ] **Visibility consistency**, once secret entities exist (PRD-003, online): a reference to a secret or restricted entity must respect that entity's access rules; users who cannot access the entity should not be able to navigate to it or infer its content from the reference.
 
 ## Non-Functional Requirements
 

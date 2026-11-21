@@ -1,6 +1,6 @@
 # PRD-000 — Vision & Foundation
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-10-20
+> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-11-17
 
 ## Overview
 
@@ -25,53 +25,51 @@ Roles are **not fixed account types** — they are **per-campaign roles** determ
 | Role        | Abbreviation | How it is assigned                                                                             |
 |-------------|--------------|------------------------------------------------------------------------------------------------|
 | Game Master | GM           | Automatically assigned to the user who **creates** the campaign.                               |
-| Co-GM       | Co-GM        | Assigned when a user is **invited as a co-GM** or **promoted** by a GM.                        |
+| Co-GM       | Co-GM        | Assigned when a user is **invited as a co-GM** or **promoted** by the GM or a co-GM.           |
 | Player      | P            | Assigned when a user **joins a campaign by invitation**.                                       |
 | User        | U            | Any user, regardless of their role in any campaign. Applies to features available to everyone. |
 
 ### Campaign Role Assignment
 
-| Situation                                       | Role in that campaign                                                     |
-|-------------------------------------------------|---------------------------------------------------------------------------|
-| User creates a campaign                         | GM / owner (full access)                                                  |
-| User is invited as co-GM, or promoted by the GM | Co-GM (same as GM, except cannot delete the campaign or remove the owner) |
-| User is invited as a player                     | Player (read-only, except own PC sheets)                                  |
+| Situation                                                  | Role in that campaign                                                     |
+|------------------------------------------------------------|---------------------------------------------------------------------------|
+| User creates a campaign                                    | GM / owner (full access)                                                  |
+| User is invited as co-GM, or promoted by the GM or a co-GM | Co-GM (same as GM, except cannot delete the campaign or remove the owner) |
+| User is invited as a player                                | Player (read-only, except own PC sheets)                                  |
 
 ### Access Matrix
 
 | Action                                               | Any User (U) | GM (owner) | Co-GM | Player |
 |------------------------------------------------------|--------------|------------|-------|--------|
-| Read public reference data (spells, items, monsters) | ✅            | ✅          | ✅     | ✅      |
-| Create/edit own character sheets (personal library)  | ✅            | ✅          | ✅     | ✅      |
-| Create a campaign                                    | ✅            | ✅          | ✅     | ✅      |
-| Edit campaign content (notes, roster, settings)      | —            | ✅          | ✅     | ✗      |
-| View secret folders and items                        | —            | ✅          | ✅     | ✗      |
-| Read visible campaign content (notes, roster)        | —            | ✅          | ✅     | ✅      |
-| Invite players or co-GMs                             | —            | ✅          | ✅     | ✗      |
-| Promote / demote members                             | —            | ✅          | ✅     | ✗      |
-| Edit own PC sheet within a campaign                  | —            | ✅          | ✅     | ✅      |
-| Edit other characters' sheets within a campaign      | —            | ✅          | ✅     | ✗      |
-| Delete the campaign                                  | —            | ✅          | ✗     | ✗      |
-| Remove the GM (owner) from the campaign              | —            | ✗          | ✗     | ✗      |
+| Read public reference data (spells, items, monsters) | ✅           | ✅         | ✅    | ✅     |
+| Create/edit own character sheets (personal library)  | ✅           | ✅         | ✅    | ✅     |
+| Create a campaign                                    | ✅           | ✅         | ✅    | ✅     |
+| Edit campaign content (notes, roster, settings)      | n/a          | ✅         | ✅    | ✗      |
+| View secret folders and items                        | n/a          | ✅         | ✅    | ✗      |
+| Read visible campaign content (notes, roster)        | n/a          | ✅         | ✅    | ✅     |
+| Invite players or co-GMs                             | n/a          | ✅         | ✅    | ✗      |
+| Promote / demote members                             | n/a          | ✅         | ✅    | ✗      |
+| Revoke a member's access (except the owner)          | n/a          | ✅         | ✅    | ✗      |
+| Edit own PC sheet within a campaign                  | n/a          | ✅         | ✅    | ✅     |
+| Edit other characters' sheets within a campaign      | n/a          | ✅         | ✅    | ✗      |
+| Delete the campaign                                  | n/a          | ✅         | ✗     | ✗      |
+| Remove the GM (owner) from the campaign              | n/a          | ✗          | ✗     | ✗      |
 
 ## Connectivity Phases
 
-The application is designed to be rolled out in three phases of increasing connectivity:
+The application is designed to be rolled out in two phases of increasing connectivity:
 
 ### Phase 1 — Offline / Local
 - All data is stored locally on the device.
 - A pre-loaded seed database provides reference content (spells, items, monsters).
 - Users can create and manage their own content locally.
+- The reference content stays on the device: the whole compendium fits there, so serving it would only add network calls. A compendium served by the backend, probably mixed with the local one, becomes worth it if the content needs regular updates, if users share their own content through the backend (privately or as UGC), or if a legal constraint limits what the app may bundle beyond the SRD.
 
-### Phase 2 — Online, Public Data
-- Connection to a backend server to fetch public, immutable reference data.
-- Examples: official spell lists, item catalogs, monster stat blocks.
-- No user account required. Read-only sync of public content.
-
-### Phase 3 — Online, Connected with Sync
+### Phase 2: Online, Connected with Sync
+- Not tied to a point of the functional roadmap: an online feature lands, where it has one, once its local counterpart exists.
 - User authentication (registration and login).
 - Data synchronization across devices.
-- Campaign sharing and access management (editor, reader, no access).
+- Campaign sharing and access management (GM, co-GM, player).
 - Role management within a shared campaign.
 
 ## Supported Game Systems

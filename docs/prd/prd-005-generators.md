@@ -1,6 +1,6 @@
-# PRD-005 — Generators
+# PRD-005: Generators
 
-> **Status**: Draft — Pending technical feasibility study | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft, pending technical feasibility study | **Version**: 0.2 | **Last updated**: 2026-11-20
 
 > ⚠️ **This feature is still uncertain.** The LLM-based generation approach (Phase 3 and beyond) requires a dedicated technical feasibility study before committing to an implementation.
 > Phase 1 is the only part considered stable enough to plan concretely.
@@ -71,9 +71,9 @@ LLM-based generation using an API. The app exposes campaign context (tone, setti
 
 - [ ] Call the LLM API with a structured prompt and campaign context via MCP.
 - [ ] Return a structured result matching the category's field schema.
-- [ ] Display the result in the same UI as Phase 1 gallery entries.
+- [ ] Display the result in the same UI as Phase 1 gallery entries, if the gallery exists by then; it is not a prerequisite.
 - [ ] Save result as a Note (PRD-004).
-- [ ] Gracefully degrade to Phase 1 gallery when offline.
+- [ ] When offline, gracefully degrade to the Phase 1 gallery if it exists.
 
 ## Future Exploration — Local Model on External Client
 
