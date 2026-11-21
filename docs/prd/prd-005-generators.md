@@ -1,4 +1,4 @@
-# PRD-005: Generators
+# PRD-005 — Generators
 
 > **Status**: Draft, pending technical feasibility study | **Version**: 0.2 | **Last updated**: 2026-11-20
 
