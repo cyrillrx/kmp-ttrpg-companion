@@ -39,3 +39,7 @@ Play publishing stays off until the repository variable `PLAY_PUBLISHING_ENABLED
 - **Linux**: download the DEB and install it with `sudo apt install ./<file>.deb`.
 
 Desktop updates are manual: watch the repository's releases on GitHub to be notified.
+
+## Store screenshots
+
+`app/.maestro/store/capture.sh [output dir]` captures the eight Play Store screenshots in English and in French on the connected phone, with [Maestro](https://maestro.dev) installed and the phone unlocked. Install the release build first: the screenshots show what the installed app shows. The script resets the app, so its local data is lost, then switches the app language with `cmd locale set-app-locales`, without touching the phone's. The screenshots are cropped to 1080×2160, the 2:1 ratio Play accepts, and written to `build/store-screenshots` by default. The dice results are random.
