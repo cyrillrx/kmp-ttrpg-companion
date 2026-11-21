@@ -12,6 +12,7 @@ import kotlin.jvm.JvmInline
 
 const val MAX_CHARACTER_NAME_LENGTH = 50
 
+/** Trimmed, non-blank, at most [MAX_CHARACTER_NAME_LENGTH] characters; the constructor throws otherwise, [parse] repairs. */
 @Serializable(with = CharacterNameSerializer::class)
 @JvmInline
 value class CharacterName(val value: String) {
