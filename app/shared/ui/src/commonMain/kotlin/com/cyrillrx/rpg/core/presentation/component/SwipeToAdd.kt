@@ -76,6 +76,7 @@ private fun SwipeAddBackground() {
         Icon(
             imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
             contentDescription = null,
+            // TODO(#449): pick a tint that contrasts with AddBackground in light theme
             tint = MaterialTheme.colorScheme.onPrimary,
         )
     }
