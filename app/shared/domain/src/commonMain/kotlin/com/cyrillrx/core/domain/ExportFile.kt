@@ -1,4 +1,4 @@
-package com.cyrillrx.core.data
+package com.cyrillrx.core.domain
 
 data class ExportFile(
     val name: String,

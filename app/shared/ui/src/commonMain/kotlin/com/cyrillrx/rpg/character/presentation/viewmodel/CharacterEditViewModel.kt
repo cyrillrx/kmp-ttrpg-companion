@@ -2,12 +2,12 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.core.data.ExportFile
+import com.cyrillrx.core.domain.ExportFile
 import com.cyrillrx.rpg.app.APP_VERSION
 import com.cyrillrx.rpg.app.currentLocale
-import com.cyrillrx.rpg.character.data.toExportFile
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterFileFormat
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.D20Check
@@ -52,6 +52,7 @@ class CharacterEditViewModel(
     private val characterId: String,
     private val characterRepository: CharacterRepository,
     historyRepository: RollHistoryRepository,
+    private val fileFormat: CharacterFileFormat,
     private val appVersion: String = APP_VERSION,
     private val clock: Clock = Clock.System,
     private val timeZone: TimeZone = TimeZone.currentSystemDefault(),
@@ -180,7 +181,7 @@ class CharacterEditViewModel(
     fun exportCharacter() {
         val character = (state.value as? Loaded)?.character ?: return
 
-        exportEvent.tryEmit(character.toExportFile(appVersion, clock.now(), timeZone))
+        exportEvent.tryEmit(fileFormat.write(character, appVersion, clock.now(), timeZone))
     }
 
     fun onAdjustmentsReported() {

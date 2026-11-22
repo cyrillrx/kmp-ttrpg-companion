@@ -1,12 +1,14 @@
 package com.cyrillrx.rpg.character.data
 
-import com.cyrillrx.core.data.Imported
 import com.cyrillrx.core.data.defaultSerializer
+import com.cyrillrx.core.domain.Imported
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.character.data.api.ApiCharacter
 import com.cyrillrx.rpg.character.data.api.CHARACTER_EXPORT_FORMAT_VERSION
 import com.cyrillrx.rpg.character.data.api.ENTITY_TYPE_CHARACTER
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterFileImportError
+import com.cyrillrx.rpg.character.domain.CharacterImportWarning
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject

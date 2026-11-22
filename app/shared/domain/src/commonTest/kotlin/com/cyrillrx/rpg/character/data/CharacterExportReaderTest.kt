@@ -1,7 +1,10 @@
 package com.cyrillrx.rpg.character.data
 
-import com.cyrillrx.core.data.Imported
+import com.cyrillrx.core.domain.Imported
 import com.cyrillrx.core.domain.Result
+import com.cyrillrx.rpg.character.domain.CharacterFileImportError
+import com.cyrillrx.rpg.character.domain.CharacterImportError
+import com.cyrillrx.rpg.character.domain.CharacterImportWarning
 import kotlinx.datetime.TimeZone
 import kotlin.test.Test
 import kotlin.test.assertEquals

@@ -1,10 +1,12 @@
 package com.cyrillrx.rpg.character.data
 
-import com.cyrillrx.core.data.Imported
 import com.cyrillrx.core.data.defaultSerializer
+import com.cyrillrx.core.domain.Imported
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.character.data.api.ApiCharacter
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterImportError
+import com.cyrillrx.rpg.character.domain.CharacterImportWarning
 import com.cyrillrx.rpg.creature.domain.MAX_ARMOR_CLASS
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject

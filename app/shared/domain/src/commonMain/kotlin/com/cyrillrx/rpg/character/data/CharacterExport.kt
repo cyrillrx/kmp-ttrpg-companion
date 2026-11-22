@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.character.data
 
-import com.cyrillrx.core.data.ExportFile
 import com.cyrillrx.core.data.exportSerializer
+import com.cyrillrx.core.domain.ExportFile
 import com.cyrillrx.rpg.character.data.api.ApiCharacterExport
 import com.cyrillrx.rpg.character.data.api.CHARACTER_EXPORT_FORMAT_VERSION
 import com.cyrillrx.rpg.character.data.api.ENTITY_TYPE_CHARACTER

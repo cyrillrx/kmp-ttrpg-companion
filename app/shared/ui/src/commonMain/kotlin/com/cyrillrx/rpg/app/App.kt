@@ -25,6 +25,7 @@ import coil3.compose.setSingletonImageLoaderFactory
 import coil3.svg.SvgDecoder
 import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
+import com.cyrillrx.rpg.character.data.JsonCharacterFileFormat
 import com.cyrillrx.rpg.character.data.JsonCharacterPresetRepository
 import com.cyrillrx.rpg.character.data.SQLDelightCharacterRepository
 import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
@@ -134,6 +135,7 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
                     handleCharacterRoutes(
                         backStack = backStack,
                         characterRepository = characterRepository,
+                        characterFileFormat = JsonCharacterFileFormat,
                         rollHistoryRepository = rollHistoryRepository,
                         pcPresetRepository = pcPresetRepository,
                         npcPresetRepository = npcPresetRepository,

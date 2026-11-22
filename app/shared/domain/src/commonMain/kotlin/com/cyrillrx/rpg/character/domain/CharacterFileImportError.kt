@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.character.data
+package com.cyrillrx.rpg.character.domain
 
 import com.cyrillrx.core.domain.Error
 

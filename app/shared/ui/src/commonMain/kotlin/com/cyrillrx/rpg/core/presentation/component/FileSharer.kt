@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.runtime.Composable
-import com.cyrillrx.core.data.ExportFile
+import com.cyrillrx.core.domain.ExportFile
 
 fun interface FileSharer {
     suspend fun share(file: ExportFile)

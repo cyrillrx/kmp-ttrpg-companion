@@ -1,11 +1,12 @@
 package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModelStore
-import com.cyrillrx.rpg.character.data.CharacterFileImportError
+import com.cyrillrx.rpg.character.data.JsonCharacterFileFormat
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.data.toExportFile
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterFileImportError
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterImportFailure
@@ -57,7 +58,7 @@ class CharacterListViewModelTest {
     private fun buildViewModel(
         repo: CharacterRepository = repository,
         prefsRepository: UserPreferencesRepository = FakeUserPreferencesRepository(),
-    ) = CharacterListViewModel(repo, prefsRepository, testDispatcher)
+    ) = CharacterListViewModel(repo, JsonCharacterFileFormat, prefsRepository, testDispatcher)
 
     private fun CharacterListViewModel.firstStored(): Stored<Character> =
         (state.value.body as CharacterListState.Body.WithData).searchResults.first()
