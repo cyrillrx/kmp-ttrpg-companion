@@ -193,6 +193,7 @@ private fun InlineEditableName(
     if (isEditing) {
         BasicTextField(
             value = draft,
+            // TODO(#446): cap with InputTransformation.maxLength instead of refusing the edit.
             onValueChange = { if (it.text.length <= MAX_CHARACTER_NAME_LENGTH) draft = it },
             textStyle = style.copy(color = MaterialTheme.colorScheme.onSurface),
             cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
