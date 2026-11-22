@@ -306,6 +306,7 @@ class CharacterEditViewModelTest {
         viewModel.editField(EditingField.Race)
 
         viewModel.saveName("   ")
+        viewModel.saveName("Aria")
 
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
         assertEquals(EditingField.Race, loaded.editingField)
@@ -329,7 +330,7 @@ class CharacterEditViewModelTest {
         viewModel.saveName(" ${fighter.name.value} ")
         advanceUntilIdle()
 
-        assertEquals(0, repo.saveCount)
+        assertEquals(expected = 0, actual = repo.saveCount)
     }
 
     // ─── saveBackground ────────────────────────────────────────────────────────
