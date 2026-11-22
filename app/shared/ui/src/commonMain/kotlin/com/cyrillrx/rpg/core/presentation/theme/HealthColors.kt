@@ -3,11 +3,10 @@ package com.cyrillrx.rpg.core.presentation.theme
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-// Palette-agnostic: a healthy pool and healing read green and a dwindling pool reads amber whatever palette the
-// player picked. Following colorScheme.primary for the healthy segment would tie it to the palette, and a red primary
-// makes a full bar and a critical one the same colour.
-// A critical pool fills with `danger` rather than colorScheme.error: the Material dark error tone is a pale salmon
-// meant for text drawn on a surface, and a bar filled with it reads no redder than the amber it replaces.
+// Palette-agnostic: green, amber and red whatever palette the player picked. Following colorScheme.primary would tie
+// them to the palette, and a red primary makes the best state and the worst one the same colour.
+// `danger` is not colorScheme.error: the Material dark error tone is a pale salmon meant for text drawn on a surface,
+// and as a fill it reads no redder than `warning`.
 data class HealthColors(
     val heal: Color,
     val healContainer: Color,
