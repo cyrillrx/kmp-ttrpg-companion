@@ -23,5 +23,5 @@ fun List<Stored<Character>>.applyFilter(filter: CharacterFilter?): List<Stored<C
 internal fun Character.matches(filter: CharacterFilter): Boolean {
     val trimmedQuery = filter.query.trim()
 
-    return name.contains(trimmedQuery, ignoreCase = true)
+    return name.value.contains(trimmedQuery, ignoreCase = true)
 }

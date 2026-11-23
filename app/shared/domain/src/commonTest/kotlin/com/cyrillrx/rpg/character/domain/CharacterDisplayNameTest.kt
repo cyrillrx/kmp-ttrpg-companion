@@ -8,7 +8,7 @@ class CharacterDisplayNameTest {
 
     @Test
     fun `displayName returns the root name whatever the locale`() {
-        val character = SampleCharacterRepository.humanFighter().copy(name = "Elandra")
+        val character = SampleCharacterRepository.humanFighter().copy(name = CharacterName("Elandra"))
 
         assertEquals(expected = "Elandra", actual = character.displayName("en"))
         assertEquals(expected = "Elandra", actual = character.displayName("fr"))

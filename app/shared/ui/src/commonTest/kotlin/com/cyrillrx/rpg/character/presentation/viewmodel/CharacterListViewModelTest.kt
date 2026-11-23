@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.data.toExportFile
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
+import com.cyrillrx.rpg.character.domain.CharacterName
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterImportFailure
 import com.cyrillrx.rpg.character.presentation.CharacterListState
@@ -63,7 +64,7 @@ class CharacterListViewModelTest {
         (state.value.body as CharacterListState.Body.WithData).searchResults.first()
 
     private fun CharacterListViewModel.renderedNames(): List<String> =
-        (state.value.body as CharacterListState.Body.WithData).searchResults.map { it.value.name }
+        (state.value.body as CharacterListState.Body.WithData).searchResults.map { it.value.name.value }
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -299,7 +300,7 @@ class CharacterListViewModelTest {
         viewModel.filterByQuery("Borin")
         advanceUntilIdle()
 
-        gatedRepository.save(SampleCharacterRepository.getAllValues().first().copy(name = "Borin"))
+        gatedRepository.save(SampleCharacterRepository.getAllValues().first().copy(name = CharacterName("Borin")))
         viewModel.silentRefresh()
         gatedRepository.gate = null
         searchGate.complete(Unit)
@@ -903,7 +904,7 @@ private class ScrambledCharacterRepository : CharacterRepository {
     override suspend fun delete(id: String) = Unit
 
     private fun stored(name: String, epochMillis: Long) = Stored(
-        value = SampleCharacterRepository.humanFighter().copy(id = name, name = name),
+        value = SampleCharacterRepository.humanFighter().copy(id = name, name = CharacterName(name)),
         updatedAt = Instant.fromEpochMilliseconds(epochMillis),
     )
 }

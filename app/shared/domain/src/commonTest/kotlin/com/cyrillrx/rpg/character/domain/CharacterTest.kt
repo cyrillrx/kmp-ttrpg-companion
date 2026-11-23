@@ -65,7 +65,7 @@ class CharacterTest {
 
     private fun character(dex: Int = 10, level: Int = 1) = Character(
         id = "test",
-        name = "Test",
+        name = CharacterName("Test"),
         size = Creature.Size.MEDIUM,
         alignment = Creature.Alignment.NEUTRAL,
         abilities = Abilities(

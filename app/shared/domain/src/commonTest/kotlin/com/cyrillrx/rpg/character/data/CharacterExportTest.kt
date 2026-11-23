@@ -5,6 +5,7 @@ import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.character.data.api.ApiCharacterExport
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterName
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -103,7 +104,7 @@ class CharacterExportTest {
 
     private fun richCharacter(): Character = SampleCharacterRepository.humanFighter().copy(
         id = "sample-archmage",
-        name = "Élowen Brume",
+        name = CharacterName("Élowen Brume"),
         race = Race.HALF_ELF,
         alignment = Creature.Alignment.CHAOTIC_GOOD,
         background = Background.SAGE,

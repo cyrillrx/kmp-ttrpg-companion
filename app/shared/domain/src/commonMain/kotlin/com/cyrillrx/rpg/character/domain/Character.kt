@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Character(
     override val id: String,
-    val name: String,
+    val name: CharacterName,
     override val size: Size,
     override val alignment: Alignment,
     override val abilities: Abilities,
@@ -29,7 +29,7 @@ data class Character(
 ) : Creature() {
     val totalLevel: Int get() = classes.totalLevel
 
-    override fun displayName(locale: String): String = name
+    override fun displayName(locale: String): String = name.value
 
     fun resolveTranslation(locale: String): Translation? = translations[locale]
         ?: translations[FALLBACK_LOCALE]

@@ -90,7 +90,7 @@ class RamCharacterRepositoryTest {
         repository.save(fighter)
         repository.save(SampleCharacterRepository.elfRogue())
 
-        val result = repository.getAll(CharacterFilter(query = fighter.name))
+        val result = repository.getAll(CharacterFilter(query = fighter.name.value))
         assertEquals(expected = 1, actual = result.size)
         assertEquals(expected = fighter, actual = result.single().value)
     }

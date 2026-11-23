@@ -25,7 +25,7 @@ class CharacterApplyFilterTest {
     fun `filter by query keeps only matching characters`() {
         val result = characters.applyFilter(CharacterFilter(query = "Lyra"))
         assertEquals(1, result.size)
-        assertEquals("Lyra Vossen", result.first().name)
+        assertEquals("Lyra Vossen", result.first().name.value)
     }
 
     @Test

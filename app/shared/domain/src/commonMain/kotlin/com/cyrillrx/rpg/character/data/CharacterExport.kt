@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.data
 
 import com.cyrillrx.core.data.ExportFile
 import com.cyrillrx.core.data.exportSerializer
+import com.cyrillrx.core.domain.truncate
 import com.cyrillrx.rpg.character.data.api.ApiCharacterExport
 import com.cyrillrx.rpg.character.data.api.CHARACTER_EXPORT_FORMAT_VERSION
 import com.cyrillrx.rpg.character.data.api.ENTITY_TYPE_CHARACTER
@@ -30,7 +31,7 @@ private const val MAX_NAME_LENGTH = (MAX_FILE_NAME_BYTES - MAX_SUFFIX_BYTES) / M
 private val wordBreak = Regex("""[\s/\\:*?"<>|._\-\u0000-\u001F\u007F]+""")
 
 fun Character.toExportFile(appVersion: String, exportedAt: Instant, timeZone: TimeZone): ExportFile = ExportFile(
-    name = characterExportFileName(name, totalLevel, exportedAt.toLocalDateTime(timeZone).date),
+    name = characterExportFileName(name.value, totalLevel, exportedAt.toLocalDateTime(timeZone).date),
     mimeType = JSON_MIME_TYPE,
     content = exportSerializer.encodeToString(
         ApiCharacterExport(
@@ -50,11 +51,8 @@ fun characterExportFileName(characterName: String, totalLevel: Int, exportDate: 
         .lowercase()
         .replace(wordBreak, WORD_SEPARATOR.toString())
         .trim(WORD_SEPARATOR)
-        .take(MAX_NAME_LENGTH)
-        .dropLoneHighSurrogate()
+        .truncate(MAX_NAME_LENGTH)
         .trimEnd(WORD_SEPARATOR)
         .ifEmpty { FALLBACK_FILE_NAME }
     return "$baseName${SEGMENT_SEPARATOR}lvl$totalLevel$SEGMENT_SEPARATOR$exportDate$CHARACTER_FILE_SUFFIX"
 }
-
-private fun String.dropLoneHighSurrogate(): String = if (lastOrNull()?.isHighSurrogate() == true) dropLast(1) else this

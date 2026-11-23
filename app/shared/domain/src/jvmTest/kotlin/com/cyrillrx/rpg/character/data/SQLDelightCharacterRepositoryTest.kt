@@ -1,7 +1,9 @@
 package com.cyrillrx.rpg.character.data
 
+import app.cash.sqldelight.db.SqlDriver
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.core.data.cache.CountingDriverFactory
+import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.data.cache.TestDatabaseDriverFactory
 import com.cyrillrx.rpg.core.domain.MutableClock
 import com.cyrillrx.rpg.core.domain.values
@@ -42,6 +44,25 @@ class SQLDelightCharacterRepositoryTest {
         assertEquals(2, result.size)
         assertTrue(result.contains(fighter))
         assertTrue(result.contains(rogue))
+    }
+
+    @Test
+    fun `an unreadable stored character is skipped instead of failing the list`() = runTest {
+        val driverFactory = RawAccessDriverFactory()
+        val repository = SQLDelightCharacterRepository(driverFactory)
+        val fighter = SampleCharacterRepository.humanFighter()
+        repository.save(fighter)
+
+        driverFactory.driver.execute(
+            identifier = null,
+            sql = "INSERT INTO Character(id, data, updatedAt) VALUES('unreadable', ?, 0)",
+            parameters = 1,
+        ) {
+            bindString(index = 0, string = "{not json")
+        }
+
+        assertEquals(listOf(fighter), repository.getAll(null).values())
+        assertNull(repository.get("unreadable"))
     }
 
     @Test
@@ -92,7 +113,7 @@ class SQLDelightCharacterRepositoryTest {
 
         val result = repository.getAll(CharacterFilter(query = "Lyra"))
         assertEquals(1, result.size)
-        assertEquals("Lyra Vossen", result.first().value.name)
+        assertEquals("Lyra Vossen", result.first().value.name.value)
     }
 
     @Test
@@ -121,5 +142,11 @@ class SQLDelightCharacterRepositoryTest {
 
         val stored = repository.getAll(null).single()
         assertEquals(Instant.fromEpochMilliseconds(5_000L), stored.updatedAt)
+    }
+
+    private class RawAccessDriverFactory : DatabaseDriverFactory {
+        lateinit var driver: SqlDriver
+
+        override fun createDriver(): SqlDriver = TestDatabaseDriverFactory().createDriver().also { driver = it }
     }
 }

@@ -19,7 +19,7 @@ class JsonCharacterPresetRepositoryTest {
         assertEquals(1, result.size)
         val character = result.first().value
         assertEquals("test-fighter", character.id)
-        assertEquals("Aldus Test", character.name)
+        assertEquals("Aldus Test", character.name.value)
         assertEquals(Race.HUMAN, character.race)
         assertEquals(mapOf(Character.Class.FIGHTER to 3), character.classes)
         assertEquals(3, character.totalLevel)

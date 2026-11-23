@@ -256,7 +256,7 @@ fun CharacterDetailScreen(
                     .padding(bottom = spacingMedium),
             ) {
                 CharacterHeader(
-                    name = state.character.name,
+                    name = state.character.name.value,
                     shortDescription = shortDescription,
                     race = state.character.race,
                     classes = state.character.classes,

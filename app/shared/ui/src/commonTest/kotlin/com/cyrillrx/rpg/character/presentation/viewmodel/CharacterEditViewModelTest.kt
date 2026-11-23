@@ -137,7 +137,7 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
 
         val recorded = history.rolls.value.single()
-        assertEquals(RollContext(fighter.id, fighter.name, D20Check.Initiative), recorded.context)
+        assertEquals(RollContext(fighter.id, fighter.name.value, D20Check.Initiative), recorded.context)
         assertEquals(RollPool(listOf(SimpleRoll(Die.D20, value = 12)), modifier = 1), recorded.pool)
     }
 
@@ -192,7 +192,7 @@ class CharacterEditViewModelTest {
         viewModel.rollCheckWithDisadvantage()
         advanceUntilIdle()
 
-        val expectedContext = RollContext(fighter.id, fighter.name, strengthSave)
+        val expectedContext = RollContext(fighter.id, fighter.name.value, strengthSave)
         assertEquals(List(4) { expectedContext }, history.rolls.value.map { it.context })
     }
 
@@ -212,7 +212,7 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
 
         assertEquals(
-            listOf(RollContext(fighter.id, fighter.name, strengthSave)),
+            listOf(RollContext(fighter.id, fighter.name.value, strengthSave)),
             history.rolls.value.map { it.context },
         )
     }
@@ -300,12 +300,37 @@ class CharacterEditViewModelTest {
     }
 
     @Test
+    fun `saveName keeps an open dialog open`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.editField(EditingField.Race)
+
+        viewModel.saveName("   ")
+        viewModel.saveName("Aria")
+
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(EditingField.Race, loaded.editingField)
+    }
+
+    @Test
     fun `saveName trims whitespace`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveName("  Aria  ")
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
-        assertEquals("Aria", loaded.character.name)
+        assertEquals("Aria", loaded.character.name.value)
+    }
+
+    @Test
+    fun `saveName with an unchanged name does not persist`() = runTest(testDispatcher) {
+        val repo = SaveCountingRepository(repoWithFighter())
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+
+        viewModel.saveName(" ${fighter.name.value} ")
+        advanceUntilIdle()
+
+        assertEquals(expected = 0, actual = repo.saveCount)
     }
 
     // ─── saveBackground ────────────────────────────────────────────────────────
@@ -682,7 +707,7 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
         viewModel.saveName("Thorin")
         advanceUntilIdle()
-        assertEquals("Thorin", repo.get(fighter.id)?.name)
+        assertEquals("Thorin", repo.get(fighter.id)?.name?.value)
     }
 
     @Test
@@ -848,7 +873,7 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
 
         val file = events.single()
-        assertEquals(characterExportFileName(fighter.name, fighter.totalLevel, LocalDate(2026, 10, 2)), file.name)
+        assertEquals(characterExportFileName(fighter.name.value, fighter.totalLevel, LocalDate(2026, 10, 2)), file.name)
         assertEquals("application/json", file.mimeType)
         assertTrue(""""appVersion": "$APP_VERSION"""" in file.content)
         assertTrue(""""exportedAt": "2026-10-02T23:30:00Z"""" in file.content)

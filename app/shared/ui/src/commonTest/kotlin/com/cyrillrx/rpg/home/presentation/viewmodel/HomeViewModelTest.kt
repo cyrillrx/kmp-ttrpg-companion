@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.home.presentation.viewmodel
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
+import com.cyrillrx.rpg.character.domain.CharacterName
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.home.presentation.HomeState
@@ -42,7 +43,7 @@ class HomeViewModelTest {
         advanceUntilIdle()
 
         val body = assertIs<HomeState.Body.WithData>(viewModel.state.value.body)
-        assertEquals(expected = listOf("Newest", "Middle"), actual = body.characters.map { it.value.name })
+        assertEquals(expected = listOf("Newest", "Middle"), actual = body.characters.map { it.value.name.value })
     }
 
     @Test
@@ -70,7 +71,7 @@ private class TiedCharacterRepository : CharacterRepository {
     override suspend fun delete(id: String) = Unit
 
     private fun stored(id: String) = Stored(
-        value = SampleCharacterRepository.humanFighter().copy(id = id, name = "Same"),
+        value = SampleCharacterRepository.humanFighter().copy(id = id, name = CharacterName("Same")),
         updatedAt = Instant.fromEpochMilliseconds(1_000L),
     )
 }
@@ -89,7 +90,7 @@ private class DatedCharacterRepository : CharacterRepository {
     override suspend fun delete(id: String) = Unit
 
     private fun stored(name: String, epochMillis: Long) = Stored(
-        value = SampleCharacterRepository.humanFighter().copy(id = name, name = name),
+        value = SampleCharacterRepository.humanFighter().copy(id = name, name = CharacterName(name)),
         updatedAt = Instant.fromEpochMilliseconds(epochMillis),
     )
 }

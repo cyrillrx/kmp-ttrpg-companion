@@ -123,7 +123,8 @@ fun CharacterListScreen(
         events.collect { event ->
             when (event) {
                 is CharacterListViewModel.Event.DeletionError -> launch {
-                    val errorMessage = getString(Res.string.snackbar_error_deleting_character, event.character.name)
+                    val errorMessage =
+                        getString(Res.string.snackbar_error_deleting_character, event.character.name.value)
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
                         duration = SnackbarDuration.Short,
@@ -150,7 +151,7 @@ fun CharacterListScreen(
         onDeleteOptimistically = onDeleteCharacterOptimistically,
         onUndo = onUndoDeletion,
         onCommit = onCommitDeletion,
-        getMessage = { stored -> getString(Res.string.snackbar_character_deleted, stored.value.name) },
+        getMessage = { stored -> getString(Res.string.snackbar_character_deleted, stored.value.name.value) },
     )
 
     Scaffold(
