@@ -21,7 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import com.cyrillrx.rpg.core.presentation.theme.Green500
+import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 
 @Composable
@@ -69,14 +69,17 @@ private fun SwipeAddBackground() {
         modifier = Modifier
             .fillMaxSize()
             .clip(MaterialTheme.shapes.medium)
-            .background(Green500)
+            .background(AddBackground)
             .padding(start = spacingMedium),
         contentAlignment = Alignment.CenterStart,
     ) {
         Icon(
             imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
             contentDescription = null,
+            // TODO(#449): pick a tint that contrasts with AddBackground in light theme
             tint = MaterialTheme.colorScheme.onPrimary,
         )
     }
 }
+
+private val AddBackground = Color(0xFF4CAF50)
