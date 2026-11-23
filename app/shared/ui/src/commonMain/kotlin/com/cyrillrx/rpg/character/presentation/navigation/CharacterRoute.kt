@@ -4,6 +4,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
+import com.cyrillrx.rpg.character.domain.CharacterFileFormat
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.component.CharacterDetailScreen
 import com.cyrillrx.rpg.character.presentation.component.CharacterListScreen
@@ -46,6 +47,7 @@ fun PolymorphicModuleBuilder<NavKey>.registerCharacterRoutes() {
 fun EntryProviderScope<NavKey>.handleCharacterRoutes(
     backStack: NavBackStack<NavKey>,
     characterRepository: CharacterRepository,
+    characterFileFormat: CharacterFileFormat,
     rollHistoryRepository: RollHistoryRepository,
     pcPresetRepository: CharacterRepository,
     npcPresetRepository: CharacterRepository,
@@ -53,7 +55,7 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
 ) {
     entry<CharacterRoute.List> {
         val router = CharacterRouterImpl(backStack)
-        val viewModelFactory = CharacterListViewModelFactory(characterRepository, prefsRepository)
+        val viewModelFactory = CharacterListViewModelFactory(characterRepository, characterFileFormat, prefsRepository)
         val viewModel = viewModel<CharacterListViewModel>(factory = viewModelFactory)
         CharacterListScreen(viewModel, router)
     }
@@ -64,6 +66,7 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
             route.characterId,
             characterRepository,
             rollHistoryRepository,
+            characterFileFormat,
             route.adjustmentCount,
         )
         val viewModel = viewModel<CharacterEditViewModel>(key = route.characterId, factory = factory)

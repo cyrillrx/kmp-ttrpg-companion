@@ -79,8 +79,8 @@ Where that logic goes instead: **`core/presentation/format`** for the shared for
 The client lives under `app/`, in the same layout as `family-planner`. Two Gradle modules hold the app code:
 
 **`app/shared/domain`**: Domain + Data layers. Pure Kotlin, no UI framework.
-- `domain/` — entities, repository interfaces, filters
-- `data/` — repository implementations (JSON, RAM, SQLDelight)
+- `domain/` — entities, filters, the errors callers branch on, and the interfaces the domain depends on (repositories, file formats)
+- `data/` — implementations of those interfaces (JSON, RAM, SQLDelight)
 - Platform-specific: `DatabaseDriverFactory` (Android/iOS/JVM SQLite drivers)
 
 **`app/shared/ui`**: Presentation layer only. Ships to iOS as the `Shared` framework.
@@ -96,8 +96,8 @@ The client lives under `app/`, in the same layout as `family-planner`. Two Gradl
 
 ```
 com.cyrillrx.rpg.core.presentation.format           # pure formatters, no Compose
-com.cyrillrx.rpg.{feature}.domain     # entities, repository interfaces
-com.cyrillrx.rpg.{feature}.data       # repository implementations
+com.cyrillrx.rpg.{feature}.domain     # entities, errors, the interfaces it depends on
+com.cyrillrx.rpg.{feature}.data       # implementations of those interfaces
 com.cyrillrx.rpg.{feature}.presentation.viewmodel
 com.cyrillrx.rpg.{feature}.presentation.component
 com.cyrillrx.rpg.{feature}.presentation.navigation  # {Feature}Route, {Feature}Router

@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import com.cyrillrx.core.data.ExportFile
+import com.cyrillrx.core.domain.ExportFile
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
 import platform.CoreGraphics.CGRectGetMidX

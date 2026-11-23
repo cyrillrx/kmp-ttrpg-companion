@@ -3,8 +3,8 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.app.currentLocale
-import com.cyrillrx.rpg.character.data.readCharacterExport
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterFileFormat
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterImportFailure
@@ -33,6 +33,7 @@ import kotlin.uuid.Uuid
 
 class CharacterListViewModel(
     private val repository: CharacterRepository,
+    private val fileFormat: CharacterFileFormat,
     private val prefsRepository: UserPreferencesRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val locale: String = currentLocale(),
@@ -98,7 +99,7 @@ class CharacterListViewModel(
     fun importCharacter(content: String) {
         viewModelScope.launch {
             val event = try {
-                when (val result = withContext(ioDispatcher) { readCharacterExport(content) }) {
+                when (val result = withContext(ioDispatcher) { fileFormat.read(content) }) {
                     is Result.Failure -> Event.ImportFailed(result.error.toImportFailure())
                     is Result.Success -> {
                         val character = result.value.value.copy(id = Uuid.random().toString())

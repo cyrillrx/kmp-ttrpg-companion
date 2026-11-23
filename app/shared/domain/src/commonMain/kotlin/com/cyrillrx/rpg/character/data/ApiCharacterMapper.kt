@@ -1,11 +1,13 @@
 package com.cyrillrx.rpg.character.data
 
-import com.cyrillrx.core.data.Imported
+import com.cyrillrx.core.domain.Imported
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.character.data.api.ApiCharacter
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterImportError
+import com.cyrillrx.rpg.character.domain.CharacterImportWarning
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel

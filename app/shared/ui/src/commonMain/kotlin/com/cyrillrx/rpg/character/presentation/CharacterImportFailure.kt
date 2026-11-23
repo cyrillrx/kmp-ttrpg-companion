@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.character.presentation
 
-import com.cyrillrx.rpg.character.data.CharacterFileImportError
-import com.cyrillrx.rpg.character.data.CharacterImportError
+import com.cyrillrx.rpg.character.domain.CharacterFileImportError
+import com.cyrillrx.rpg.character.domain.CharacterImportError
 import org.jetbrains.compose.resources.StringResource
 import rpg_companion.app.shared.ui.generated.resources.Res
 import rpg_companion.app.shared.ui.generated.resources.error_import_failed

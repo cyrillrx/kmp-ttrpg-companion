@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.character.data
+package com.cyrillrx.rpg.character.domain
 
 sealed interface CharacterImportWarning {
     data class ValueCoerced(val id: String, val field: String, val declared: String, val kept: String) :

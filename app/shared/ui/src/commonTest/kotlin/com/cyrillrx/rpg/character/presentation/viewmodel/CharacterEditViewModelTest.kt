@@ -1,8 +1,9 @@
 package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModelStore
-import com.cyrillrx.core.data.ExportFile
+import com.cyrillrx.core.domain.ExportFile
 import com.cyrillrx.rpg.app.currentLocale
+import com.cyrillrx.rpg.character.data.JsonCharacterFileFormat
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.data.characterExportFileName
@@ -93,6 +94,7 @@ class CharacterEditViewModelTest {
         characterId = characterId,
         characterRepository = repo,
         historyRepository = history,
+        fileFormat = JsonCharacterFileFormat,
         appVersion = APP_VERSION,
         clock = fixedClock,
         timeZone = TimeZone.UTC,

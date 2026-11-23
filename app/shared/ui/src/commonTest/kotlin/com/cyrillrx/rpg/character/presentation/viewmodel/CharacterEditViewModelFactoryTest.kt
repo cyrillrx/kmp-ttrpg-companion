@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
+import com.cyrillrx.rpg.character.data.JsonCharacterFileFormat
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.dice.data.RamRollHistoryRepository
 import kotlinx.coroutines.Dispatchers
@@ -36,6 +37,7 @@ class CharacterEditViewModelFactoryTest {
             characterId = "any-id",
             characterRepository = RamCharacterRepository(),
             historyRepository = RamRollHistoryRepository(),
+            fileFormat = JsonCharacterFileFormat,
             adjustmentCount = 3,
         )
 
