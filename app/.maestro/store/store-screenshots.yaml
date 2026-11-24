@@ -45,7 +45,7 @@ appId: ${APP_ID}
 - waitForAnimationToEnd
 - takeScreenshot: 2b-creature
 
-# Gareth comes from the presets at level 1 with 12 HP: raise him to level 10, 49/100 HP.
+# Target: level 10, 49/100 HP.
 - launchApp:
     stopApp: true
 - tapOn: "Quick Create|Création rapide"
