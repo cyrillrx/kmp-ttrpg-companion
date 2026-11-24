@@ -12,6 +12,7 @@ readonly STATUS_BAR_HEIGHT=160
 
 device="$(adb get-serialno)"
 readonly device
+export ANDROID_SERIAL="$device"
 stay_on_setting="$(adb shell settings get global stay_on_while_plugged_in)"
 readonly stay_on_setting
 
