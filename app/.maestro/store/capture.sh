@@ -33,6 +33,7 @@ capture_locale() {
     find "$OUTPUT_DIR/raw/$prefix" -path '*takeScreenshot*' -name '*.png' | while read -r screenshot; do
         crop_for_play "$screenshot" "$OUTPUT_DIR/$prefix-$(basename "$screenshot")"
     done
+    ls "$OUTPUT_DIR/$prefix-"*.png >/dev/null
 }
 
 # Play caps the aspect ratio at 2:1: keep the top of the app, below the status bar.
