@@ -16,8 +16,8 @@ stay_on_setting="$(adb shell settings get global stay_on_while_plugged_in)"
 readonly stay_on_setting
 
 restore_device() {
-    adb shell cmd locale set-app-locales "$APP_ID" --locales ""
     adb shell settings put global stay_on_while_plugged_in "$stay_on_setting"
+    adb shell cmd locale set-app-locales "$APP_ID" --locales "''"
 }
 trap restore_device EXIT
 
@@ -26,6 +26,7 @@ capture_locale() {
     adb shell pm clear "$APP_ID" >/dev/null
     adb shell cmd locale set-app-locales "$APP_ID" --locales "$locale"
     rm -rf "$OUTPUT_DIR/raw/$prefix"
+    rm -f "$OUTPUT_DIR/$prefix-"*.png
     maestro --device "$device" test --test-output-dir="$OUTPUT_DIR/raw/$prefix" \
         -e APP_ID="$APP_ID" -e DISTANCE_UNIT="$unit" -e SPELL_QUERY="$spell" -e MONSTER_QUERY="$monster" "$FLOW"
     find "$OUTPUT_DIR/raw/$prefix" -path '*takeScreenshot*' -name '*.png' | while read -r screenshot; do
@@ -35,8 +36,14 @@ capture_locale() {
 
 # Play caps the aspect ratio at 2:1: keep the top of the app, below the status bar.
 crop_for_play() {
-    local width
+    local width height
     width="$(sips -g pixelWidth "$1" | awk '/pixelWidth/ { print $2 }')"
+    height="$(sips -g pixelHeight "$1" | awk '/pixelHeight/ { print $2 }')"
+    if ((height < width * 2 + STATUS_BAR_HEIGHT)); then
+        echo "$1 is ${width}x${height}: too short to crop to 2:1 below the status bar" >&2
+        exit 1
+    fi
+
     sips -c $((width * 2)) "$width" --cropOffset "$STATUS_BAR_HEIGHT" 0 "$1" --out "$2" >/dev/null
 }
 
