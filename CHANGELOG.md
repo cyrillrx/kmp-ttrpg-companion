@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://github.com/cyrillrx/kmp-ttrpg-companion/compare/v1.0.0...v1.1.0) (2026-11-25)
+
+
+### Added
+
+* **character:** make the character name a validated type capped at 50 characters ([#444](https://github.com/cyrillrx/kmp-ttrpg-companion/issues/444)) ([1323ba2](https://github.com/cyrillrx/kmp-ttrpg-companion/commit/1323ba2ad3c7e05a23b1beb2c7247e9c919e8914))
+* **character:** rework the skills section layout ([#432](https://github.com/cyrillrx/kmp-ttrpg-companion/issues/432)) ([5523231](https://github.com/cyrillrx/kmp-ttrpg-companion/commit/5523231f734dc551679222b81179dbbb02bb84db))
+* **dice:** show the character on a roll recorded from the sheet ([#439](https://github.com/cyrillrx/kmp-ttrpg-companion/issues/439)) ([8729e01](https://github.com/cyrillrx/kmp-ttrpg-companion/commit/8729e01e2c0fa1f3a8957de5737c80461750539f))
+* **settings:** link the privacy policy from the settings screen ([#425](https://github.com/cyrillrx/kmp-ttrpg-companion/issues/425)) ([0dc49a1](https://github.com/cyrillrx/kmp-ttrpg-companion/commit/0dc49a19d0e67fd4e73a747d7b896932b08ae6f8))
+
+
+### Fixed
+
+* **character:** clean up names and translations on import ([#440](https://github.com/cyrillrx/kmp-ttrpg-companion/issues/440)) ([e8e9d51](https://github.com/cyrillrx/kmp-ttrpg-companion/commit/e8e9d51dd2a0add74f8405ddd59862fd359261dc))
+
 ## [1.0.0](https://github.com/cyrillrx/kmp-ttrpg-companion/releases/tag/v1.0.0) (2026-11-11)
 
 
