@@ -40,3 +40,7 @@ Play publishing stays off until the repository variable `PLAY_PUBLISHING_ENABLED
 - **Linux**: download the DEB and install it with `sudo apt install ./<file>.deb`.
 
 Desktop updates are manual: watch the repository's releases on GitHub to be notified.
+
+## Store screenshots
+
+Run `app/.maestro/store/capture.sh [output dir]` from the repository root, on macOS (it crops with `sips`) with [Maestro](https://maestro.dev) installed, and a single Android 13+ phone connected and unlocked. It captures the eight Play Store screenshots in English and in French, and writes them to `build/store-screenshots` by default. It targets the release build (`com.cyrillrx.rpg`); set `APP_ID=com.cyrillrx.rpg.debug` to capture a debug build instead. The script resets the app, so its local data is lost, and switches the app language without touching the phone's. The screenshots are cropped to the 2:1 ratio Play accepts, below a status bar assumed 160 px tall; the script stops on a phone too short for that crop.
